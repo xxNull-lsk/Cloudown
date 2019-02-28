@@ -1,0 +1,4429 @@
+D:\ProgramData\Anaconda3\python.exe D:/CodeProjects/Aria2-pycui/base.py
+{
+    "id": "test",
+    "jsonrpc": "2.0",
+    "result": {
+        "downloadSpeed": "0",
+        "numActive": "1",
+        "numStopped": "21",
+        "numStoppedTotal": "26",
+        "numWaiting": "0",
+        "uploadSpeed": "0"
+    }
+}
+21
+{
+    "id": "test",
+    "jsonrpc": "2.0",
+    "result": [
+        {
+            "bitfield": "80",
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ]
+            },
+            "completedLength": "13548",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "0",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "13548",
+                    "index": "1",
+                    "length": "13548",
+                    "path": "[METADATA]e6f095f11f2c72c82a0896e33fe0dedc38a11c03",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "followedBy": [
+                "e3e193d9e38f8a1f"
+            ],
+            "gid": "0f3ca1764ca801fa",
+            "infoHash": "e6f095f11f2c72c82a0896e33fe0dedc38a11c03",
+            "numPieces": "1",
+            "numSeeders": "0",
+            "pieceLength": "16384",
+            "status": "complete",
+            "totalLength": "13548",
+            "uploadLength": "0",
+            "uploadSpeed": "0"
+        },
+        {
+            "bitfield": "f0",
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ]
+            },
+            "completedLength": "49946",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "0",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "49946",
+                    "index": "1",
+                    "length": "49946",
+                    "path": "[METADATA]2abaa8c7be5aaed539799bfd27533192f4cab282",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "followedBy": [
+                "6f9743ac8de4a355"
+            ],
+            "gid": "5a040756d24f382d",
+            "infoHash": "2abaa8c7be5aaed539799bfd27533192f4cab282",
+            "numPieces": "4",
+            "numSeeders": "0",
+            "pieceLength": "16384",
+            "status": "complete",
+            "totalLength": "49946",
+            "uploadLength": "0",
+            "uploadSpeed": "0"
+        },
+        {
+            "bitfield": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe",
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ],
+                "info": {
+                    "name": "Alphablocks"
+                },
+                "mode": "multi"
+            },
+            "completedLength": "627862518",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "0",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "47287260",
+                    "index": "1",
+                    "length": "47287260",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_11._Race.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "40048762",
+                    "index": "2",
+                    "length": "40048762",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_9._Party.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "38063728",
+                    "index": "3",
+                    "length": "38063728",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_26._Magic.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "38062894",
+                    "index": "4",
+                    "length": "38062894",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_25._Zzzzz.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "31543752",
+                    "index": "5",
+                    "length": "31543752",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_8._Band.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "29650518",
+                    "index": "6",
+                    "length": "29650518",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_24._Note.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "24770502",
+                    "index": "7",
+                    "length": "24770502",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_2._Bee.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "23273706",
+                    "index": "8",
+                    "length": "23273706",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_18._Bus.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "22847904",
+                    "index": "9",
+                    "length": "22847904",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_10._Cha_Cha_Cha.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "22817706",
+                    "index": "10",
+                    "length": "22817706",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_22._Map.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "22283516",
+                    "index": "11",
+                    "length": "22283516",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_5._Key.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "21428064",
+                    "index": "12",
+                    "length": "21428064",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_14._Sail.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "21034956",
+                    "index": "13",
+                    "length": "21034956",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_17._Surprise.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "21030050",
+                    "index": "14",
+                    "length": "21030050",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_7._Sing.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "20305182",
+                    "index": "15",
+                    "length": "20305182",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_12._Moon.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "19704568",
+                    "index": "16",
+                    "length": "19704568",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_13._Alphalympics.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "19159422",
+                    "index": "17",
+                    "length": "19159422",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_21._Quiet.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "18936324",
+                    "index": "18",
+                    "length": "18936324",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_16._Fox.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "18876834",
+                    "index": "19",
+                    "length": "18876834",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_1._Alphablocks.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "18761128",
+                    "index": "20",
+                    "length": "18761128",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_19._Space.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "18466814",
+                    "index": "21",
+                    "length": "18466814",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_20._Hide.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "18368666",
+                    "index": "22",
+                    "length": "18368666",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_6._Glow.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "18165922",
+                    "index": "23",
+                    "length": "18165922",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_15._UFO.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "18156504",
+                    "index": "24",
+                    "length": "18156504",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_3._Top.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "17522300",
+                    "index": "25",
+                    "length": "17522300",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_4._Why.avi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "17295536",
+                    "index": "26",
+                    "length": "17295536",
+                    "path": "/nas/public/downloads/Alphablocks/Alphablocks_-_23._Jaybird.avi",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "following": "0f3ca1764ca801fa",
+            "gid": "e3e193d9e38f8a1f",
+            "infoHash": "e6f095f11f2c72c82a0896e33fe0dedc38a11c03",
+            "numPieces": "599",
+            "numSeeders": "0",
+            "pieceLength": "1048576",
+            "status": "complete",
+            "totalLength": "627862518",
+            "uploadLength": "0",
+            "uploadSpeed": "0"
+        },
+        {
+            "bitfield": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "completedLength": "3833118720",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "0",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "3833118720",
+                    "index": "1",
+                    "length": "3833118720",
+                    "path": "/nas/public/downloads/GHOST_WIN7_X86.iso",
+                    "selected": "true",
+                    "uris": [
+                        {
+                            "status": "used",
+                            "uri": "http://218.92.218.40:918/xitong/wcjb/GHOST_WIN7_X86.iso"
+                        },
+                        {
+                            "status": "used",
+                            "uri": "http://218.92.218.40:918/xitong/wcjb/GHOST_WIN7_X86.iso"
+                        },
+                        {
+                            "status": "used",
+                            "uri": "http://218.92.218.40:918/xitong/wcjb/GHOST_WIN7_X86.iso"
+                        },
+                        {
+                            "status": "used",
+                            "uri": "http://218.92.218.40:918/xitong/wcjb/GHOST_WIN7_X86.iso"
+                        },
+                        {
+                            "status": "used",
+                            "uri": "http://218.92.218.40:918/xitong/wcjb/GHOST_WIN7_X86.iso"
+                        },
+                        {
+                            "status": "used",
+                            "uri": "http://218.92.218.40:918/xitong/wcjb/GHOST_WIN7_X86.iso"
+                        },
+                        {
+                            "status": "used",
+                            "uri": "http://218.92.218.40:918/xitong/wcjb/GHOST_WIN7_X86.iso"
+                        },
+                        {
+                            "status": "used",
+                            "uri": "http://218.92.218.40:918/xitong/wcjb/GHOST_WIN7_X86.iso"
+                        },
+                        {
+                            "status": "waiting",
+                            "uri": "http://218.92.218.40:918/xitong/wcjb/GHOST_WIN7_X86.iso"
+                        }
+                    ]
+                }
+            ],
+            "gid": "8e90396cbbae3c12",
+            "numPieces": "3656",
+            "pieceLength": "1048576",
+            "status": "complete",
+            "totalLength": "3833118720",
+            "uploadLength": "0",
+            "uploadSpeed": "0"
+        },
+        {
+            "bitfield": "80",
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ]
+            },
+            "completedLength": "11408",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "0",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "11408",
+                    "index": "1",
+                    "length": "11408",
+                    "path": "[METADATA]e774e551f35917153f2eda4deedc4e68b724cc6e",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "followedBy": [
+                "ca597be89f2adcce"
+            ],
+            "gid": "810c85e8cedf575b",
+            "infoHash": "e774e551f35917153f2eda4deedc4e68b724cc6e",
+            "numPieces": "1",
+            "numSeeders": "0",
+            "pieceLength": "16384",
+            "status": "complete",
+            "totalLength": "11408",
+            "uploadLength": "0",
+            "uploadSpeed": "0"
+        },
+        {
+            "bitfield": "fe",
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ]
+            },
+            "completedLength": "109559",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "0",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "109559",
+                    "index": "1",
+                    "length": "109559",
+                    "path": "[METADATA]390b099cecc1adfe38cb535ca73d5a41bf96c4f2",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "followedBy": [
+                "c7fd89806a1d0283"
+            ],
+            "gid": "f28723ec72e07161",
+            "infoHash": "390b099cecc1adfe38cb535ca73d5a41bf96c4f2",
+            "numPieces": "7",
+            "numSeeders": "0",
+            "pieceLength": "16384",
+            "status": "complete",
+            "totalLength": "109559",
+            "uploadLength": "0",
+            "uploadSpeed": "0"
+        },
+        {
+            "bitfield": "ffc0",
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ]
+            },
+            "completedLength": "163218",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "0",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "163218",
+                    "index": "1",
+                    "length": "163218",
+                    "path": "[METADATA]bc8fba665026a6bc986f5eab1051c414a4bc976a",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "followedBy": [
+                "7e108e712ad634d1"
+            ],
+            "gid": "f7a8668b15559566",
+            "infoHash": "bc8fba665026a6bc986f5eab1051c414a4bc976a",
+            "numPieces": "10",
+            "numSeeders": "0",
+            "pieceLength": "16384",
+            "status": "complete",
+            "totalLength": "163218",
+            "uploadLength": "0",
+            "uploadSpeed": "0"
+        },
+        {
+            "bitfield": "80",
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ]
+            },
+            "completedLength": "15645",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "0",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "15645",
+                    "index": "1",
+                    "length": "15645",
+                    "path": "[METADATA]2cc34c08f39bafec1f36d40e18ac900f1bd9fe6d",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "followedBy": [
+                "7ea783cf05207591"
+            ],
+            "gid": "9d7c19f4cff6ede5",
+            "infoHash": "2cc34c08f39bafec1f36d40e18ac900f1bd9fe6d",
+            "numPieces": "1",
+            "numSeeders": "0",
+            "pieceLength": "16384",
+            "status": "complete",
+            "totalLength": "15645",
+            "uploadLength": "0",
+            "uploadSpeed": "0"
+        },
+        {
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ]
+            },
+            "completedLength": "0",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "12",
+            "errorMessage": "InfoHash 26fa1775373ac60dff3ff72b970250e11f9e25e7 is already registered.",
+            "files": [
+                {
+                    "completedLength": "0",
+                    "index": "1",
+                    "length": "0",
+                    "path": "[METADATA]26fa1775373ac60dff3ff72b970250e11f9e25e7",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "gid": "35617b581f21edc0",
+            "infoHash": "26fa1775373ac60dff3ff72b970250e11f9e25e7",
+            "numPieces": "0",
+            "numSeeders": "0",
+            "pieceLength": "16384",
+            "status": "error",
+            "totalLength": "0",
+            "uploadLength": "0",
+            "uploadSpeed": "0"
+        },
+        {
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ]
+            },
+            "completedLength": "0",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "31",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "0",
+                    "index": "1",
+                    "length": "0",
+                    "path": "[METADATA]26fa1775373ac60dff3ff72b970250e11f9e25e7",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "gid": "e27fc3e113e3c003",
+            "infoHash": "26fa1775373ac60dff3ff72b970250e11f9e25e7",
+            "numPieces": "0",
+            "numSeeders": "0",
+            "pieceLength": "16384",
+            "status": "removed",
+            "totalLength": "0",
+            "uploadLength": "0",
+            "uploadSpeed": "0"
+        },
+        {
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ]
+            },
+            "completedLength": "0",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "31",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "0",
+                    "index": "1",
+                    "length": "0",
+                    "path": "[METADATA]874b6bdd223bba786e07e381141b610c1a6291a0",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "gid": "cdbc9c53c0ce4d8b",
+            "infoHash": "874b6bdd223bba786e07e381141b610c1a6291a0",
+            "numPieces": "0",
+            "numSeeders": "0",
+            "pieceLength": "16384",
+            "status": "removed",
+            "totalLength": "0",
+            "uploadLength": "0",
+            "uploadSpeed": "0"
+        },
+        {
+            "bitfield": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ],
+                "info": {
+                    "name": "\uc720\ub791\uc9c0\uad6c \u6d41\u6d6a\u5730\u7403. The Wandering Earth. 2019.720p.KOR.HDRip.H264.AAC-RTM"
+                },
+                "mode": "multi"
+            },
+            "completedLength": "4625081674",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "0",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "114002",
+                    "index": "1",
+                    "length": "114002",
+                    "path": "/nas/public/downloads/\uc720\ub791\uc9c0\uad6c \u6d41\u6d6a\u5730\u7403. The Wandering Earth. 2019.720p.KOR.HDRip.H264.AAC-RTM/\uc720\ub791\uc9c0\uad6c \u6d41\u6d6a\u5730\u7403. The Wandering Earth. 2019.720p.KOR.HDRip.H264.AAC-RTM.smi",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "4624967672",
+                    "index": "2",
+                    "length": "4624967672",
+                    "path": "/nas/public/downloads/\uc720\ub791\uc9c0\uad6c \u6d41\u6d6a\u5730\u7403. The Wandering Earth. 2019.720p.KOR.HDRip.H264.AAC-RTM/\uc720\ub791\uc9c0\uad6c \u6d41\u6d6a\u5730\u7403. The Wandering Earth. 2019.720p.KOR.HDRip.H264.AAC-RTM.mkv",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "following": "810c85e8cedf575b",
+            "gid": "ca597be89f2adcce",
+            "infoHash": "e774e551f35917153f2eda4deedc4e68b724cc6e",
+            "numPieces": "552",
+            "numSeeders": "0",
+            "pieceLength": "8388608",
+            "status": "complete",
+            "totalLength": "4625081674",
+            "uploadLength": "249062737",
+            "uploadSpeed": "0"
+        },
+        {
+            "bitfield": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe",
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ],
+                "info": {
+                    "name": "\u51b0\u96ea\u5947\u7f18.Frozen.2013.BD1080P.X264.AC3.Mandarin&English.CHS-ENG.Adans.mp4"
+                },
+                "mode": "single"
+            },
+            "completedLength": "6494664253",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "0",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "6494664253",
+                    "index": "1",
+                    "length": "6494664253",
+                    "path": "/nas/public/downloads/\u51b0\u96ea\u5947\u7f18.Frozen.2013.BD1080P.X264.AC3.Mandarin&English.CHS-ENG.Adans.mp4",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "following": "9d7c19f4cff6ede5",
+            "gid": "7ea783cf05207591",
+            "infoHash": "2cc34c08f39bafec1f36d40e18ac900f1bd9fe6d",
+            "numPieces": "775",
+            "numSeeders": "0",
+            "pieceLength": "8388608",
+            "status": "complete",
+            "totalLength": "6494664253",
+            "uploadLength": "0",
+            "uploadSpeed": "0"
+        },
+        {
+            "bitfield": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ],
+                "info": {
+                    "name": "\u6d41\u6d6a\u5730\u7403.\u98de\u9a70\u4eba\u751f.\u75af\u72c2\u7684\u5916\u661f\u4eba.\u65b0\u559c\u5267\u4e4b\u738b.\u795e\u63a2\u84b2\u677e\u9f84.\u5ec9\u653f\u98ce\u4e91.\u718a\u51fa\u6ca1.2019\u8d3a\u5c81\u65b0\u7247\u5408\u96c6"
+                },
+                "mode": "multi"
+            },
+            "completedLength": "16809784087",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "0",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "2015269465",
+                    "index": "1",
+                    "length": "2015269465",
+                    "path": "/nas/public/downloads/\u6d41\u6d6a\u5730\u7403.\u98de\u9a70\u4eba\u751f.\u75af\u72c2\u7684\u5916\u661f\u4eba.\u65b0\u559c\u5267\u4e4b\u738b.\u795e\u63a2\u84b2\u677e\u9f84.\u5ec9\u653f\u98ce\u4e91.\u718a\u51fa\u6ca1.2019\u8d3a\u5c81\u65b0\u7247\u5408\u96c6/\u5ec9\u653f\u98ce\u4e91.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "93607",
+                    "index": "2",
+                    "length": "93607",
+                    "path": "/nas/public/downloads/\u6d41\u6d6a\u5730\u7403.\u98de\u9a70\u4eba\u751f.\u75af\u72c2\u7684\u5916\u661f\u4eba.\u65b0\u559c\u5267\u4e4b\u738b.\u795e\u63a2\u84b2\u677e\u9f84.\u5ec9\u653f\u98ce\u4e91.\u718a\u51fa\u6ca1.2019\u8d3a\u5c81\u65b0\u7247\u5408\u96c6/_____padding_file_0_\u5982\u679c\u60a8\u770b\u5230\u6b64\u6587\u4ef6\uff0c\u8bf7\u5347\u7ea7\u5230BitComet(\u6bd4\u7279\u5f57\u661f)0.85\u6216\u4ee5\u4e0a\u7248\u672c____",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "1596326587",
+                    "index": "3",
+                    "length": "1596326587",
+                    "path": "/nas/public/downloads/\u6d41\u6d6a\u5730\u7403.\u98de\u9a70\u4eba\u751f.\u75af\u72c2\u7684\u5916\u661f\u4eba.\u65b0\u559c\u5267\u4e4b\u738b.\u795e\u63a2\u84b2\u677e\u9f84.\u5ec9\u653f\u98ce\u4e91.\u718a\u51fa\u6ca1.2019\u8d3a\u5c81\u65b0\u7247\u5408\u96c6/\u65b0\u559c\u5267\u4e4b\u738b.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "1703237",
+                    "index": "4",
+                    "length": "1703237",
+                    "path": "/nas/public/downloads/\u6d41\u6d6a\u5730\u7403.\u98de\u9a70\u4eba\u751f.\u75af\u72c2\u7684\u5916\u661f\u4eba.\u65b0\u559c\u5267\u4e4b\u738b.\u795e\u63a2\u84b2\u677e\u9f84.\u5ec9\u653f\u98ce\u4e91.\u718a\u51fa\u6ca1.2019\u8d3a\u5c81\u65b0\u7247\u5408\u96c6/_____padding_file_1_\u5982\u679c\u60a8\u770b\u5230\u6b64\u6587\u4ef6\uff0c\u8bf7\u5347\u7ea7\u5230BitComet(\u6bd4\u7279\u5f57\u661f)0.85\u6216\u4ee5\u4e0a\u7248\u672c____",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "2783130102",
+                    "index": "5",
+                    "length": "2783130102",
+                    "path": "/nas/public/downloads/\u6d41\u6d6a\u5730\u7403.\u98de\u9a70\u4eba\u751f.\u75af\u72c2\u7684\u5916\u661f\u4eba.\u65b0\u559c\u5267\u4e4b\u738b.\u795e\u63a2\u84b2\u677e\u9f84.\u5ec9\u653f\u98ce\u4e91.\u718a\u51fa\u6ca1.2019\u8d3a\u5c81\u65b0\u7247\u5408\u96c6/\u6d41\u6d6a\u5730\u7403.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "1887754",
+                    "index": "6",
+                    "length": "1887754",
+                    "path": "/nas/public/downloads/\u6d41\u6d6a\u5730\u7403.\u98de\u9a70\u4eba\u751f.\u75af\u72c2\u7684\u5916\u661f\u4eba.\u65b0\u559c\u5267\u4e4b\u738b.\u795e\u63a2\u84b2\u677e\u9f84.\u5ec9\u653f\u98ce\u4e91.\u718a\u51fa\u6ca1.2019\u8d3a\u5c81\u65b0\u7247\u5408\u96c6/_____padding_file_2_\u5982\u679c\u60a8\u770b\u5230\u6b64\u6587\u4ef6\uff0c\u8bf7\u5347\u7ea7\u5230BitComet(\u6bd4\u7279\u5f57\u661f)0.85\u6216\u4ee5\u4e0a\u7248\u672c____",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "2749093973",
+                    "index": "7",
+                    "length": "2749093973",
+                    "path": "/nas/public/downloads/\u6d41\u6d6a\u5730\u7403.\u98de\u9a70\u4eba\u751f.\u75af\u72c2\u7684\u5916\u661f\u4eba.\u65b0\u559c\u5267\u4e4b\u738b.\u795e\u63a2\u84b2\u677e\u9f84.\u5ec9\u653f\u98ce\u4e91.\u718a\u51fa\u6ca1.2019\u8d3a\u5c81\u65b0\u7247\u5408\u96c6/\u718a\u51fa\u6ca1\u00b7\u539f\u59cb\u65f6\u4ee3.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "272299",
+                    "index": "8",
+                    "length": "272299",
+                    "path": "/nas/public/downloads/\u6d41\u6d6a\u5730\u7403.\u98de\u9a70\u4eba\u751f.\u75af\u72c2\u7684\u5916\u661f\u4eba.\u65b0\u559c\u5267\u4e4b\u738b.\u795e\u63a2\u84b2\u677e\u9f84.\u5ec9\u653f\u98ce\u4e91.\u718a\u51fa\u6ca1.2019\u8d3a\u5c81\u65b0\u7247\u5408\u96c6/_____padding_file_3_\u5982\u679c\u60a8\u770b\u5230\u6b64\u6587\u4ef6\uff0c\u8bf7\u5347\u7ea7\u5230BitComet(\u6bd4\u7279\u5f57\u661f)0.85\u6216\u4ee5\u4e0a\u7248\u672c____",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "2475803871",
+                    "index": "9",
+                    "length": "2475803871",
+                    "path": "/nas/public/downloads/\u6d41\u6d6a\u5730\u7403.\u98de\u9a70\u4eba\u751f.\u75af\u72c2\u7684\u5916\u661f\u4eba.\u65b0\u559c\u5267\u4e4b\u738b.\u795e\u63a2\u84b2\u677e\u9f84.\u5ec9\u653f\u98ce\u4e91.\u718a\u51fa\u6ca1.2019\u8d3a\u5c81\u65b0\u7247\u5408\u96c6/\u75af\u72c2\u7684\u5916\u661f\u4eba.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "932641",
+                    "index": "10",
+                    "length": "932641",
+                    "path": "/nas/public/downloads/\u6d41\u6d6a\u5730\u7403.\u98de\u9a70\u4eba\u751f.\u75af\u72c2\u7684\u5916\u661f\u4eba.\u65b0\u559c\u5267\u4e4b\u738b.\u795e\u63a2\u84b2\u677e\u9f84.\u5ec9\u653f\u98ce\u4e91.\u718a\u51fa\u6ca1.2019\u8d3a\u5c81\u65b0\u7247\u5408\u96c6/_____padding_file_4_\u5982\u679c\u60a8\u770b\u5230\u6b64\u6587\u4ef6\uff0c\u8bf7\u5347\u7ea7\u5230BitComet(\u6bd4\u7279\u5f57\u661f)0.85\u6216\u4ee5\u4e0a\u7248\u672c____",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "2861586350",
+                    "index": "11",
+                    "length": "2861586350",
+                    "path": "/nas/public/downloads/\u6d41\u6d6a\u5730\u7403.\u98de\u9a70\u4eba\u751f.\u75af\u72c2\u7684\u5916\u661f\u4eba.\u65b0\u559c\u5267\u4e4b\u738b.\u795e\u63a2\u84b2\u677e\u9f84.\u5ec9\u653f\u98ce\u4e91.\u718a\u51fa\u6ca1.2019\u8d3a\u5c81\u65b0\u7247\u5408\u96c6/\u795e\u63a2\u84b2\u677e\u9f84.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "1026130",
+                    "index": "12",
+                    "length": "1026130",
+                    "path": "/nas/public/downloads/\u6d41\u6d6a\u5730\u7403.\u98de\u9a70\u4eba\u751f.\u75af\u72c2\u7684\u5916\u661f\u4eba.\u65b0\u559c\u5267\u4e4b\u738b.\u795e\u63a2\u84b2\u677e\u9f84.\u5ec9\u653f\u98ce\u4e91.\u718a\u51fa\u6ca1.2019\u8d3a\u5c81\u65b0\u7247\u5408\u96c6/_____padding_file_5_\u5982\u679c\u60a8\u770b\u5230\u6b64\u6587\u4ef6\uff0c\u8bf7\u5347\u7ea7\u5230BitComet(\u6bd4\u7279\u5f57\u661f)0.85\u6216\u4ee5\u4e0a\u7248\u672c____",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "2322658071",
+                    "index": "13",
+                    "length": "2322658071",
+                    "path": "/nas/public/downloads/\u6d41\u6d6a\u5730\u7403.\u98de\u9a70\u4eba\u751f.\u75af\u72c2\u7684\u5916\u661f\u4eba.\u65b0\u559c\u5267\u4e4b\u738b.\u795e\u63a2\u84b2\u677e\u9f84.\u5ec9\u653f\u98ce\u4e91.\u718a\u51fa\u6ca1.2019\u8d3a\u5c81\u65b0\u7247\u5408\u96c6/\u98de\u9a70\u4eba\u751f.mp4",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "following": "f7a8668b15559566",
+            "gid": "7e108e712ad634d1",
+            "infoHash": "bc8fba665026a6bc986f5eab1051c414a4bc976a",
+            "numPieces": "8016",
+            "numSeeders": "0",
+            "pieceLength": "2097152",
+            "status": "complete",
+            "totalLength": "16809784087",
+            "uploadLength": "3607407317",
+            "uploadSpeed": "0"
+        },
+        {
+            "bitfield": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0",
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ],
+                "info": {
+                    "name": "Alphablocks COMPLETE"
+                },
+                "mode": "multi"
+            },
+            "completedLength": "4618102603",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "0",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "33923033",
+                    "index": "1",
+                    "length": "33923033",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E01 - Alphablocks.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34488229",
+                    "index": "2",
+                    "length": "34488229",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E02 - Bee.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34487831",
+                    "index": "3",
+                    "length": "34487831",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E03 - Top.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34487662",
+                    "index": "4",
+                    "length": "34487662",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E04 - Why.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34487282",
+                    "index": "5",
+                    "length": "34487282",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E05 - Key.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34487817",
+                    "index": "6",
+                    "length": "34487817",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E06 - Glow.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34487510",
+                    "index": "7",
+                    "length": "34487510",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E07 - Sing.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34410580",
+                    "index": "8",
+                    "length": "34410580",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E08 - Band.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34413125",
+                    "index": "9",
+                    "length": "34413125",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E09 - Party.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34413277",
+                    "index": "10",
+                    "length": "34413277",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E10 - Cha Cha Cha.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34445496",
+                    "index": "11",
+                    "length": "34445496",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E11 - Race.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34448558",
+                    "index": "12",
+                    "length": "34448558",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E12 - Moon.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34413103",
+                    "index": "13",
+                    "length": "34413103",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E13 - Alphalympics.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34412842",
+                    "index": "14",
+                    "length": "34412842",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E14 - Sail.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34412363",
+                    "index": "15",
+                    "length": "34412363",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E15 - UFO.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34412359",
+                    "index": "16",
+                    "length": "34412359",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E16 - Fox.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34448085",
+                    "index": "17",
+                    "length": "34448085",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E17 - Surprise.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34412543",
+                    "index": "18",
+                    "length": "34412543",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E18 - Bus.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34412931",
+                    "index": "19",
+                    "length": "34412931",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E19 - Space.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34412697",
+                    "index": "20",
+                    "length": "34412697",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E20 - Hide.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34413246",
+                    "index": "21",
+                    "length": "34413246",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E21 - Quiet.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34411908",
+                    "index": "22",
+                    "length": "34411908",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E22 - Map.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34412923",
+                    "index": "23",
+                    "length": "34412923",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E23 - Jaybird.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34412955",
+                    "index": "24",
+                    "length": "34412955",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E24 - Note.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34413261",
+                    "index": "25",
+                    "length": "34413261",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E25 - Zzzzz.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "34412810",
+                    "index": "26",
+                    "length": "34412810",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S01E26 - Magic.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57177468",
+                    "index": "27",
+                    "length": "57177468",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E01 - Taps.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57144445",
+                    "index": "28",
+                    "length": "57144445",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E02 - In.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57143932",
+                    "index": "29",
+                    "length": "57143932",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E03 - Man.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57144854",
+                    "index": "30",
+                    "length": "57144854",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E04 - Din.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57143806",
+                    "index": "31",
+                    "length": "57143806",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E05 - Dog.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57145004",
+                    "index": "32",
+                    "length": "57145004",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E06 - Cat.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57143833",
+                    "index": "33",
+                    "length": "57143833",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E07 - Pen.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57145567",
+                    "index": "34",
+                    "length": "57145567",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E08 - Up.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57144131",
+                    "index": "35",
+                    "length": "57144131",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E09 - Red.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57145739",
+                    "index": "36",
+                    "length": "57145739",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E10 - Hen.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57143634",
+                    "index": "37",
+                    "length": "57143634",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E11 - Bop.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57143864",
+                    "index": "38",
+                    "length": "57143864",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E12 - Fred.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57143120",
+                    "index": "39",
+                    "length": "57143120",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E13 - Hill.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "58835628",
+                    "index": "40",
+                    "length": "58835628",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E14 - Van.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57145104",
+                    "index": "41",
+                    "length": "57145104",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E15 - Zap.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56957485",
+                    "index": "42",
+                    "length": "56957485",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E16 - Dot.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56956154",
+                    "index": "43",
+                    "length": "56956154",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E17 - Lips.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56957244",
+                    "index": "44",
+                    "length": "56957244",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E18 - Web.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56957360",
+                    "index": "45",
+                    "length": "56957360",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E19 - Box.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56963323",
+                    "index": "46",
+                    "length": "56963323",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E20 - Quick.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56954918",
+                    "index": "47",
+                    "length": "56954918",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E21 - Kick.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56957140",
+                    "index": "48",
+                    "length": "56957140",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E22 - Wig.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56957247",
+                    "index": "49",
+                    "length": "56957247",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E23 - Rainbow.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56989820",
+                    "index": "50",
+                    "length": "56989820",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E24 - On.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57520973",
+                    "index": "51",
+                    "length": "57520973",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E25 - ABC.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56988004",
+                    "index": "52",
+                    "length": "56988004",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S02E26 - The Cat Sat on the Mat.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56958415",
+                    "index": "53",
+                    "length": "56958415",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E01 - Wish.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56958856",
+                    "index": "54",
+                    "length": "56958856",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E02 - Snowman.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56956941",
+                    "index": "55",
+                    "length": "56956941",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E03 - Win.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56958762",
+                    "index": "56",
+                    "length": "56958762",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E04 - Hat.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "58837440",
+                    "index": "57",
+                    "length": "58837440",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E05 - Little Red N.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57522124",
+                    "index": "58",
+                    "length": "57522124",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E06 - Dots.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57521185",
+                    "index": "59",
+                    "length": "57521185",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E07 - Frog on a Dog.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57522440",
+                    "index": "60",
+                    "length": "57522440",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E08 - Best.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57522484",
+                    "index": "61",
+                    "length": "57522484",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E09 - Fit.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56959109",
+                    "index": "62",
+                    "length": "56959109",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E10 - Odd.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56958616",
+                    "index": "63",
+                    "length": "56958616",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E11 - Champ.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56958576",
+                    "index": "64",
+                    "length": "56958576",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E12 - Song.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57522360",
+                    "index": "65",
+                    "length": "57522360",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E13 - Thing.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57395561",
+                    "index": "66",
+                    "length": "57395561",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E14 - Train.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57901119",
+                    "index": "67",
+                    "length": "57901119",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E15 - Beep.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57397089",
+                    "index": "68",
+                    "length": "57397089",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E16 - Tightrope.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57975933",
+                    "index": "69",
+                    "length": "57975933",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E17 - Toad.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57402621",
+                    "index": "70",
+                    "length": "57402621",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E18 - Book.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57402680",
+                    "index": "71",
+                    "length": "57402680",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E19 - Hey!.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57397456",
+                    "index": "72",
+                    "length": "57397456",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E20 - Card.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57902024",
+                    "index": "73",
+                    "length": "57902024",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E21 - The End.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57159409",
+                    "index": "74",
+                    "length": "57159409",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E22 - How Now Brown Cow.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57158824",
+                    "index": "75",
+                    "length": "57158824",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E23 - Fair.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57909448",
+                    "index": "76",
+                    "length": "57909448",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E24 - Ants.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57908646",
+                    "index": "77",
+                    "length": "57908646",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E25 - Ink.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57909290",
+                    "index": "78",
+                    "length": "57909290",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S03E26 - Crash!.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56958179",
+                    "index": "79",
+                    "length": "56958179",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S04E01 - Four.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56959064",
+                    "index": "80",
+                    "length": "56959064",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S04E02 - Clap.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56958025",
+                    "index": "81",
+                    "length": "56958025",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S04E03 - Plusman.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56958347",
+                    "index": "82",
+                    "length": "56958347",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S04E04 - Alphabet.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56958748",
+                    "index": "83",
+                    "length": "56958748",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S04E05 - Name.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "58837436",
+                    "index": "84",
+                    "length": "58837436",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S04E06 - Sleep.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "57898770",
+                    "index": "85",
+                    "length": "57898770",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S04E07 - Mine.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56959080",
+                    "index": "86",
+                    "length": "56959080",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S04E08 - Home.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56958942",
+                    "index": "87",
+                    "length": "56958942",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S04E09 - Blue.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56959037",
+                    "index": "88",
+                    "length": "56959037",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S04E10 - Outlaw.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56958934",
+                    "index": "89",
+                    "length": "56958934",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S04E11 - Birthday Girl.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56958880",
+                    "index": "90",
+                    "length": "56958880",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S04E12 - Cowboy.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "56957484",
+                    "index": "91",
+                    "length": "56957484",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Alphablocks - S04E13 - Prank.mp4",
+                    "selected": "true",
+                    "uris": []
+                },
+                {
+                    "completedLength": "46",
+                    "index": "92",
+                    "length": "46",
+                    "path": "/nas/public/downloads/Alphablocks COMPLETE/Torrent downloaded from demonoid.ph.txt",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "following": "5a040756d24f382d",
+            "gid": "6f9743ac8de4a355",
+            "infoHash": "2abaa8c7be5aaed539799bfd27533192f4cab282",
+            "numPieces": "2203",
+            "numSeeders": "0",
+            "pieceLength": "2097152",
+            "status": "complete",
+            "totalLength": "4618102603",
+            "uploadLength": "868968461",
+            "uploadSpeed": "0"
+        },
+        {
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ]
+            },
+            "completedLength": "0",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "12",
+            "errorMessage": "InfoHash 4b2c067af55df98ffb9bf662a243951679eedd3c is already registered.",
+            "files": [
+                {
+                    "completedLength": "0",
+                    "index": "1",
+                    "length": "0",
+                    "path": "[METADATA]4b2c067af55df98ffb9bf662a243951679eedd3c",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "gid": "bb271299fbf70b88",
+            "infoHash": "4b2c067af55df98ffb9bf662a243951679eedd3c",
+            "numPieces": "0",
+            "numSeeders": "0",
+            "pieceLength": "16384",
+            "status": "error",
+            "totalLength": "0",
+            "uploadLength": "0",
+            "uploadSpeed": "0"
+        },
+        {
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ]
+            },
+            "completedLength": "0",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "31",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "0",
+                    "index": "1",
+                    "length": "0",
+                    "path": "[METADATA][btbt.tv][\u51b0\u96ea\u5947\u7f18:\u751f\u65e5\u60ca\u559c][720P\u9ad8\u6e05\u4e2d\u5b57\u7248]386.52 MB",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "gid": "c375d322d41e75d4",
+            "infoHash": "fbcebf6c0611a308c258d9536a7cf627b51fc33b",
+            "numPieces": "0",
+            "numSeeders": "0",
+            "pieceLength": "16384",
+            "status": "removed",
+            "totalLength": "0",
+            "uploadLength": "0",
+            "uploadSpeed": "0"
+        },
+        {
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ]
+            },
+            "completedLength": "0",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "31",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "0",
+                    "index": "1",
+                    "length": "0",
+                    "path": "[METADATA]4b2c067af55df98ffb9bf662a243951679eedd3c",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "gid": "0ba9c683bbbc6e97",
+            "infoHash": "4b2c067af55df98ffb9bf662a243951679eedd3c",
+            "numPieces": "0",
+            "numSeeders": "0",
+            "pieceLength": "16384",
+            "status": "removed",
+            "totalLength": "0",
+            "uploadLength": "0",
+            "uploadSpeed": "0"
+        },
+        {
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ]
+            },
+            "completedLength": "0",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "31",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "0",
+                    "index": "1",
+                    "length": "0",
+                    "path": "[METADATA]690ce7d8e43a0d8365c1ba5965d0c9b97146414b",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "gid": "69c29457e5f0b030",
+            "infoHash": "690ce7d8e43a0d8365c1ba5965d0c9b97146414b",
+            "numPieces": "0",
+            "numSeeders": "0",
+            "pieceLength": "16384",
+            "status": "removed",
+            "totalLength": "0",
+            "uploadLength": "0",
+            "uploadSpeed": "0"
+        },
+        {
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ]
+            },
+            "completedLength": "0",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "31",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "0",
+                    "index": "1",
+                    "length": "0",
+                    "path": "[METADATA]f8176edd5cfe5dd31a3c45f0a8df69639c234042",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "gid": "04d472dbbc52cdd2",
+            "infoHash": "f8176edd5cfe5dd31a3c45f0a8df69639c234042",
+            "numPieces": "0",
+            "numSeeders": "0",
+            "pieceLength": "16384",
+            "status": "removed",
+            "totalLength": "0",
+            "uploadLength": "0",
+            "uploadSpeed": "0"
+        },
+        {
+            "bittorrent": {
+                "announceList": [
+                    [
+                        "http://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "http://explodie.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "http://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "http://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "http://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "http://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "http://opentracker.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.trackerlist.xyz:80/announce"
+                    ],
+                    [
+                        "http://open.acgnxtracker.com:80/announce"
+                    ],
+                    [
+                        "http://therightsize.net:1337/announce"
+                    ],
+                    [
+                        "http://retracker.telecom.by:80/announce"
+                    ],
+                    [
+                        "http://torrent.nwps.ws:80/announce"
+                    ],
+                    [
+                        "http://tracker3.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.cypherpunks.ru:6969/announce"
+                    ],
+                    [
+                        "http://tracker2.itzmx.com:6961/announce"
+                    ],
+                    [
+                        "http://tracker.torrentyorg.pl:80/announce"
+                    ],
+                    [
+                        "http://tracker.city9x.com:2710/announce"
+                    ],
+                    [
+                        "http://t.nyaatracker.com:80/announce"
+                    ],
+                    [
+                        "http://retracker.mgts.by:80/announce"
+                    ],
+                    [
+                        "http://0d.kebhana.mx:443/announce"
+                    ],
+                    [
+                        "http://share.camoe.cn:8080/announce"
+                    ],
+                    [
+                        "http://omg.wtftrackr.pw:1337/announce"
+                    ],
+                    [
+                        "http://fxtt.ru:80/announce"
+                    ],
+                    [
+                        "udp://tracker.coppersurfer.tk:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.internetwarriors.net:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.opentrackr.org:1337/announce"
+                    ],
+                    [
+                        "udp://9.rarbg.to:2710/announce"
+                    ],
+                    [
+                        "udp://exodus.desync.com:6969/announce"
+                    ],
+                    [
+                        "udp://explodie.org:6969/announce"
+                    ],
+                    [
+                        "udp://public.popcorn-tracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://tracker.vanitycore.co:6969/announce"
+                    ],
+                    [
+                        "udp://mgtracker.org:6969/announce"
+                    ],
+                    [
+                        "udp://ipv4.tracker.harry.lu:80/announce"
+                    ],
+                    [
+                        "udp://tracker1.itzmx.com:8080/announce"
+                    ],
+                    [
+                        "udp://tracker4.itzmx.com:2710/announce"
+                    ],
+                    [
+                        "udp://open.demonii.si:1337/announce"
+                    ],
+                    [
+                        "udp://tracker.tiny-vps.com:6969/announce"
+                    ],
+                    [
+                        "udp://open.stealth.si:80/announce"
+                    ],
+                    [
+                        "udp://bt.xxx-tracker.com:2710/announce"
+                    ],
+                    [
+                        "udp://tracker.torrent.eu.org:451/announce"
+                    ],
+                    [
+                        "udp://tracker.port443.xyz:6969/announce"
+                    ],
+                    [
+                        "udp://thetracker.org:80/announce"
+                    ],
+                    [
+                        "https://tracker.fastdownload.xyz:443/announce"
+                    ]
+                ]
+            },
+            "completedLength": "0",
+            "connections": "0",
+            "dir": "/nas/public/downloads",
+            "downloadSpeed": "0",
+            "errorCode": "31",
+            "errorMessage": "",
+            "files": [
+                {
+                    "completedLength": "0",
+                    "index": "1",
+                    "length": "0",
+                    "path": "[METADATA]653b71b34fe5a3a2a37c5ad8f9b62fbc253c2312",
+                    "selected": "true",
+                    "uris": []
+                }
+            ],
+            "gid": "2b2f456300f18603",
+            "infoHash": "653b71b34fe5a3a2a37c5ad8f9b62fbc253c2312",
+            "numPieces": "0",
+            "numSeeders": "0",
+            "pieceLength": "16384",
+            "status": "removed",
+            "totalLength": "0",
+            "uploadLength": "0",
+            "uploadSpeed": "0"
+        }
+    ]
+}
