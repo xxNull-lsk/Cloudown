@@ -3,6 +3,7 @@
 from ui.UI_DownloadList import *
 from ui.UI_Setting import UiSetting
 from ui.UI_NewTask import UiNewTask
+from ui.UI_TaskDetails import UiTaskDetails
 
 
 class UiMain(QWidget):
@@ -13,8 +14,15 @@ class UiMain(QWidget):
         self.download_manager = download_manager
         
         self.setWindowTitle(name)
+        self.root_layout = QStackedLayout(self)
+        label = QLabel()
+        self.main_layout = QHBoxLayout()
+        label.setLayout(self.main_layout)
+        self.root_layout.addWidget(label)
+        ui_details = UiTaskDetails(self)
+        self.root_layout.addWidget(ui_details)
+        self.root_layout.setCurrentIndex(0)
 
-        self.main_layout = QHBoxLayout(self)
         self.main_layout.setSpacing(0)
         self.main_layout.setContentsMargins(0, 0, 0, 0)
 

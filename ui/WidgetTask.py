@@ -96,12 +96,11 @@ class UITask(QWidget):
         self.button_filename.setText(file_name)
 
     def _command(self):
-        print("_command{}".format(self))
         sender = self.sender()
         if (sender is self.command_details) or (sender is self.button_filename):
-            # TODO: 查看详情
-            QMessageBox.information(self, "TODO", "查看详情", QMessageBox.Ok)
-            pass
+            dm = gl.get_value('dm')
+            gl.set_value('curr_task', self.task)
+            dm.main_wnd.root_layout.setCurrentIndex(1)
         elif sender is self.command_open:
             file_name = ""
             if "bittorrent" in self.task and 'info' in self.task["bittorrent"]:
@@ -116,4 +115,8 @@ class UITask(QWidget):
             if QMessageBox.question(self, "询问", "确认要删除该任务？", QMessageBox.Ok | QMessageBox.No) == QMessageBox.No:
                 return
             aria2 = gl.get_value('aria2')
-            aria2.remove(self.task['gid'])
+            if self.task["status"] in ('active', 'waiting', 'paused'):
+                aria2.remove(self.task['gid'])
+                aria2.remove_stoped(self.task['gid'])
+            else:
+                aria2.remove_stoped(self.task['gid'])
