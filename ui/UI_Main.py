@@ -14,6 +14,7 @@ class UiMain(QWidget):
     task_downloading = []
     task_waiting = []
     task_stopped = []
+    last_type = -1
 
     def __init__(self, name, qss):
         super(UiMain, self).__init__()
@@ -63,7 +64,7 @@ class UiMain(QWidget):
             self.item.setSizeHint(QSize(30, 60))
             self.item.setTextAlignment(Qt.AlignCenter)
 
-        self.middle_widget.setCurrentRow(0)
+        self.middle_widget.setCurrentRow(1)
 
     def set_tasks(self, tasks, task_type):
         if task_type == self.task_type_download:
@@ -73,32 +74,71 @@ class UiMain(QWidget):
         elif task_type == self.task_type_stopped:
             self.task_stopped = tasks
 
-        self.task_type_changed(self.middle_widget.currentIndex())
+        self.task_type_changed(self.middle_widget.currentRow())
 
-    def _set_tasks(self, tasks, ui_type):
+    def find_task(self, task):
+        for r in self.right_widget.findChildren((UITaskActive, UITaskWaiting, UITaskStopped)):
+            if r.task['gid'] == task['gid']:
+                return r
+        return None
+
+    @staticmethod
+    def find_task_in_list(r, tasks):
+        for t in tasks:
+            if r.task['gid'] == t['gid']:
+                return True
+        return False
+
+    def _set_tasks(self, tasks):
+        for i in range(0, self.right_widget.count()):
+            item = self.right_widget.item(i)
+            if item is None:
+                continue
+            ui_task = self.right_widget.itemWidget(item)
+            if ui_task is None:
+                continue
+            if not self.find_task_in_list(ui_task, tasks):
+                self.right_widget.removeItemWidget(item)
+                self.right_widget.takeItem(self.right_widget.row(item))
+
         for task in tasks:
-            item = QListWidgetItem()
-            item.setSizeHint(QSize(self.right_widget.width(), 120))
-            self.right_widget.addItem(item)
-            t = ui_type()
-            t.setData(task)
-            self.right_widget.setItemWidget(item, t)
+            item = self.find_task(task)
+            if item is None:
+                item = QListWidgetItem()
+                item.setSizeHint(QSize(self.right_widget.width(), 120))
+                self.right_widget.addItem(item)
+                t = None
+                if task['status'] == 'active':
+                    t = UITaskActive()
+                elif task['status'] in ('waiting', 'paused'):
+                    t = UITaskWaiting()
+                else:
+                    t = UITaskStopped()
+                t.setData(task)
+                self.right_widget.setItemWidget(item, t)
+            else:
+                item.setData(task)
 
     def task_type_changed(self, i):
-        self.right_widget.clear()
+        if self.last_type != i:
+            self.last_type = i
+            # self.right_widget.clear()
         if i == self.task_type_all:
-            self._set_tasks(self.task_downloading, UITaskActive)
-            self._set_tasks(self.task_waiting, UITaskWaiting)
-            self._set_tasks(self.task_stopped, UITaskStopped)
+            tasks = self.task_downloading
+            for t in self.task_waiting:
+                tasks.append(t)
+            for t in self.task_stopped:
+                tasks.append(t)
+            self._set_tasks(tasks)
 
         elif i == self.task_type_download:
-            self._set_tasks(self.task_downloading, UITaskActive)
+            self._set_tasks(self.task_downloading)
 
         elif i == self.task_type_waiting:
-            self._set_tasks(self.task_waiting, UITaskWaiting)
+            self._set_tasks(self.task_waiting)
 
         elif i == self.task_type_stopped:
-            self._set_tasks(self.task_stopped, UITaskStopped)
+            self._set_tasks(self.task_stopped)
 
     def add_task(self):
         pass

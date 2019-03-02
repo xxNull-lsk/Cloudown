@@ -29,40 +29,29 @@ class UITask(QWidget):
         self.commands.setSpacing(2)
 
         self.command_open = QPushButton("打开")
+        self.command_open.setToolTip("打开文件所在目录")
         self.command_open.clicked.connect(self._command)
         self.commands.addWidget(self.command_open)
 
-        self.command_delete = QPushButton()
+        self.command_delete = QPushButton("删除")
+        self.command_delete.setToolTip("删除文件")
         self.command_delete.clicked.connect(self._command)
         self.commands.addWidget(self.command_delete)
 
-        self.command_details = QPushButton()
+        self.command_details = QPushButton("详情")
+        self.command_details.setToolTip("查看详情")
         self.command_details.clicked.connect(self._command)
         self.commands.addWidget(self.command_details)
 
         self.layout.addLayout(self.commands, 0, 3, 2, 2, Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)
 
         self.label_file_size = QLabel()
+        self.label_file_size.setToolTip("文件大小")
         self.layout.addWidget(self.label_file_size, 2, 0, 1, 2)
 
         self.label_upload_size = QLabel()
-        self.layout.addWidget(self.label_upload_size, 2, 1)
-
-        self._setup_ui()
-
-    def _setup_ui(self):
-        # TODO：设置ICON
-        self.command_open.setText("打开")
-        self.command_open.setStatusTip("打开文件所在目录")
-
-        self.command_delete.setText("删除")
-        self.command_open.setText("删除文件")
-
-        self.command_details.setText("详情")
-        self.command_open.setText("查看详情")
-
-        self.label_upload_size.setStatusTip("上传大小")
-        self.label_file_size.setStatusTip("文件大小")
+        self.label_upload_size.setToolTip("上传大小")
+        self.layout.addWidget(self.label_upload_size, 2, 2)
 
     def setData(self, task):
         self.task = task
@@ -89,7 +78,10 @@ class UITask(QWidget):
                 file_name = self.task["bittorrent"]["info"]['name']
             if file_name is "" and len(self.task["files"]) > 0:
                 file_name = self.task["files"][0]["path"]
-            os.startfile(os.path.join(self.task['dir'], file_name))
+            try:
+                os.startfile(os.path.join(self.task['dir'], file_name))
+            except FileNotFoundError as err:
+                print(err)
         elif sender is self.command_delete:
             # TODO: 删除文件及任务
             QMessageBox.information(self, "TODO", "删除文件及任务", QMessageBox.Ok)

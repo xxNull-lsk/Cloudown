@@ -4,7 +4,7 @@ def size2string(size_bytes):
         size_bytes = int(size_bytes)
 
     if size_bytes < 1024:
-        return str(size_bytes)
+        return "%d B" % size_bytes
 
     curr = size_bytes / 1024.0
     if curr < 1024:

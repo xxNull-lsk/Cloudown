@@ -9,28 +9,28 @@ class UITaskActive(UITask):
         super(UITaskActive, self).__init__(qss)
         self.setObjectName('TaskActive')
 
-        self.command_pause = QPushButton()
+        self.command_pause = QPushButton("暂停")
+        self.command_pause.setToolTip("暂停下载")
         self.command_pause.clicked.connect(self._command)
         self.commands.insertWidget(0, self.command_pause)
 
         self.label_time = QLabel()
+        self.label_time.setToolTip("剩余时间")
         self.layout.addWidget(self.label_time, 2, 3)
 
         self.label_download_speed = QLabel()
-        self.layout.addWidget(self.label_download_speed, 2, 3)
+        self.label_download_speed.setToolTip("下载速度")
+        self.layout.addWidget(self.label_download_speed, 2, 4)
 
         self.label_upload_speed = QLabel()
-        self.layout.addWidget(self.label_upload_speed, 2, 4)
+        self.label_upload_speed.setToolTip("上传速度")
+        self.layout.addWidget(self.label_upload_speed, 2, 5)
 
         self.progress = QProgressBar()
         self.progress.setFormat("")
         self.progress.setFixedHeight(3)
         self.progress.setRange(0, 1000)
-        self.layout.addWidget(self.progress, 3, 0, 1, 5)
-
-        # TODO: 设置图标
-        self.command_pause.setText("暂停")
-        self.command_pause.setStatusTip("暂停下载")
+        self.layout.addWidget(self.progress, 3, 0, 1, 6)
 
     def setData(self, task):
         super(UITaskActive, self).setData(task)
@@ -51,9 +51,9 @@ class UITaskActive(UITask):
             remain_time = "未知"
         else:
             remain_time = time.strftime('%H:%M:%S', time.localtime(remain_time))
-        self.label_time.setText(remain_time)
-        self.label_download_speed.setText(size2string(download_speed))
-        self.label_upload_speed.setText(size2string(task["uploadSpeed"]))
+        self.label_time.setText('剩余时间：{}'.format(remain_time))
+        self.label_download_speed.setText('下载速度：{}/s'.format(size2string(download_speed)))
+        self.label_upload_speed.setText('上传速度：{}/s'.format(size2string(task['uploadSpeed'])))
 
     def _command(self):
         super(UITaskActive, self)._command()

@@ -4,14 +4,12 @@ from ui.UI_Main import *
 from ui.UI_Setting import *
 from aria2 import *
 
-# SERVER_URL = 'http://192.168.2.100:6800/jsonrpc'
-
 
 class DownloadManager:
     settings = SystemSettings()
 
     def __init__(self):
-        self.aria2 = Aria2(self.settings.SERVER_URL, self.settings.SERVER_TOKEN)
+        self.aria2 = Aria2(self.settings.values['SERVER_URL'], self.settings.values['SERVER_TOKEN'])
         self.app = QApplication(sys.argv)
         self.main_wnd = UiMain('下载管理', 'qss/ui_main.qss')
         self.t = QTimer()
@@ -22,7 +20,7 @@ class DownloadManager:
 
     def start(self):
         self.t.timeout.connect(self.task_refresh)
-        # self.t.start()
+        self.t.start()
         self.main_wnd.show()
         self.task_refresh()
         self.app.exec()

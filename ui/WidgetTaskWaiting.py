@@ -10,13 +10,13 @@ class UITaskWaiting(UITask):
 
         self.command_recover = QPushButton()
         self.command_recover.clicked.connect(self._command)
-        self.commands.insertItem(0, self.command_recover)
+        self.commands.insertWidget(0, self.command_recover)
 
         self.progress = QProgressBar()
         self.progress.setFormat("")
-        self.progress.setFixedHeight(2)
+        self.progress.setFixedHeight(3)
         self.progress.setRange(0, 1000)
-        self.layout.addWidget(self.progress, 3, 4)
+        self.layout.addWidget(self.progress, 3, 0, 1, 5)
 
         # TODO: 设置图标
         self.command_recover.setText("恢复")

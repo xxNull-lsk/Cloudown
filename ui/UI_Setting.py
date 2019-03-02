@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-from ui.WidgetTaskActive import *
-from ui.WidgetTaskWaiting import UITaskWaiting
-from ui.WidgetTaskStopped import UITaskStopped
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+import os
 import json
 
 
