@@ -5,11 +5,13 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 import os
 import json
+import gl
 
 
 class SystemSettings:
     values = {
-        'SERVER_URL': 'http://118.25.17.65:6800/jsonrpc',
+        # 'SERVER_URL': 'http://118.25.17.65:6800/jsonrpc',
+        'SERVER_URL': 'http://192.168.2.100:6800/jsonrpc',
         'SERVER_TOKEN': 'allan',
         'REFRESH': 1
     }
@@ -17,25 +19,30 @@ class SystemSettings:
 
     def load(self, file_name):
         self.file = file_name
-        if os.path.exists(file_name):
-            self.values = json.loads(open(file_name, 'rb').read())
+        if not os.path.exists(file_name):
+            return
+        with open(file_name, 'r') as f:
+            self.values = json.loads(f.read())
 
     def save(self, file_name):
         self.file = file_name
-        open(file_name, 'w+b').write(json.dumps(self.values, indent=4))
+        with open(file_name, 'w+') as f:
+            f.write(json.dumps(self.values, indent=4))
 
     def writeback(self):
-        if self.file is not None:
-            open(self.file, 'w+b').write(json.dumps(self.values, indent=4))
+        if self.file is None:
+            return False
+        with open(self.file, 'w+') as f:
+            f.write(json.dumps(self.values, indent=4))
+        return True
 
 
-class UiSetting(QDialog):
-    settings = SystemSettings()
+class UiSetting(QWidget):
 
     def __init__(self, parent):
         super(UiSetting, self).__init__(parent)
+        self.settings = parent.download_manager.settings
         self.setObjectName('UiSetting')
-        self.resize(800, 600)
         
         self.setWindowTitle("配置")
         self.settings.load("setting.json")
@@ -78,8 +85,14 @@ class UiSetting(QDialog):
 
         self.setWindowModality(Qt.ApplicationModal)
 
+    def close(self):
+        dm = gl.get_value('dm')
+        dm.main_wnd.left_widget.setCurrentRow(0)
+        super(UiSetting, self).close()
+
     def on_ok(self):
         self.settings.values["REFRESH"] = self.spin_refresh.value()
         self.settings.values["SERVER_TOKEN"] = self.edit_token.toPlainText()
         self.settings.values["SERVER_URL"] = self.edit_url.toPlainText()
         self.settings.writeback()
+        self.close()

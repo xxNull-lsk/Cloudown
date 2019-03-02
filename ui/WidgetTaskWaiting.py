@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 from ui.WidgetTask import *
+import gl
 
 
 class UITaskWaiting(UITask):
@@ -9,6 +10,12 @@ class UITaskWaiting(UITask):
         self.setObjectName('TaskWaiting')
 
         self.command_recover = QPushButton()
+        self.command_recover.setFixedWidth(32)
+        with open('./qss/command_button.qss', 'r') as f:
+            self.command_recover.setStyleSheet(f.read())
+        pm = QPixmap('./icons/recove.png')
+        self.command_recover.setIcon(QIcon(pm))
+        self.command_recover.setToolTip("恢复下载")
         self.command_recover.clicked.connect(self._command)
         self.commands.insertWidget(0, self.command_recover)
 
@@ -16,15 +23,14 @@ class UITaskWaiting(UITask):
         self.progress.setFormat("")
         self.progress.setFixedHeight(3)
         self.progress.setRange(0, 1000)
-        self.layout.addWidget(self.progress, 3, 0, 1, 5)
-
-        # TODO: 设置图标
-        self.command_recover.setText("恢复")
-        self.command_recover.setStatusTip("恢复下载")
+        self.layout.addWidget(self.progress)
 
     def setData(self, task):
         super(UITaskWaiting, self).setData(task)
-        val = int(task["completedLength"]) * 1000 / int(task["totalLength"])
+        total_len = int(task["totalLength"])
+        if total_len == 0:
+            total_len = 1
+        val = int(task["completedLength"]) * 1000 / total_len
         self.progress.setValue(int(val))
 
     def _command(self):
@@ -32,6 +38,5 @@ class UITaskWaiting(UITask):
 
         sender = self.sender()
         if sender is self.command_recover:
-            QMessageBox.information(self, "TODO", "恢复任务", QMessageBox.Ok)
-            # TODO: 恢复任务
-            pass
+            aria2 = gl.get_value('aria2')
+            aria2.unpause(self.task['gid'])

@@ -1,0 +1,28 @@
+QPushButton {
+    border: 2px dashed;
+    min-width: 80px;
+    border-color: lightgray;
+    outline: none;
+}
+
+QPushButton:focus {
+    border-color: lightblue;
+}
+
+QPushButton:pressed {
+    background-color: lightblue;
+    padding-left:6px;
+    padding-top:6px;
+}
+
+QPushButton:default {
+    border-color: lightnavy;
+}
+
+QPushButton:hover {
+    border-color: lightblue;
+}
+
+QPushButton:flat {
+    border:1px dashed;
+}

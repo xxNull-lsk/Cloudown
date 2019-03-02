@@ -77,7 +77,25 @@ class Aria2:
             'id': self.id,
             'method': 'aria2.remove',
             'params': [
-                [task_id]
+                task_id
+            ]
+        }
+        if self.token is not None:
+            req['params'].insert(0, self.token)
+        req = bytes(json.dumps(req), 'utf-8')
+        try:
+            c = urlopen(self.server_url, req)
+            return json.loads(c.read())
+        except HTTPError as err:
+            return self.remove_stoped(task_id)
+
+    def remove_stoped(self, task_id):
+        req = {
+            'jsonrpc': '2.0',
+            'id': self.id,
+            'method': 'aria2.removeDownloadResult',
+            'params': [
+                task_id
             ]
         }
         if self.token is not None:
@@ -92,7 +110,7 @@ class Aria2:
             'id': self.id,
             'method': 'aria2.pause',
             'params': [
-                [task_id]
+                task_id
             ]
         }
         if self.token is not None:
@@ -107,7 +125,7 @@ class Aria2:
             'id': self.id,
             'method': 'aria2.unpause',
             'params': [
-                [task_id]
+                task_id
             ]
         }
         if self.token is not None:
@@ -137,7 +155,7 @@ class Aria2:
             'id': self.id,
             'method': 'aria2.getUris',
             'params': [
-                [task_id]
+                task_id
             ]
         }
         if self.token is not None:
@@ -152,7 +170,7 @@ class Aria2:
             'id': self.id,
             'method': 'aria2.getFiles',
             'params': [
-                [task_id]
+                task_id
             ]
         }
         if self.token is not None:
@@ -167,7 +185,7 @@ class Aria2:
             'id': self.id,
             'method': 'aria2.getPeers',
             'params': [
-                [task_id]
+                task_id
             ]
         }
         if self.token is not None:
@@ -182,7 +200,7 @@ class Aria2:
             'id': self.id,
             'method': 'aria2.getServers',
             'params': [
-                [task_id]
+                task_id
             ]
         }
         if self.token is not None:
@@ -238,7 +256,9 @@ class Aria2:
             'jsonrpc': '2.0',
             'id': self.id,
             'method': 'aria2.getOption',
-            'params': [task_id]
+            'params': [
+                task_id
+            ]
         }
         if self.token is not None:
             req['params'].insert(0, self.token)
