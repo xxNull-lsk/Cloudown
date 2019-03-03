@@ -99,8 +99,7 @@ class UITask(QWidget):
         sender = self.sender()
         if (sender is self.command_details) or (sender is self.button_filename):
             dm = gl.get_value('dm')
-            gl.set_value('curr_task', self.task)
-            dm.main_wnd.root_layout.setCurrentIndex(1)
+            dm.main_wnd.ui_details.set_data(self.task)
         elif sender is self.command_open:
             file_name = ""
             if "bittorrent" in self.task and 'info' in self.task["bittorrent"]:

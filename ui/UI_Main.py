@@ -19,8 +19,8 @@ class UiMain(QWidget):
         self.main_layout = QHBoxLayout()
         label.setLayout(self.main_layout)
         self.root_layout.addWidget(label)
-        ui_details = UiTaskDetails(self)
-        self.root_layout.addWidget(ui_details)
+        self.ui_details = UiTaskDetails(self)
+        self.root_layout.addWidget(self.ui_details)
         self.root_layout.setCurrentIndex(0)
 
         self.main_layout.setSpacing(0)

@@ -137,7 +137,7 @@ class Aria2:
             'id': self.id,
             'method': 'aria2.tellStatus',
             'params': [
-                [task_id]
+                task_id
             ]
         }
         if self.token is not None:
