@@ -107,15 +107,20 @@ class UITask(QWidget):
             if file_name is "" and len(self.task["files"]) > 0:
                 file_name = self.task["files"][0]["path"]
             try:
-                os.startfile(os.path.join(self.task['dir'], file_name))
+                # explorer /e,/select,c:\windows\system32\calc.exe
+                path = os.path.join(self.task['dir'], file_name)
+                path = os.path.abspath(path)
+                print(path)
+                os.system('explorer /e,/select,{}'.format(path))
             except FileNotFoundError as err:
                 print(err)
         elif sender is self.command_delete:
-            if QMessageBox.question(self, "询问", "确认要删除该任务？", QMessageBox.Ok | QMessageBox.No) == QMessageBox.No:
+            if QMessageBox.question(self, "警告", "确认要删除该任务？", QMessageBox.Ok | QMessageBox.No) == QMessageBox.No:
                 return
+            # TODO: 删除文件
             aria2 = gl.get_value('aria2')
             if self.task["status"] in ('active', 'waiting', 'paused'):
                 aria2.remove(self.task['gid'])
-                aria2.remove_stoped(self.task['gid'])
+                # aria2.remove_stoped(self.task['gid'])
             else:
                 aria2.remove_stoped(self.task['gid'])

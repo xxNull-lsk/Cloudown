@@ -249,8 +249,6 @@ class UiTaskDetails(QWidget):
         aria2 = gl.get_value('aria2')
         ret = aria2.get_peers(task['gid'])
         peers = ret['result']
-        with open('peers.json', 'w+') as f:
-            f.write(json.dumps(peers, indent=4))
         self.table_peers.setRowCount(len(peers) + 1)
         bitfield = BitField(task['bitfield'], int(task['numPieces']))
         infos = [

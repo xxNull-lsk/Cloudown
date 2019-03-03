@@ -3,7 +3,6 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
-import json
 import gl
 
 
@@ -11,6 +10,8 @@ class UiNewTask(QWidget):
     def __init__(self, parent):
         super(UiNewTask, self).__init__(parent)
         self.aria2 = gl.get_value('aria2')
+        options = self.aria2.get_system_option()['result']
+
         self.setObjectName('UiNewTask')
         
         self.setWindowTitle("新建任务")
@@ -31,23 +32,22 @@ class UiNewTask(QWidget):
             self.button_bt_file.setStyleSheet(f.read())
         self.top_list.addTab(self.button_bt_file, "BT文件")
 
-        options = self.aria2.get_system_option()
-        with open('./aria.conf', 'w+') as f:
-            f.write(json.dumps(options, indent=4))
         download_options = QGridLayout()
+
         label_name = QLabel("重命名：")
         download_options.addWidget(label_name, 0, 0)
         self.edit_name = QLineEdit()
         download_options.addWidget(self.edit_name, 0, 1, 1, 3)
+
         label_name = QLabel("线程数：")
         download_options.addWidget(label_name, 0, 4)
         self.spin_thread_count = QSpinBox()
-        self.spin_thread_count.setValue(int(options['result']['max-concurrent-downloads']))
+        self.spin_thread_count.setValue(int(options['max-concurrent-downloads']))
         download_options.addWidget(self.spin_thread_count, 0, 5)
 
         label_path = QLabel("保存位置：")
         download_options.addWidget(label_path, 1, 0)
-        self.edit_save_path = QLineEdit(options['result']['dir'])
+        self.edit_save_path = QLineEdit(options['dir'])
         download_options.addWidget(self.edit_save_path, 1, 1, 1, 4)
         button_select_folder = QPushButton("...")
         button_select_folder.clicked.connect(self.on_select_folder)
@@ -82,7 +82,7 @@ class UiNewTask(QWidget):
         files = QFileDialog.getOpenFileName(self,
                                             "选取BT文件",
                                             "./",
-                                            "BT Files (*.bt);;All Files (*)")
+                                            "BT Files (*.torrent);;All Files (*)")
         if len(files) >= 1 and files[0] != '':
             self.button_bt_file.setText(files[0])
 
@@ -93,7 +93,12 @@ class UiNewTask(QWidget):
 
     def on_ok(self):
         save_path = self.edit_save_path.text()
-        urls = self.edit_url.toPlainText().split('\n')
-        for url in urls:
-            self.aria2.add_uri(url, save_path)
+        if self.top_list.currentIndex() == 0:
+            urls = self.edit_url.toPlainText().split('\n')
+            for url in urls:
+                self.aria2.add_uri(url, save_path)
+            self.edit_url.setText('')
+        else:
+            bt_file = self.button_bt_file.text()
+            self.aria2.add_torrent(bt_file, save_path)
         self.close()

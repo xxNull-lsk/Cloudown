@@ -33,14 +33,20 @@ class Aria2:
         c = urlopen(self.server_url, req)
         return json.loads(c.read())
 
+    @staticmethod
+    def file_to_base64(file_name):
+        with open(file_name, 'rb') as f:
+            base64_data = base64.b64encode(f.read())
+        trans_base64 = str(base64_data).lstrip('b').strip('\'')
+        return trans_base64
+
     def add_torrent(self, torrent_file, dest_path):
-        torrent = base64.b64encode(open(torrent_file).read())
         req = {
             'jsonrpc': '2.0',
             'id': self.id,
             'method': 'aria2.addTorrent',
             'params': [
-                [torrent],
+                self.file_to_base64(torrent_file),
                 {
                     'dir': dest_path
                 }
@@ -48,6 +54,7 @@ class Aria2:
         }
         if self.token is not None:
             req['params'].insert(0, self.token)
+        print(req)
         req = bytes(json.dumps(req), 'utf-8')
         c = urlopen(self.server_url, req)
         return json.loads(c.read())
