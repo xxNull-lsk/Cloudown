@@ -46,8 +46,8 @@ class UITaskActive(UITask):
         self.progress.setRange(0, 1000)
         self.layout.addWidget(self.progress)
 
-    def setData(self, task):
-        super(UITaskActive, self).setData(task)
+    def set_task(self, task):
+        super(UITaskActive, self).set_task(task)
         completed_length = int(task["completedLength"])
         total_length = int(task["totalLength"])
         if total_length > 0:

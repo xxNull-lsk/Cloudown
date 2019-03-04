@@ -77,7 +77,7 @@ class UITask(QWidget):
         self.label_upload_size.setToolTip("上传大小")
         self.info_layout.addWidget(self.label_upload_size)
 
-    def setData(self, task):
+    def set_task(self, task):
         self.task = task
         self.label_file_size.setText(size2string(task['totalLength']))
         self.label_upload_size.setText(size2string(task['uploadLength']))
@@ -97,17 +97,19 @@ class UITask(QWidget):
 
     def _command(self):
         sender = self.sender()
+        dm = gl.get_value('dm')
         if (sender is self.command_details) or (sender is self.button_filename):
-            dm = gl.get_value('dm')
-            dm.main_wnd.ui_details.set_data(self.task)
+            dm.main_wnd.show_details(self.task)
         elif sender is self.command_open:
+            if not dm.settings.values['IS_LOCALE']:
+                QMessageBox.warning(self, '警告', '当前是远程服务器模式，无法打开文件所在目录。', QMessageBox.Ok)
+                return
             file_name = ""
             if "bittorrent" in self.task and 'info' in self.task["bittorrent"]:
                 file_name = self.task["bittorrent"]["info"]['name']
             if file_name is "" and len(self.task["files"]) > 0:
                 file_name = self.task["files"][0]["path"]
             try:
-                # explorer /e,/select,c:\windows\system32\calc.exe
                 path = os.path.join(self.task['dir'], file_name)
                 path = os.path.abspath(path)
                 print(path)

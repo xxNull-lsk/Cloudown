@@ -2,9 +2,10 @@
 # -*- coding:utf-8 -*-
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
-from PyQt5.QtGui import QPainter, QColor, QPen
+from PyQt5.QtGui import *
 from ui.Misc import *
 import gl
+import os
 import json
 
 
@@ -122,13 +123,14 @@ class UiTaskDetails(QWidget):
         self.base_info.horizontalHeader().hide()
         self.base_info.setEditTriggers(QAbstractItemView.NoEditTriggers)
 
-        self.files_info.setColumnCount(4)
-        self.files_info.setHorizontalHeaderLabels(["文件", "总计大小", "已完成大小", "进度"])
+        heads = ["文件", "总计大小", "已完成大小", "进度", '操作']
+        self.files_info.setColumnCount(len(heads))
+        self.files_info.setHorizontalHeaderLabels(heads)
         self.files_info.verticalHeader().hide()
         self.files_info.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.t = QTimer()
         self.t.setInterval(1000)
-        self.t.timeout.connect(self.task_refresh)
+        self.t.timeout.connect(self._refresh_task)
 
         self.table_peers = QTableWidget()
         heads = ['地址', '状态', '进度', '下载速度', '上传速度']
@@ -137,53 +139,9 @@ class UiTaskDetails(QWidget):
         self.table_peers.verticalHeader().hide()
         self.table_peers.setEditTriggers(QAbstractItemView.NoEditTriggers)
 
-        self.bbbbb()
+        self._init_blocks_ui()
 
-    def task_refresh(self):
-        self.t.stop()
-        aria2 = gl.get_value('aria2')
-        ret = aria2.get_status(self.task['gid'])
-        self.set_data(ret['result'])
-        self.t.start()
-
-    def set_data(self, task):
-        self.task = task
-        peer_tab_index = -1
-        for i in range(0, self.tab.count()):
-            if self.tab.tabText(i) == '连接信息':
-                peer_tab_index = i
-                break
-        if 'bittorrent' not in task:
-            if peer_tab_index >= 0:
-                self.tab.removeTab(peer_tab_index)
-        elif peer_tab_index < 0:
-            peer_tab_index = self.tab.addTab(self.table_peers, '连接信息')
-        if peer_tab_index >= 0:
-            self.init_peers(task)
-        self.init_info(task)
-        self.init_blocks(task)
-        self.init_files(task)
-        dm = gl.get_value('dm')
-        dm.main_wnd.root_layout.setCurrentIndex(1)
-        self.t.start()
-
-    def init_files(self, task):
-        files = task['files']
-        self.files_info.setRowCount(len(files))
-        for i in range(0, len(files)):
-            self.files_info.setItem(i, 0, QTableWidgetItem(files[i]['path']))
-            length = int(files[i]['length'])
-            completed_length = int(files[i]['completedLength'])
-            self.files_info.setItem(i, 1, QTableWidgetItem(size2string(length)))
-            self.files_info.setItem(i, 2, QTableWidgetItem(size2string(completed_length)))
-            if length > 0:
-                precent = "%.2f%%" % (completed_length * 100 / length)
-            else:
-                precent = '0%'
-            self.files_info.setItem(i, 3, QTableWidgetItem(precent))
-        self.files_info.resizeColumnsToContents()
-
-    def bbbbb(self):
+    def _init_blocks_ui(self):
         col_count = self.col_count
         row_count = self.row_count
         with open("./qss/block.qss", 'r') as f:
@@ -200,7 +158,78 @@ class UiTaskDetails(QWidget):
                 self.blocks_ui[name] = block_item
                 self.blocks_layout.addWidget(block_item, row, col)
 
-    def init_blocks(self, task):
+    def _refresh_task(self):
+        self.t.stop()
+        aria2 = gl.get_value('aria2')
+        ret = aria2.get_status(self.task['gid'])
+        self.update_task(ret['result'])
+        self.t.start()
+
+    def update_task(self, task):
+        self.task = task
+        peer_tab_index = -1
+        for i in range(0, self.tab.count()):
+            if self.tab.tabText(i) == '连接信息':
+                peer_tab_index = i
+                break
+        if 'bittorrent' not in task:
+            if peer_tab_index >= 0:
+                self.tab.removeTab(peer_tab_index)
+        elif peer_tab_index < 0:
+            peer_tab_index = self.tab.addTab(self.table_peers, '连接信息')
+        if peer_tab_index >= 0:
+            self._update_peers(task)
+        self._update_base_info(task)
+        self._update_blocks(task)
+        self._update_files(task)
+        self.t.start()
+
+    def _update_files(self, task):
+        files = task['files']
+        self.files_info.setRowCount(len(files))
+        for i in range(0, len(files)):
+            self.files_info.setItem(i, 0, QTableWidgetItem(files[i]['path']))
+            length = int(files[i]['length'])
+            completed_length = int(files[i]['completedLength'])
+            self.files_info.setItem(i, 1, QTableWidgetItem(size2string(length)))
+            self.files_info.setItem(i, 2, QTableWidgetItem(size2string(completed_length)))
+            if length > 0:
+                precent = "%.2f%%" % (completed_length * 100 / length)
+            else:
+                precent = '0%'
+            self.files_info.setItem(i, 3, QTableWidgetItem(precent))
+            item = QTableWidgetItem('')
+            self.files_info.setItem(i, 4, item)
+
+            w = QWidget()
+            lay = QHBoxLayout(w)
+            lay.setSpacing(0)
+            lay.setContentsMargins(0, 0, 0, 0)
+            button_open = QPushButton()
+            lay.addWidget(button_open, Qt.AlignCenter)
+            button_open.setObjectName('button_OpenFile')
+            button_open.setWhatsThis(files[i]['path'])
+            pm = QPixmap('./icons/open.png')
+            with open('./qss/command_button.qss', 'r') as f:
+                button_open.setStyleSheet(f.read())
+            button_open.setIcon(QIcon(pm))
+            button_open.setToolTip("打开文件所在目录")
+            button_open.clicked.connect(self._on_open_file)
+            self.files_info.setCellWidget(i, 4, w)
+            self.files_info.setRowHeight(i, 36)
+
+        self.files_info.resizeColumnsToContents()
+
+    def _on_open_file(self):
+        file = self.sender().whatsThis()
+        dm = gl.get_value('dm')
+        if not dm.settings.values['IS_LOCALE']:
+            QMessageBox.warning(self, '警告', '当前是远程服务器模式，无法打开文件所在目录。', QMessageBox.Ok)
+            return
+
+        os.system('explorer /e,/select,{}'.format(os.path.abspath(file)))
+
+    def _update_blocks(self, task):
         if task is None or 'bitfield' not in task:
             return
         bitfield = task['bitfield']
@@ -234,7 +263,7 @@ class UiTaskDetails(QWidget):
                 else:
                     block_item.setEnabled(False)
 
-    def update_peer(self, row, infos, bitfield):
+    def _update_peer(self, row, infos, bitfield):
         for i in range(0, len(infos)):
             self.table_peers.setItem(row, i, QTableWidgetItem(infos[i]))
             self.table_peers.setItem(row, i, QTableWidgetItem(infos[i]))
@@ -245,12 +274,15 @@ class UiTaskDetails(QWidget):
                     self.table_peers.setCellWidget(row, i, progress)
                 progress.set_mask(bitfield)
 
-    def init_peers(self, task):
+    def _update_peers(self, task):
         aria2 = gl.get_value('aria2')
         ret = aria2.get_peers(task['gid'])
         peers = ret['result']
         self.table_peers.setRowCount(len(peers) + 1)
-        bitfield = BitField(task['bitfield'], int(task['numPieces']))
+        if 'bitfield' in task:
+            bitfield = BitField(task['bitfield'], int(task['numPieces']))
+        else:
+            bitfield = BitField('', 0)
         infos = [
             '本机',
             '',
@@ -258,7 +290,7 @@ class UiTaskDetails(QWidget):
             '{}/s'.format(size2string(task['downloadSpeed'])),
             '{}/s'.format(size2string(task['uploadSpeed']))
         ]
-        self.update_peer(0, infos, bitfield)
+        self._update_peer(0, infos, bitfield)
         for row in range(0, len(peers)):
             p = peers[row]
             row = row + 1
@@ -270,10 +302,10 @@ class UiTaskDetails(QWidget):
                 '{}/s'.format(size2string(p['downloadSpeed'])),
                 '{}/s'.format(size2string(p['uploadSpeed']))
             ]
-            self.update_peer(row, infos, bitfield)
+            self._update_peer(row, infos, bitfield)
         self.table_peers.resizeColumnsToContents()
 
-    def init_info(self, task):
+    def _update_base_info(self, task):
         infos = [
             {'k': "gid", 'v': task['gid']},
             {'k': "文件大小", 'v': size2string(task['totalLength'])},
@@ -299,4 +331,4 @@ class UiTaskDetails(QWidget):
     def on_back(self):
         dm = gl.get_value('dm')
         self.t.stop()
-        dm.main_wnd.root_layout.setCurrentIndex(0)
+        dm.main_wnd.show_normal()

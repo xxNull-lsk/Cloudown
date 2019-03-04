@@ -48,6 +48,10 @@ class UiMain(QWidget):
         self._setup_ui()
         self.left_widget.setCurrentRow(0)
 
+        self.t = QTimer()
+        self.t.setInterval(1000)
+        self.t.timeout.connect(self.task_refresh)
+
     def _setup_ui(self):
         self.left_widget.currentRowChanged.connect(self.right_widget.setCurrentIndex)
         self.left_widget.setFrameShape(QListWidget.NoFrame)
@@ -63,3 +67,36 @@ class UiMain(QWidget):
             icon_file = "icons/{}".format(list_icon[i])
             label.setStyleSheet("QLabel{ image: url(%s); padding: 8px; }" % icon_file)
             self.left_widget.setItemWidget(item, label)
+
+    def show_details(self, task):
+        self.ui_details.update_task(task)
+        self.root_layout.setCurrentIndex(1)
+
+    def show_normal(self):
+        self.root_layout.setCurrentIndex(0)
+
+    def show(self):
+        super().show()
+        self.show_normal()
+        self.t.start()
+        self.task_refresh()
+
+    def hide(self):
+        super().hide()
+        self.t.stop()
+
+    def task_refresh(self):
+        aria2 = gl.get_value('aria2')
+        if aria2 is None:
+            return
+        ret = aria2.get_active_tasks()
+        if ret is not None:
+            self.ui_download_list.set_tasks(ret["result"], UiDownloadList.task_type_download)
+
+        ret = aria2.get_waiting_tasks()
+        if ret is not None:
+            self.ui_download_list.set_tasks(ret["result"], UiDownloadList.task_type_waiting)
+
+        ret = aria2.get_stopped_tasks()
+        if ret is not None:
+            self.ui_download_list.set_tasks(ret["result"], UiDownloadList.task_type_stopped)

@@ -95,10 +95,10 @@ class UiDownloadList(QWidget):
                     t = UITaskWaiting()
                 else:
                     t = UITaskStopped()
-                t.setData(task)
+                t.set_task(task)
                 self.right_widget.setItemWidget(item, t)
             else:
-                item.setData(task)
+                item.set_task(task)
 
     def task_type_changed(self, i):
         if i == self.task_type_all:

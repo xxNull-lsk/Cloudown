@@ -25,8 +25,8 @@ class UITaskWaiting(UITask):
         self.progress.setRange(0, 1000)
         self.layout.addWidget(self.progress)
 
-    def setData(self, task):
-        super(UITaskWaiting, self).setData(task)
+    def set_task(self, task):
+        super(UITaskWaiting, self).set_task(task)
         total_len = int(task["totalLength"])
         if total_len == 0:
             total_len = 1
