@@ -5,21 +5,26 @@ from ui.UI_Setting import *
 from aria2 import *
 import gl
 import _thread
+import logging
+import logging.config
 
 
 class DownloadManager:
     settings = SystemSettings()
     aria2c_exe_name = None
     aria2 = None
+    main_wnd = None
 
     def __init__(self):
+        logging.config.fileConfig('logging.conf')
+        logging.info("========Download manager starting========")
         gl.set_value("dm", self)
         gl.set_value("settings", self.settings)
         gl.set_value("aria2", self.aria2)
         self.settings.load()
         self.init_aria2()
         self.app = QApplication(sys.argv)
-        self.main_wnd = UiMain('下载管理', self)
+        self.main_wnd = UiMain('下载管理')
 
     def start_locale_aria2(self):
         if sys.platform == 'win32':
@@ -33,20 +38,30 @@ class DownloadManager:
             command = command + ' --dir="{}"'.format(self.settings.values['LOCALE']['DOWNLOAD_DIR'])
             command = command.replace('${START_FOLDER}/', os.path.abspath('./aria2/'))
             command = command.replace('${DOWNLOAD}', download_path)
+            logging.info('local aria2 started')
             os.system(command)
-            exit(1)
+            logging.info('local aria2 stopped')
 
     def stop_local_aria2(self):
+        if self.aria2 is None:
+            return
+        try:
+            self.aria2.save_session()
+        except:
+            pass
         if self.aria2c_exe_name is not None:
-            cmd = 'taskkill /F /IM {}'.format(self.aria2c_exe_name)
-            os.system(cmd)
+            while True:
+                try:
+                    self.aria2.shutdown()
+                    time.sleep(1)
+                    self.aria2.get_system_status()
+                except:
+                    break
+            logging.info('local aria2 stopped')
             self.aria2c_exe_name = None
 
     def __del__(self):
         self.stop_local_aria2()
-        gl.set_value("dm", None)
-        gl.set_value("settings", None)
-        gl.set_value("aria2", None)
 
     def init_aria2(self):
         self.stop_local_aria2()
@@ -54,8 +69,14 @@ class DownloadManager:
             self.aria2c_exe_name = 'aria2c.exe'
             url = 'http://127.0.0.1:{}/jsonrpc'.format(self.settings.values["LOCALE"]['SERVER_PORT'])
             token = self.settings.values['LOCALE']['SERVER_TOKEN']
-            _thread.start_new_thread(self.start_locale_aria2, ())
-            time.sleep(1)
+            try:
+                self.aria2 = Aria2(url, token)
+                self.aria2.get_system_status()
+            except:
+                _thread.start_new_thread(self.start_locale_aria2, ())
+                time.sleep(1)
+            finally:
+                self.aria2 = None
         else:
             url = 'http://{}/jsonrpc'.format(self.settings.values["REMOTE"]['SERVER_ADDRESS'])
             token = self.settings.values['REMOTE']['SERVER_TOKEN']
@@ -69,8 +90,11 @@ class DownloadManager:
 
     def start(self):
         self.main_wnd.show()
+        logging.debug("Download manager started")
         self.app.exec()
+        logging.debug("Download manager exiting")
         self.stop_local_aria2()
+        logging.info("====Download manager exited====")
 
 
 def main():

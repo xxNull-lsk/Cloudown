@@ -46,10 +46,7 @@ class Aria2:
             'id': self.id,
             'method': 'aria2.addTorrent',
             'params': [
-                self.file_to_base64(torrent_file),
-                {
-                    'dir': dest_path
-                }
+                self.file_to_base64(torrent_file)
             ]
         }
         if self.token is not None:
@@ -319,7 +316,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=1)
         return json.loads(c.read())
 
     def get_version(self):
@@ -332,7 +329,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=1)
         return json.loads(c.read())
 
     def get_session(self):

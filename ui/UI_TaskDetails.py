@@ -6,6 +6,7 @@ from PyQt5.QtGui import *
 from ui.Misc import *
 import gl
 import os
+import logging
 import json
 
 
@@ -144,16 +145,13 @@ class UiTaskDetails(QWidget):
     def _init_blocks_ui(self):
         col_count = self.col_count
         row_count = self.row_count
-        with open("./qss/block.qss", 'r') as f:
-            qss = f.read()
         self.blocks_ui = {}
         for row in range(0, row_count):
             for col in range(0, col_count):
                 index = row * col_count + col
                 name = "block_{}".format(index)
                 block_item = QPushButton()
-                block_item.setObjectName(name)
-                block_item.setStyleSheet(qss)
+                block_item.setObjectName('BlockItem')
                 block_item.setEnabled(False)
                 self.blocks_ui[name] = block_item
                 self.blocks_layout.addWidget(block_item, row, col)
@@ -161,9 +159,14 @@ class UiTaskDetails(QWidget):
     def _refresh_task(self):
         self.t.stop()
         aria2 = gl.get_value('aria2')
-        ret = aria2.get_status(self.task['gid'])
-        self.update_task(ret['result'])
-        self.t.start()
+        if aria2 is None:
+            return
+        try:
+            ret = aria2.get_status(self.task['gid'])
+            self.update_task(ret['result'])
+            self.t.start()
+        except Exception as err:
+            logging.error('_refresh_task: {}'.format(err))
 
     def update_task(self, task):
         self.task = task
@@ -182,7 +185,8 @@ class UiTaskDetails(QWidget):
         self._update_base_info(task)
         self._update_blocks(task)
         self._update_files(task)
-        self.t.start()
+        if not self.t.isActive():
+            self.t.start()
 
     def _update_files(self, task):
         files = task['files']
@@ -207,12 +211,8 @@ class UiTaskDetails(QWidget):
             lay.setContentsMargins(0, 0, 0, 0)
             button_open = QPushButton()
             lay.addWidget(button_open, Qt.AlignCenter)
-            button_open.setObjectName('button_OpenFile')
+            button_open.setObjectName('ButtonOpenFile')
             button_open.setWhatsThis(files[i]['path'])
-            pm = QPixmap('./icons/open.png')
-            with open('./qss/command_button.qss', 'r') as f:
-                button_open.setStyleSheet(f.read())
-            button_open.setIcon(QIcon(pm))
             button_open.setToolTip("打开文件所在目录")
             button_open.clicked.connect(self._on_open_file)
             self.files_info.setCellWidget(i, 4, w)
@@ -238,8 +238,6 @@ class UiTaskDetails(QWidget):
         row_count = self.row_count  # int((total_count + col_count - 1) / col_count / 2)
 
         layout = self.blocks_layout
-        with open("./qss/block.qss", 'r') as f:
-            qss = f.read()
         for row in range(0, row_count):
             for col in range(0, col_count):
                 index = row * col_count + col
@@ -248,8 +246,7 @@ class UiTaskDetails(QWidget):
                 block_item = self.blocks_ui[name]  # layout.findChild(QPushButton, name)
                 if block_item is None:
                     block_item = QPushButton()
-                    block_item.setObjectName("block_{}".format(index))
-                    block_item.setStyleSheet(qss)
+                    block_item.setObjectName('BlockItem')
                     layout.addWidget(block_item, row, col)
 
                 byte_off = int(index_in_bitfield / 4)

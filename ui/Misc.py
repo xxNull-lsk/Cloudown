@@ -1,3 +1,5 @@
+import os
+
 
 def size2string(size_bytes):
     if isinstance(size_bytes, str):
@@ -14,3 +16,10 @@ def size2string(size_bytes):
         return "%.2f MB" % curr
     curr = curr / 1024.0
     return "%.2f GB" % curr
+
+
+def rm_file(path):
+    if os.path.isdir(path):
+        for f in os.listdir(path):
+            rm_file(os.path.join(path, f))
+        os.removedirs(path)

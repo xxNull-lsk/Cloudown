@@ -3,6 +3,7 @@
 from ui.WidgetTaskActive import *
 from ui.WidgetTaskWaiting import UITaskWaiting
 from ui.WidgetTaskStopped import UITaskStopped
+import json
 
 
 class UiDownloadList(QWidget):
@@ -22,9 +23,8 @@ class UiDownloadList(QWidget):
         self.main_layout.setSpacing(0)
         self.main_layout.setContentsMargins(0, 0, 0, 0)
 
-        self.left_widget = QListWidget()     # 中间选项列表
-        with open("./qss/ui_download_list.qss", 'r') as f:
-            self.left_widget.setStyleSheet(f.read())
+        self.left_widget = QListWidget()
+        self.left_widget.setObjectName('DownloadTypeList')
         self.main_layout.addWidget(self.left_widget)
 
         self.right_widget = QListWidget()
@@ -113,6 +113,7 @@ class UiDownloadList(QWidget):
             self._set_tasks(self.task_downloading)
 
         elif i == self.task_type_waiting:
+            open('doc/waiting.json', 'w+').write(json.dumps(self.task_waiting, indent=4))
             self._set_tasks(self.task_waiting)
 
         elif i == self.task_type_stopped:

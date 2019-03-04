@@ -7,15 +7,11 @@ import gl
 
 class UITaskActive(UITask):
     def __init__(self, qss='qss/UITaskActive.qss'):
-        super(UITaskActive, self).__init__(qss)
+        super().__init__(qss)
         self.setObjectName('TaskActive')
 
-        self.command_pause = QPushButton("")
-        self.command_pause.setFixedWidth(32)
-        pm = QPixmap('./icons/pause.png')
-        self.command_pause.setIcon(QIcon(pm))
-        with open('./qss/command_button.qss', 'r') as f:
-            self.command_pause.setStyleSheet(f.read())
+        self.command_pause = QPushButton()
+        self.command_pause.setObjectName('CommandPause')
         self.command_pause.setToolTip("暂停下载")
         self.command_pause.clicked.connect(self._command)
         self.commands.insertWidget(0, self.command_pause)
@@ -47,7 +43,7 @@ class UITaskActive(UITask):
         self.layout.addWidget(self.progress)
 
     def set_task(self, task):
-        super(UITaskActive, self).set_task(task)
+        super().set_task(task)
         completed_length = int(task["completedLength"])
         total_length = int(task["totalLength"])
         if total_length > 0:
@@ -79,9 +75,10 @@ class UITaskActive(UITask):
             self.label_connects.setToolTip("连接数：{}".format(task['connections']))
 
     def _command(self):
-        super(UITaskActive, self)._command()
-
         sender = self.sender()
         if sender is self.command_pause:
             aria2 = gl.get_value('aria2')
             aria2.pause(self.task['gid'])
+            aria2.save_session()
+        else:
+            super()._command()

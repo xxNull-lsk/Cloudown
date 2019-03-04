@@ -1,8 +1,29 @@
-QListWidget, QListView, QTreeWidget, QTreeView {
-    outline: 0px;
+QLabel#download_list {
+    image: url(icons/download_list.png);
+    padding: 10px;
+    min-width: 120px;
+    max-width: 120px;
+}
+
+QLabel#new_task {
+    image: url(icons/new_task.png);
+    padding: 10px;
+    min-width: 120px;
+    max-width: 120px;
+}
+
+QLabel#settings {
+    image: url(icons/settings.png);
+    padding: 10px;
+    min-width: 120px;
+    max-width: 120px;
 }
 
 QListWidget {
+    outline: 0px;
+}
+
+QListWidget#CommandList {
     min-width: 120px;
     max-width: 120px;
     color: Black;
@@ -10,10 +31,225 @@ QListWidget {
     font-size: 28px;
 }
 
-QListWidget::Item:selected {
+QListWidget#CommandList::Item:selected {
     background: rgb(88, 88, 88);
     border-left: 5px solid red;
 }
-HistoryPanel:hover {
-    background: rgb(52, 52, 52);
+
+QListWidget#CommandList::Item:hover {
+    background: rgb(95, 95, 95);
+}
+
+
+QListWidget#DownloadTypeList {
+    min-width: 160px;
+    max-width: 160px;
+    color: Black;
+    background: rgb(244, 245, 247);
+    font-size: 28px;
+}
+
+QListWidget#DownloadTypeList::Item:selected {
+    background: lightblue;
+    border-left: 5px solid red;
+}
+
+QListWidget#DownloadTypeList::Item:hover {
+    background: rgb(176, 224, 230);
+}
+
+QPushButton#SelectBtFile {
+    border: 2px dashed;
+    min-width: 80px;
+    border-color: lightgray;
+    outline: none;
+}
+
+QPushButton#SelectBtFile:focus {
+    border-color: lightblue;
+}
+
+QPushButton#SelectBtFile:pressed {
+    background-color: lightblue;
+    padding-left:6px;
+    padding-top:6px;
+}
+
+QPushButton#SelectBtFile:hover {
+    border-color: lightblue;
+}
+
+QPushButton#BlockItem {
+    border: none;
+    min-width: 10px;
+    min-height: 10px;
+    max-width: 10px;
+    max-height: 10px;
+    background: green;
+    outline: none;
+}
+
+QPushButton#BlockItem:!enabled {
+    border: 1px solid lightgray;
+    min-width: 10px;
+    min-height: 10px;
+    max-width: 10px;
+    max-height: 10px;
+    background: white;
+    outline: none;
+}
+
+QPushButton#ButtonOpenFile {
+    max-width: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    max-height: 24px;
+    border-radius: 13px;
+    border:1px solid #9f9f9f;
+	image:url(icons/open.png);
+    padding: 2px;
+}
+
+QPushButton#ButtonOpenFile:focus {
+    border-color: lightblue;
+}
+
+QPushButton#ButtonOpenFile:pressed {
+    background-color: lightblue;
+    padding-left:2px;
+    padding-top:2px;
+}
+
+QPushButton#ButtonOpenFile:hover {
+    background-color: lightblue;
+}
+
+
+QPushButton#CommandOpenFolder {
+    max-width: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    max-height: 32px;
+    border-radius: 17px;
+    border:1px solid #9f9f9f;
+	image:url(icons/open.png);
+    padding: 6px;
+}
+
+QPushButton#CommandOpenFolder:focus {
+    border-color: lightblue;
+}
+
+QPushButton#CommandOpenFolder:pressed {
+    background-color: lightblue;
+    padding-left:2px;
+    padding-top:2px;
+}
+
+QPushButton#CommandOpenFolder:hover {
+    background-color: lightblue;
+}
+
+QPushButton#CommandDeleteTask {
+    max-width: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    max-height: 32px;
+    border-radius: 17px;
+    border: 1px solid #9f9f9f;
+	image:url(icons/delete.png);
+    padding: 6px;
+}
+
+QPushButton#CommandDeleteTask:focus {
+    border-color: lightblue;
+}
+
+QPushButton#CommandDeleteTask:pressed {
+    background-color: lightblue;
+    padding-left:2px;
+    padding-top:2px;
+}
+
+QPushButton#CommandDeleteTask:hover {
+    background-color: lightblue;
+}
+
+
+QPushButton#CommandDetails {
+    max-width: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    max-height: 32px;
+    border-radius: 17px;
+    border: 1px solid #9f9f9f;
+	image:url(icons/details.png);
+    padding: 6px;
+}
+
+QPushButton#CommandDetails:focus {
+    border-color: lightblue;
+}
+
+QPushButton#CommandDetails:pressed {
+    background-color: lightblue;
+    padding-left:2px;
+    padding-top:2px;
+}
+
+QPushButton#CommandDetails:hover {
+    background-color: lightblue;
+}
+
+
+QPushButton#CommandPause {
+    max-width: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    max-height: 32px;
+    border-radius: 17px;
+    border: 1px solid #9f9f9f;
+	image:url(icons/pause.png);
+    padding: 6px;
+}
+
+QPushButton#CommandPause:focus {
+    border-color: lightblue;
+}
+
+QPushButton#CommandPause:pressed {
+    background-color: lightblue;
+    padding-left:2px;
+    padding-top:2px;
+}
+
+QPushButton#CommandPause:hover {
+    background-color: lightblue;
+}
+
+
+
+QPushButton#CommandUnpause {
+    max-width: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    max-height: 32px;
+    border-radius: 17px;
+    border: 1px solid #9f9f9f;
+	image:url(icons/unpause.png);
+    padding: 6px;
+}
+
+QPushButton#CommandUnpause:focus {
+    border-color: lightblue;
+}
+
+QPushButton#CommandUnpause:pressed {
+    background-color: lightblue;
+    padding-left:2px;
+    padding-top:2px;
+}
+
+QPushButton#CommandUnpause:hover {
+    background-color: lightblue;
 }

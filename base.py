@@ -1,6 +1,7 @@
 from aria2 import *
 # SERVER_URL = 'http://192.168.2.100:6800/jsonrpc'
-SERVER_URL = 'http://118.25.17.65:6800/jsonrpc'
+#SERVER_URL = 'http://118.25.17.65:6800/jsonrpc'
+SERVER_URL = 'http://127.0.0.1:6800/jsonrpc'
 
 
 if __name__ == '__main__':
@@ -15,13 +16,18 @@ if __name__ == '__main__':
     # print(json.dumps(ret, indent=4))
     ret = aria2.get_stopped_tasks()
     print(len(ret['result']))
-    open('stopped.json', 'w+').write(json.dumps(ret['result'], indent=4))
+    if len(ret['result']) > 0:
+        open('doc/stopped.json', 'w+').write(json.dumps(ret['result'], indent=4))
     # print(json.dumps(ret, indent=4))
     ret = aria2.get_waiting_tasks()
     print(len(ret['result']))
-    open('waiting.json', 'w+').write(json.dumps(ret['result'], indent=4))
+    if len(ret['result']) > 0:
+        open('doc/waiting.json', 'w+').write(json.dumps(ret['result'], indent=4))
     # print(json.dumps(ret, indent=4))
+    ret = aria2.get_peers('3285cbc5437a7333')
+    print(json.dumps(ret['result'], indent=4))
     ret = aria2.get_active_tasks()
     print(len(ret['result']))
-    open('active.json', 'w+').write(json.dumps(ret['result'], indent=4))
+    if len(ret['result']) > 0:
+        open('doc/active.json', 'w+').write(json.dumps(ret['result'], indent=4))
     # print(json.dumps(ret, indent=4))

@@ -50,8 +50,9 @@ class SystemSettings:
 class UiSetting(QWidget):
 
     def __init__(self, parent):
-        super(UiSetting, self).__init__(parent)
-        self.settings = parent.download_manager.settings
+        super().__init__(parent)
+        dm = gl.get_value('dm')
+        self.settings = dm.settings
         self.setObjectName('UiSetting')
         
         self.setWindowTitle("配置")
@@ -71,6 +72,15 @@ class UiSetting(QWidget):
         self.main_layout.addWidget(self.spin_refresh, row, 1)
         label_sec = QLabel('秒')
         self.main_layout.addWidget(label_sec, row, 2)
+        row = row + 1
+
+        label_name = QLabel("下载目录")
+        self.main_layout.addWidget(label_name, row, 0)
+        self.edit_download_folder = QLineEdit()
+        self.main_layout.addWidget(self.edit_download_folder, row, 1, 1, 3)
+        self.button_select_download_folder = QPushButton("...")
+        self.button_select_download_folder.clicked.connect(self.on_change_download_path)
+        self.main_layout.addWidget(self.button_select_download_folder, row, 4)
         row = row + 1
 
         self.radio_remote = QRadioButton("远程下载")
@@ -126,15 +136,6 @@ class UiSetting(QWidget):
         self.main_layout.addWidget(self.button_select_aria, row, 4)
         row = row + 1
 
-        label_name = QLabel("下载目录")
-        self.main_layout.addWidget(label_name, row, 1)
-        self.edit_download_folder = QLineEdit()
-        self.main_layout.addWidget(self.edit_download_folder, row, 2, 1, 2)
-        self.button_select_download_folder = QPushButton("...")
-        self.button_select_download_folder.clicked.connect(self.on_change_download_path)
-        self.main_layout.addWidget(self.button_select_download_folder, row, 4)
-        row = row + 1
-
         label_name = QLabel('Aric2参数：')
         self.main_layout.addWidget(label_name, row, 1, 1, 2, Qt.AlignTop)
         # row = row + 1
@@ -183,7 +184,7 @@ class UiSetting(QWidget):
     def close(self):
         dm = gl.get_value('dm')
         dm.main_wnd.left_widget.setCurrentRow(0)
-        super(UiSetting, self).close()
+        super().close()
 
     def on_ok(self):
         self.settings.values["REFRESH"] = self.spin_refresh.value()

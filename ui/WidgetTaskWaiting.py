@@ -9,15 +9,11 @@ class UITaskWaiting(UITask):
         super(UITaskWaiting, self).__init__(qss)
         self.setObjectName('TaskWaiting')
 
-        self.command_recover = QPushButton()
-        self.command_recover.setFixedWidth(32)
-        with open('./qss/command_button.qss', 'r') as f:
-            self.command_recover.setStyleSheet(f.read())
-        pm = QPixmap('./icons/recove.png')
-        self.command_recover.setIcon(QIcon(pm))
-        self.command_recover.setToolTip("恢复下载")
-        self.command_recover.clicked.connect(self._command)
-        self.commands.insertWidget(0, self.command_recover)
+        self.command_unpause = QPushButton()
+        self.command_unpause.setObjectName('CommandUnpause')
+        self.command_unpause.setToolTip("恢复下载")
+        self.command_unpause.clicked.connect(self._command)
+        self.commands.insertWidget(0, self.command_unpause)
 
         self.progress = QProgressBar()
         self.progress.setFormat("")
@@ -34,9 +30,10 @@ class UITaskWaiting(UITask):
         self.progress.setValue(int(val))
 
     def _command(self):
-        super(UITaskWaiting, self)._command()
-
         sender = self.sender()
-        if sender is self.command_recover:
+        if sender is self.command_unpause:
             aria2 = gl.get_value('aria2')
             aria2.unpause(self.task['gid'])
+            aria2.save_session()
+        else:
+            super()._command()
