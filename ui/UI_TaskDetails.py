@@ -390,7 +390,7 @@ class UiTaskDetails(QWidget):
                 continue
             self.table_peers.resizeColumnToContents(i)
             width = width + self.table_peers.columnWidth(i)
-        self.table_peers.setColumnWidth(1, self.table_peers.width() - width - 5)
+        self.table_peers.setColumnWidth(1, self.table_peers.width() - width - self.table_peers.columnCount() * 4 - 25)
 
     def _update_base_info(self, task, peers):
         if self.tab.tabText(self.tab.currentIndex()) != self.tab_title_infos:
@@ -447,7 +447,7 @@ class UiTaskDetails(QWidget):
                 continue
             self.base_info.resizeColumnToContents(i)
             width = width + self.base_info.columnWidth(i)
-        self.base_info.setColumnWidth(1, self.base_info.width() - width - 5)
+        self.base_info.setColumnWidth(1, self.base_info.width() - width - self.base_info.columnCount() * 4 - 25)
 
     def on_button_goto(self):
         sender = self.sender()
