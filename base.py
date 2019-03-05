@@ -24,10 +24,14 @@ if __name__ == '__main__':
     if len(ret['result']) > 0:
         open('doc/waiting.json', 'w+').write(json.dumps(ret['result'], indent=4))
     # print(json.dumps(ret, indent=4))
-    ret = aria2.get_peers('3285cbc5437a7333')
+    # ret = aria2.get_peers('3285cbc5437a7333')
     print(json.dumps(ret['result'], indent=4))
     ret = aria2.get_active_tasks()
     print(len(ret['result']))
     if len(ret['result']) > 0:
         open('doc/active.json', 'w+').write(json.dumps(ret['result'], indent=4))
+    for task in ret['result']:
+        if 'numSeeders' in task and int(task['numSeeders']) > 0:
+            peers = aria2.get_peers(task['gid'])
+            open('doc/peers.json', 'w+').write(json.dumps(peers['result'], indent=4))
     # print(json.dumps(ret, indent=4))

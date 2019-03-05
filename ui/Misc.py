@@ -18,6 +18,13 @@ def size2string(size_bytes):
     return "%.2f GB" % curr
 
 
+def choking2string(choking):
+    if choking == 'true':
+        return '阻塞'
+    else:
+        return '正常'
+
+
 def rm_dir(path):
     if os.path.isdir(path):
         for f in os.listdir(path):
@@ -25,3 +32,11 @@ def rm_dir(path):
         os.removedirs(path)
     else:
         os.unlink(path)
+
+
+def merged_dict(dict1, dict2):
+    for v in dict2:
+        if isinstance(dict2[v], dict):
+            merged_dict(dict1[v], dict2[v])
+        else:
+            dict1[v] = dict2[v]

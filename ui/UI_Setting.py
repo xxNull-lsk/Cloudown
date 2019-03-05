@@ -6,6 +6,7 @@ from PyQt5.QtGui import *
 import os
 import json
 import gl
+from ui.Misc import *
 
 
 class SystemSettings:
@@ -24,6 +25,7 @@ class SystemSettings:
             'DOWNLOAD_DIR': '${DOWNLOAD}',
             'SERVER_PORT': '6800',
             'SERVER_TOKEN': 'allan',
+            'KEEP_RUNNING': True
         },
         'REMOTE': {
             'SERVER_ADDRESS': '118.25.17.65:6800',  # '192.168.2.100:6800',
@@ -37,7 +39,8 @@ class SystemSettings:
         if not os.path.exists(self.file):
             return
         with open(self.file, 'r') as f:
-            self.values = json.loads(f.read())
+            values = json.loads(f.read())
+            merged_dict(self.values, values)
 
     def save(self):
         if self.file is None:
@@ -143,6 +146,10 @@ class UiSetting(QWidget):
         self.main_layout.addWidget(self.edit_aria2_params, row, 2, 1, 3)
         row = row + 1
 
+        self.checkbox_keep_running = QCheckBox('关闭时保持后台下载')
+        self.main_layout.addWidget(self.checkbox_keep_running, row, 1, 1, 2, Qt.AlignTop)
+        row = row + 1
+
         self.button_ok = QPushButton("确定")
         self.button_ok.setFixedHeight(32)
         self.button_ok.clicked.connect(self.on_ok)
@@ -168,6 +175,8 @@ class UiSetting(QWidget):
         folder = self.settings.values['LOCALE']["DOWNLOAD_DIR"]
         folder = folder.replace('${DOWNLOAD}', download_path)
         self.edit_download_folder.setText(folder)
+
+        self.checkbox_keep_running.setChecked(self.settings.values['LOCALE']["KEEP_RUNNING"])
         self.on_change_type()
 
     def on_change_type(self):
@@ -178,6 +187,7 @@ class UiSetting(QWidget):
         self.edit_aria2.setEnabled(self.radio_local.isChecked())
         self.edit_locale_token.setEnabled(self.radio_local.isChecked())
         self.edit_locale_port.setEnabled(self.radio_local.isChecked())
+        self.checkbox_keep_running.setEnabled(self.radio_local.isChecked())
         self.edit_remote_addr.setEnabled(self.radio_remote.isChecked())
         self.edit_remote_token.setEnabled(self.radio_remote.isChecked())
 
@@ -202,6 +212,7 @@ class UiSetting(QWidget):
         for line in params.split('\n'):
             self.settings.values['LOCALE']['PARAMS'].append(line)
         self.settings.values['LOCALE']["DOWNLOAD_DIR"] = self.edit_download_folder.text()
+        self.settings.values['LOCALE']['KEEP_RUNNING'] = self.checkbox_keep_running.isChecked()
         self.settings.save()
         gl.get_value('dm').init_aria2()
         self.close()

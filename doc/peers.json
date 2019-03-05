@@ -1,0 +1,13 @@
+[
+    {
+        "amChoking": "true",
+        "bitfield": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc",
+        "downloadSpeed": "4842",
+        "ip": "222.186.37.46",
+        "peerChoking": "false",
+        "peerId": "%2DUT2040%2D%B7Y%CC%2C%27%21%D9%E3%D3%EB%E8%0C",
+        "port": "64930",
+        "seeder": "true",
+        "uploadSpeed": "0"
+    }
+]

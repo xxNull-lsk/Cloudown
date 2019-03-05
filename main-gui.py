@@ -43,6 +43,9 @@ class DownloadManager:
             logging.info('local aria2 stopped')
 
     def stop_local_aria2(self):
+        if self.settings.values["LOCALE"]["KEEP_RUNNING"]:
+            return
+
         if self.aria2 is None:
             return
         try:

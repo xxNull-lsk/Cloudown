@@ -64,19 +64,18 @@ class UiProgress(QWidget):
         qp.begin(self)
         qp.fillRect(rt, QColor(0xff, 0xff, 0xff))
         if self.bitfield is not None:
-            c = int(self.bitfield.total_blocks / size.width())
+            c = int(size.width() / self.bitfield.total_blocks)
             if c == 0:
                 c = 1
-            for i in range(0, self.bitfield.total_blocks, c):
+            for i in range(0, size.width()):
                 count = 0
-                for x in range(i, i + c):
-                    if self.bitfield.is_set(i):
+                index_in_blocks = int(i * self.bitfield.total_blocks / size.width())
+                for x in range(index_in_blocks, index_in_blocks + c):
+                    if self.bitfield.is_set(x):
                         count = count + 1
                 pen = QPen(QColor(34, 139, 34, int(count * 255 / c)), 1, Qt.SolidLine)
                 qp.setPen(pen)
-                x = int(i * size.width() / self.bitfield.total_blocks)
-                if self.bitfield.is_set(i):
-                    qp.drawLine(x, 0, x, size.height() - 1)
+                qp.drawLine(i, 0, i, size.height() - 1)
         pen = QPen(Qt.black, 1, Qt.SolidLine)
         qp.setPen(pen)
         qp.drawRect(rt)
@@ -84,6 +83,14 @@ class UiProgress(QWidget):
 
 
 class UiTaskDetails(QWidget):
+    tab_title_peers = '连接信息'
+    tab_title_servers = '服务器列表'
+    tab_title_blocks = '区块'
+    tab_title_infos = '总览'
+    tab_title_files = '文件'
+    tab_title_orgdata = '原始数据'
+    backup_tasks = []
+
     def __init__(self, parent):
         self.task = None
         super(UiTaskDetails, self).__init__(parent)
@@ -96,7 +103,8 @@ class UiTaskDetails(QWidget):
         main_layout.addWidget(self.tab)
 
         self.base_info = QTableWidget()
-        self.tab.addTab(self.base_info, "总览")
+        self.tab.addTab(self.base_info, self.tab_title_infos)
+        self.tab.currentChanged.connect(self.on_tab_changed)
 
         blocks_info = QLabel()
         self.col_count = 80
@@ -108,18 +116,17 @@ class UiTaskDetails(QWidget):
         vbox.addWidget(scroll)
         vbox.setSpacing(0)
 
-        blocks = QWidget()
-        blocks.setLayout(vbox)
-        self.tab.addTab(blocks, "区块")
+        self.blocks = QWidget()
+        self.blocks.setLayout(vbox)
 
         self.blocks_layout = QGridLayout()
         self.blocks_layout.setSpacing(1)
         blocks_info.setLayout(self.blocks_layout)
 
         self.files_info = QTableWidget()
-        self.tab.addTab(self.files_info, "文件")
+        self.tab.addTab(self.files_info, self.tab_title_files)
 
-        self.base_info.setColumnCount(2)
+        self.base_info.setColumnCount(3)
         self.base_info.verticalHeader().hide()
         self.base_info.horizontalHeader().hide()
         self.base_info.setEditTriggers(QAbstractItemView.NoEditTriggers)
@@ -127,18 +134,25 @@ class UiTaskDetails(QWidget):
         heads = ["文件", "总计大小", "已完成大小", "进度", '操作']
         self.files_info.setColumnCount(len(heads))
         self.files_info.setHorizontalHeaderLabels(heads)
-        self.files_info.verticalHeader().hide()
         self.files_info.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.t = QTimer()
         self.t.setInterval(1000)
         self.t.timeout.connect(self._refresh_task)
 
         self.table_peers = QTableWidget()
-        heads = ['地址', '状态', '进度', '下载速度', '上传速度']
+        heads = ['地址', '状态', '进度', '下载速度', '下载状态', '上传速度', '上传状态']
         self.table_peers.setColumnCount(len(heads))
         self.table_peers.setHorizontalHeaderLabels(heads)
-        self.table_peers.verticalHeader().hide()
         self.table_peers.setEditTriggers(QAbstractItemView.NoEditTriggers)
+
+        self.edit_origins = QTextEdit()
+        self.edit_origins.setReadOnly(True)
+        self.tab.addTab(self.edit_origins, self.tab_title_orgdata)
+
+        self.table_servers = QTableWidget()
+        self.table_servers.setColumnCount(1)
+        self.table_servers.horizontalHeader().hide()
+        self.table_servers.setEditTriggers(QAbstractItemView.NoEditTriggers)
 
         self._init_blocks_ui()
 
@@ -157,38 +171,102 @@ class UiTaskDetails(QWidget):
                 self.blocks_layout.addWidget(block_item, row, col)
 
     def _refresh_task(self):
-        self.t.stop()
         aria2 = gl.get_value('aria2')
         if aria2 is None:
             return
         try:
             ret = aria2.get_status(self.task['gid'])
             self.update_task(ret['result'])
-            self.t.start()
         except Exception as err:
             logging.error('_refresh_task: {}'.format(err))
 
     def update_task(self, task):
+        self.t.stop()
+
+        # 查看原始数据时不刷新，以防止查过时发生变化，无法分析。
+        if self.tab.tabText(self.tab.currentIndex()) != self.tab_title_orgdata:
+            self.edit_origins.setText(json.dumps(task, indent=4))
+
         self.task = task
         peer_tab_index = -1
+        server_tab_index = -1
+        block_tab_index = -1
         for i in range(0, self.tab.count()):
-            if self.tab.tabText(i) == '连接信息':
+            if self.tab.tabText(i) == self.tab_title_peers:
                 peer_tab_index = i
-                break
-        if 'bittorrent' not in task:
-            if peer_tab_index >= 0:
-                self.tab.removeTab(peer_tab_index)
-        elif peer_tab_index < 0:
-            peer_tab_index = self.tab.addTab(self.table_peers, '连接信息')
+            elif self.tab.tabText(i) == self.tab_title_servers:
+                server_tab_index = i
+            elif self.tab.tabText(i) == self.tab_title_blocks:
+                block_tab_index = i
+
+        need_server_tab = False
+        if 'bittorrent' in task and 'announceList' in task:
+            need_server_tab = True
+
+        if server_tab_index >= 0 and not need_server_tab:
+            self.tab.removeTab(server_tab_index)
+            server_tab_index = -1
+        if server_tab_index < 0 and need_server_tab:
+            server_tab_index = self.tab.addTab(self.table_servers, self.tab_title_servers)
+
+        need_peers_tab = False
+        if 'bittorrent' in task and task['status'] == 'active':
+            need_peers_tab = True
+
+        if peer_tab_index >= 0 and not need_peers_tab:
+            self.tab.removeTab(peer_tab_index)
+            peer_tab_index = -1
+
+        if peer_tab_index < 0 and need_peers_tab:
+            peer_tab_index = self.tab.addTab(self.table_peers, self.tab_title_peers)
+
+        if 'bitfield' not in task:
+            if block_tab_index >= 0:
+                self.tab.removeTab(block_tab_index)
+                block_tab_index = -1
+        else:
+            if block_tab_index < 0:
+                block_tab_index = self.tab.addTab(self.blocks, self.tab_title_blocks)
+
         if peer_tab_index >= 0:
-            self._update_peers(task)
-        self._update_base_info(task)
-        self._update_blocks(task)
+            try:
+                aria2 = gl.get_value('aria2')
+                ret = aria2.get_peers(task['gid'])
+                peers = ret['result']
+                self._update_peers(task, peers)
+            except:
+                pass
+        else:
+            peers = None
+
+        if server_tab_index >= 0:
+            self._update_servers(task)
+
+        if block_tab_index >= 0:
+            self._update_blocks(task)
+
+        self._update_base_info(task, peers)
         self._update_files(task)
-        if not self.t.isActive():
+        if task['status'] == 'active' and not self.t.isActive():
             self.t.start()
 
+    def _update_servers(self, task):
+        if self.tab.tabText(self.tab.currentIndex()) != self.tab_title_servers:
+            return
+        if 'bittorrent' not in task:
+            return
+        if 'announceList' not in task['bittorrent']:
+            return
+        announce_list = task['bittorrent']['announceList']
+        self.table_servers.setRowCount(len(announce_list))
+        for i in range(0, len(announce_list)):
+            item = announce_list[i][0]
+            self.table_servers.setItem(i, 0, QTableWidgetItem(str(item)))
+        self.table_servers.resizeColumnsToContents()
+
     def _update_files(self, task):
+        if self.tab.tabText(self.tab.currentIndex()) != self.tab_title_files:
+            return
         files = task['files']
         self.files_info.setRowCount(len(files))
         for i in range(0, len(files)):
@@ -230,6 +308,8 @@ class UiTaskDetails(QWidget):
         os.system('explorer /e,/select,{}'.format(os.path.abspath(file)))
 
     def _update_blocks(self, task):
+        if self.tab.tabText(self.tab.currentIndex()) != self.tab_title_blocks:
+            return
         if task is None or 'bitfield' not in task:
             return
         bitfield = task['bitfield']
@@ -264,6 +344,7 @@ class UiTaskDetails(QWidget):
         for i in range(0, len(infos)):
             self.table_peers.setItem(row, i, QTableWidgetItem(infos[i]))
             self.table_peers.setItem(row, i, QTableWidgetItem(infos[i]))
+            self.table_peers.setItem(row, i, QTableWidgetItem(infos[i]))
             if i == 1:
                 progress = self.table_peers.cellWidget(row, i)
                 if progress is None:
@@ -271,10 +352,9 @@ class UiTaskDetails(QWidget):
                     self.table_peers.setCellWidget(row, i, progress)
                 progress.set_mask(bitfield)
 
-    def _update_peers(self, task):
-        aria2 = gl.get_value('aria2')
-        ret = aria2.get_peers(task['gid'])
-        peers = ret['result']
+    def _update_peers(self, task, peers):
+        if self.tab.tabText(self.tab.currentIndex()) != self.tab_title_peers:
+            return
         self.table_peers.setRowCount(len(peers) + 1)
         if 'bitfield' in task:
             bitfield = BitField(task['bitfield'], int(task['numPieces']))
@@ -285,7 +365,9 @@ class UiTaskDetails(QWidget):
             '',
             bitfield.finish_percent,
             '{}/s'.format(size2string(task['downloadSpeed'])),
-            '{}/s'.format(size2string(task['uploadSpeed']))
+            '',
+            '{}/s'.format(size2string(task['uploadSpeed'])),
+            ''
         ]
         self._update_peer(0, infos, bitfield)
         for row in range(0, len(peers)):
@@ -297,18 +379,28 @@ class UiTaskDetails(QWidget):
                 '',
                 bitfield.finish_percent,
                 '{}/s'.format(size2string(p['downloadSpeed'])),
-                '{}/s'.format(size2string(p['uploadSpeed']))
+                choking2string(p['peerChoking']),
+                '{}/s'.format(size2string(p['uploadSpeed'])),
+                choking2string(p['amChoking'])
             ]
             self._update_peer(row, infos, bitfield)
-        self.table_peers.resizeColumnsToContents()
+        width = 0
+        for i in range(0, self.table_peers.columnCount()):
+            if i == 1:
+                continue
+            self.table_peers.resizeColumnToContents(i)
+            width = width + self.table_peers.columnWidth(i)
+        self.table_peers.setColumnWidth(1, self.table_peers.width() - width - 5)
 
-    def _update_base_info(self, task):
+    def _update_base_info(self, task, peers):
+        if self.tab.tabText(self.tab.currentIndex()) != self.tab_title_infos:
+            return
         infos = [
             {'k': "gid", 'v': task['gid']},
-            {'k': "文件大小", 'v': size2string(task['totalLength'])},
             {'k': "下载目录", 'v': task['dir']},
             {'k': "状态", 'v': task['status']},
             {'k': "连接数", 'v': task['connections']},
+            {'k': "文件大小", 'v': size2string(task['totalLength'])},
             {'k': "下载大小", 'v': size2string(task['completedLength'])},
             {'k': "下载速度", 'v': "{}/s".format(size2string(task['downloadSpeed']))},
             {'k': "上传大小", 'v': size2string(task['uploadLength'])},
@@ -317,15 +409,71 @@ class UiTaskDetails(QWidget):
             {'k': "分片大小", 'v': size2string(task['pieceLength'])},
             {'k': "文件数", 'v': "{}".format(len(task['files']))},
         ]
+        if 'numSeeders' in task:
+            infos.append({'k': '发送者数量', 'v': task['numSeeders']})
+            if peers is not None:
+                health = 0
+                for p in peers:
+                    if 'bitfield' not in p:
+                        continue
+                    bit = BitField(p['bitfield'])
+                    if int(bit.total_blocks) == 0:
+                        continue
+                    health = health + int(bit.finish_blocks) * 100 / int(bit.total_blocks)
+                infos.append({'k': '健康度', 'v': '%.2f%%' % health})
+        if 'following' in task:
+            infos.append({'k': '父任务', 'v': task['following']})
+        if 'followedBy' in task:
+            for f in task['followedBy']:
+                infos.append({'k': '子任务', 'v': f})
+        if 'infoHash' in task:
+            infos.append({'k': 'Hash', 'v': task['infoHash']})
         self.base_info.setRowCount(len(infos))
         for i in range(0, len(infos)):
             self.base_info.setItem(i, 0, QTableWidgetItem(infos[i]['k']))
             self.base_info.setItem(i, 1, QTableWidgetItem(infos[i]['v']))
-        self.base_info.resizeColumnsToContents()
+            if infos[i]['k'] in ('父任务', '子任务'):
+                self.base_info.setItem(i, 2, QTableWidgetItem(''))
+                button_goto = QPushButton('查看')
+                button_goto.setWhatsThis(infos[i]['v'])
+                button_goto.clicked.connect(self.on_button_goto)
+                self.base_info.setCellWidget(i, 2, button_goto)
+            else:
+                self.base_info.removeCellWidget(i, 2)
 
-        self.base_info.setColumnWidth(1, self.base_info.width() - self.base_info.columnWidth(0))
+        width = 0
+        for i in range(0, self.base_info.columnCount()):
+            if i == 1:
+                continue
+            self.base_info.resizeColumnToContents(i)
+            width = width + self.base_info.columnWidth(i)
+        self.base_info.setColumnWidth(1, self.base_info.width() - width - 5)
+
+    def on_button_goto(self):
+        sender = self.sender()
+        self.backup_tasks.append(self.task['gid'])
+        self.goto(sender.whatsThis())
+
+    def goto(self, gid):
+        if len(self.backup_tasks) > 0:
+            self.button_back.setText('<<返回 ({})'.format(len(self.backup_tasks)))
+        else:
+            self.button_back.setText('<<返回')
+        aria2 = gl.get_value('aria2')
+        ret = aria2.get_status(gid)
+        self.update_task(ret['result'])
 
     def on_back(self):
-        dm = gl.get_value('dm')
-        self.t.stop()
-        dm.main_wnd.show_normal()
+        task_count = len(self.backup_tasks)
+        if task_count == 0:
+            dm = gl.get_value('dm')
+            self.t.stop()
+            dm.main_wnd.show_normal()
+            return
+        last = self.backup_tasks[task_count - 1]
+        self.backup_tasks.pop(task_count - 1)
+        self.goto(last)
+
+    def on_tab_changed(self, index):
+        self.update_task(self.task)
+

@@ -142,7 +142,10 @@ class UITask(QWidget):
                 aria2.remove(self.task['gid'])
 
                 while True:
-                    ret = aria2.get_status(self.task['gid'])
+                    try:
+                        ret = aria2.get_status(self.task['gid'])
+                    except:
+                        break
                     if ret['result']['status'] == 'removed':
                         break
                     time.sleep(0.5)

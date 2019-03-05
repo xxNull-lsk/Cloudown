@@ -14,7 +14,7 @@ class Aria2:
         else:
             self.token = None
 
-    def add_uri(self, uri, dest_path):
+    def add_uri(self, uri, dest_path, pause=False, max_concurrent_downloads=0):
         req = {
             'jsonrpc': '2.0',
             'id': self.id,
@@ -22,11 +22,15 @@ class Aria2:
             'params': [
                 [uri],
                 {
-                    'refer': uri,
+                    'referer': uri,
                     'dir': dest_path
                 }
             ]
         }
+        if pause:
+            req['params'][1]['pause'] = 'true'
+        if max_concurrent_downloads > 0:
+            req['params'][1]['max-concurrent-downloads'] = max_concurrent_downloads
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')

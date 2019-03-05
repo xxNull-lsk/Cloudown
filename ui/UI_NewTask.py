@@ -8,6 +8,7 @@ import gl
 
 class UiNewTask(QWidget):
     aria2 = None
+    bt_text = "拖放种子文件的到此处，或点击按钮选择种子文件"
 
     def __init__(self, parent):
         super(UiNewTask, self).__init__(parent)
@@ -18,15 +19,14 @@ class UiNewTask(QWidget):
         main_layout = QVBoxLayout(self)
 
         self.top_list = QTabWidget()
-        with open("./qss/ui_new_task_tab.qss", 'r') as f:
-            self.top_list.setStyleSheet(f.read())
+        self.top_list.tabBar().setObjectName("NewTaskTab")
         main_layout.addWidget(self.top_list)
 
         self.edit_url = QTextEdit()
         self.edit_url.setPlaceholderText("每行一个链接")
         self.top_list.addTab(self.edit_url, "下载链接")
 
-        self.button_bt_file = QPushButton("拖放种子文件的到此处，或点击按钮选择种子文件")
+        self.button_bt_file = QPushButton(self.bt_text)
         self.button_bt_file.setObjectName("SelectBtFile")
         self.button_bt_file.clicked.connect(self.on_select_bt_file)
         self.top_list.addTab(self.button_bt_file, "BT文件")
@@ -117,13 +117,17 @@ class UiNewTask(QWidget):
         save_path = self.edit_save_path.text()
         if self.top_list.currentIndex() == 0:
             urls = self.edit_url.toPlainText().split('\n')
+            if len(urls) <= 0:
+                return
             for url in urls:
-                self.aria2.add_uri(url, save_path)
+                self.aria2.add_uri(url, save_path, False, self.spin_thread_count.value())
             self.edit_url.setText('')
         else:
             bt_file = self.button_bt_file.text()
+            if self.bt_text == bt_file:
+                return
             self.aria2.add_torrent(bt_file)
-            self.button_select_folder.setText("拖放种子文件的到此处，或点击按钮选择种子文件")
+            self.button_select_folder.setText(self.bt_text)
 
         self.aria2.save_session()
         self.close()
