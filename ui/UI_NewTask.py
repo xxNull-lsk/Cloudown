@@ -122,7 +122,8 @@ class UiNewTask(QWidget):
             self.edit_url.setText('')
         else:
             bt_file = self.button_bt_file.text()
-            self.aria2.add_torrent(bt_file, save_path)
+            self.aria2.add_torrent(bt_file)
+            self.button_select_folder.setText("拖放种子文件的到此处，或点击按钮选择种子文件")
 
         self.aria2.save_session()
         self.close()

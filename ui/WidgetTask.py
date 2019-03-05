@@ -6,8 +6,9 @@ from PyQt5.QtGui import *
 from ui.Misc import *
 import os
 import gl
-import shutil
+import _thread
 import logging
+import time
 
 
 class UITask(QWidget):
@@ -91,6 +92,18 @@ class UITask(QWidget):
             file_name = font_metrics.elidedText(file_name, Qt.ElideRight, self.label_filename.width())
         self.label_filename.setText(file_name)
 
+    @staticmethod
+    def thread_delete_file(path):
+        logging.info('deleting {0}'.format(path))
+        if not os.path.exists(path):
+            logging.error('not exist {0}'.format(path))
+
+        try:
+            rm_dir(path)
+            logging.info('deleting {0} successed'.format(path))
+        except Exception as err:
+            logging.error('delete {0} failed!{1}'.format(path, err))
+
     def _command(self):
         sender = self.sender()
         dm = gl.get_value('dm')
@@ -111,33 +124,31 @@ class UITask(QWidget):
         elif sender is self.command_delete:
             if QMessageBox.question(self, "警告", "确认要删除该任务？", QMessageBox.Ok | QMessageBox.No) == QMessageBox.No:
                 return
-            # TODO: 删除文件
+            is_detect_file = False
+            if dm.settings.values['IS_LOCALE']:
+                file_name = self.get_task_name(self.task)
+                path = os.path.join(self.task['dir'], file_name)
+                path = os.path.abspath(path)
+                if os.path.exists(path) and \
+                        QMessageBox.question(self,
+                                             "询问",
+                                             "确认要删除该任务的文件（{}）吗？".format(path),
+                                             QMessageBox.Yes | QMessageBox.No) == QMessageBox.Yes:
+                    is_detect_file = True
+            else:
+                path = ''
             aria2 = gl.get_value('aria2')
             if self.task["status"] in ('active', 'waiting', 'paused'):
                 aria2.remove(self.task['gid'])
-                if dm.settings.values['IS_LOCALE']:
-                    file_name = self.get_task_name(self.task)
-                    path = os.path.join(self.task['dir'], file_name)
-                    path = os.path.abspath(path)
 
-                    logging.info('deleting {0}'.format(path))
-                    # NOTE: 这儿删除文件时有BUG
-                    if os.path.exists(path) and\
-                            QMessageBox.question(self,
-                                                 "询问",
-                                                 "确认要删除该任务的文件（{}）吗？".format(path),
-                                                 QMessageBox.Ok | QMessageBox.No) == QMessageBox.No:
-                        return
-                    try:
-                        if os.path.isdir(path):
-                            os.removedirs(path)
-                        else:
-                            os.remove(path)
-                        logging.info('deleting {0} successed'.format(path))
-                    except Exception as err:
-                        logging.error('delete {0} failed!{1}'.format(path, err))
-                # aria2.remove_stoped(self.task['gid'])
-            else:
-                aria2.remove_stoped(self.task['gid'])
+                while True:
+                    ret = aria2.get_status(self.task['gid'])
+                    if ret['result']['status'] == 'removed':
+                        break
+                    time.sleep(0.5)
+
+            aria2.remove_stoped(self.task['gid'])
+            if is_detect_file:
+                _thread.start_new_thread(self.thread_delete_file, (path, ))
         aria2 = gl.get_value('aria2')
         aria2.save_session()

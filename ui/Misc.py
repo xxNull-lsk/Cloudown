@@ -18,8 +18,10 @@ def size2string(size_bytes):
     return "%.2f GB" % curr
 
 
-def rm_file(path):
+def rm_dir(path):
     if os.path.isdir(path):
         for f in os.listdir(path):
-            rm_file(os.path.join(path, f))
+            rm_dir(os.path.join(path, f))
         os.removedirs(path)
+    else:
+        os.unlink(path)

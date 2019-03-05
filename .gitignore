@@ -1,2 +1,4 @@
 __pycache__
 .idea
+/setting.json
+/aria2-pyui.log
