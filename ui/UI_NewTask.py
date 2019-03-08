@@ -78,6 +78,7 @@ class UiNewTask(QWidget):
             self._sync_status()
 
     def _sync_status(self):
+        dm = gl.get_value('dm')
         self.aria2 = gl.get_value('aria2')
         if self.aria2 is None:
             options = None
@@ -94,6 +95,8 @@ class UiNewTask(QWidget):
         else:
             self.edit_save_path.setText(options['dir'])
             self.spin_thread_count.setValue(int(options['max-concurrent-downloads']))
+        if not dm.settings.values['IS_LOCALE']:
+            self.button_select_folder.setEnabled(False)
 
         self.setWindowModality(Qt.ApplicationModal)
 

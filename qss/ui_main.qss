@@ -1,22 +1,29 @@
 QLabel#download_list {
     image: url(icons/download_list.png);
     padding: 10px;
-    min-width: 120px;
-    max-width: 120px;
+    min-width: 100px;
+    max-width: 100px;
 }
 
 QLabel#new_task {
     image: url(icons/new_task.png);
     padding: 10px;
-    min-width: 120px;
-    max-width: 120px;
+    min-width: 100px;
+    max-width: 100px;
 }
 
 QLabel#settings {
     image: url(icons/settings.png);
     padding: 10px;
-    min-width: 120px;
-    max-width: 120px;
+    min-width: 100px;
+    max-width: 100px;
+}
+
+QLabel#about {
+    image: url(icons/about.png);
+    padding: 10px;
+    min-width: 100px;
+    max-width: 100px;
 }
 
 QListWidget {
@@ -228,7 +235,6 @@ QPushButton#CommandPause:hover {
 }
 
 
-
 QPushButton#CommandUnpause {
     max-width: 32px;
     min-width: 32px;
@@ -269,4 +275,23 @@ QTabBar#NewTaskTab::tab:selected {
     background: lightblue;
     border-top: None;
     border-bottom: 5px solid red;
+}
+
+QTabBar#TaskDetailsTab::tab {
+    min-height: 42px;
+    min-width: 140px;
+    font-size: 18px;
+    border: None;
+    border-bottom: 2px solid #EFEFEF;
+}
+
+QTabBar#TaskDetailsTab::tab:hover {
+    background: lightblue;
+    border-bottom: 2px solid #C2C7CB;
+}
+
+QTabBar#TaskDetailsTab::tab:selected {
+    background: lightblue;
+    border-top: None;
+    border-bottom: 2px solid red;
 }

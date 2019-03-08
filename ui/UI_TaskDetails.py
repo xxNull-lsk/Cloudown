@@ -63,7 +63,7 @@ class UiProgress(QWidget):
         rt = QRect(0, 0, size.width() - 1, size.height() - 1)
         qp.begin(self)
         qp.fillRect(rt, QColor(0xff, 0xff, 0xff))
-        if self.bitfield is not None:
+        if self.bitfield is not None and self.bitfield.total_blocks > 0:
             c = int(size.width() / self.bitfield.total_blocks)
             if c == 0:
                 c = 1
@@ -83,7 +83,7 @@ class UiProgress(QWidget):
 
 
 class UiTaskDetails(QWidget):
-    tab_title_peers = '连接信息'
+    tab_title_peers = 'BT客户端'
     tab_title_servers = '服务器列表'
     tab_title_blocks = '区块'
     tab_title_infos = '总览'
@@ -95,16 +95,17 @@ class UiTaskDetails(QWidget):
         self.task = None
         super(UiTaskDetails, self).__init__(parent)
         main_layout = QVBoxLayout(self)
-        self.button_back = QPushButton("<<返回")
-        self.button_back.setFixedWidth(160)
-        self.button_back.clicked.connect(self.on_back)
-        main_layout.addWidget(self.button_back)
         self.tab = QTabWidget()
+        self.tab.tabBar().setObjectName('TaskDetailsTab')
         main_layout.addWidget(self.tab)
+
+        label = QLabel()
+        self.tab.addTab(label, '<<返回')
 
         self.base_info = QTableWidget()
         self.tab.addTab(self.base_info, self.tab_title_infos)
         self.tab.currentChanged.connect(self.on_tab_changed)
+        self.tab.tabBarClicked.connect(self.on_tab_clicked)
 
         blocks_info = QLabel()
         self.col_count = 80
@@ -155,6 +156,7 @@ class UiTaskDetails(QWidget):
         self.table_servers.setEditTriggers(QAbstractItemView.NoEditTriggers)
 
         self._init_blocks_ui()
+        self.tab.setCurrentIndex(1)
 
     def _init_blocks_ui(self):
         col_count = self.col_count
@@ -182,11 +184,13 @@ class UiTaskDetails(QWidget):
 
     def update_task(self, task):
         self.t.stop()
-
+        if task is None:
+            return
         # 查看原始数据时不刷新，以防止查过时发生变化，无法分析。
         if self.tab.tabText(self.tab.currentIndex()) != self.tab_title_orgdata:
             self.edit_origins.setText(json.dumps(task, indent=4))
-
+        if self.tab.currentIndex() == 0:
+            self.tab.setCurrentIndex(1)
         self.task = task
         peer_tab_index = -1
         server_tab_index = -1
@@ -452,13 +456,13 @@ class UiTaskDetails(QWidget):
     def on_button_goto(self):
         sender = self.sender()
         self.backup_tasks.append(self.task['gid'])
-        self.goto(sender.whatsThis())
+        self._goto_task(sender.whatsThis())
 
-    def goto(self, gid):
+    def _goto_task(self, gid):
         if len(self.backup_tasks) > 0:
-            self.button_back.setText('<<返回 ({})'.format(len(self.backup_tasks)))
+            self.tab.setTabText(0, '<<返回 ({})'.format(len(self.backup_tasks)))
         else:
-            self.button_back.setText('<<返回')
+            self.tab.setTabText(0, '<<返回')
         aria2 = gl.get_value('aria2')
         ret = aria2.get_status(gid)
         self.update_task(ret['result'])
@@ -472,7 +476,11 @@ class UiTaskDetails(QWidget):
             return
         last = self.backup_tasks[task_count - 1]
         self.backup_tasks.pop(task_count - 1)
-        self.goto(last)
+        self._goto_task(last)
+
+    def on_tab_clicked(self, index):
+        if index == 0:
+            self.on_back()
 
     def on_tab_changed(self, index):
         self.update_task(self.task)

@@ -1,12 +1,12 @@
 [
     {
         "amChoking": "true",
-        "bitfield": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc",
-        "downloadSpeed": "4842",
-        "ip": "222.186.37.46",
+        "bitfield": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff8",
+        "downloadSpeed": "4575",
+        "ip": "95.76.93.198",
         "peerChoking": "false",
-        "peerId": "%2DUT2040%2D%B7Y%CC%2C%27%21%D9%E3%D3%EB%E8%0C",
-        "port": "64930",
+        "peerId": "%2DUT2200%2D%97%5C%B9%C1%E4%92%FD%C5%83w%ACF",
+        "port": "44963",
         "seeder": "true",
         "uploadSpeed": "0"
     }

@@ -88,7 +88,7 @@ class DownloadManager:
         try:
             self.aria2.get_version()
         except Exception as err:
-            print(err)
+            logging.error(str(err))
             self.aria2 = None
 
     def start(self):

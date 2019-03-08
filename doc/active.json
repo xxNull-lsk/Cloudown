@@ -1,6 +1,6 @@
 [
     {
-        "bitfield": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000",
+        "bitfield": "00000000000000000000000000000000000008000000000000000080000000000000000800000080000000020000000000000000000000000600000000000000000000020000000002000000000804000000000800008000000041000000018000000000000000000000000000000000001000002000000000000008",
         "bittorrent": {
             "announceList": [
                 [
@@ -191,20 +191,736 @@
                 ]
             ],
             "info": {
-                "name": "\u7eff\u76ae\u4e66.Green.Book.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-MP4BA"
+                "name": "\u8c03\u7434\u5e08.Andhadhun.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-RARBT"
             },
             "mode": "multi"
         },
-        "completedLength": "8077312",
+        "completedLength": "95454965",
         "connections": "1",
         "dir": "D:/Users/Downloads",
-        "downloadSpeed": "4852",
+        "downloadSpeed": "2823",
+        "files": [
+            {
+                "completedLength": "0",
+                "index": "1",
+                "length": "47",
+                "path": "D:/Users/Downloads/\u8c03\u7434\u5e08.Andhadhun.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-RARBT/[Download from www.RARBT.com][\u66f4\u591a\u7cbe\u5f69\u5c3d\u5728www.RARBT.com].nfo",
+                "selected": "true",
+                "uris": []
+            },
+            {
+                "completedLength": "0",
+                "index": "2",
+                "length": "269990",
+                "path": "D:/Users/Downloads/\u8c03\u7434\u5e08.Andhadhun.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-RARBT/RARBT_bt\u7535\u5f71_bt\u79cd\u5b50_\u7535\u5f71\u4e0b\u8f7d - RARBT\u4e2d\u6587\u5b57\u5e55\u7535\u5f71\u5929\u5802.html",
+                "selected": "true",
+                "uris": []
+            },
+            {
+                "completedLength": "0",
+                "index": "3",
+                "length": "369",
+                "path": "D:/Users/Downloads/\u8c03\u7434\u5e08.Andhadhun.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-RARBT/www.RARBT.com.txt",
+                "selected": "true",
+                "uris": []
+            },
+            {
+                "completedLength": "80217845",
+                "index": "4",
+                "length": "4144228015",
+                "path": "D:/Users/Downloads/\u8c03\u7434\u5e08.Andhadhun.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-RARBT/\u8c03\u7434\u5e08.Andhadhun.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-RARBT.mp4",
+                "selected": "true",
+                "uris": []
+            }
+        ],
+        "following": "7b1b26a5eae8864b",
+        "gid": "5a11bc5a8f33846a",
+        "infoHash": "808ea4f8aee58a85932c85f7b15cbeab31c2f63d",
+        "numPieces": "989",
+        "numSeeders": "1",
+        "pieceLength": "4194304",
+        "seeder": "false",
+        "status": "active",
+        "totalLength": "4144498421",
+        "uploadLength": "6029312",
+        "uploadSpeed": "0"
+    },
+    {
+        "bitfield": "0411020000000000000000000006400210300104800001020200000000040000000000001001350204000000040000800000000000004002104080000140108080200000002000000048002080000000",
+        "bittorrent": {
+            "announceList": [
+                [
+                    "udp://tracker.coppersurfer.tk:6969/announce"
+                ],
+                [
+                    "udp://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "http://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "udp://tracker.opentrackr.org:1337/announce"
+                ],
+                [
+                    "udp://9.rarbg.to:2710/announce"
+                ],
+                [
+                    "udp://exodus.desync.com:6969/announce"
+                ],
+                [
+                    "udp://explodie.org:6969/announce"
+                ],
+                [
+                    "http://explodie.org:6969/announce"
+                ],
+                [
+                    "udp://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "http://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "udp://public.popcorn-tracker.org:6969/announce"
+                ],
+                [
+                    "udp://ipv4.tracker.harry.lu:80/announce"
+                ],
+                [
+                    "udp://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "udp://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "udp://tracker.torrent.eu.org:451/announce"
+                ],
+                [
+                    "udp://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://open.stealth.si:80/announce"
+                ],
+                [
+                    "udp://open.demonii.si:1337/announce"
+                ],
+                [
+                    "udp://denis.stalker.upeer.me:6969/announce"
+                ],
+                [
+                    "udp://bt.xxx-tracker.com:2710/announce"
+                ],
+                [
+                    "http://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "http://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "http://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://tracker.tiny-vps.com:6969/announce"
+                ],
+                [
+                    "udp://zephir.monocul.us:6969/announce"
+                ],
+                [
+                    "udp://tracker.iamhansen.xyz:2000/announce"
+                ],
+                [
+                    "udp://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "udp://tracker.cyberia.is:6969/announce"
+                ],
+                [
+                    "udp://retracker.lanta-net.ru:2710/announce"
+                ],
+                [
+                    "http://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "http://torrent.nwps.ws:80/announce"
+                ],
+                [
+                    "http://open.acgnxtracker.com:80/announce"
+                ],
+                [
+                    "https://tracker.fastdownload.xyz:443/announce"
+                ],
+                [
+                    "https://opentracker.xyz:443/announce"
+                ],
+                [
+                    "http://tracker.city9x.com:2710/announce"
+                ],
+                [
+                    "http://opentracker.xyz:80/announce"
+                ],
+                [
+                    "http://open.trackerlist.xyz:80/announce"
+                ],
+                [
+                    "udp://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "udp://tracker.swateam.org.uk:2710/announce"
+                ],
+                [
+                    "udp://tracker.kamigami.org:2710/announce"
+                ],
+                [
+                    "udp://pubt.in:2710/announce"
+                ],
+                [
+                    "http://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "http://tracker.torrentyorg.pl:80/announce"
+                ],
+                [
+                    "http://t.nyaatracker.com:80/announce"
+                ],
+                [
+                    "http://retracker.mgts.by:80/announce"
+                ],
+                [
+                    "http://fxtt.ru:80/announce"
+                ],
+                [
+                    "http://agusiq-torrents.pl:6969/announce"
+                ],
+                [
+                    "wss://tracker.openwebtorrent.com:443/announce"
+                ],
+                [
+                    "wss://tracker.fastcast.nz:443/announce"
+                ],
+                [
+                    "wss://tracker.btorrent.xyz:443/announce"
+                ],
+                [
+                    "wss://ltrackr.iamhansen.xyz:443/announce"
+                ],
+                [
+                    "udp://tracker.justseed.it:1337/announce"
+                ],
+                [
+                    "udp://packages.crunchbangplusplus.org:6969/announce"
+                ],
+                [
+                    "https://1337.abcvg.info:443/announce"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce.php"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce"
+                ],
+                [
+                    "http://tracker.tfile.co:80/announce"
+                ],
+                [
+                    "http://share.camoe.cn:8080/announce"
+                ],
+                [
+                    "http://private.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://prestige.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://peersteers.org:80/announce"
+                ],
+                [
+                    "http://open.acgtracker.com:1096/announce"
+                ]
+            ],
+            "info": {
+                "name": "\u5370\u5ea6\u5408\u4f19\u4eba.Padman.2018.WEB-DL.1080P.X264.AAC.CHS-MiniBT"
+            },
+            "mode": "multi"
+        },
+        "completedLength": "185942016",
+        "connections": "4",
+        "dir": "D:/Users/Downloads",
+        "downloadSpeed": "4591",
+        "files": [
+            {
+                "completedLength": "184549376",
+                "index": "1",
+                "length": "2668616847",
+                "path": "D:/Users/Downloads/\u5370\u5ea6\u5408\u4f19\u4eba.Padman.2018.WEB-DL.1080P.X264.AAC.CHS-MiniBT/[www.minibt.com]\u5370\u5ea6\u5408\u4f19\u4eba.Padman.2018.WEB-DL.1080P.X264.AAC.CHS-MiniBT.mp4",
+                "selected": "true",
+                "uris": []
+            },
+            {
+                "completedLength": "0",
+                "index": "2",
+                "length": "247",
+                "path": "D:/Users/Downloads/\u5370\u5ea6\u5408\u4f19\u4eba.Padman.2018.WEB-DL.1080P.X264.AAC.CHS-MiniBT/\u8fdb\u5165www.MiniBT.com\u767e\u5ea6\u4e91\u7f51\u76d8\u79d2\u79bb\u7ebf.url",
+                "selected": "true",
+                "uris": []
+            },
+            {
+                "completedLength": "0",
+                "index": "3",
+                "length": "247",
+                "path": "D:/Users/Downloads/\u5370\u5ea6\u5408\u4f19\u4eba.Padman.2018.WEB-DL.1080P.X264.AAC.CHS-MiniBT/MiniBT\u6b22\u8fce\u60a8-\u53cc\u51fb\u8fdb\u5165\u9ad8\u6e05\u624b\u673a\u5f71\u89c6\u4e0b\u8f7d.url",
+                "selected": "true",
+                "uris": []
+            },
+            {
+                "completedLength": "0",
+                "index": "4",
+                "length": "210",
+                "path": "D:/Users/Downloads/\u5370\u5ea6\u5408\u4f19\u4eba.Padman.2018.WEB-DL.1080P.X264.AAC.CHS-MiniBT/[www.minibt.com][\u66f4\u591a\u7cbe\u5f69\u5c3d\u5728www.minibt.com].nfo",
+                "selected": "true",
+                "uris": []
+            },
+            {
+                "completedLength": "0",
+                "index": "5",
+                "length": "30",
+                "path": "D:/Users/Downloads/\u5370\u5ea6\u5408\u4f19\u4eba.Padman.2018.WEB-DL.1080P.X264.AAC.CHS-MiniBT/www.MiniBT.com \u514d\u8d23\u58f0\u660e.rtf",
+                "selected": "true",
+                "uris": []
+            }
+        ],
+        "following": "b3e62b50cf249853",
+        "gid": "9ff7d18602289ce6",
+        "infoHash": "965b3a91c683b93c38ca5797f588b67c032a1444",
+        "numPieces": "637",
+        "numSeeders": "1",
+        "pieceLength": "4194304",
+        "seeder": "false",
+        "status": "active",
+        "totalLength": "2668617581",
+        "uploadLength": "0",
+        "uploadSpeed": "0"
+    },
+    {
+        "bittorrent": {
+            "announceList": [
+                [
+                    "udp://tracker.coppersurfer.tk:6969/announce"
+                ],
+                [
+                    "udp://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "http://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "udp://tracker.opentrackr.org:1337/announce"
+                ],
+                [
+                    "udp://9.rarbg.to:2710/announce"
+                ],
+                [
+                    "udp://exodus.desync.com:6969/announce"
+                ],
+                [
+                    "udp://explodie.org:6969/announce"
+                ],
+                [
+                    "http://explodie.org:6969/announce"
+                ],
+                [
+                    "udp://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "http://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "udp://public.popcorn-tracker.org:6969/announce"
+                ],
+                [
+                    "udp://ipv4.tracker.harry.lu:80/announce"
+                ],
+                [
+                    "udp://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "udp://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "udp://tracker.torrent.eu.org:451/announce"
+                ],
+                [
+                    "udp://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://open.stealth.si:80/announce"
+                ],
+                [
+                    "udp://open.demonii.si:1337/announce"
+                ],
+                [
+                    "udp://denis.stalker.upeer.me:6969/announce"
+                ],
+                [
+                    "udp://bt.xxx-tracker.com:2710/announce"
+                ],
+                [
+                    "http://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "http://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "http://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://tracker.tiny-vps.com:6969/announce"
+                ],
+                [
+                    "udp://zephir.monocul.us:6969/announce"
+                ],
+                [
+                    "udp://tracker.iamhansen.xyz:2000/announce"
+                ],
+                [
+                    "udp://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "udp://tracker.cyberia.is:6969/announce"
+                ],
+                [
+                    "udp://retracker.lanta-net.ru:2710/announce"
+                ],
+                [
+                    "http://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "http://torrent.nwps.ws:80/announce"
+                ],
+                [
+                    "http://open.acgnxtracker.com:80/announce"
+                ],
+                [
+                    "https://tracker.fastdownload.xyz:443/announce"
+                ],
+                [
+                    "https://opentracker.xyz:443/announce"
+                ],
+                [
+                    "http://tracker.city9x.com:2710/announce"
+                ],
+                [
+                    "http://opentracker.xyz:80/announce"
+                ],
+                [
+                    "http://open.trackerlist.xyz:80/announce"
+                ],
+                [
+                    "udp://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "udp://tracker.swateam.org.uk:2710/announce"
+                ],
+                [
+                    "udp://tracker.kamigami.org:2710/announce"
+                ],
+                [
+                    "udp://pubt.in:2710/announce"
+                ],
+                [
+                    "http://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "http://tracker.torrentyorg.pl:80/announce"
+                ],
+                [
+                    "http://t.nyaatracker.com:80/announce"
+                ],
+                [
+                    "http://retracker.mgts.by:80/announce"
+                ],
+                [
+                    "http://fxtt.ru:80/announce"
+                ],
+                [
+                    "http://agusiq-torrents.pl:6969/announce"
+                ],
+                [
+                    "wss://tracker.openwebtorrent.com:443/announce"
+                ],
+                [
+                    "wss://tracker.fastcast.nz:443/announce"
+                ],
+                [
+                    "wss://tracker.btorrent.xyz:443/announce"
+                ],
+                [
+                    "wss://ltrackr.iamhansen.xyz:443/announce"
+                ],
+                [
+                    "udp://tracker.justseed.it:1337/announce"
+                ],
+                [
+                    "udp://packages.crunchbangplusplus.org:6969/announce"
+                ],
+                [
+                    "https://1337.abcvg.info:443/announce"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce.php"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce"
+                ],
+                [
+                    "http://tracker.tfile.co:80/announce"
+                ],
+                [
+                    "http://share.camoe.cn:8080/announce"
+                ],
+                [
+                    "http://private.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://prestige.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://peersteers.org:80/announce"
+                ],
+                [
+                    "http://open.acgtracker.com:1096/announce"
+                ]
+            ]
+        },
+        "completedLength": "0",
+        "connections": "0",
+        "dir": "D:/Users/Downloads",
+        "downloadSpeed": "0",
+        "files": [
+            {
+                "completedLength": "0",
+                "index": "1",
+                "length": "0",
+                "path": "[METADATA]c7ace11863446c2abdfbd63e36af35e4a2bddbbb",
+                "selected": "true",
+                "uris": []
+            }
+        ],
+        "gid": "586e523cf6b5684a",
+        "infoHash": "c7ace11863446c2abdfbd63e36af35e4a2bddbbb",
+        "numPieces": "0",
+        "numSeeders": "0",
+        "pieceLength": "16384",
+        "seeder": "false",
+        "status": "active",
+        "totalLength": "0",
+        "uploadLength": "0",
+        "uploadSpeed": "0"
+    },
+    {
+        "bitfield": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "bittorrent": {
+            "announceList": [
+                [
+                    "udp://tracker.coppersurfer.tk:6969/announce"
+                ],
+                [
+                    "udp://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "http://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "udp://tracker.opentrackr.org:1337/announce"
+                ],
+                [
+                    "udp://9.rarbg.to:2710/announce"
+                ],
+                [
+                    "udp://exodus.desync.com:6969/announce"
+                ],
+                [
+                    "udp://explodie.org:6969/announce"
+                ],
+                [
+                    "http://explodie.org:6969/announce"
+                ],
+                [
+                    "udp://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "http://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "udp://public.popcorn-tracker.org:6969/announce"
+                ],
+                [
+                    "udp://ipv4.tracker.harry.lu:80/announce"
+                ],
+                [
+                    "udp://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "udp://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "udp://tracker.torrent.eu.org:451/announce"
+                ],
+                [
+                    "udp://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://open.stealth.si:80/announce"
+                ],
+                [
+                    "udp://open.demonii.si:1337/announce"
+                ],
+                [
+                    "udp://denis.stalker.upeer.me:6969/announce"
+                ],
+                [
+                    "udp://bt.xxx-tracker.com:2710/announce"
+                ],
+                [
+                    "http://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "http://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "http://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://tracker.tiny-vps.com:6969/announce"
+                ],
+                [
+                    "udp://zephir.monocul.us:6969/announce"
+                ],
+                [
+                    "udp://tracker.iamhansen.xyz:2000/announce"
+                ],
+                [
+                    "udp://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "udp://tracker.cyberia.is:6969/announce"
+                ],
+                [
+                    "udp://retracker.lanta-net.ru:2710/announce"
+                ],
+                [
+                    "http://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "http://torrent.nwps.ws:80/announce"
+                ],
+                [
+                    "http://open.acgnxtracker.com:80/announce"
+                ],
+                [
+                    "https://tracker.fastdownload.xyz:443/announce"
+                ],
+                [
+                    "https://opentracker.xyz:443/announce"
+                ],
+                [
+                    "http://tracker.city9x.com:2710/announce"
+                ],
+                [
+                    "http://opentracker.xyz:80/announce"
+                ],
+                [
+                    "http://open.trackerlist.xyz:80/announce"
+                ],
+                [
+                    "udp://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "udp://tracker.swateam.org.uk:2710/announce"
+                ],
+                [
+                    "udp://tracker.kamigami.org:2710/announce"
+                ],
+                [
+                    "udp://pubt.in:2710/announce"
+                ],
+                [
+                    "http://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "http://tracker.torrentyorg.pl:80/announce"
+                ],
+                [
+                    "http://t.nyaatracker.com:80/announce"
+                ],
+                [
+                    "http://retracker.mgts.by:80/announce"
+                ],
+                [
+                    "http://fxtt.ru:80/announce"
+                ],
+                [
+                    "http://agusiq-torrents.pl:6969/announce"
+                ],
+                [
+                    "wss://tracker.openwebtorrent.com:443/announce"
+                ],
+                [
+                    "wss://tracker.fastcast.nz:443/announce"
+                ],
+                [
+                    "wss://tracker.btorrent.xyz:443/announce"
+                ],
+                [
+                    "wss://ltrackr.iamhansen.xyz:443/announce"
+                ],
+                [
+                    "udp://tracker.justseed.it:1337/announce"
+                ],
+                [
+                    "udp://packages.crunchbangplusplus.org:6969/announce"
+                ],
+                [
+                    "https://1337.abcvg.info:443/announce"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce.php"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce"
+                ],
+                [
+                    "http://tracker.tfile.co:80/announce"
+                ],
+                [
+                    "http://share.camoe.cn:8080/announce"
+                ],
+                [
+                    "http://private.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://prestige.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://peersteers.org:80/announce"
+                ],
+                [
+                    "http://open.acgtracker.com:1096/announce"
+                ]
+            ],
+            "info": {
+                "name": "\u8c03\u7434\u5e08.Andhadhun.2018.BD720P.X264.AAC.Hindi.CHS.Mp4Ba"
+            },
+            "mode": "multi"
+        },
+        "completedLength": "0",
+        "connections": "22",
+        "dir": "D:/Users/Downloads",
+        "downloadSpeed": "0",
         "files": [
             {
                 "completedLength": "0",
                 "index": "1",
                 "length": "27",
-                "path": "D:/Users/Downloads/\u7eff\u76ae\u4e66.Green.Book.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-MP4BA/\u66f4\u591a\u9ad8\u6e05\u8bf7\u8bbf\u95eewww.mp4ba.la.txt",
+                "path": "D:/Users/Downloads/\u8c03\u7434\u5e08.Andhadhun.2018.BD720P.X264.AAC.Hindi.CHS.Mp4Ba/\u66f4\u591a\u9ad8\u6e05\u8bf7\u8bbf\u95eewww.mp4ba.com.txt",
                 "selected": "true",
                 "uris": []
             },
@@ -212,44 +928,36 @@
                 "completedLength": "0",
                 "index": "2",
                 "length": "50",
-                "path": "D:/Users/Downloads/\u7eff\u76ae\u4e66.Green.Book.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-MP4BA/\u672c\u7ad9\u552f\u4e00\u57df\u540dwww.mp4ba.la.txt",
+                "path": "D:/Users/Downloads/\u8c03\u7434\u5e08.Andhadhun.2018.BD720P.X264.AAC.Hindi.CHS.Mp4Ba/\u672c\u7ad9\u552f\u4e00\u57df\u540dwww.mp4ba.com.txt",
                 "selected": "true",
                 "uris": []
             },
             {
                 "completedLength": "0",
                 "index": "3",
-                "length": "171",
-                "path": "D:/Users/Downloads/\u7eff\u76ae\u4e66.Green.Book.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-MP4BA/\u70b9\u51fb\u8fdb\u5165\u9ad8\u6e05MP4ba (2).url",
+                "length": "152",
+                "path": "D:/Users/Downloads/\u8c03\u7434\u5e08.Andhadhun.2018.BD720P.X264.AAC.Hindi.CHS.Mp4Ba/\u70b9\u51fb\u8fdb\u5165\u9ad8\u6e05Mp4Ba.url",
                 "selected": "true",
                 "uris": []
             },
             {
                 "completedLength": "0",
                 "index": "4",
-                "length": "171",
-                "path": "D:/Users/Downloads/\u7eff\u76ae\u4e66.Green.Book.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-MP4BA/\u70b9\u51fb\u8fdb\u5165\u9ad8\u6e05MP4ba.url",
-                "selected": "true",
-                "uris": []
-            },
-            {
-                "completedLength": "4194304",
-                "index": "5",
-                "length": "3914861793",
-                "path": "D:/Users/Downloads/\u7eff\u76ae\u4e66.Green.Book.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-MP4BA/\u7eff\u76ae\u4e66.Green.Book.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-MP4BA.mp4",
+                "length": "3032593883",
+                "path": "D:/Users/Downloads/\u8c03\u7434\u5e08.Andhadhun.2018.BD720P.X264.AAC.Hindi.CHS.Mp4Ba/\u8c03\u7434\u5e08.Andhadhun.2018.BD720P.X264.AAC.Hindi.CHS.Mp4Ba.mp4",
                 "selected": "true",
                 "uris": []
             }
         ],
-        "following": "783e336d21e11472",
-        "gid": "9616350fd93621aa",
-        "infoHash": "35ac340f947af8109d7de0b1b2e63011b6a33135",
-        "numPieces": "934",
-        "numSeeders": "1",
+        "following": "5ec7728b323dad0c",
+        "gid": "9ab378174f02c917",
+        "infoHash": "3bf74ae3e958b29dbde7ac4b61e14b2c912a4d96",
+        "numPieces": "724",
+        "numSeeders": "0",
         "pieceLength": "4194304",
         "seeder": "false",
         "status": "active",
-        "totalLength": "3914862212",
+        "totalLength": "3032594112",
         "uploadLength": "0",
         "uploadSpeed": "0"
     }

@@ -208,7 +208,7 @@
             }
         ],
         "followedBy": [
-            "9616350fd93621aa"
+            "ede45aeb6ece583a"
         ],
         "gid": "783e336d21e11472",
         "infoHash": "35ac340f947af8109d7de0b1b2e63011b6a33135",
@@ -221,15 +221,668 @@
         "uploadSpeed": "0"
     },
     {
-        "bitfield": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0",
+        "bitfield": "80",
         "bittorrent": {
             "announceList": [
                 [
-                    "http://torrent.centos.org:6969/announce"
+                    "udp://tracker.coppersurfer.tk:6969/announce"
                 ],
                 [
-                    "http://ipv6.torrent.centos.org:6969/announce"
+                    "udp://tracker.internetwarriors.net:1337/announce"
                 ],
+                [
+                    "http://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "udp://tracker.opentrackr.org:1337/announce"
+                ],
+                [
+                    "udp://9.rarbg.to:2710/announce"
+                ],
+                [
+                    "udp://exodus.desync.com:6969/announce"
+                ],
+                [
+                    "udp://explodie.org:6969/announce"
+                ],
+                [
+                    "http://explodie.org:6969/announce"
+                ],
+                [
+                    "udp://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "http://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "udp://public.popcorn-tracker.org:6969/announce"
+                ],
+                [
+                    "udp://ipv4.tracker.harry.lu:80/announce"
+                ],
+                [
+                    "udp://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "udp://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "udp://tracker.torrent.eu.org:451/announce"
+                ],
+                [
+                    "udp://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://open.stealth.si:80/announce"
+                ],
+                [
+                    "udp://open.demonii.si:1337/announce"
+                ],
+                [
+                    "udp://denis.stalker.upeer.me:6969/announce"
+                ],
+                [
+                    "udp://bt.xxx-tracker.com:2710/announce"
+                ],
+                [
+                    "http://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "http://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "http://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://tracker.tiny-vps.com:6969/announce"
+                ],
+                [
+                    "udp://zephir.monocul.us:6969/announce"
+                ],
+                [
+                    "udp://tracker.iamhansen.xyz:2000/announce"
+                ],
+                [
+                    "udp://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "udp://tracker.cyberia.is:6969/announce"
+                ],
+                [
+                    "udp://retracker.lanta-net.ru:2710/announce"
+                ],
+                [
+                    "http://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "http://torrent.nwps.ws:80/announce"
+                ],
+                [
+                    "http://open.acgnxtracker.com:80/announce"
+                ],
+                [
+                    "https://tracker.fastdownload.xyz:443/announce"
+                ],
+                [
+                    "https://opentracker.xyz:443/announce"
+                ],
+                [
+                    "http://tracker.city9x.com:2710/announce"
+                ],
+                [
+                    "http://opentracker.xyz:80/announce"
+                ],
+                [
+                    "http://open.trackerlist.xyz:80/announce"
+                ],
+                [
+                    "udp://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "udp://tracker.swateam.org.uk:2710/announce"
+                ],
+                [
+                    "udp://tracker.kamigami.org:2710/announce"
+                ],
+                [
+                    "udp://pubt.in:2710/announce"
+                ],
+                [
+                    "http://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "http://tracker.torrentyorg.pl:80/announce"
+                ],
+                [
+                    "http://t.nyaatracker.com:80/announce"
+                ],
+                [
+                    "http://retracker.mgts.by:80/announce"
+                ],
+                [
+                    "http://fxtt.ru:80/announce"
+                ],
+                [
+                    "http://agusiq-torrents.pl:6969/announce"
+                ],
+                [
+                    "wss://tracker.openwebtorrent.com:443/announce"
+                ],
+                [
+                    "wss://tracker.fastcast.nz:443/announce"
+                ],
+                [
+                    "wss://tracker.btorrent.xyz:443/announce"
+                ],
+                [
+                    "wss://ltrackr.iamhansen.xyz:443/announce"
+                ],
+                [
+                    "udp://tracker.justseed.it:1337/announce"
+                ],
+                [
+                    "udp://packages.crunchbangplusplus.org:6969/announce"
+                ],
+                [
+                    "https://1337.abcvg.info:443/announce"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce.php"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce"
+                ],
+                [
+                    "http://tracker.tfile.co:80/announce"
+                ],
+                [
+                    "http://share.camoe.cn:8080/announce"
+                ],
+                [
+                    "http://private.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://prestige.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://peersteers.org:80/announce"
+                ],
+                [
+                    "http://open.acgtracker.com:1096/announce"
+                ]
+            ]
+        },
+        "completedLength": "13311",
+        "connections": "0",
+        "dir": "D:/Users/Downloads",
+        "downloadSpeed": "0",
+        "errorCode": "0",
+        "errorMessage": "",
+        "files": [
+            {
+                "completedLength": "13311",
+                "index": "1",
+                "length": "13311",
+                "path": "[METADATA]0d2a94f2feb933a12f6a2c50aed26fa2870d0dc5",
+                "selected": "true",
+                "uris": []
+            }
+        ],
+        "followedBy": [
+            "2153fa39c09fda81"
+        ],
+        "gid": "160c109d84056c6f",
+        "infoHash": "0d2a94f2feb933a12f6a2c50aed26fa2870d0dc5",
+        "numPieces": "1",
+        "numSeeders": "0",
+        "pieceLength": "16384",
+        "status": "complete",
+        "totalLength": "13311",
+        "uploadLength": "0",
+        "uploadSpeed": "0"
+    },
+    {
+        "bittorrent": {
+            "announceList": [
+                [
+                    "udp://tracker.coppersurfer.tk:6969/announce"
+                ],
+                [
+                    "udp://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "http://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "udp://tracker.opentrackr.org:1337/announce"
+                ],
+                [
+                    "udp://9.rarbg.to:2710/announce"
+                ],
+                [
+                    "udp://exodus.desync.com:6969/announce"
+                ],
+                [
+                    "udp://explodie.org:6969/announce"
+                ],
+                [
+                    "http://explodie.org:6969/announce"
+                ],
+                [
+                    "udp://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "http://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "udp://public.popcorn-tracker.org:6969/announce"
+                ],
+                [
+                    "udp://ipv4.tracker.harry.lu:80/announce"
+                ],
+                [
+                    "udp://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "udp://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "udp://tracker.torrent.eu.org:451/announce"
+                ],
+                [
+                    "udp://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://open.stealth.si:80/announce"
+                ],
+                [
+                    "udp://open.demonii.si:1337/announce"
+                ],
+                [
+                    "udp://denis.stalker.upeer.me:6969/announce"
+                ],
+                [
+                    "udp://bt.xxx-tracker.com:2710/announce"
+                ],
+                [
+                    "http://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "http://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "http://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://tracker.tiny-vps.com:6969/announce"
+                ],
+                [
+                    "udp://zephir.monocul.us:6969/announce"
+                ],
+                [
+                    "udp://tracker.iamhansen.xyz:2000/announce"
+                ],
+                [
+                    "udp://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "udp://tracker.cyberia.is:6969/announce"
+                ],
+                [
+                    "udp://retracker.lanta-net.ru:2710/announce"
+                ],
+                [
+                    "http://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "http://torrent.nwps.ws:80/announce"
+                ],
+                [
+                    "http://open.acgnxtracker.com:80/announce"
+                ],
+                [
+                    "https://tracker.fastdownload.xyz:443/announce"
+                ],
+                [
+                    "https://opentracker.xyz:443/announce"
+                ],
+                [
+                    "http://tracker.city9x.com:2710/announce"
+                ],
+                [
+                    "http://opentracker.xyz:80/announce"
+                ],
+                [
+                    "http://open.trackerlist.xyz:80/announce"
+                ],
+                [
+                    "udp://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "udp://tracker.swateam.org.uk:2710/announce"
+                ],
+                [
+                    "udp://tracker.kamigami.org:2710/announce"
+                ],
+                [
+                    "udp://pubt.in:2710/announce"
+                ],
+                [
+                    "http://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "http://tracker.torrentyorg.pl:80/announce"
+                ],
+                [
+                    "http://t.nyaatracker.com:80/announce"
+                ],
+                [
+                    "http://retracker.mgts.by:80/announce"
+                ],
+                [
+                    "http://fxtt.ru:80/announce"
+                ],
+                [
+                    "http://agusiq-torrents.pl:6969/announce"
+                ],
+                [
+                    "wss://tracker.openwebtorrent.com:443/announce"
+                ],
+                [
+                    "wss://tracker.fastcast.nz:443/announce"
+                ],
+                [
+                    "wss://tracker.btorrent.xyz:443/announce"
+                ],
+                [
+                    "wss://ltrackr.iamhansen.xyz:443/announce"
+                ],
+                [
+                    "udp://tracker.justseed.it:1337/announce"
+                ],
+                [
+                    "udp://packages.crunchbangplusplus.org:6969/announce"
+                ],
+                [
+                    "https://1337.abcvg.info:443/announce"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce.php"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce"
+                ],
+                [
+                    "http://tracker.tfile.co:80/announce"
+                ],
+                [
+                    "http://share.camoe.cn:8080/announce"
+                ],
+                [
+                    "http://private.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://prestige.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://peersteers.org:80/announce"
+                ],
+                [
+                    "http://open.acgtracker.com:1096/announce"
+                ]
+            ]
+        },
+        "completedLength": "0",
+        "connections": "0",
+        "dir": "D:/Users/Downloads",
+        "downloadSpeed": "0",
+        "errorCode": "12",
+        "errorMessage": "InfoHash 2726fac2fed4ecf3bb3e720305b28d636c1cdbf1 is already registered.",
+        "files": [
+            {
+                "completedLength": "0",
+                "index": "1",
+                "length": "0",
+                "path": "[METADATA]2726fac2fed4ecf3bb3e720305b28d636c1cdbf1",
+                "selected": "true",
+                "uris": []
+            }
+        ],
+        "gid": "7f735125571dee21",
+        "infoHash": "2726fac2fed4ecf3bb3e720305b28d636c1cdbf1",
+        "numPieces": "0",
+        "numSeeders": "0",
+        "pieceLength": "16384",
+        "status": "error",
+        "totalLength": "0",
+        "uploadLength": "0",
+        "uploadSpeed": "0"
+    },
+    {
+        "bitfield": "80",
+        "bittorrent": {
+            "announceList": [
+                [
+                    "udp://tracker.coppersurfer.tk:6969/announce"
+                ],
+                [
+                    "udp://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "http://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "udp://tracker.opentrackr.org:1337/announce"
+                ],
+                [
+                    "udp://9.rarbg.to:2710/announce"
+                ],
+                [
+                    "udp://exodus.desync.com:6969/announce"
+                ],
+                [
+                    "udp://explodie.org:6969/announce"
+                ],
+                [
+                    "http://explodie.org:6969/announce"
+                ],
+                [
+                    "udp://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "http://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "udp://public.popcorn-tracker.org:6969/announce"
+                ],
+                [
+                    "udp://ipv4.tracker.harry.lu:80/announce"
+                ],
+                [
+                    "udp://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "udp://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "udp://tracker.torrent.eu.org:451/announce"
+                ],
+                [
+                    "udp://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://open.stealth.si:80/announce"
+                ],
+                [
+                    "udp://open.demonii.si:1337/announce"
+                ],
+                [
+                    "udp://denis.stalker.upeer.me:6969/announce"
+                ],
+                [
+                    "udp://bt.xxx-tracker.com:2710/announce"
+                ],
+                [
+                    "http://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "http://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "http://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://tracker.tiny-vps.com:6969/announce"
+                ],
+                [
+                    "udp://zephir.monocul.us:6969/announce"
+                ],
+                [
+                    "udp://tracker.iamhansen.xyz:2000/announce"
+                ],
+                [
+                    "udp://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "udp://tracker.cyberia.is:6969/announce"
+                ],
+                [
+                    "udp://retracker.lanta-net.ru:2710/announce"
+                ],
+                [
+                    "http://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "http://torrent.nwps.ws:80/announce"
+                ],
+                [
+                    "http://open.acgnxtracker.com:80/announce"
+                ],
+                [
+                    "https://tracker.fastdownload.xyz:443/announce"
+                ],
+                [
+                    "https://opentracker.xyz:443/announce"
+                ],
+                [
+                    "http://tracker.city9x.com:2710/announce"
+                ],
+                [
+                    "http://opentracker.xyz:80/announce"
+                ],
+                [
+                    "http://open.trackerlist.xyz:80/announce"
+                ],
+                [
+                    "udp://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "udp://tracker.swateam.org.uk:2710/announce"
+                ],
+                [
+                    "udp://tracker.kamigami.org:2710/announce"
+                ],
+                [
+                    "udp://pubt.in:2710/announce"
+                ],
+                [
+                    "http://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "http://tracker.torrentyorg.pl:80/announce"
+                ],
+                [
+                    "http://t.nyaatracker.com:80/announce"
+                ],
+                [
+                    "http://retracker.mgts.by:80/announce"
+                ],
+                [
+                    "http://fxtt.ru:80/announce"
+                ],
+                [
+                    "http://agusiq-torrents.pl:6969/announce"
+                ],
+                [
+                    "wss://tracker.openwebtorrent.com:443/announce"
+                ],
+                [
+                    "wss://tracker.fastcast.nz:443/announce"
+                ],
+                [
+                    "wss://tracker.btorrent.xyz:443/announce"
+                ],
+                [
+                    "wss://ltrackr.iamhansen.xyz:443/announce"
+                ],
+                [
+                    "udp://tracker.justseed.it:1337/announce"
+                ],
+                [
+                    "udp://packages.crunchbangplusplus.org:6969/announce"
+                ],
+                [
+                    "https://1337.abcvg.info:443/announce"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce.php"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce"
+                ],
+                [
+                    "http://tracker.tfile.co:80/announce"
+                ],
+                [
+                    "http://share.camoe.cn:8080/announce"
+                ],
+                [
+                    "http://private.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://prestige.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://peersteers.org:80/announce"
+                ],
+                [
+                    "http://open.acgtracker.com:1096/announce"
+                ]
+            ]
+        },
+        "completedLength": "11541",
+        "connections": "0",
+        "dir": "D:/Users/Downloads",
+        "downloadSpeed": "0",
+        "errorCode": "0",
+        "errorMessage": "",
+        "files": [
+            {
+                "completedLength": "11541",
+                "index": "1",
+                "length": "11541",
+                "path": "[METADATA]2726fac2fed4ecf3bb3e720305b28d636c1cdbf1",
+                "selected": "true",
+                "uris": []
+            }
+        ],
+        "followedBy": [
+            "5a79e4e38aa3310d"
+        ],
+        "gid": "b99ab9a00aea3454",
+        "infoHash": "2726fac2fed4ecf3bb3e720305b28d636c1cdbf1",
+        "numPieces": "1",
+        "numSeeders": "0",
+        "pieceLength": "16384",
+        "status": "complete",
+        "totalLength": "11541",
+        "uploadLength": "0",
+        "uploadSpeed": "0"
+    },
+    {
+        "bitfield": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0",
+        "bittorrent": {
+            "announceList": [
                 [
                     "udp://tracker.coppersurfer.tk:6969/announce"
                 ],
@@ -417,14 +1070,12 @@
                     "http://open.acgtracker.com:1096/announce"
                 ]
             ],
-            "comment": "CentOS x86_64 Everything ISO",
-            "creationDate": 1543849392,
             "info": {
-                "name": "CentOS-7-x86_64-Everything-1810"
+                "name": "\u963f\u4e3d\u5854\uff1a\u6218\u6597\u5929\u4f7f.Alita.Battle.Angel.2019.720p.HDTC.X264.AAC-\u4e2d\u6587\u5b57\u5e55-MP4BA"
             },
             "mode": "multi"
         },
-        "completedLength": "10743711752",
+        "completedLength": "2326237346",
         "connections": "0",
         "dir": "D:/Users/Downloads",
         "downloadSpeed": "0",
@@ -432,43 +1083,463 @@
         "errorMessage": "",
         "files": [
             {
-                "completedLength": "10743709696",
+                "completedLength": "27",
                 "index": "1",
-                "length": "10743709696",
-                "path": "D:/Users/Downloads/CentOS-7-x86_64-Everything-1810/CentOS-7-x86_64-Everything-1810.iso",
+                "length": "27",
+                "path": "D:/Users/Downloads/\u963f\u4e3d\u5854\uff1a\u6218\u6597\u5929\u4f7f.Alita.Battle.Angel.2019.720p.HDTC.X264.AAC-\u4e2d\u6587\u5b57\u5e55-MP4BA/\u66f4\u591a\u9ad8\u6e05\u8bf7\u8bbf\u95eewww.mp4ba.la.txt",
                 "selected": "true",
                 "uris": []
             },
             {
-                "completedLength": "598",
+                "completedLength": "50",
                 "index": "2",
-                "length": "598",
-                "path": "D:/Users/Downloads/CentOS-7-x86_64-Everything-1810/sha256sum.txt",
+                "length": "50",
+                "path": "D:/Users/Downloads/\u963f\u4e3d\u5854\uff1a\u6218\u6597\u5929\u4f7f.Alita.Battle.Angel.2019.720p.HDTC.X264.AAC-\u4e2d\u6587\u5b57\u5e55-MP4BA/\u672c\u7ad9\u552f\u4e00\u57df\u540dwww.mp4ba.la.txt",
                 "selected": "true",
                 "uris": []
             },
             {
-                "completedLength": "1458",
+                "completedLength": "171",
                 "index": "3",
-                "length": "1458",
-                "path": "D:/Users/Downloads/CentOS-7-x86_64-Everything-1810/sha256sum.txt.asc",
+                "length": "171",
+                "path": "D:/Users/Downloads/\u963f\u4e3d\u5854\uff1a\u6218\u6597\u5929\u4f7f.Alita.Battle.Angel.2019.720p.HDTC.X264.AAC-\u4e2d\u6587\u5b57\u5e55-MP4BA/\u70b9\u51fb\u8fdb\u5165\u9ad8\u6e05MP4ba.url",
+                "selected": "true",
+                "uris": []
+            },
+            {
+                "completedLength": "2326237098",
+                "index": "4",
+                "length": "2326237098",
+                "path": "D:/Users/Downloads/\u963f\u4e3d\u5854\uff1a\u6218\u6597\u5929\u4f7f.Alita.Battle.Angel.2019.720p.HDTC.X264.AAC-\u4e2d\u6587\u5b57\u5e55-MP4BA/\u963f\u4e3d\u5854\uff1a\u6218\u6597\u5929\u4f7f.Alita.Battle.Angel.2019.720p.HDTC.X264.AAC-\u4e2d\u6587\u5b57\u5e55-MP4BA.mp4",
                 "selected": "true",
                 "uris": []
             }
         ],
-        "gid": "d052d393b07dd272",
-        "infoHash": "e7315b25f863aaeb0c4ec55b876a292545edb18f",
-        "numPieces": "5124",
+        "following": "b99ab9a00aea3454",
+        "gid": "5a79e4e38aa3310d",
+        "infoHash": "2726fac2fed4ecf3bb3e720305b28d636c1cdbf1",
+        "numPieces": "555",
         "numSeeders": "0",
-        "pieceLength": "2097152",
+        "pieceLength": "4194304",
         "status": "complete",
-        "totalLength": "10743711752",
+        "totalLength": "2326237346",
+        "uploadLength": "164970496",
+        "uploadSpeed": "0"
+    },
+    {
+        "bitfield": "c0",
+        "bittorrent": {
+            "announceList": [
+                [
+                    "udp://tracker.coppersurfer.tk:6969/announce"
+                ],
+                [
+                    "udp://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "http://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "udp://tracker.opentrackr.org:1337/announce"
+                ],
+                [
+                    "udp://9.rarbg.to:2710/announce"
+                ],
+                [
+                    "udp://exodus.desync.com:6969/announce"
+                ],
+                [
+                    "udp://explodie.org:6969/announce"
+                ],
+                [
+                    "http://explodie.org:6969/announce"
+                ],
+                [
+                    "udp://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "http://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "udp://public.popcorn-tracker.org:6969/announce"
+                ],
+                [
+                    "udp://ipv4.tracker.harry.lu:80/announce"
+                ],
+                [
+                    "udp://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "udp://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "udp://tracker.torrent.eu.org:451/announce"
+                ],
+                [
+                    "udp://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://open.stealth.si:80/announce"
+                ],
+                [
+                    "udp://open.demonii.si:1337/announce"
+                ],
+                [
+                    "udp://denis.stalker.upeer.me:6969/announce"
+                ],
+                [
+                    "udp://bt.xxx-tracker.com:2710/announce"
+                ],
+                [
+                    "http://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "http://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "http://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://tracker.tiny-vps.com:6969/announce"
+                ],
+                [
+                    "udp://zephir.monocul.us:6969/announce"
+                ],
+                [
+                    "udp://tracker.iamhansen.xyz:2000/announce"
+                ],
+                [
+                    "udp://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "udp://tracker.cyberia.is:6969/announce"
+                ],
+                [
+                    "udp://retracker.lanta-net.ru:2710/announce"
+                ],
+                [
+                    "http://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "http://torrent.nwps.ws:80/announce"
+                ],
+                [
+                    "http://open.acgnxtracker.com:80/announce"
+                ],
+                [
+                    "https://tracker.fastdownload.xyz:443/announce"
+                ],
+                [
+                    "https://opentracker.xyz:443/announce"
+                ],
+                [
+                    "http://tracker.city9x.com:2710/announce"
+                ],
+                [
+                    "http://opentracker.xyz:80/announce"
+                ],
+                [
+                    "http://open.trackerlist.xyz:80/announce"
+                ],
+                [
+                    "udp://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "udp://tracker.swateam.org.uk:2710/announce"
+                ],
+                [
+                    "udp://tracker.kamigami.org:2710/announce"
+                ],
+                [
+                    "udp://pubt.in:2710/announce"
+                ],
+                [
+                    "http://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "http://tracker.torrentyorg.pl:80/announce"
+                ],
+                [
+                    "http://t.nyaatracker.com:80/announce"
+                ],
+                [
+                    "http://retracker.mgts.by:80/announce"
+                ],
+                [
+                    "http://fxtt.ru:80/announce"
+                ],
+                [
+                    "http://agusiq-torrents.pl:6969/announce"
+                ],
+                [
+                    "wss://tracker.openwebtorrent.com:443/announce"
+                ],
+                [
+                    "wss://tracker.fastcast.nz:443/announce"
+                ],
+                [
+                    "wss://tracker.btorrent.xyz:443/announce"
+                ],
+                [
+                    "wss://ltrackr.iamhansen.xyz:443/announce"
+                ],
+                [
+                    "udp://tracker.justseed.it:1337/announce"
+                ],
+                [
+                    "udp://packages.crunchbangplusplus.org:6969/announce"
+                ],
+                [
+                    "https://1337.abcvg.info:443/announce"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce.php"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce"
+                ],
+                [
+                    "http://tracker.tfile.co:80/announce"
+                ],
+                [
+                    "http://share.camoe.cn:8080/announce"
+                ],
+                [
+                    "http://private.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://prestige.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://peersteers.org:80/announce"
+                ],
+                [
+                    "http://open.acgtracker.com:1096/announce"
+                ]
+            ]
+        },
+        "completedLength": "20233",
+        "connections": "0",
+        "dir": "D:/Users/Downloads",
+        "downloadSpeed": "0",
+        "errorCode": "0",
+        "errorMessage": "",
+        "files": [
+            {
+                "completedLength": "20233",
+                "index": "1",
+                "length": "20233",
+                "path": "[METADATA]808ea4f8aee58a85932c85f7b15cbeab31c2f63d",
+                "selected": "true",
+                "uris": []
+            }
+        ],
+        "followedBy": [
+            "5a11bc5a8f33846a"
+        ],
+        "gid": "7b1b26a5eae8864b",
+        "infoHash": "808ea4f8aee58a85932c85f7b15cbeab31c2f63d",
+        "numPieces": "2",
+        "numSeeders": "0",
+        "pieceLength": "16384",
+        "status": "complete",
+        "totalLength": "20233",
         "uploadLength": "0",
         "uploadSpeed": "0"
     },
     {
-        "bitfield": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0",
-        "completedLength": "1949302784",
+        "bitfield": "80",
+        "bittorrent": {
+            "announceList": [
+                [
+                    "udp://tracker.coppersurfer.tk:6969/announce"
+                ],
+                [
+                    "udp://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "http://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "udp://tracker.opentrackr.org:1337/announce"
+                ],
+                [
+                    "udp://9.rarbg.to:2710/announce"
+                ],
+                [
+                    "udp://exodus.desync.com:6969/announce"
+                ],
+                [
+                    "udp://explodie.org:6969/announce"
+                ],
+                [
+                    "http://explodie.org:6969/announce"
+                ],
+                [
+                    "udp://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "http://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "udp://public.popcorn-tracker.org:6969/announce"
+                ],
+                [
+                    "udp://ipv4.tracker.harry.lu:80/announce"
+                ],
+                [
+                    "udp://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "udp://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "udp://tracker.torrent.eu.org:451/announce"
+                ],
+                [
+                    "udp://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://open.stealth.si:80/announce"
+                ],
+                [
+                    "udp://open.demonii.si:1337/announce"
+                ],
+                [
+                    "udp://denis.stalker.upeer.me:6969/announce"
+                ],
+                [
+                    "udp://bt.xxx-tracker.com:2710/announce"
+                ],
+                [
+                    "http://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "http://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "http://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://tracker.tiny-vps.com:6969/announce"
+                ],
+                [
+                    "udp://zephir.monocul.us:6969/announce"
+                ],
+                [
+                    "udp://tracker.iamhansen.xyz:2000/announce"
+                ],
+                [
+                    "udp://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "udp://tracker.cyberia.is:6969/announce"
+                ],
+                [
+                    "udp://retracker.lanta-net.ru:2710/announce"
+                ],
+                [
+                    "http://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "http://torrent.nwps.ws:80/announce"
+                ],
+                [
+                    "http://open.acgnxtracker.com:80/announce"
+                ],
+                [
+                    "https://tracker.fastdownload.xyz:443/announce"
+                ],
+                [
+                    "https://opentracker.xyz:443/announce"
+                ],
+                [
+                    "http://tracker.city9x.com:2710/announce"
+                ],
+                [
+                    "http://opentracker.xyz:80/announce"
+                ],
+                [
+                    "http://open.trackerlist.xyz:80/announce"
+                ],
+                [
+                    "udp://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "udp://tracker.swateam.org.uk:2710/announce"
+                ],
+                [
+                    "udp://tracker.kamigami.org:2710/announce"
+                ],
+                [
+                    "udp://pubt.in:2710/announce"
+                ],
+                [
+                    "http://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "http://tracker.torrentyorg.pl:80/announce"
+                ],
+                [
+                    "http://t.nyaatracker.com:80/announce"
+                ],
+                [
+                    "http://retracker.mgts.by:80/announce"
+                ],
+                [
+                    "http://fxtt.ru:80/announce"
+                ],
+                [
+                    "http://agusiq-torrents.pl:6969/announce"
+                ],
+                [
+                    "wss://tracker.openwebtorrent.com:443/announce"
+                ],
+                [
+                    "wss://tracker.fastcast.nz:443/announce"
+                ],
+                [
+                    "wss://tracker.btorrent.xyz:443/announce"
+                ],
+                [
+                    "wss://ltrackr.iamhansen.xyz:443/announce"
+                ],
+                [
+                    "udp://tracker.justseed.it:1337/announce"
+                ],
+                [
+                    "udp://packages.crunchbangplusplus.org:6969/announce"
+                ],
+                [
+                    "https://1337.abcvg.info:443/announce"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce.php"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce"
+                ],
+                [
+                    "http://tracker.tfile.co:80/announce"
+                ],
+                [
+                    "http://share.camoe.cn:8080/announce"
+                ],
+                [
+                    "http://private.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://prestige.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://peersteers.org:80/announce"
+                ],
+                [
+                    "http://open.acgtracker.com:1096/announce"
+                ]
+            ]
+        },
+        "completedLength": "13263",
         "connections": "0",
         "dir": "D:/Users/Downloads",
         "downloadSpeed": "0",
@@ -476,81 +1547,724 @@
         "errorMessage": "",
         "files": [
             {
-                "completedLength": "1949302784",
+                "completedLength": "13263",
                 "index": "1",
-                "length": "1949302784",
-                "path": "D:/Users/Downloads/CentOS-7-x86_64-LiveKDE-1810.iso",
+                "length": "13263",
+                "path": "[METADATA]965b3a91c683b93c38ca5797f588b67c032a1444",
                 "selected": "true",
-                "uris": [
-                    {
-                        "status": "used",
-                        "uri": "http://mirror.lzu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-LiveKDE-1810.iso"
-                    },
-                    {
-                        "status": "used",
-                        "uri": "http://mirror.lzu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-LiveKDE-1810.iso"
-                    },
-                    {
-                        "status": "used",
-                        "uri": "http://mirror.lzu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-LiveKDE-1810.iso"
-                    },
-                    {
-                        "status": "used",
-                        "uri": "http://mirror.lzu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-LiveKDE-1810.iso"
-                    },
-                    {
-                        "status": "used",
-                        "uri": "http://mirror.lzu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-LiveKDE-1810.iso"
-                    },
-                    {
-                        "status": "used",
-                        "uri": "http://mirror.lzu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-LiveKDE-1810.iso"
-                    },
-                    {
-                        "status": "used",
-                        "uri": "http://mirror.lzu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-LiveKDE-1810.iso"
-                    },
-                    {
-                        "status": "used",
-                        "uri": "http://mirror.lzu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-LiveKDE-1810.iso"
-                    },
-                    {
-                        "status": "waiting",
-                        "uri": "http://mirror.lzu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-LiveKDE-1810.iso"
-                    },
-                    {
-                        "status": "waiting",
-                        "uri": "http://mirror.lzu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-LiveKDE-1810.iso"
-                    },
-                    {
-                        "status": "waiting",
-                        "uri": "http://mirror.lzu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-LiveKDE-1810.iso"
-                    },
-                    {
-                        "status": "waiting",
-                        "uri": "http://mirror.lzu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-LiveKDE-1810.iso"
-                    },
-                    {
-                        "status": "waiting",
-                        "uri": "http://mirror.lzu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-LiveKDE-1810.iso"
-                    },
-                    {
-                        "status": "waiting",
-                        "uri": "http://mirror.lzu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-LiveKDE-1810.iso"
-                    },
-                    {
-                        "status": "waiting",
-                        "uri": "http://mirror.lzu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-LiveKDE-1810.iso"
-                    }
-                ]
+                "uris": []
             }
         ],
-        "gid": "b2d5fdb1691e9f1e",
-        "numPieces": "1859",
-        "pieceLength": "1048576",
+        "followedBy": [
+            "9ff7d18602289ce6"
+        ],
+        "gid": "b3e62b50cf249853",
+        "infoHash": "965b3a91c683b93c38ca5797f588b67c032a1444",
+        "numPieces": "1",
+        "numSeeders": "0",
+        "pieceLength": "16384",
         "status": "complete",
-        "totalLength": "1949302784",
+        "totalLength": "13263",
         "uploadLength": "0",
+        "uploadSpeed": "0"
+    },
+    {
+        "bitfield": "80",
+        "bittorrent": {
+            "announceList": [
+                [
+                    "udp://tracker.coppersurfer.tk:6969/announce"
+                ],
+                [
+                    "udp://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "http://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "udp://tracker.opentrackr.org:1337/announce"
+                ],
+                [
+                    "udp://9.rarbg.to:2710/announce"
+                ],
+                [
+                    "udp://exodus.desync.com:6969/announce"
+                ],
+                [
+                    "udp://explodie.org:6969/announce"
+                ],
+                [
+                    "http://explodie.org:6969/announce"
+                ],
+                [
+                    "udp://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "http://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "udp://public.popcorn-tracker.org:6969/announce"
+                ],
+                [
+                    "udp://ipv4.tracker.harry.lu:80/announce"
+                ],
+                [
+                    "udp://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "udp://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "udp://tracker.torrent.eu.org:451/announce"
+                ],
+                [
+                    "udp://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://open.stealth.si:80/announce"
+                ],
+                [
+                    "udp://open.demonii.si:1337/announce"
+                ],
+                [
+                    "udp://denis.stalker.upeer.me:6969/announce"
+                ],
+                [
+                    "udp://bt.xxx-tracker.com:2710/announce"
+                ],
+                [
+                    "http://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "http://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "http://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://tracker.tiny-vps.com:6969/announce"
+                ],
+                [
+                    "udp://zephir.monocul.us:6969/announce"
+                ],
+                [
+                    "udp://tracker.iamhansen.xyz:2000/announce"
+                ],
+                [
+                    "udp://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "udp://tracker.cyberia.is:6969/announce"
+                ],
+                [
+                    "udp://retracker.lanta-net.ru:2710/announce"
+                ],
+                [
+                    "http://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "http://torrent.nwps.ws:80/announce"
+                ],
+                [
+                    "http://open.acgnxtracker.com:80/announce"
+                ],
+                [
+                    "https://tracker.fastdownload.xyz:443/announce"
+                ],
+                [
+                    "https://opentracker.xyz:443/announce"
+                ],
+                [
+                    "http://tracker.city9x.com:2710/announce"
+                ],
+                [
+                    "http://opentracker.xyz:80/announce"
+                ],
+                [
+                    "http://open.trackerlist.xyz:80/announce"
+                ],
+                [
+                    "udp://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "udp://tracker.swateam.org.uk:2710/announce"
+                ],
+                [
+                    "udp://tracker.kamigami.org:2710/announce"
+                ],
+                [
+                    "udp://pubt.in:2710/announce"
+                ],
+                [
+                    "http://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "http://tracker.torrentyorg.pl:80/announce"
+                ],
+                [
+                    "http://t.nyaatracker.com:80/announce"
+                ],
+                [
+                    "http://retracker.mgts.by:80/announce"
+                ],
+                [
+                    "http://fxtt.ru:80/announce"
+                ],
+                [
+                    "http://agusiq-torrents.pl:6969/announce"
+                ],
+                [
+                    "wss://tracker.openwebtorrent.com:443/announce"
+                ],
+                [
+                    "wss://tracker.fastcast.nz:443/announce"
+                ],
+                [
+                    "wss://tracker.btorrent.xyz:443/announce"
+                ],
+                [
+                    "wss://ltrackr.iamhansen.xyz:443/announce"
+                ],
+                [
+                    "udp://tracker.justseed.it:1337/announce"
+                ],
+                [
+                    "udp://packages.crunchbangplusplus.org:6969/announce"
+                ],
+                [
+                    "https://1337.abcvg.info:443/announce"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce.php"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce"
+                ],
+                [
+                    "http://tracker.tfile.co:80/announce"
+                ],
+                [
+                    "http://share.camoe.cn:8080/announce"
+                ],
+                [
+                    "http://private.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://prestige.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://peersteers.org:80/announce"
+                ],
+                [
+                    "http://open.acgtracker.com:1096/announce"
+                ]
+            ]
+        },
+        "completedLength": "14863",
+        "connections": "0",
+        "dir": "D:/Users/Downloads",
+        "downloadSpeed": "0",
+        "errorCode": "0",
+        "errorMessage": "",
+        "files": [
+            {
+                "completedLength": "14863",
+                "index": "1",
+                "length": "14863",
+                "path": "[METADATA]3bf74ae3e958b29dbde7ac4b61e14b2c912a4d96",
+                "selected": "true",
+                "uris": []
+            }
+        ],
+        "followedBy": [
+            "9ab378174f02c917"
+        ],
+        "gid": "5ec7728b323dad0c",
+        "infoHash": "3bf74ae3e958b29dbde7ac4b61e14b2c912a4d96",
+        "numPieces": "1",
+        "numSeeders": "0",
+        "pieceLength": "16384",
+        "status": "complete",
+        "totalLength": "14863",
+        "uploadLength": "0",
+        "uploadSpeed": "0"
+    },
+    {
+        "bitfield": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0",
+        "bittorrent": {
+            "announceList": [
+                [
+                    "udp://tracker.coppersurfer.tk:6969/announce"
+                ],
+                [
+                    "udp://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "http://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "udp://tracker.opentrackr.org:1337/announce"
+                ],
+                [
+                    "udp://9.rarbg.to:2710/announce"
+                ],
+                [
+                    "udp://exodus.desync.com:6969/announce"
+                ],
+                [
+                    "udp://explodie.org:6969/announce"
+                ],
+                [
+                    "http://explodie.org:6969/announce"
+                ],
+                [
+                    "udp://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "http://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "udp://public.popcorn-tracker.org:6969/announce"
+                ],
+                [
+                    "udp://ipv4.tracker.harry.lu:80/announce"
+                ],
+                [
+                    "udp://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "udp://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "udp://tracker.torrent.eu.org:451/announce"
+                ],
+                [
+                    "udp://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://open.stealth.si:80/announce"
+                ],
+                [
+                    "udp://open.demonii.si:1337/announce"
+                ],
+                [
+                    "udp://denis.stalker.upeer.me:6969/announce"
+                ],
+                [
+                    "udp://bt.xxx-tracker.com:2710/announce"
+                ],
+                [
+                    "http://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "http://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "http://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://tracker.tiny-vps.com:6969/announce"
+                ],
+                [
+                    "udp://zephir.monocul.us:6969/announce"
+                ],
+                [
+                    "udp://tracker.iamhansen.xyz:2000/announce"
+                ],
+                [
+                    "udp://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "udp://tracker.cyberia.is:6969/announce"
+                ],
+                [
+                    "udp://retracker.lanta-net.ru:2710/announce"
+                ],
+                [
+                    "http://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "http://torrent.nwps.ws:80/announce"
+                ],
+                [
+                    "http://open.acgnxtracker.com:80/announce"
+                ],
+                [
+                    "https://tracker.fastdownload.xyz:443/announce"
+                ],
+                [
+                    "https://opentracker.xyz:443/announce"
+                ],
+                [
+                    "http://tracker.city9x.com:2710/announce"
+                ],
+                [
+                    "http://opentracker.xyz:80/announce"
+                ],
+                [
+                    "http://open.trackerlist.xyz:80/announce"
+                ],
+                [
+                    "udp://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "udp://tracker.swateam.org.uk:2710/announce"
+                ],
+                [
+                    "udp://tracker.kamigami.org:2710/announce"
+                ],
+                [
+                    "udp://pubt.in:2710/announce"
+                ],
+                [
+                    "http://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "http://tracker.torrentyorg.pl:80/announce"
+                ],
+                [
+                    "http://t.nyaatracker.com:80/announce"
+                ],
+                [
+                    "http://retracker.mgts.by:80/announce"
+                ],
+                [
+                    "http://fxtt.ru:80/announce"
+                ],
+                [
+                    "http://agusiq-torrents.pl:6969/announce"
+                ],
+                [
+                    "wss://tracker.openwebtorrent.com:443/announce"
+                ],
+                [
+                    "wss://tracker.fastcast.nz:443/announce"
+                ],
+                [
+                    "wss://tracker.btorrent.xyz:443/announce"
+                ],
+                [
+                    "wss://ltrackr.iamhansen.xyz:443/announce"
+                ],
+                [
+                    "udp://tracker.justseed.it:1337/announce"
+                ],
+                [
+                    "udp://packages.crunchbangplusplus.org:6969/announce"
+                ],
+                [
+                    "https://1337.abcvg.info:443/announce"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce.php"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce"
+                ],
+                [
+                    "http://tracker.tfile.co:80/announce"
+                ],
+                [
+                    "http://share.camoe.cn:8080/announce"
+                ],
+                [
+                    "http://private.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://prestige.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://peersteers.org:80/announce"
+                ],
+                [
+                    "http://open.acgtracker.com:1096/announce"
+                ]
+            ],
+            "info": {
+                "name": "[91xinpian.com]\u963f\u4e3d\u5854\uff1a\u6218\u6597\u5929\u4f7fHDTC1080P\u6e05\u6670\u82f1\u8bed\u4e2d\u5b57\u65e0\u6c34\u5370\u7248.mkv"
+            },
+            "mode": "single"
+        },
+        "completedLength": "2758789921",
+        "connections": "0",
+        "dir": "D:/Users/Downloads",
+        "downloadSpeed": "0",
+        "errorCode": "0",
+        "errorMessage": "",
+        "files": [
+            {
+                "completedLength": "2758789921",
+                "index": "1",
+                "length": "2758789921",
+                "path": "D:/Users/Downloads/[91xinpian.com]\u963f\u4e3d\u5854\uff1a\u6218\u6597\u5929\u4f7fHDTC1080P\u6e05\u6670\u82f1\u8bed\u4e2d\u5b57\u65e0\u6c34\u5370\u7248.mkv",
+                "selected": "true",
+                "uris": []
+            }
+        ],
+        "following": "160c109d84056c6f",
+        "gid": "2153fa39c09fda81",
+        "infoHash": "0d2a94f2feb933a12f6a2c50aed26fa2870d0dc5",
+        "numPieces": "658",
+        "numSeeders": "0",
+        "pieceLength": "4194304",
+        "status": "complete",
+        "totalLength": "2758789921",
+        "uploadLength": "435191808",
+        "uploadSpeed": "0"
+    },
+    {
+        "bitfield": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc",
+        "bittorrent": {
+            "announceList": [
+                [
+                    "udp://tracker.coppersurfer.tk:6969/announce"
+                ],
+                [
+                    "udp://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "http://tracker.internetwarriors.net:1337/announce"
+                ],
+                [
+                    "udp://tracker.opentrackr.org:1337/announce"
+                ],
+                [
+                    "udp://9.rarbg.to:2710/announce"
+                ],
+                [
+                    "udp://exodus.desync.com:6969/announce"
+                ],
+                [
+                    "udp://explodie.org:6969/announce"
+                ],
+                [
+                    "http://explodie.org:6969/announce"
+                ],
+                [
+                    "udp://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "http://tracker.vanitycore.co:6969/announce"
+                ],
+                [
+                    "udp://public.popcorn-tracker.org:6969/announce"
+                ],
+                [
+                    "udp://ipv4.tracker.harry.lu:80/announce"
+                ],
+                [
+                    "udp://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "udp://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "udp://tracker.torrent.eu.org:451/announce"
+                ],
+                [
+                    "udp://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://open.stealth.si:80/announce"
+                ],
+                [
+                    "udp://open.demonii.si:1337/announce"
+                ],
+                [
+                    "udp://denis.stalker.upeer.me:6969/announce"
+                ],
+                [
+                    "udp://bt.xxx-tracker.com:2710/announce"
+                ],
+                [
+                    "http://tracker2.itzmx.com:6961/announce"
+                ],
+                [
+                    "http://tracker1.itzmx.com:8080/announce"
+                ],
+                [
+                    "http://tracker.port443.xyz:6969/announce"
+                ],
+                [
+                    "udp://tracker.tiny-vps.com:6969/announce"
+                ],
+                [
+                    "udp://zephir.monocul.us:6969/announce"
+                ],
+                [
+                    "udp://tracker.iamhansen.xyz:2000/announce"
+                ],
+                [
+                    "udp://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "udp://tracker.cyberia.is:6969/announce"
+                ],
+                [
+                    "udp://retracker.lanta-net.ru:2710/announce"
+                ],
+                [
+                    "http://tracker.cypherpunks.ru:6969/announce"
+                ],
+                [
+                    "http://torrent.nwps.ws:80/announce"
+                ],
+                [
+                    "http://open.acgnxtracker.com:80/announce"
+                ],
+                [
+                    "https://tracker.fastdownload.xyz:443/announce"
+                ],
+                [
+                    "https://opentracker.xyz:443/announce"
+                ],
+                [
+                    "http://tracker.city9x.com:2710/announce"
+                ],
+                [
+                    "http://opentracker.xyz:80/announce"
+                ],
+                [
+                    "http://open.trackerlist.xyz:80/announce"
+                ],
+                [
+                    "udp://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "udp://tracker.swateam.org.uk:2710/announce"
+                ],
+                [
+                    "udp://tracker.kamigami.org:2710/announce"
+                ],
+                [
+                    "udp://pubt.in:2710/announce"
+                ],
+                [
+                    "http://tracker4.itzmx.com:2710/announce"
+                ],
+                [
+                    "http://tracker.torrentyorg.pl:80/announce"
+                ],
+                [
+                    "http://t.nyaatracker.com:80/announce"
+                ],
+                [
+                    "http://retracker.mgts.by:80/announce"
+                ],
+                [
+                    "http://fxtt.ru:80/announce"
+                ],
+                [
+                    "http://agusiq-torrents.pl:6969/announce"
+                ],
+                [
+                    "wss://tracker.openwebtorrent.com:443/announce"
+                ],
+                [
+                    "wss://tracker.fastcast.nz:443/announce"
+                ],
+                [
+                    "wss://tracker.btorrent.xyz:443/announce"
+                ],
+                [
+                    "wss://ltrackr.iamhansen.xyz:443/announce"
+                ],
+                [
+                    "udp://tracker.justseed.it:1337/announce"
+                ],
+                [
+                    "udp://packages.crunchbangplusplus.org:6969/announce"
+                ],
+                [
+                    "https://1337.abcvg.info:443/announce"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce.php"
+                ],
+                [
+                    "http://tracker.tfile.me:80/announce"
+                ],
+                [
+                    "http://tracker.tfile.co:80/announce"
+                ],
+                [
+                    "http://share.camoe.cn:8080/announce"
+                ],
+                [
+                    "http://private.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://prestige.minimafia.nl:443/announce"
+                ],
+                [
+                    "http://peersteers.org:80/announce"
+                ],
+                [
+                    "http://open.acgtracker.com:1096/announce"
+                ]
+            ],
+            "info": {
+                "name": "\u7eff\u76ae\u4e66.Green.Book.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-MP4BA"
+            },
+            "mode": "multi"
+        },
+        "completedLength": "3914862212",
+        "connections": "0",
+        "dir": "D:/Users/Downloads",
+        "downloadSpeed": "0",
+        "errorCode": "0",
+        "errorMessage": "",
+        "files": [
+            {
+                "completedLength": "27",
+                "index": "1",
+                "length": "27",
+                "path": "D:/Users/Downloads/\u7eff\u76ae\u4e66.Green.Book.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-MP4BA/\u66f4\u591a\u9ad8\u6e05\u8bf7\u8bbf\u95eewww.mp4ba.la.txt",
+                "selected": "true",
+                "uris": []
+            },
+            {
+                "completedLength": "50",
+                "index": "2",
+                "length": "50",
+                "path": "D:/Users/Downloads/\u7eff\u76ae\u4e66.Green.Book.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-MP4BA/\u672c\u7ad9\u552f\u4e00\u57df\u540dwww.mp4ba.la.txt",
+                "selected": "true",
+                "uris": []
+            },
+            {
+                "completedLength": "171",
+                "index": "3",
+                "length": "171",
+                "path": "D:/Users/Downloads/\u7eff\u76ae\u4e66.Green.Book.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-MP4BA/\u70b9\u51fb\u8fdb\u5165\u9ad8\u6e05MP4ba (2).url",
+                "selected": "true",
+                "uris": []
+            },
+            {
+                "completedLength": "171",
+                "index": "4",
+                "length": "171",
+                "path": "D:/Users/Downloads/\u7eff\u76ae\u4e66.Green.Book.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-MP4BA/\u70b9\u51fb\u8fdb\u5165\u9ad8\u6e05MP4ba.url",
+                "selected": "true",
+                "uris": []
+            },
+            {
+                "completedLength": "3914861793",
+                "index": "5",
+                "length": "3914861793",
+                "path": "D:/Users/Downloads/\u7eff\u76ae\u4e66.Green.Book.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-MP4BA/\u7eff\u76ae\u4e66.Green.Book.2018.1080p.BluRay.x264-\u4e2d\u82f1\u53cc\u5b57-MP4BA.mp4",
+                "selected": "true",
+                "uris": []
+            }
+        ],
+        "following": "783e336d21e11472",
+        "gid": "ede45aeb6ece583a",
+        "infoHash": "35ac340f947af8109d7de0b1b2e63011b6a33135",
+        "numPieces": "934",
+        "numSeeders": "0",
+        "pieceLength": "4194304",
+        "status": "complete",
+        "totalLength": "3914862212",
+        "uploadLength": "524317557",
         "uploadSpeed": "0"
     }
 ]

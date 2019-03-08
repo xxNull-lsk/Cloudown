@@ -113,7 +113,6 @@ class UiDownloadList(QWidget):
             self._set_tasks(self.task_downloading)
 
         elif i == self.task_type_waiting:
-            open('doc/waiting.json', 'w+').write(json.dumps(self.task_waiting, indent=4))
             self._set_tasks(self.task_waiting)
 
         elif i == self.task_type_stopped:
