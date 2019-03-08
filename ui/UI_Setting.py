@@ -11,8 +11,7 @@ from ui.Misc import *
 
 class SystemSettings:
     values = {
-        # 'SERVER_URL': 'http://118.25.17.65:6800/jsonrpc',
-        'IS_LOCALE': False,
+        'IS_LOCALE': True,
         'LOCALE': {
             'ARIA2': './aria2',
             'PARAMS': [
@@ -24,12 +23,13 @@ class SystemSettings:
                 '--quiet=true'],
             'DOWNLOAD_DIR': '${DOWNLOAD}',
             'SERVER_PORT': '6800',
-            'SERVER_TOKEN': 'allan',
+            'SERVER_TOKEN': 'air_download',
             'KEEP_RUNNING': True
         },
         'REMOTE': {
-            'SERVER_ADDRESS': '118.25.17.65:6800',  # '192.168.2.100:6800',
-            'SERVER_TOKEN': 'allan'
+            'SERVER_ADDRESS': '127.0.0.1:6800',  # '192.168.2.100:6800',
+            'SERVER_TOKEN': 'air_download',
+            'SERVER_HISTORY': ['127.0.0.1:6800']
         },
         'REFRESH': 1
     }
@@ -94,7 +94,9 @@ class UiSetting(QWidget):
         label_url = QLabel("服务器地址：")
         label_url.setFixedHeight(28)
         self.main_layout.addWidget(label_url, row, 1)
-        self.edit_remote_addr = QLineEdit(self.settings.values['REMOTE']['SERVER_ADDRESS'])
+
+        self.edit_remote_addr = QComboBox()  # QLineEdit(self.settings.values['REMOTE']['SERVER_ADDRESS'])
+        self.edit_remote_addr.setEditable(True)
         self.edit_remote_addr.setFixedHeight(28)
         self.main_layout.addWidget(self.edit_remote_addr, row, 2, 1, 2)
         row = row + 1
@@ -162,6 +164,10 @@ class UiSetting(QWidget):
 
         self.setWindowModality(Qt.ApplicationModal)
 
+        for url in self.settings.values['REMOTE']['SERVER_HISTORY']:
+            self.edit_remote_addr.addItem(url)
+        self.edit_remote_addr.setCurrentText(self.settings.values['REMOTE']['SERVER_ADDRESS'])
+
         self.edit_aria2.setText(self.settings.values['LOCALE']['ARIA2'])
         self.radio_local.setChecked(self.settings.values['IS_LOCALE'])
         self.radio_remote.setChecked(not self.settings.values['IS_LOCALE'])
@@ -203,6 +209,10 @@ class UiSetting(QWidget):
 
         self.settings.values['REMOTE']["SERVER_ADDRESS"] = self.edit_remote_addr.text()
         self.settings.values['REMOTE']["SERVER_TOKEN"] = self.edit_remote_token.text()
+
+        for index in range(0, self.edit_remote_addr.count()):
+            url = self.edit_remote_addr.itemText(index)
+            self.settings.values['REMOTE']['SERVER_HISTORY'].append(url)
 
         self.settings.values['LOCALE']["SERVER_PORT"] = self.edit_locale_port.text()
         self.settings.values['REMOTE']["SERVER_TOKEN"] = self.edit_locale_token.text()
