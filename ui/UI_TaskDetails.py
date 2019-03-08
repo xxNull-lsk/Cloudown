@@ -464,8 +464,12 @@ class UiTaskDetails(QWidget):
         else:
             self.tab.setTabText(0, '<<返回')
         aria2 = gl.get_value('aria2')
-        ret = aria2.get_status(gid)
-        self.update_task(ret['result'])
+        try:
+            ret = aria2.get_status(gid)
+            self.update_task(ret['result'])
+        except:
+            QMessageBox.warning(self, '警告', '无法找到该任务', QMessageBox.Ok)
+            return
 
     def on_back(self):
         task_count = len(self.backup_tasks)

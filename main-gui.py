@@ -24,7 +24,7 @@ class DownloadManager:
         self.settings.load()
         self.init_aria2()
         self.app = QApplication(sys.argv)
-        self.main_wnd = UiMain('下载管理')
+        self.main_wnd = UiMain('Aria2下载管理器')
 
     def start_locale_aria2(self):
         if sys.platform == 'win32':

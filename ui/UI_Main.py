@@ -9,23 +9,85 @@ from urllib.error import *
 import logging
 
 
-class UiCommandList(QListWidget):
+class UiCommandList(QLabel):
+    currentRowChanged = pyqtSignal(int)
+
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setFrameShape(QListWidget.NoFrame)
-        self.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        main_layout = QVBoxLayout(self)
+        main_layout.setSpacing(0)
+        main_layout.setContentsMargins(0, 0, 0, 0)
 
-    def add_top_button(self, object_name):
+        top = QVBoxLayout()
+        top.setAlignment(Qt.AlignTop | Qt.AlignHCenter)
+        top.setSpacing(0)
+        top.setContentsMargins(0, 0, 0, 0)
+        main_layout.addLayout(top)
+
+        bottom = QVBoxLayout()
+        bottom.setAlignment(Qt.AlignBottom | Qt.AlignHCenter)
+        bottom.setSpacing(0)
+        bottom.setContentsMargins(0, 0, 0, 0)
+        main_layout.addLayout(bottom)
+
+        self.top_list = QListWidget()
+        self.top_list.setObjectName('CommandList')
+        self.top_list.setFrameShape(QListWidget.NoFrame)
+        self.top_list.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.top_list.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.top_list.currentRowChanged.connect(self._top_current_row_changed)
+        self.top_list.itemClicked.connect(self._item_clicked)
+        top.addWidget(self.top_list)
+
+        self.bottom_list = QListWidget()
+        self.bottom_list.setObjectName('CommandList')
+        self.bottom_list.setFrameShape(QListWidget.NoFrame)
+        self.bottom_list.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.bottom_list.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.bottom_list.currentRowChanged.connect(self._bottom_current_row_changed)
+        self.bottom_list.itemClicked.connect(self._item_clicked)
+        bottom.addWidget(self.bottom_list)
+
+    def add_top_button(self, object_name, text=''):
         item = QListWidgetItem()
         item.setSizeHint(QSize(self.width(), 64))
-        self.addItem(item)
-        label = QLabel()
+        self.top_list.addItem(item)
+        label = QLabel(text)
         label.setObjectName(object_name)
-        self.setItemWidget(item, label)
+        self.top_list.setItemWidget(item, label)
 
-    def add_bottom_button(self, object_name):
-        self.add_top_button(object_name)
+    def add_bottom_button(self, object_name, text=''):
+        item = QListWidgetItem()
+        item.setSizeHint(QSize(self.width(), 64))
+        self.bottom_list.addItem(item)
+        label = QLabel(text)
+        label.setObjectName(object_name)
+        self.bottom_list.setItemWidget(item, label)
+        self.bottom_list.setFixedHeight(item.sizeHint().height() * self.bottom_list.count())
+
+    def _item_clicked(self, item):
+        if self.sender() == self.top_list:
+            index = self.top_list.row(item)
+            self._top_current_row_changed(index)
+        elif self.sender() == self.bottom_list:
+            index = self.bottom_list.row(item)
+            self._bottom_current_row_changed(index)
+
+    def _bottom_current_row_changed(self, index):
+        self.currentRowChanged.emit(index + self.top_list.count())
+        if self.top_list.currentItem() is not None:
+            self.top_list.currentItem().setSelected(False)
+
+    def _top_current_row_changed(self, index):
+        self.currentRowChanged.emit(index)
+        if self.bottom_list.currentItem() is not None:
+            self.bottom_list.currentItem().setSelected(False)
+
+    def setCurrentRow(self, index):
+        if index < self.top_list.count():
+            self.top_list.setCurrentRow(index)
+        else:
+            self.bottom_list.setCurrentRow(index - self.top_list.count())
 
 
 class UiMain(QWidget):
@@ -36,7 +98,7 @@ class UiMain(QWidget):
         self.setObjectName('UiMain')
         with open('./qss/ui_main.qss', 'r') as f:
             self.setStyleSheet(f.read())
-        self.resize(960, 600)
+        self.resize(1024, 768)
         self.name = name
         self.update_window_title()
         self.root_layout = QStackedLayout(self)

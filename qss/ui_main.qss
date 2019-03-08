@@ -26,6 +26,13 @@ QLabel#about {
     max-width: 100px;
 }
 
+QLabel#CommandList {
+    min-width: 100px;
+    max-width: 100px;
+    background: rgb(51, 51, 51);
+    padding: 0px
+}
+
 QListWidget {
     outline: 0px;
 }
