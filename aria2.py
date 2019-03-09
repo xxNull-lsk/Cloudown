@@ -2,6 +2,7 @@ import json
 import base64
 from urllib.request import urlopen
 from urllib.error import *
+import logging
 
 
 class Aria2:
@@ -293,8 +294,12 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
-        return json.loads(c.read())
+        try:
+            c = urlopen(self.server_url, req, timeout=3)
+            return json.loads(c.read())
+        except Exception as err:
+            logging.error('{0}: {1}'.format(self.server_url, str(err)))
+            return None
 
     def set_system_option(self, options):
         req = {
@@ -306,7 +311,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=3)
         return json.loads(c.read())
 
     def get_system_status(self):
@@ -319,7 +324,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req, timeout=1)
+        c = urlopen(self.server_url, req, timeout=3)
         return json.loads(c.read())
 
     def get_version(self):

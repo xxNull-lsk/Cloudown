@@ -83,7 +83,11 @@ class UiNewTask(QWidget):
         if self.aria2 is None:
             options = None
         else:
-            options = self.aria2.get_system_option()['result']
+            ret = self.aria2.get_system_option()
+            if ret is None:
+                options = None
+            else:
+                options = ret['result']
         if options is None:
             self.edit_save_path.setEnabled(False)
             self.spin_thread_count.setEnabled(False)

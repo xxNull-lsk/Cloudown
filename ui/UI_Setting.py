@@ -29,7 +29,9 @@ class SystemSettings:
         'REMOTE': {
             'SERVER_ADDRESS': '127.0.0.1:6800',  # '192.168.2.100:6800',
             'SERVER_TOKEN': 'air_download',
-            'SERVER_HISTORY': ['127.0.0.1:6800']
+            'SERVER_HISTORY': [
+                {'addr': '127.0.0.1:6800', 'token': 'air_download'},
+            ]
         },
         'REFRESH': 1
     }
@@ -96,6 +98,7 @@ class UiSetting(QWidget):
         self.main_layout.addWidget(label_url, row, 1)
 
         self.edit_remote_addr = QComboBox()  # QLineEdit(self.settings.values['REMOTE']['SERVER_ADDRESS'])
+        self.edit_remote_addr.currentTextChanged.connect(self.on_changed_remote_addr)
         self.edit_remote_addr.setEditable(True)
         self.edit_remote_addr.setFixedHeight(28)
         self.main_layout.addWidget(self.edit_remote_addr, row, 2, 1, 2)
@@ -165,7 +168,7 @@ class UiSetting(QWidget):
         self.setWindowModality(Qt.ApplicationModal)
 
         for url in self.settings.values['REMOTE']['SERVER_HISTORY']:
-            self.edit_remote_addr.addItem(url)
+            self.edit_remote_addr.addItem(url['addr'])
         self.edit_remote_addr.setCurrentText(self.settings.values['REMOTE']['SERVER_ADDRESS'])
 
         self.edit_aria2.setText(self.settings.values['LOCALE']['ARIA2'])
@@ -184,6 +187,12 @@ class UiSetting(QWidget):
 
         self.checkbox_keep_running.setChecked(self.settings.values['LOCALE']["KEEP_RUNNING"])
         self.on_change_type()
+
+    def on_changed_remote_addr(self, text):
+        for url in self.settings.values['REMOTE']['SERVER_HISTORY']:
+            if text == url['addr']:
+                self.edit_remote_token.setText(url['token'])
+                break
 
     def on_change_type(self):
         self.edit_download_folder.setEnabled(self.radio_local.isChecked())
@@ -207,15 +216,17 @@ class UiSetting(QWidget):
 
         self.settings.values["IS_LOCALE"] = self.radio_local.isChecked()
 
-        self.settings.values['REMOTE']["SERVER_ADDRESS"] = self.edit_remote_addr.text()
-        self.settings.values['REMOTE']["SERVER_TOKEN"] = self.edit_remote_token.text()
-
-        for index in range(0, self.edit_remote_addr.count()):
-            url = self.edit_remote_addr.itemText(index)
+        url = {
+            'addr': self.edit_remote_addr.currentText(),
+            'token': self.edit_remote_token.text()
+        }
+        self.settings.values['REMOTE']["SERVER_ADDRESS"] = url['addr']
+        self.settings.values['REMOTE']["SERVER_TOKEN"] = url['token']
+        if url not in self.settings.values['REMOTE']['SERVER_HISTORY']:
             self.settings.values['REMOTE']['SERVER_HISTORY'].append(url)
 
         self.settings.values['LOCALE']["SERVER_PORT"] = self.edit_locale_port.text()
-        self.settings.values['REMOTE']["SERVER_TOKEN"] = self.edit_locale_token.text()
+        self.settings.values['LOCALE']["SERVER_TOKEN"] = self.edit_locale_token.text()
         self.settings.values['LOCALE']['ARIA2'] = self.edit_aria2.text()
         params = self.edit_aria2_params.toPlainText()
         self.settings.values['LOCALE']['PARAMS'].clear()

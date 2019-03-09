@@ -86,8 +86,11 @@ class UiCommandList(QLabel):
     def setCurrentRow(self, index):
         if index < self.top_list.count():
             self.top_list.setCurrentRow(index)
+            self._top_current_row_changed(index)
         else:
-            self.bottom_list.setCurrentRow(index - self.top_list.count())
+            index = index - self.top_list.count()
+            self.bottom_list.setCurrentRow(index)
+            self._bottom_current_row_changed(index)
 
 
 class UiMain(QWidget):
@@ -95,6 +98,8 @@ class UiMain(QWidget):
 
     def __init__(self, name):
         super().__init__()
+        pm = QPixmap("./icons/download.png")
+        self.setWindowIcon(QIcon(pm))
         self.setObjectName('UiMain')
         with open('./qss/ui_main.qss', 'r') as f:
             self.setStyleSheet(f.read())
@@ -150,13 +155,13 @@ class UiMain(QWidget):
     def update_window_title(self):
         aria2 = gl.get_value('aria2')
         if aria2 is None:
-            name = self.name + '（离线）'
+            name = self.name + '（服务器离线）'
         else:
             dm = gl.get_value('dm')
             if dm.settings.values['IS_LOCALE']:
-                name = self.name + '（本地）'
+                name = self.name + '（本地下载）'
             else:
-                name = self.name + '（{}）'.format(dm.settings.values['REMOTE']["SERVER_ADDRESS"])
+                name = self.name + '（远程下载：{0}）'.format(dm.settings.values['REMOTE']["SERVER_ADDRESS"])
         super().setWindowTitle(name)
 
     def _setup_ui(self):
@@ -205,11 +210,12 @@ class UiMain(QWidget):
                 self.ui_download_list.set_tasks(ret["result"], UiDownloadList.task_type_stopped)
         except URLError as err:
             logging.error('_refresh_task: {}'.format(err))
+            addr = aria2.server_url
             gl.set_value('aria2', None)
             self.ui_download_list.set_tasks([], UiDownloadList.task_type_download)
             self.ui_download_list.set_tasks([], UiDownloadList.task_type_waiting)
             self.ui_download_list.set_tasks([], UiDownloadList.task_type_stopped)
-            message = "{}\n是否重启或者重连aria2？".format(str(err.reason))
+            message = "{0}\n是否重启或者重连aria2服务器{1}？".format(str(err.reason), addr)
             ret = QMessageBox.critical(self, '服务器异常', message, QMessageBox.Yes | QMessageBox.No)
             if ret == QMessageBox.Yes:
                 dm = gl.get_value('dm')

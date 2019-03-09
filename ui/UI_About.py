@@ -16,11 +16,26 @@ class UiAbout(QWidget):
 
         main_layout = QVBoxLayout(self)
         main_layout.setAlignment(Qt.AlignCenter)
-        self.label_version = QLabel()
-        main_layout.addWidget(self.label_version)
+        dm = gl.get_value('dm')
+        label_name = QLabel('{0} {1}'.format(dm.app_name, dm.app_version))
+        label_name.setObjectName('application_name')
+        main_layout.addWidget(label_name)
+        label_name = QLabel()
+        main_layout.addWidget(label_name)
 
-        self.label_feature = QLabel()
-        main_layout.addWidget(self.label_feature)
+        aria_info = QVBoxLayout()
+        main_layout.addLayout(aria_info)
+
+        label_title = QLabel('Aria2相关信息')
+        aria_info.addWidget(label_title)
+
+        self.label_version = QLabel()
+        aria_info.addWidget(self.label_version)
+
+        self.edit_feature = QTextEdit()
+        self.edit_feature.setReadOnly(True)
+        aria_info.addWidget(self.edit_feature)
+
         self._value_changed('aria2')
 
     def _value_changed(self, name):
@@ -33,5 +48,10 @@ class UiAbout(QWidget):
             msg = '特性：\n'
             for f in ret['result']['enabledFeatures']:
                 msg = msg + '\t' + f + '\n'
-            self.label_feature.setText(msg)
-            #self.label_feature.setText(json.dumps(ret, indent=4))
+
+            ret = aria2.list_methods()
+            msg = msg + '方法：\n'
+            for f in ret['result']:
+                msg = msg + '\t' + f + '\n'
+
+            self.edit_feature.setText(msg)

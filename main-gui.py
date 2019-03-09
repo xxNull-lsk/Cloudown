@@ -7,10 +7,13 @@ import gl
 import _thread
 import logging
 import logging.config
+import subprocess
 
 
 class DownloadManager:
     settings = SystemSettings()
+    app_name = '云下'
+    app_version = '0.1'
     aria2c_exe_name = None
     aria2 = None
     main_wnd = None
@@ -24,7 +27,7 @@ class DownloadManager:
         self.settings.load()
         self.init_aria2()
         self.app = QApplication(sys.argv)
-        self.main_wnd = UiMain('Aria2下载管理器')
+        self.main_wnd = UiMain(self.app_name)
 
     def start_locale_aria2(self):
         if sys.platform == 'win32':
@@ -39,7 +42,14 @@ class DownloadManager:
             command = command.replace('${START_FOLDER}/', os.path.abspath('./aria2/'))
             command = command.replace('${DOWNLOAD}', download_path)
             logging.info('local aria2 started')
-            os.system(command)
+            if os.name == 'nt':
+                startupinfo = subprocess.STARTUPINFO()
+                startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+                startupinfo.wShowWindow = subprocess.SW_HIDE
+            else:
+                startupinfo = None
+            subprocess.Popen(command, startupinfo=startupinfo)
+            # os.system(command)
             logging.info('local aria2 stopped')
 
     def stop_local_aria2(self):
@@ -88,8 +98,9 @@ class DownloadManager:
         try:
             self.aria2.get_version()
         except Exception as err:
-            logging.error(str(err))
+            logging.error('Get version failed!{0}'.format(err))
             self.aria2 = None
+            gl.set_value('aria2', self.aria2)
 
     def start(self):
         self.main_wnd.show()

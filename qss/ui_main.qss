@@ -5,6 +5,10 @@ QLabel#download_list {
     max-width: 100px;
 }
 
+QLabel#application_name {
+    font-size: 28px;
+}
+
 QLabel#new_task {
     image: url(icons/new_task.png);
     padding: 10px;

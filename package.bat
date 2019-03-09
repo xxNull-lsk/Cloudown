@@ -1,1 +1,1 @@
-pyinstaller main-gui.spec
+pyinstaller -w main-gui.spec
