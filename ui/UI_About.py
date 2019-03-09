@@ -5,6 +5,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 import gl
 import json
+import webbrowser
 
 
 class UiAbout(QWidget):
@@ -20,6 +21,9 @@ class UiAbout(QWidget):
         label_name = QLabel('{0} {1}'.format(dm.app_name, dm.app_version))
         label_name.setObjectName('application_name')
         main_layout.addWidget(label_name)
+        btn_address = QCommandLinkButton("项目网址：https://github.com/xxNull-lsk/Cloudown")
+        btn_address.clicked.connect(self.on_open_website)
+        main_layout.addWidget(btn_address)
         label_name = QLabel()
         main_layout.addWidget(label_name)
 
@@ -55,3 +59,6 @@ class UiAbout(QWidget):
                 msg = msg + '\t' + f + '\n'
 
             self.edit_feature.setText(msg)
+
+    def on_open_website(self):
+        webbrowser.open('https://github.com/xxNull-lsk/Cloudown')

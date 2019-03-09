@@ -9,6 +9,78 @@ from urllib.error import *
 import logging
 
 
+class ThreadRefreshTask(QThread):
+    update = pyqtSignal(int, list)
+    update_status = pyqtSignal(dict)
+    is_quit = True
+    need_update_list = True
+    need_update_status = True
+    sleep_seconds = 1
+
+    def __init__(self):
+        super().__init__()
+        self.aria2 = gl.get_value('aria2')
+        gl.signals.value_changed.connect(self._on_changed_values)
+
+    def _on_changed_values(self, name):
+        if name == 'setting':
+            setting = gl.get_value(name)
+            self.sleep_seconds = setting.values['REFRESH']
+
+    def set_need_update_list(self, need_update_list):
+        self.need_update_list = need_update_list
+
+    def set_need_update_status(self, need_update_status):
+        self.need_update_status = need_update_status
+
+    def exit(self, return_code=0):
+        super().exit(return_code)
+        self.is_quit = True
+
+    def start(self, priority=QThread.NormalPriority):
+        self.is_quit = False
+        self.aria2 = gl.get_value('aria2')
+        settings = gl.get_value('settings')
+        self.sleep_seconds = settings.values['REFRESH']
+        super().start(priority)
+
+    def run(self):
+        while not self.is_quit:
+            self._refresh_list()
+            self._refresh_status()
+            self.sleep(self.sleep_seconds)
+
+    def _refresh_list(self):
+        if not self.need_update_list:
+            return
+        try:
+            ret = self.aria2.get_active_tasks()
+            if ret is not None:
+                self.update.emit(UiDownloadList.task_type_download, ret['result'])
+            ret = self.aria2.get_waiting_tasks()
+            if ret is not None:
+                self.update.emit(UiDownloadList.task_type_waiting, ret['result'])
+            ret = self.aria2.get_stopped_tasks()
+            if ret is not None:
+                self.update.emit(UiDownloadList.task_type_stopped, ret['result'])
+        except Exception as err:
+            logging.error(str(err))
+            self.update.emit(UiDownloadList.task_type_download, [])
+            self.update.emit(UiDownloadList.task_type_waiting, [])
+            self.update.emit(UiDownloadList.task_type_stopped, [])
+
+    def _refresh_status(self):
+        if not self.need_update_status:
+            return
+        try:
+            ret = self.aria2.get_system_status()
+            result = ret['result']
+            self.update_status.emit(result)
+        except Exception as err:
+            logging.error(str(err))
+            self.update_status.emit({})
+
+
 class UiCommandList(QLabel):
     currentRowChanged = pyqtSignal(int)
 
@@ -105,7 +177,6 @@ class UiMain(QWidget):
             self.setStyleSheet(f.read())
         self.resize(1024, 768)
         self.name = name
-        self.update_window_title()
         self.root_layout = QStackedLayout(self)
         label = QLabel()
 
@@ -140,32 +211,40 @@ class UiMain(QWidget):
 
         self.main_layout.addWidget(self.right_widget)
 
-        self._setup_ui()
-        self.left_widget.setCurrentRow(0)
+        self.refresh_task = ThreadRefreshTask()
 
-        self.t = QTimer()
-        self.t.setInterval(1000)
-        self.t.timeout.connect(self._task_refresh)
-        gl.signals.value_changed.connect(self._value_changed)
+        self._setup_ui()
 
     def _value_changed(self, name):
         if name == 'aria2':
-            self.update_window_title()
+            self.thread().exit()
+            self.thread().start()
 
-    def update_window_title(self):
+    def update_window_title(self, status):
+
         aria2 = gl.get_value('aria2')
         if aria2 is None:
             name = self.name + '（服务器离线）'
+            status = ""
         else:
             dm = gl.get_value('dm')
             if dm.settings.values['IS_LOCALE']:
                 name = self.name + '（本地下载）'
             else:
                 name = self.name + '（远程下载：{0}）'.format(dm.settings.values['REMOTE']["SERVER_ADDRESS"])
-        super().setWindowTitle(name)
+
+            if status is not None and 'downloadSpeed' in status:
+                status = '下载速度: {0}/s  上传速度: {1}/s'.format(
+                    size2string(status['downloadSpeed']),
+                    size2string(status['uploadSpeed']))
+            else:
+                status = ""
+        super().setWindowTitle(name + ' ' + status)
 
     def _setup_ui(self):
+        gl.signals.value_changed.connect(self._value_changed)
         self.left_widget.currentRowChanged.connect(self.right_widget.setCurrentIndex)
+        self.left_widget.currentRowChanged.connect(self.on_changed_page)
 
         list_name = ['download_list', 'new_task']
         for i in range(0, len(list_name)):
@@ -175,39 +254,37 @@ class UiMain(QWidget):
         for i in range(0, len(list_name)):
             self.left_widget.add_bottom_button(list_name[i])
 
+        self.refresh_task.update.connect(self._task_refresh)
+        self.refresh_task.update_status.connect(self.update_window_title)
+        self.left_widget.setCurrentRow(0)
+
     def show_details(self, task):
+        if self.refresh_task.isRunning():
+            self.refresh_task.set_need_update_list(False)
         self.ui_details.update_task(task)
         self.root_layout.setCurrentIndex(1)
 
     def show_normal(self):
+        if not self.refresh_task.isRunning():
+            self.refresh_task.start()
+
+        self.refresh_task.set_need_update_list(True)
         self.root_layout.setCurrentIndex(0)
 
     def show(self):
         super().show()
         self.show_normal()
-        self.t.start()
-        self._task_refresh()
 
     def hide(self):
         super().hide()
-        self.t.stop()
+        self.refresh_task.exit()
 
-    def _task_refresh(self):
+    def _task_refresh(self, task_type, tasks):
         aria2 = gl.get_value('aria2')
         if aria2 is None:
             return
         try:
-            ret = aria2.get_active_tasks()
-            if ret is not None:
-                self.ui_download_list.set_tasks(ret["result"], UiDownloadList.task_type_download)
-
-            ret = aria2.get_waiting_tasks()
-            if ret is not None:
-                self.ui_download_list.set_tasks(ret["result"], UiDownloadList.task_type_waiting)
-
-            ret = aria2.get_stopped_tasks()
-            if ret is not None:
-                self.ui_download_list.set_tasks(ret["result"], UiDownloadList.task_type_stopped)
+            self.ui_download_list.set_tasks(tasks, task_type)
         except URLError as err:
             logging.error('_refresh_task: {}'.format(err))
             addr = aria2.server_url
@@ -220,3 +297,11 @@ class UiMain(QWidget):
             if ret == QMessageBox.Yes:
                 dm = gl.get_value('dm')
                 dm.init_aria2()
+
+    def on_changed_page(self, index):
+        if index != 0:
+            self.refresh_task.set_need_update_list(False)
+        else:
+            if not self.refresh_task.isRunning():
+                self.refresh_task.start()
+            self.refresh_task.set_need_update_list(True)

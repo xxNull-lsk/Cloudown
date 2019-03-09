@@ -13,7 +13,7 @@ import subprocess
 class DownloadManager:
     settings = SystemSettings()
     app_name = '云下'
-    app_version = '0.1'
+    app_version = '0.2'
     aria2c_exe_name = None
     aria2 = None
     main_wnd = None
@@ -22,10 +22,10 @@ class DownloadManager:
         logging.config.fileConfig('logging.conf')
         logging.info("========Download manager starting========")
         gl.set_value("dm", self)
-        gl.set_value("settings", self.settings)
         gl.set_value("aria2", self.aria2)
         self.settings.load()
-        self.init_aria2()
+        gl.signals.value_changed.connect(self.on_changed_values)
+        gl.set_value("settings", self.settings)
         self.app = QApplication(sys.argv)
         self.main_wnd = UiMain(self.app_name)
 
@@ -76,7 +76,11 @@ class DownloadManager:
     def __del__(self):
         self.stop_local_aria2()
 
-    def init_aria2(self):
+    def on_changed_values(self, name):
+        if name == 'settings':
+            self._init_aria2()
+
+    def _init_aria2(self):
         self.stop_local_aria2()
         if self.settings.values['IS_LOCALE']:
             self.aria2c_exe_name = 'aria2c.exe'

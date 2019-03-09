@@ -235,7 +235,7 @@ class UiSetting(QWidget):
         self.settings.values['LOCALE']["DOWNLOAD_DIR"] = self.edit_download_folder.text()
         self.settings.values['LOCALE']['KEEP_RUNNING'] = self.checkbox_keep_running.isChecked()
         self.settings.save()
-        gl.get_value('dm').init_aria2()
+        gl.set_value("settings", self.settings)
         self.close()
 
     def on_select_aria(self):
