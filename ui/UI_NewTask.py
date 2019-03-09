@@ -4,11 +4,42 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 import gl
+import os
+
+
+class UiBtButton(QPushButton):
+    def __init__(self, title='', parent=None):
+        super(UiBtButton, self).__init__(title, parent)
+        self.setAcceptDrops(True)
+
+    def dragEnterEvent(self, e):
+        if e.mimeData().hasUrls():
+            for url in e.mimeData().urls():
+                exts = os.path.splitext(url.toLocalFile())
+                if len(exts) != 2:
+                    continue
+                if exts[1] != '.torrent':
+                    continue
+                e.accept()
+                break
+        else:
+            e.ignore()
+
+    def dropEvent(self, e):
+        files = ''
+        for url in e.mimeData().urls():
+            exts = os.path.splitext(url.toLocalFile())
+            if len(exts) != 2:
+                continue
+            if exts[1] != '.torrent':
+                continue
+            files = files + url.toLocalFile() + '\n'
+        self.setText(files)
 
 
 class UiNewTask(QWidget):
     aria2 = None
-    bt_text = "拖放种子文件的到此处，或点击按钮选择种子文件"
+    bt_button_title = "拖放种子文件的到此处，或点击按钮选择种子文件"
 
     def __init__(self, parent):
         super(UiNewTask, self).__init__(parent)
@@ -23,13 +54,16 @@ class UiNewTask(QWidget):
         main_layout.addWidget(self.top_list)
 
         self.edit_url = QTextEdit()
-        self.edit_url.setPlaceholderText("每行一个链接")
+        self.edit_url.setPlaceholderText("每行一个链接，支持HTTP、HTTPS和磁力链")
         self.top_list.addTab(self.edit_url, "下载链接")
 
-        self.button_bt_file = QPushButton(self.bt_text)
+        self.button_bt_file = UiBtButton(self.bt_button_title)
         self.button_bt_file.setObjectName("SelectBtFile")
         self.button_bt_file.clicked.connect(self.on_select_bt_file)
         self.top_list.addTab(self.button_bt_file, "BT文件")
+
+        # self.ftp_params = QWidget()
+        # self.top_list.addTab(self.ftp_params, "FTP")
 
         download_options = QGridLayout()
 
@@ -113,7 +147,10 @@ class UiNewTask(QWidget):
                                             "./",
                                             "BT Files (*.torrent);;All Files (*)")
         if len(files) >= 1 and files[0] != '':
-            self.button_bt_file.setText(files[0])
+            msg = ''
+            for f in files:
+                msg = msg + f + '\n'
+            self.button_bt_file.setText(msg)
 
     def close(self):
         dm = gl.get_value('dm')
@@ -129,12 +166,17 @@ class UiNewTask(QWidget):
             for url in urls:
                 self.aria2.add_uri(url, save_path, False, self.spin_thread_count.value())
             self.edit_url.setText('')
-        else:
-            bt_file = self.button_bt_file.text()
-            if self.bt_text == bt_file:
+        elif self.top_list.currentIndex() == 1:
+            bt_files = self.button_bt_file.text()
+            if self.bt_button_title == bt_files:
                 return
-            self.aria2.add_torrent(bt_file)
-            self.button_select_folder.setText(self.bt_text)
+            bt_files = bt_files.split('\n')
+            for f in bt_files:
+                self.aria2.add_torrent(f)
+            self.button_select_folder.setText(self.bt_button_title)
+        elif self.top_list.currentIndex() == 2:
+            # TODO: 带用户名和密码的支持FTP
+            pass
 
         self.aria2.save_session()
         self.close()
