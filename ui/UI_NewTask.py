@@ -164,6 +164,8 @@ class UiNewTask(QWidget):
             if len(urls) <= 0:
                 return
             for url in urls:
+                if len(url) <= 0:
+                    continue
                 self.aria2.add_uri(url, save_path, False, self.spin_thread_count.value())
             self.edit_url.setText('')
         elif self.top_list.currentIndex() == 1:
@@ -172,6 +174,8 @@ class UiNewTask(QWidget):
                 return
             bt_files = bt_files.split('\n')
             for f in bt_files:
+                if not os.path.exists(f):
+                    continue
                 self.aria2.add_torrent(f)
             self.button_select_folder.setText(self.bt_button_title)
         elif self.top_list.currentIndex() == 2:
