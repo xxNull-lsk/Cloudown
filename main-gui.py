@@ -8,12 +8,14 @@ import _thread
 import logging
 import logging.config
 import subprocess
+import locale
 
 
 class DownloadManager:
     settings = SystemSettings()
-    app_name = '云下'
+    app_name = 'Cloudown'
     app_version = '0.2'
+    app_url = 'https://github.com/xxNull-lsk/Cloudown'
     aria2c_exe_name = None
     aria2 = None
     main_wnd = None
@@ -27,7 +29,18 @@ class DownloadManager:
         gl.signals.value_changed.connect(self.on_changed_values)
         gl.set_value("settings", self.settings)
         self.app = QApplication(sys.argv)
-        self.main_wnd = UiMain(self.app_name)
+
+        index = self.settings.values['LANGUAGE']
+        if index == 0:
+            filename = locale.getdefaultlocale()[0]
+        else:
+            filename = self.settings.values['LANGUAGES'][index]['FILE_NAME']
+        trans = QTranslator()
+        if trans.load(os.path.join('languages', filename)):
+            gl.set_value('trans', trans)
+            self.app.installTranslator(trans)
+
+        self.main_wnd = UiMain()
 
     def start_locale_aria2(self):
         if sys.platform == 'win32':

@@ -4,6 +4,6 @@ from ui.WidgetTask import *
 
 
 class UITaskStopped(UITask):
-    def __init__(self, qss='qss/UITaskStopped.qss'):
-        super().__init__(qss)
+    def __init__(self):
+        super().__init__()
         self.setObjectName('TaskStopped')

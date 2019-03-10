@@ -83,24 +83,26 @@ class UiProgress(QWidget):
 
 
 class UiTaskDetails(QWidget):
-    tab_title_peers = 'BT客户端'
-    tab_title_servers = '服务器列表'
-    tab_title_blocks = '区块'
-    tab_title_infos = '总览'
-    tab_title_files = '文件'
-    tab_title_orgdata = '原始数据'
     backup_tasks = []
 
     def __init__(self, parent):
         self.task = None
-        super(UiTaskDetails, self).__init__(parent)
+        super().__init__(parent)
+
+        self.tab_title_peers = self.tr('BT peers')
+        self.tab_title_servers = self.tr('Server list')
+        self.tab_title_blocks = self.tr('Blocks')
+        self.tab_title_infos = self.tr('Pandect')
+        self.tab_title_files = self.tr('Files')
+        self.tab_title_raw_data = self.tr('Raw data')
+
         main_layout = QVBoxLayout(self)
         self.tab = QTabWidget()
         self.tab.tabBar().setObjectName('TaskDetailsTab')
         main_layout.addWidget(self.tab)
 
         label = QLabel()
-        self.tab.addTab(label, '<<返回')
+        self.tab.addTab(label, self.tr('<<Go back'))
 
         self.base_info = QTableWidget()
         self.tab.addTab(self.base_info, self.tab_title_infos)
@@ -132,7 +134,11 @@ class UiTaskDetails(QWidget):
         self.base_info.horizontalHeader().hide()
         self.base_info.setEditTriggers(QAbstractItemView.NoEditTriggers)
 
-        heads = ["文件", "总计大小", "已完成大小", "进度", '操作']
+        heads = [self.tr("File"),
+                 self.tr("Total size"),
+                 self.tr("Finished size"),
+                 self.tr("Progress"),
+                 self.tr('Operation')]
         self.files_info.setColumnCount(len(heads))
         self.files_info.setHorizontalHeaderLabels(heads)
         self.files_info.setEditTriggers(QAbstractItemView.NoEditTriggers)
@@ -141,14 +147,20 @@ class UiTaskDetails(QWidget):
         self.t.timeout.connect(self._refresh_task)
 
         self.table_peers = QTableWidget()
-        heads = ['地址', '状态', '进度', '下载速度', '下载状态', '上传速度', '上传状态']
+        heads = [self.tr('Address'),
+                 self.tr('Status'),
+                 self.tr('Progress'),
+                 self.tr('Download speed'),
+                 self.tr('Download status'),
+                 self.tr('Upload speed'),
+                 self.tr('Upload status')]
         self.table_peers.setColumnCount(len(heads))
         self.table_peers.setHorizontalHeaderLabels(heads)
         self.table_peers.setEditTriggers(QAbstractItemView.NoEditTriggers)
 
         self.edit_origins = QTextEdit()
         self.edit_origins.setReadOnly(True)
-        self.tab.addTab(self.edit_origins, self.tab_title_orgdata)
+        self.tab.addTab(self.edit_origins, self.tab_title_raw_data)
 
         self.table_servers = QTableWidget()
         self.table_servers.setColumnCount(1)
@@ -187,7 +199,7 @@ class UiTaskDetails(QWidget):
         if task is None:
             return
         # 查看原始数据时不刷新，以防止查过时发生变化，无法分析。
-        if self.tab.tabText(self.tab.currentIndex()) != self.tab_title_orgdata:
+        if self.tab.tabText(self.tab.currentIndex()) != self.tab_title_raw_data:
             self.edit_origins.setText(json.dumps(task, indent=4))
         if self.tab.currentIndex() == 0:
             self.tab.setCurrentIndex(1)
@@ -295,7 +307,7 @@ class UiTaskDetails(QWidget):
             lay.addWidget(button_open, Qt.AlignCenter)
             button_open.setObjectName('ButtonOpenFile')
             button_open.setWhatsThis(files[i]['path'])
-            button_open.setToolTip("打开文件所在目录")
+            button_open.setToolTip(self.tr("Open folder"))
             button_open.clicked.connect(self._on_open_file)
             self.files_info.setCellWidget(i, 4, w)
             self.files_info.setRowHeight(i, 36)
@@ -306,7 +318,10 @@ class UiTaskDetails(QWidget):
         file = self.sender().whatsThis()
         dm = gl.get_value('dm')
         if not dm.settings.values['IS_LOCALE']:
-            QMessageBox.warning(self, '警告', '当前是远程服务器模式，无法打开文件所在目录。', QMessageBox.Ok)
+            QMessageBox.warning(self,
+                                self.tr('Warn'),
+                                self.tr("Can't open folder when in remote mode"),
+                                QMessageBox.Ok)
             return
 
         os.system('explorer /e,/select,{}'.format(os.path.abspath(file)))
@@ -401,20 +416,20 @@ class UiTaskDetails(QWidget):
             return
         infos = [
             {'k': "gid", 'v': task['gid']},
-            {'k': "下载目录", 'v': task['dir']},
-            {'k': "状态", 'v': task['status']},
-            {'k': "连接数", 'v': task['connections']},
-            {'k': "文件大小", 'v': size2string(task['totalLength'])},
-            {'k': "下载大小", 'v': size2string(task['completedLength'])},
-            {'k': "下载速度", 'v': "{}/s".format(size2string(task['downloadSpeed']))},
-            {'k': "上传大小", 'v': size2string(task['uploadLength'])},
-            {'k': "上传速度", 'v': "{}/s".format(size2string(task['uploadSpeed']))},
-            {'k': "分片数量", 'v': task['numPieces']},
-            {'k': "分片大小", 'v': size2string(task['pieceLength'])},
-            {'k': "文件数", 'v': "{}".format(len(task['files']))},
+            {'k': self.tr("Download folder"), 'v': task['dir']},
+            {'k': self.tr("Status"), 'v': task['status']},
+            {'k': self.tr("Connects"), 'v': task['connections']},
+            {'k': self.tr("File size"), 'v': size2string(task['totalLength'])},
+            {'k': self.tr("Completed size"), 'v': size2string(task['completedLength'])},
+            {'k': self.tr("Download size"), 'v': "{}/s".format(size2string(task['downloadSpeed']))},
+            {'k': self.tr("Upload size"), 'v': size2string(task['uploadLength'])},
+            {'k': self.tr("Upload speed"), 'v': "{}/s".format(size2string(task['uploadSpeed']))},
+            {'k': self.tr("Number of pieces"), 'v': task['numPieces']},
+            {'k': self.tr("Piece length"), 'v': size2string(task['pieceLength'])},
+            {'k': self.tr("Files"), 'v': "{}".format(len(task['files']))},
         ]
         if 'numSeeders' in task:
-            infos.append({'k': '发送者数量', 'v': task['numSeeders']})
+            infos.append({'k': self.tr('Number of seeders'), 'v': task['numSeeders']})
             if peers is not None:
                 health = 0
                 for p in peers:
@@ -424,21 +439,21 @@ class UiTaskDetails(QWidget):
                     if int(bit.total_blocks) == 0:
                         continue
                     health = health + int(bit.finish_blocks) * 100 / int(bit.total_blocks)
-                infos.append({'k': '健康度', 'v': '%.2f%%' % health})
+                infos.append({'k': self.tr('Health degree'), 'v': '%.2f%%' % health})
         if 'following' in task:
-            infos.append({'k': '父任务', 'v': task['following']})
+            infos.append({'k': self.tr('Parent task'), 'v': task['following']})
         if 'followedBy' in task:
             for f in task['followedBy']:
-                infos.append({'k': '子任务', 'v': f})
+                infos.append({'k': self.tr('Subtask'), 'v': f})
         if 'infoHash' in task:
             infos.append({'k': 'Hash', 'v': task['infoHash']})
         self.base_info.setRowCount(len(infos))
         for i in range(0, len(infos)):
             self.base_info.setItem(i, 0, QTableWidgetItem(infos[i]['k']))
             self.base_info.setItem(i, 1, QTableWidgetItem(infos[i]['v']))
-            if infos[i]['k'] in ('父任务', '子任务'):
+            if infos[i]['k'] in (self.tr('Parent task'), self.tr('Subtask')):
                 self.base_info.setItem(i, 2, QTableWidgetItem(''))
-                button_goto = QPushButton('查看')
+                button_goto = QPushButton(self.tr('View'))
                 button_goto.setWhatsThis(infos[i]['v'])
                 button_goto.clicked.connect(self.on_button_goto)
                 self.base_info.setCellWidget(i, 2, button_goto)
@@ -460,15 +475,15 @@ class UiTaskDetails(QWidget):
 
     def _goto_task(self, gid):
         if len(self.backup_tasks) > 0:
-            self.tab.setTabText(0, '<<返回 ({})'.format(len(self.backup_tasks)))
+            self.tab.setTabText(0, self.tr('<<Go back ({})').format(len(self.backup_tasks)))
         else:
-            self.tab.setTabText(0, '<<返回')
+            self.tab.setTabText(0, self.tr('<<Go back'))
         aria2 = gl.get_value('aria2')
         try:
             ret = aria2.get_status(gid)
             self.update_task(ret['result'])
         except:
-            QMessageBox.warning(self, '警告', '无法找到该任务', QMessageBox.Ok)
+            QMessageBox.warning(self, self.tr('Warn'), self.tr("Can't find this task"), QMessageBox.Ok)
             return
 
     def on_back(self):

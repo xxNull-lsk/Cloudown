@@ -168,15 +168,17 @@ class UiCommandList(QLabel):
 class UiMain(QWidget):
     name = ''
 
-    def __init__(self, name):
+    def __init__(self):
         super().__init__()
         pm = QPixmap("./icons/download.png")
+        dm = gl.get_value('dm')
+        dm.app_name = self.tr('Cloudown')
         self.setWindowIcon(QIcon(pm))
         self.setObjectName('UiMain')
         with open('./qss/ui_main.qss', 'r') as f:
             self.setStyleSheet(f.read())
         self.resize(1024, 768)
-        self.name = name
+        self.name = dm.app_name
         self.root_layout = QStackedLayout(self)
         label = QLabel()
 
@@ -224,17 +226,17 @@ class UiMain(QWidget):
 
         aria2 = gl.get_value('aria2')
         if aria2 is None:
-            name = self.name + '（服务器离线）'
+            name = self.name + self.tr('(Server is offline)')
             status = ""
         else:
             dm = gl.get_value('dm')
             if dm.settings.values['IS_LOCALE']:
-                name = self.name + '（本地下载）'
+                name = self.name + self.tr('(Local)')
             else:
-                name = self.name + '（远程下载：{0}）'.format(dm.settings.values['REMOTE']["SERVER_ADDRESS"])
+                name = self.name + self.tr('(Remote: {0})').format(dm.settings.values['REMOTE']["SERVER_ADDRESS"])
 
             if status is not None and 'downloadSpeed' in status:
-                status = '下载速度: {0}/s  上传速度: {1}/s'.format(
+                status = self.tr('Download Speed: {0}/s  Upload Speed: {1}/s').format(
                     size2string(status['downloadSpeed']),
                     size2string(status['uploadSpeed']))
             else:

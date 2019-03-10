@@ -3,7 +3,7 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
-import os
+import locale
 import json
 import gl
 from ui.Misc import *
@@ -12,6 +12,12 @@ from ui.Misc import *
 class SystemSettings:
     values = {
         'IS_LOCALE': True,
+        'LANGUAGE': 0,
+        'LANGUAGES': [
+            {'NAME': 'OS Language', 'FILE_NAME': ''},
+            {'NAME': 'zh_CN 简体中文', 'FILE_NAME': 'zh_CN'},
+            {'NAME': 'en English', 'FILE_NAME': 'en'},
+        ],
         'LOCALE': {
             'ARIA2': './aria2',
             'PARAMS': [
@@ -60,13 +66,21 @@ class UiSetting(QWidget):
         self.settings = dm.settings
         self.setObjectName('UiSetting')
         
-        self.setWindowTitle("配置")
+        self.setWindowTitle(self.tr("Settings"))
 
         self.main_layout = QGridLayout(self)
         self.main_layout.setContentsMargins(60, 60, 20, 20)
         row = 0
 
-        label_refresh = QLabel("刷新频率：")
+        label_language = QLabel(self.tr("Language:"))
+        label_language.setFixedHeight(28)
+        self.main_layout.addWidget(label_language, row, 0)
+        self.combox_language = QComboBox()
+        self.combox_language.setFixedHeight(28)
+        self.main_layout.addWidget(self.combox_language, row, 1)
+        row = row + 1
+
+        label_refresh = QLabel(self.tr("Refresh rate:"))
         label_refresh.setFixedHeight(28)
         self.main_layout.addWidget(label_refresh, row, 0)
         self.spin_refresh = QSpinBox()
@@ -75,11 +89,11 @@ class UiSetting(QWidget):
         self.spin_refresh.setMaximum(60)
         self.spin_refresh.setValue(self.settings.values['REFRESH'])
         self.main_layout.addWidget(self.spin_refresh, row, 1)
-        label_sec = QLabel('秒')
+        label_sec = QLabel(self.tr('second(s)'))
         self.main_layout.addWidget(label_sec, row, 2)
         row = row + 1
 
-        label_name = QLabel("下载目录")
+        label_name = QLabel(self.tr("Save path:"))
         self.main_layout.addWidget(label_name, row, 0)
         self.edit_download_folder = QLineEdit()
         self.main_layout.addWidget(self.edit_download_folder, row, 1, 1, 3)
@@ -88,12 +102,12 @@ class UiSetting(QWidget):
         self.main_layout.addWidget(self.button_select_download_folder, row, 4)
         row = row + 1
 
-        self.radio_remote = QRadioButton("远程下载")
-        self.radio_remote.clicked.connect(self.on_change_type)
+        self.radio_remote = QRadioButton(self.tr("Remote"))
+        self.radio_remote.clicked.connect(self.on_changed_type)
         self.main_layout.addWidget(self.radio_remote, row, 0)
         row = row + 1
 
-        label_url = QLabel("服务器地址：")
+        label_url = QLabel(self.tr("Server address:"))
         label_url.setFixedHeight(28)
         self.main_layout.addWidget(label_url, row, 1)
 
@@ -104,7 +118,7 @@ class UiSetting(QWidget):
         self.main_layout.addWidget(self.edit_remote_addr, row, 2, 1, 2)
         row = row + 1
 
-        label_token = QLabel("服务器令牌：")
+        label_token = QLabel(self.tr("Token:"))
         label_token.setFixedHeight(28)
         self.main_layout.addWidget(label_token, row, 1)
         self.edit_remote_token = QLineEdit(self.settings.values['REMOTE']['SERVER_TOKEN'])
@@ -112,12 +126,12 @@ class UiSetting(QWidget):
         self.main_layout.addWidget(self.edit_remote_token, row, 2, 1, 2)
         row = row + 1
 
-        self.radio_local = QRadioButton("本地下载")
-        self.radio_local.clicked.connect(self.on_change_type)
+        self.radio_local = QRadioButton(self.tr("Local"))
+        self.radio_local.clicked.connect(self.on_changed_type)
         self.main_layout.addWidget(self.radio_local, row, 0)
         row = row + 1
 
-        label_token = QLabel("端口号：")
+        label_token = QLabel(self.tr("Port:"))
         label_token.setFixedHeight(28)
         self.main_layout.addWidget(label_token, row, 1)
         self.edit_locale_port = QLineEdit(self.settings.values['LOCALE']['SERVER_PORT'])
@@ -125,7 +139,7 @@ class UiSetting(QWidget):
         self.main_layout.addWidget(self.edit_locale_port, row, 2, 1, 2)
         row = row + 1
 
-        label_token = QLabel("令牌：")
+        label_token = QLabel(self.tr("Token:"))
         label_token.setFixedHeight(28)
         self.main_layout.addWidget(label_token, row, 1)
         self.edit_locale_token = QLineEdit(self.settings.values['LOCALE']['SERVER_TOKEN'])
@@ -133,7 +147,7 @@ class UiSetting(QWidget):
         self.main_layout.addWidget(self.edit_locale_token, row, 2, 1, 2)
         row = row + 1
 
-        label_name = QLabel('Aric2地址：')
+        label_name = QLabel(self.tr('Aria2 path:'))
         self.main_layout.addWidget(label_name, row, 1, 1, 2)
         self.edit_aria2 = QLineEdit()
         self.edit_aria2.setFixedHeight(28)
@@ -144,23 +158,23 @@ class UiSetting(QWidget):
         self.main_layout.addWidget(self.button_select_aria, row, 4)
         row = row + 1
 
-        label_name = QLabel('Aric2参数：')
+        label_name = QLabel(self.tr('Aria2 parameters:'))
         self.main_layout.addWidget(label_name, row, 1, 1, 2, Qt.AlignTop)
         # row = row + 1
         self.edit_aria2_params = QTextEdit()
         self.main_layout.addWidget(self.edit_aria2_params, row, 2, 1, 3)
         row = row + 1
 
-        self.checkbox_keep_running = QCheckBox('关闭时保持后台下载')
+        self.checkbox_keep_running = QCheckBox(self.tr('Keep background downloads when closed this application'))
         self.main_layout.addWidget(self.checkbox_keep_running, row, 1, 1, 2, Qt.AlignTop)
         row = row + 1
 
-        self.button_ok = QPushButton("确定")
+        self.button_ok = QPushButton(self.tr("OK"))
         self.button_ok.setFixedHeight(32)
         self.button_ok.clicked.connect(self.on_ok)
         self.main_layout.addWidget(self.button_ok, row, 1)
 
-        button_cancel = QPushButton("取消")
+        button_cancel = QPushButton(self.tr("Cancel"))
         button_cancel.setFixedHeight(32)
         button_cancel.clicked.connect(self.close)
         self.main_layout.addWidget(button_cancel, row, 3)
@@ -185,8 +199,13 @@ class UiSetting(QWidget):
         folder = folder.replace('${DOWNLOAD}', download_path)
         self.edit_download_folder.setText(folder)
 
+        for language in self.settings.values['LANGUAGES']:
+            self.combox_language.addItem(language['NAME'])
+        curr_language = self.settings.values['LANGUAGE']
+        self.combox_language.setCurrentText(self.settings.values['LANGUAGES'][curr_language]['NAME'])
+
         self.checkbox_keep_running.setChecked(self.settings.values['LOCALE']["KEEP_RUNNING"])
-        self.on_change_type()
+        self.on_changed_type()
 
     def on_changed_remote_addr(self, text):
         for url in self.settings.values['REMOTE']['SERVER_HISTORY']:
@@ -194,7 +213,7 @@ class UiSetting(QWidget):
                 self.edit_remote_token.setText(url['token'])
                 break
 
-    def on_change_type(self):
+    def on_changed_type(self):
         self.edit_download_folder.setEnabled(self.radio_local.isChecked())
         self.button_select_download_folder.setEnabled(self.radio_local.isChecked())
         self.edit_aria2_params.setEnabled(self.radio_local.isChecked())
@@ -209,9 +228,9 @@ class UiSetting(QWidget):
     def close(self):
         dm = gl.get_value('dm')
         dm.main_wnd.left_widget.setCurrentRow(0)
-        super().close()
 
     def on_ok(self):
+        self.settings.values['LANGUAGE'] = self.combox_language.currentIndex()
         self.settings.values["REFRESH"] = self.spin_refresh.value()
 
         self.settings.values["IS_LOCALE"] = self.radio_local.isChecked()
@@ -236,11 +255,12 @@ class UiSetting(QWidget):
         self.settings.values['LOCALE']['KEEP_RUNNING'] = self.checkbox_keep_running.isChecked()
         self.settings.save()
         gl.set_value("settings", self.settings)
-        self.close()
+        dm = gl.get_value('dm')
+        dm.main_wnd.left_widget.setCurrentRow(0)
 
     def on_select_aria(self):
         folder = QFileDialog.getExistingDirectory(self,
-                                                  "选择Aria2所在目录",
+                                                  self.tr("Select aria2 path"),
                                                   self.settings.values["ARIA2"])
         if folder is None:
             return
@@ -251,7 +271,7 @@ class UiSetting(QWidget):
         folder = self.settings.values['LOCALE']["DOWNLOAD_DIR"]
         folder = folder.replace('${DOWNLOAD}', download_path)
         folder = QFileDialog.getExistingDirectory(self,
-                                                  "选择下载目录",
+                                                  self.tr("select save path"),
                                                   folder)
         if folder is None:
             return

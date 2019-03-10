@@ -6,7 +6,7 @@ block_cipher = None
 a = Analysis(['main-gui.py', 'aria2.py', 'gl.py', 'ui/Misc.py', 'ui/UI_About.py', 'ui/UI_DownloadList.py', 'ui/UI_Main.py', 'ui/UI_NewTask.py', 'ui/UI_Setting.py', 'ui/UI_TaskDetails.py', 'ui/WidgetTaskActive.py', 'ui/WidgetTask.py', 'ui/WidgetTaskStopped.py', 'ui/WidgetTaskWaiting.py'],
              pathex=['D:\\CodeProjects\\aria2-pyui'],
              binaries=[],
-             datas=[('D:\\CodeProjects\\aria2-pyui\\icons', 'icons'), ('D:\\CodeProjects\\aria2-pyui\\qss', 'qss'), ('D:\\CodeProjects\\aria2-pyui\\aria2', 'aria2'),
+             datas=[('D:\\CodeProjects\\aria2-pyui\\icons', 'icons'), ('D:\\CodeProjects\\aria2-pyui\\languages', 'languages'), ('D:\\CodeProjects\\aria2-pyui\\qss', 'qss'), ('D:\\CodeProjects\\aria2-pyui\\aria2', 'aria2'),
              ('logging.conf', '.')],
              hiddenimports=[],
              hookspath=[],

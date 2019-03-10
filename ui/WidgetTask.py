@@ -12,15 +12,13 @@ import time
 
 
 class UITask(QWidget):
-    def __init__(self, qss):
+    def __init__(self):
         super().__init__()
         self.setObjectName('TaskStopped')
         self.setMinimumWidth(160)
         self.task = None
         self.setFocusPolicy(Qt.NoFocus)
-        self.setWindowFlags(Qt.FramelessWindowHint)  # 无边框
-        if os.path.exists(qss):
-            self.list_style = open(qss, 'r').read()  # 导入qss样式
+        self.setWindowFlags(Qt.FramelessWindowHint)
 
         self.layout = QVBoxLayout(self)
         self.layout.setContentsMargins(10, 10, 10, 10)
@@ -39,19 +37,19 @@ class UITask(QWidget):
 
         self.command_open = QPushButton()
         self.command_open.setObjectName("CommandOpenFolder")
-        self.command_open.setToolTip("打开文件所在目录")
+        self.command_open.setToolTip(self.tr('Open folder of the file'))
         self.command_open.clicked.connect(self._command)
         self.commands.addWidget(self.command_open)
 
         self.command_delete = QPushButton()
         self.command_delete.setObjectName('CommandDeleteTask')
-        self.command_delete.setToolTip("删除文件")
+        self.command_delete.setToolTip(self.tr("Delete"))
         self.command_delete.clicked.connect(self._command)
         self.commands.addWidget(self.command_delete)
 
         self.command_details = QPushButton()
         self.command_details.setObjectName('CommandDetails')
-        self.command_details.setToolTip("查看详情")
+        self.command_details.setToolTip(self.tr("Details"))
         self.command_details.clicked.connect(self._command)
         self.commands.addWidget(self.command_details)
 
@@ -60,11 +58,11 @@ class UITask(QWidget):
         self.layout.addLayout(self.info_layout)
 
         self.label_file_size = QLabel()
-        self.label_file_size.setToolTip("文件大小")
+        self.label_file_size.setToolTip(self.tr("File size"))
         self.info_layout.addWidget(self.label_file_size)
 
         self.label_upload_size = QLabel()
-        self.label_upload_size.setToolTip("上传大小")
+        self.label_upload_size.setToolTip(self.tr("Upload size"))
         self.info_layout.addWidget(self.label_upload_size)
 
     @staticmethod
@@ -111,7 +109,10 @@ class UITask(QWidget):
             dm.main_wnd.show_details(self.task)
         elif sender is self.command_open:
             if not dm.settings.values['IS_LOCALE']:
-                QMessageBox.warning(self, '警告', '当前是远程服务器模式，无法打开文件所在目录。', QMessageBox.Ok)
+                QMessageBox.warning(self,
+                                    self.tr('Warn'),
+                                    self.tr("Can't open folder when in remote mode"),
+                                    QMessageBox.Ok)
                 return
             file_name = self.get_task_name(self.task)
             try:
@@ -122,7 +123,7 @@ class UITask(QWidget):
             except FileNotFoundError as err:
                 print(err)
         elif sender is self.command_delete:
-            if QMessageBox.question(self, "警告", "确认要删除该任务？", QMessageBox.Ok | QMessageBox.No) == QMessageBox.No:
+            if QMessageBox.question(self, self.tr('Warn'), self.tr("Are you sure to delete this task?"), QMessageBox.Ok | QMessageBox.No) == QMessageBox.No:
                 return
             is_detect_file = False
             if dm.settings.values['IS_LOCALE']:
@@ -131,8 +132,8 @@ class UITask(QWidget):
                 path = os.path.abspath(path)
                 if os.path.exists(path) and \
                         QMessageBox.question(self,
-                                             "询问",
-                                             "确认要删除该任务的文件（{}）吗？".format(path),
+                                             self.tr('Question'),
+                                             self.tr('Are you sure to delete file{} of this task?').format(path),
                                              QMessageBox.Yes | QMessageBox.No) == QMessageBox.Yes:
                     is_detect_file = True
             else:

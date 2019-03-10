@@ -34,12 +34,12 @@ class UiDownloadList(QWidget):
         self._setup_ui()
 
     def _setup_ui(self):
-        self.left_widget.currentRowChanged.connect(self.task_type_changed)   # list和右侧窗口的index对应绑定
-        self.left_widget.setFrameShape(QListWidget.NoFrame)    # 去掉边框
-        self.left_widget.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)  # 隐藏滚动条
+        self.left_widget.currentRowChanged.connect(self.task_type_changed)
+        self.left_widget.setFrameShape(QListWidget.NoFrame)
+        self.left_widget.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.left_widget.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
 
-        list_str = ['全部', '下载中', '等待中', '已完成']
+        list_str = [self.tr('All'), self.tr('Downloading'), self.tr('Waiting'), self.tr('Stopped')]
         for i in range(len(list_str)):
             self.item = QListWidgetItem(list_str[i], self.left_widget)
             self.item.setSizeHint(QSize(30, 60))

@@ -6,34 +6,34 @@ import gl
 
 
 class UITaskActive(UITask):
-    def __init__(self, qss='qss/UITaskActive.qss'):
-        super().__init__(qss)
+    def __init__(self):
+        super().__init__()
         self.setObjectName('TaskActive')
 
         self.command_pause = QPushButton()
         self.command_pause.setObjectName('CommandPause')
-        self.command_pause.setToolTip("暂停下载")
+        self.command_pause.setToolTip(self.tr("Pause"))
         self.command_pause.clicked.connect(self._command)
         self.commands.insertWidget(0, self.command_pause)
 
         self.label_percent = QLabel()
-        self.label_percent.setToolTip("百分比")
+        self.label_percent.setToolTip(self.tr("Percent"))
         self.info_layout.addWidget(self.label_percent)
 
         self.label_time = QLabel()
-        self.label_time.setToolTip("剩余时间")
+        self.label_time.setToolTip(self.tr("Remain time"))
         self.info_layout.addWidget(self.label_time)
 
         self.label_download_speed = QLabel()
-        self.label_download_speed.setToolTip("下载速度")
+        self.label_download_speed.setToolTip(self.tr("Download speed"))
         self.info_layout.addWidget(self.label_download_speed)
 
         self.label_upload_speed = QLabel()
-        self.label_upload_speed.setToolTip("上传速度")
+        self.label_upload_speed.setToolTip(self.tr("Upload speed"))
         self.info_layout.addWidget(self.label_upload_speed)
 
         self.label_connects = QLabel()
-        self.label_connects.setToolTip("连接数")
+        self.label_connects.setToolTip(self.tr("Connects"))
         self.info_layout.addWidget(self.label_connects)
 
         self.progress = QProgressBar()
@@ -61,18 +61,18 @@ class UITaskActive(UITask):
             remain_time = (total_length - completed_length) / download_speed
         days = remain_time / (60 * 60 * 24)
         if days >= 1:
-            remain_time = "超过{}天".format(int(days))
+            remain_time = self.tr("More than {} day(s)").format(int(days))
         else:
             remain_time = time.strftime('%H:%M:%S', time.gmtime(remain_time))
-        self.label_time.setText('剩余时间：{}'.format(remain_time))
-        self.label_download_speed.setText('下载速度：{}/s'.format(size2string(download_speed)))
-        self.label_upload_speed.setText('上传速度：{}/s'.format(size2string(task['uploadSpeed'])))
+        self.label_time.setText(self.tr('Remain time: {}').format(remain_time))
+        self.label_download_speed.setText(self.tr('Download speed: {}/s').format(size2string(download_speed)))
+        self.label_upload_speed.setText(self.tr('Upload speed: {}/s').format(size2string(task['uploadSpeed'])))
         if 'numSeeders' in task and 'connections' in task:
             self.label_connects.setText("{}/{}".format(task['numSeeders'], task['connections']))
-            self.label_connects.setToolTip("发送数：{}  连接数：{}".format(task['numSeeders'], task['connections']))
+            self.label_connects.setToolTip(self.tr("Senders: {}  Connects: {}").format(task['numSeeders'], task['connections']))
         elif 'connections' in task:
             self.label_connects.setText("{}".format(task['connections']))
-            self.label_connects.setToolTip("连接数：{}".format(task['connections']))
+            self.label_connects.setToolTip(self.tr("Connects: {}").format(task['connections']))
 
     def _command(self):
         sender = self.sender()

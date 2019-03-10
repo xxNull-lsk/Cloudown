@@ -39,13 +39,13 @@ class UiBtButton(QPushButton):
 
 class UiNewTask(QWidget):
     aria2 = None
-    bt_button_title = "拖放种子文件的到此处，或点击按钮选择种子文件"
+    bt_button_title = ""
 
     def __init__(self, parent):
         super(UiNewTask, self).__init__(parent)
 
         self.setObjectName('UiNewTask')
-        self.setWindowTitle("新建任务")
+        self.setWindowTitle(self.tr("New Task"))
 
         main_layout = QVBoxLayout(self)
 
@@ -53,31 +53,31 @@ class UiNewTask(QWidget):
         self.top_list.tabBar().setObjectName("NewTaskTab")
         main_layout.addWidget(self.top_list)
 
+        self.bt_button_title = self.tr('Drop BT file(s) in here, or click this button to select BT file(s)')
+
         self.edit_url = QTextEdit()
-        self.edit_url.setPlaceholderText("每行一个链接，支持HTTP、HTTPS和磁力链")
-        self.top_list.addTab(self.edit_url, "下载链接")
+        self.edit_url.setPlaceholderText(
+            self.tr("If add URL more than one, be sure one line one URL. support HTTP, HTTPS, FTP and magnet..."))
+        self.top_list.addTab(self.edit_url, self.tr("URL"))
 
         self.button_bt_file = UiBtButton(self.bt_button_title)
         self.button_bt_file.setObjectName("SelectBtFile")
         self.button_bt_file.clicked.connect(self.on_select_bt_file)
-        self.top_list.addTab(self.button_bt_file, "BT文件")
-
-        # self.ftp_params = QWidget()
-        # self.top_list.addTab(self.ftp_params, "FTP")
+        self.top_list.addTab(self.button_bt_file, self.tr("BT"))
 
         download_options = QGridLayout()
 
-        label_name = QLabel("重命名：")
+        label_name = QLabel(self.tr("Rename:"))
         download_options.addWidget(label_name, 0, 0)
         self.edit_name = QLineEdit()
         download_options.addWidget(self.edit_name, 0, 1, 1, 3)
 
-        label_name = QLabel("线程数：")
+        label_name = QLabel(self.tr("Thread count:"))
         download_options.addWidget(label_name, 0, 4)
         self.spin_thread_count = QSpinBox()
         download_options.addWidget(self.spin_thread_count, 0, 5)
 
-        label_path = QLabel("保存位置：")
+        label_path = QLabel(self.tr("Save path:"))
         download_options.addWidget(label_path, 1, 0)
         self.edit_save_path = QLineEdit()
         download_options.addWidget(self.edit_save_path, 1, 1, 1, 4)
@@ -90,7 +90,7 @@ class UiNewTask(QWidget):
         bottom_list = QHBoxLayout()
         bottom_list.setAlignment(Qt.AlignCenter)
 
-        self.button_ok = QPushButton("确定")
+        self.button_ok = QPushButton(self.tr("OK"))
         self.button_ok.setFixedHeight(32)
         self.button_ok.clicked.connect(self.on_ok)
         bottom_list.addWidget(self.button_ok)
@@ -98,7 +98,7 @@ class UiNewTask(QWidget):
         spacer = QSpacerItem(40, 32)
         bottom_list.addSpacerItem(spacer)
 
-        button_cancel = QPushButton("取消")
+        button_cancel = QPushButton(self.tr("Cancel"))
         button_cancel.setFixedHeight(32)
         button_cancel.clicked.connect(self.close)
         bottom_list.addWidget(button_cancel)
@@ -139,11 +139,11 @@ class UiNewTask(QWidget):
         self.setWindowModality(Qt.ApplicationModal)
 
     def on_select_folder(self):
-        self.edit_save_path.setText(QFileDialog.getExistingDirectory(self, "选取文件夹", "./"))
+        self.edit_save_path.setText(QFileDialog.getExistingDirectory(self, self.tr("Select folder"), "./"))
 
     def on_select_bt_file(self):
         files = QFileDialog.getOpenFileName(self,
-                                            "选取BT文件",
+                                            self.tr("Select BT files"),
                                             "./",
                                             "BT Files (*.torrent);;All Files (*)")
         if len(files) >= 1 and files[0] != '':
@@ -178,9 +178,6 @@ class UiNewTask(QWidget):
                     continue
                 self.aria2.add_torrent(f)
             self.button_select_folder.setText(self.bt_button_title)
-        elif self.top_list.currentIndex() == 2:
-            # TODO: 带用户名和密码的支持FTP
-            pass
 
         self.aria2.save_session()
         self.close()

@@ -5,13 +5,13 @@ import gl
 
 
 class UITaskWaiting(UITask):
-    def __init__(self, qss='qss/UITaskWaiting.qss'):
-        super(UITaskWaiting, self).__init__(qss)
+    def __init__(self):
+        super(UITaskWaiting, self).__init__()
         self.setObjectName('TaskWaiting')
 
         self.command_unpause = QPushButton()
         self.command_unpause.setObjectName('CommandUnpause')
-        self.command_unpause.setToolTip("恢复下载")
+        self.command_unpause.setToolTip(self.tr("Unpause"))
         self.command_unpause.clicked.connect(self._command)
         self.commands.insertWidget(0, self.command_unpause)
 

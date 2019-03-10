@@ -21,7 +21,7 @@ class UiAbout(QWidget):
         label_name = QLabel('{0} {1}'.format(dm.app_name, dm.app_version))
         label_name.setObjectName('application_name')
         main_layout.addWidget(label_name)
-        btn_address = QCommandLinkButton("项目网址：https://github.com/xxNull-lsk/Cloudown")
+        btn_address = QCommandLinkButton(self.tr("Website ({0})").format(dm.app_url))
         btn_address.clicked.connect(self.on_open_website)
         main_layout.addWidget(btn_address)
         label_name = QLabel()
@@ -30,7 +30,7 @@ class UiAbout(QWidget):
         aria_info = QVBoxLayout()
         main_layout.addLayout(aria_info)
 
-        label_title = QLabel('Aria2相关信息')
+        label_title = QLabel(self.tr('About Aria2'))
         aria_info.addWidget(label_title)
 
         self.label_version = QLabel()
@@ -48,17 +48,18 @@ class UiAbout(QWidget):
             if aria2 is None:
                 return
             ret = aria2.get_version()
-            self.label_version.setText('版本号：' + ret['result']['version'])
-            msg = '特性：\n'
+            self.label_version.setText(self.tr('Version: ') + ret['result']['version'])
+            msg = self.tr('Features:') + '\n'
             for f in ret['result']['enabledFeatures']:
                 msg = msg + '\t' + f + '\n'
 
             ret = aria2.list_methods()
-            msg = msg + '方法：\n'
+            msg = msg + self.tr('Methods:') + '\n'
             for f in ret['result']:
                 msg = msg + '\t' + f + '\n'
 
             self.edit_feature.setText(msg)
 
     def on_open_website(self):
-        webbrowser.open('https://github.com/xxNull-lsk/Cloudown')
+        dm = gl.get_value('dm')
+        webbrowser.open(dm.app_url)
