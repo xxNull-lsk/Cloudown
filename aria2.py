@@ -109,7 +109,7 @@ class Aria2:
         c = urlopen(self.server_url, req)
         return json.loads(c.read())
 
-    def pause(self, task_id):
+    def pause(self, task_id, force=False):
         req = {
             'jsonrpc': '2.0',
             'id': self.id,
@@ -118,11 +118,16 @@ class Aria2:
                 task_id
             ]
         }
+        if force:
+            req['method'] = 'aria2.forcePause'
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
-        return json.loads(c.read())
+        try:
+            c = urlopen(self.server_url, req)
+            return json.loads(c.read())
+        except Exception as err:
+            logging.error(str(err))
 
     def unpause(self, task_id):
         req = {
@@ -136,8 +141,12 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
-        return json.loads(c.read())
+        try:
+            c = urlopen(self.server_url, req)
+            return json.loads(c.read())
+        except Exception as err:
+            logging.error(str(err))
+            return {}
 
     def get_status(self, task_id):
         req = {

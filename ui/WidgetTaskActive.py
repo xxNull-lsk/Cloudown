@@ -78,7 +78,10 @@ class UITaskActive(UITask):
         sender = self.sender()
         if sender is self.command_pause:
             aria2 = gl.get_value('aria2')
-            aria2.pause(self.task['gid'])
+            ret = aria2.pause(self.task['gid'])
+            if ret is None:
+                # force pause
+                aria2.pause(self.task['gid'], True)
             aria2.save_session()
         else:
             super()._command()
