@@ -46,7 +46,7 @@ class SystemSettings:
 
     def __init__(self):
         if sys.platform == 'linux':
-            self.values['LOCALE']['ARIA2'] = 'aria2c'
+            self.values['LOCALE']['ARIA2'] = './aria2/aria2c'
 
     def load(self):
         if not os.path.exists(self.file):
