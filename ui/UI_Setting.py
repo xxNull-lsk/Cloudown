@@ -98,15 +98,6 @@ class UiSetting(QWidget):
         self.main_layout.addWidget(label_sec, row, 2)
         row = row + 1
 
-        label_name = QLabel(self.tr("Save path:"))
-        self.main_layout.addWidget(label_name, row, 0)
-        self.edit_download_folder = QLineEdit()
-        self.main_layout.addWidget(self.edit_download_folder, row, 1, 1, 3)
-        self.button_select_download_folder = QPushButton("...")
-        self.button_select_download_folder.clicked.connect(self.on_change_download_path)
-        self.main_layout.addWidget(self.button_select_download_folder, row, 4)
-        row = row + 1
-
         self.radio_remote = QRadioButton(self.tr("Remote"))
         self.radio_remote.clicked.connect(self.on_changed_type)
         self.main_layout.addWidget(self.radio_remote, row, 0)
@@ -168,6 +159,15 @@ class UiSetting(QWidget):
         # row = row + 1
         self.edit_aria2_params = QTextEdit()
         self.main_layout.addWidget(self.edit_aria2_params, row, 2, 1, 3)
+        row = row + 1
+
+        label_name = QLabel(self.tr("Save path:"))
+        self.main_layout.addWidget(label_name, row, 1)
+        self.edit_download_folder = QLineEdit()
+        self.main_layout.addWidget(self.edit_download_folder, row, 2, 1, 2)
+        self.button_select_download_folder = QPushButton("...")
+        self.button_select_download_folder.clicked.connect(self.on_change_download_path)
+        self.main_layout.addWidget(self.button_select_download_folder, row, 4)
         row = row + 1
 
         self.checkbox_keep_running = QCheckBox(self.tr('Keep background downloads when closed this application'))
