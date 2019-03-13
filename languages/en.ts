@@ -3,52 +3,52 @@
 <context>
     <name>UITask</name>
     <message>
-        <location filename="../ui/WidgetTask.py" line="40"/>
+        <location filename="../ui/WidgetTask.py" line="39"/>
         <source>Open folder of the file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTask.py" line="46"/>
+        <location filename="../ui/WidgetTask.py" line="45"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTask.py" line="52"/>
+        <location filename="../ui/WidgetTask.py" line="51"/>
         <source>Details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTask.py" line="61"/>
+        <location filename="../ui/WidgetTask.py" line="59"/>
         <source>File size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTask.py" line="65"/>
+        <location filename="../ui/WidgetTask.py" line="63"/>
         <source>Upload size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTask.py" line="127"/>
+        <location filename="../ui/WidgetTask.py" line="125"/>
         <source>Warn</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTask.py" line="113"/>
+        <location filename="../ui/WidgetTask.py" line="111"/>
         <source>Can&apos;t open folder when in remote mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTask.py" line="127"/>
+        <location filename="../ui/WidgetTask.py" line="125"/>
         <source>Are you sure to delete this task?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTask.py" line="135"/>
+        <location filename="../ui/WidgetTask.py" line="133"/>
         <source>Question</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTask.py" line="135"/>
+        <location filename="../ui/WidgetTask.py" line="133"/>
         <source>Are you sure to delete file{} of this task?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -56,63 +56,88 @@
 <context>
     <name>UITaskActive</name>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="15"/>
+        <location filename="../ui/WidgetTaskActive.py" line="41"/>
         <source>Pause</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="20"/>
+        <location filename="../ui/WidgetTaskActive.py" line="42"/>
         <source>Percent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="24"/>
+        <location filename="../ui/WidgetTaskActive.py" line="43"/>
         <source>Remain time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="28"/>
+        <location filename="../ui/WidgetTaskActive.py" line="45"/>
         <source>Download speed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="32"/>
+        <location filename="../ui/WidgetTaskActive.py" line="46"/>
         <source>Upload speed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="36"/>
+        <location filename="../ui/WidgetTaskActive.py" line="44"/>
         <source>Connects</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="64"/>
+        <location filename="../ui/WidgetTaskActive.py" line="73"/>
         <source>More than {} day(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="67"/>
+        <location filename="../ui/WidgetTaskActive.py" line="76"/>
         <source>Remain time: {}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="68"/>
+        <location filename="../ui/WidgetTaskActive.py" line="77"/>
         <source>Download speed: {}/s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="69"/>
+        <location filename="../ui/WidgetTaskActive.py" line="78"/>
         <source>Upload speed: {}/s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="72"/>
+        <location filename="../ui/WidgetTaskActive.py" line="81"/>
         <source>Senders: {}  Connects: {}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="75"/>
+        <location filename="../ui/WidgetTaskActive.py" line="84"/>
         <source>Connects: {}</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/WidgetTaskActive.py" line="48"/>
+        <source>Open folder of the file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/WidgetTaskActive.py" line="49"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/WidgetTaskActive.py" line="50"/>
+        <source>Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/WidgetTaskActive.py" line="51"/>
+        <source>File size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/WidgetTaskActive.py" line="52"/>
+        <source>Upload size</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -202,6 +227,16 @@
         <source>Download Speed: {0}/s  Upload Speed: {1}/s</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../ui/UI_Main.py" line="300"/>
+        <source>Exception</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UI_Main.py" line="299"/>
+        <source>Aria2 server is offline. Do you want to reconnect it?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UiNewTask</name>
@@ -269,87 +304,87 @@
 <context>
     <name>UiSetting</name>
     <message>
-        <location filename="../ui/UI_Setting.py" line="69"/>
+        <location filename="../ui/UI_Setting.py" line="74"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="75"/>
+        <location filename="../ui/UI_Setting.py" line="80"/>
         <source>Language:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="83"/>
+        <location filename="../ui/UI_Setting.py" line="88"/>
         <source>Refresh rate:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="92"/>
+        <location filename="../ui/UI_Setting.py" line="97"/>
         <source>second(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="96"/>
+        <location filename="../ui/UI_Setting.py" line="101"/>
         <source>Save path:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="105"/>
+        <location filename="../ui/UI_Setting.py" line="110"/>
         <source>Remote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="110"/>
+        <location filename="../ui/UI_Setting.py" line="115"/>
         <source>Server address:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="142"/>
+        <location filename="../ui/UI_Setting.py" line="147"/>
         <source>Token:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="129"/>
+        <location filename="../ui/UI_Setting.py" line="134"/>
         <source>Local</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="134"/>
+        <location filename="../ui/UI_Setting.py" line="139"/>
         <source>Port:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="150"/>
+        <location filename="../ui/UI_Setting.py" line="155"/>
         <source>Aria2 path:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="161"/>
+        <location filename="../ui/UI_Setting.py" line="166"/>
         <source>Aria2 parameters:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="168"/>
+        <location filename="../ui/UI_Setting.py" line="173"/>
         <source>Keep background downloads when closed this application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="172"/>
+        <location filename="../ui/UI_Setting.py" line="177"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="177"/>
+        <location filename="../ui/UI_Setting.py" line="182"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="278"/>
+        <location filename="../ui/UI_Setting.py" line="272"/>
         <source>Select aria2 path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="289"/>
+        <location filename="../ui/UI_Setting.py" line="284"/>
         <source>select save path</source>
         <translation type="unfinished"></translation>
     </message>

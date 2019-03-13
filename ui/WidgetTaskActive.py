@@ -12,28 +12,22 @@ class UITaskActive(UITask):
 
         self.command_pause = QPushButton()
         self.command_pause.setObjectName('CommandPause')
-        self.command_pause.setToolTip(self.tr("Pause"))
         self.command_pause.clicked.connect(self._command)
         self.commands.insertWidget(0, self.command_pause)
 
         self.label_percent = QLabel()
-        self.label_percent.setToolTip(self.tr("Percent"))
         self.info_layout.addWidget(self.label_percent)
 
         self.label_time = QLabel()
-        self.label_time.setToolTip(self.tr("Remain time"))
         self.info_layout.addWidget(self.label_time)
 
         self.label_download_speed = QLabel()
-        self.label_download_speed.setToolTip(self.tr("Download speed"))
         self.info_layout.addWidget(self.label_download_speed)
 
         self.label_upload_speed = QLabel()
-        self.label_upload_speed.setToolTip(self.tr("Upload speed"))
         self.info_layout.addWidget(self.label_upload_speed)
 
         self.label_connects = QLabel()
-        self.label_connects.setToolTip(self.tr("Connects"))
         self.info_layout.addWidget(self.label_connects)
 
         self.progress = QProgressBar()
@@ -41,6 +35,21 @@ class UITaskActive(UITask):
         self.progress.setFixedHeight(3)
         self.progress.setRange(0, 1000)
         self.layout.addWidget(self.progress)
+        self.update_ui()
+
+    def update_ui(self):
+        self.command_pause.setToolTip(self.tr("Pause"))
+        self.label_percent.setToolTip(self.tr("Percent"))
+        self.label_time.setToolTip(self.tr("Remain time"))
+        self.label_connects.setToolTip(self.tr("Connects"))
+        self.label_download_speed.setToolTip(self.tr("Download speed"))
+        self.label_upload_speed.setToolTip(self.tr("Upload speed"))
+
+        self.command_open.setToolTip(self.tr('Open folder of the file'))
+        self.command_delete.setToolTip(self.tr("Delete"))
+        self.command_details.setToolTip(self.tr("Details"))
+        self.label_file_size.setToolTip(self.tr("File size"))
+        self.label_upload_size.setToolTip(self.tr("Upload size"))
 
     def set_task(self, task):
         super().set_task(task)

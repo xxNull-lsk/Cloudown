@@ -5,7 +5,6 @@ from ui.UI_Setting import UiSetting
 from ui.UI_NewTask import UiNewTask
 from ui.UI_TaskDetails import UiTaskDetails
 from ui.UI_About import UiAbout
-from urllib.error import *
 import logging
 
 
@@ -46,13 +45,14 @@ class ThreadRefreshTask(QThread):
 
     def run(self):
         while not self.is_quit:
-            self._refresh_list()
             self._refresh_status()
+            if not self._refresh_list():
+                break
             self.sleep(self.sleep_seconds)
 
     def _refresh_list(self):
         if not self.need_update_list:
-            return
+            return True
         try:
             ret = self.aria2.get_active_tasks()
             if ret is not None:
@@ -63,11 +63,11 @@ class ThreadRefreshTask(QThread):
             ret = self.aria2.get_stopped_tasks()
             if ret is not None:
                 self.update.emit(UiDownloadList.task_type_stopped, ret['result'], True)
+            return True
         except Exception as err:
             logging.error(str(err))
             self.update.emit(UiDownloadList.task_type_download, [], False)
-            self.update.emit(UiDownloadList.task_type_waiting, [], False)
-            self.update.emit(UiDownloadList.task_type_stopped, [], False)
+            return False
 
     def _refresh_status(self):
         if not self.need_update_status:
@@ -293,7 +293,7 @@ class UiMain(QWidget):
         self.ui_download_list.set_tasks([], UiDownloadList.task_type_download)
         self.ui_download_list.set_tasks([], UiDownloadList.task_type_waiting)
         self.ui_download_list.set_tasks([], UiDownloadList.task_type_stopped)
-        message = self.tr("Aria2 server is offline. Do you want to reconnect it？")
+        message = self.tr("Aria2 server is offline. Do you want to reconnect it?")
         ret = QMessageBox.critical(self, self.tr('Exception'), message, QMessageBox.Yes | QMessageBox.No)
         if ret == QMessageBox.Yes:
             dm = gl.get_value('dm')

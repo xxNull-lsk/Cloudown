@@ -10,6 +10,54 @@ import logging
 import json
 
 
+class ThreadRefreshTaskDetails(QThread):
+    update = pyqtSignal(bool, dict, list)
+    is_quit = False
+    sleep_seconds = 1
+    gid = ''
+
+    def __init__(self, gid):
+        super().__init__()
+        self.gid = gid
+        self.aria2 = gl.get_value('aria2')
+        setting = gl.get_value('settings')
+        self.sleep_seconds = setting.values['REFRESH']
+        gl.signals.value_changed.connect(self._on_changed_values)
+
+    def _on_changed_values(self, name):
+        if name == 'settings':
+            setting = gl.get_value('settings')
+            self.sleep_seconds = setting.values['REFRESH']
+
+    def exit(self, return_code=0):
+        super().exit(return_code)
+        self.is_quit = True
+
+    def start(self, priority=QThread.NormalPriority):
+        self.is_quit = False
+        self.aria2 = gl.get_value('aria2')
+        settings = gl.get_value('settings')
+        self.sleep_seconds = settings.values['REFRESH']
+        super().start(priority)
+
+    def run(self):
+        while not self.is_quit:
+            try:
+                ret = self.aria2.get_status(self.gid)
+                task = ret['result']
+                if 'numSeeders' in task and int(task['numSeeders']) > 0:
+                    ret = self.aria2.get_peers(self.gid)
+                    peers = ret['result']
+                else:
+                    peers = []
+                self.update.emit(True, task, peers)
+            except Exception as err:
+                print(err)
+                logging.error(str(err))
+                self.update.emit(False, {}, [])
+            self.sleep(self.sleep_seconds)
+
+
 class BitField:
     data = ''
     total_blocks = 0
@@ -84,6 +132,9 @@ class UiProgress(QWidget):
 
 class UiTaskDetails(QWidget):
     backup_tasks = []
+    thread_refresh = None
+    peers = None
+    task = None
 
     def __init__(self, parent):
         self.task = None
@@ -142,9 +193,6 @@ class UiTaskDetails(QWidget):
         self.files_info.setColumnCount(len(heads))
         self.files_info.setHorizontalHeaderLabels(heads)
         self.files_info.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.t = QTimer()
-        self.t.setInterval(1000)
-        self.t.timeout.connect(self._refresh_task)
 
         self.table_peers = QTableWidget()
         heads = [self.tr('Address'),
@@ -184,18 +232,30 @@ class UiTaskDetails(QWidget):
                 self.blocks_ui[name] = block_item
                 self.blocks_layout.addWidget(block_item, row, col)
 
-    def _refresh_task(self):
+    def _refresh_task(self, is_successed, task, peers):
         aria2 = gl.get_value('aria2')
-        if aria2 is None:
+        if aria2 is None or not is_successed:
             return
         try:
-            ret = aria2.get_status(self.task['gid'])
-            self.update_task(ret['result'])
+            self._update_task(task, peers)
+            self.task = task
         except Exception as err:
             logging.error('_refresh_task: {}'.format(err))
 
     def update_task(self, task):
-        self.t.stop()
+        if task is None:
+            return
+        if self.thread_refresh is not None:
+            self.thread_refresh.exit()
+
+        self.task = task
+        if self.task['status'] == 'active':
+            self.thread_refresh = ThreadRefreshTaskDetails(task['gid'])
+            self.thread_refresh.update.connect(self._refresh_task)
+            self.thread_refresh.start()
+        self._update_task(self.task, [])
+
+    def _update_task(self, task, peers):
         if task is None:
             return
         # 查看原始数据时不刷新，以防止查过时发生变化，无法分析。
@@ -204,6 +264,7 @@ class UiTaskDetails(QWidget):
         if self.tab.currentIndex() == 0:
             self.tab.setCurrentIndex(1)
         self.task = task
+        self.peers = peers
         peer_tab_index = -1
         server_tab_index = -1
         block_tab_index = -1
@@ -245,15 +306,7 @@ class UiTaskDetails(QWidget):
                 block_tab_index = self.tab.addTab(self.blocks, self.tab_title_blocks)
 
         if peer_tab_index >= 0:
-            try:
-                aria2 = gl.get_value('aria2')
-                ret = aria2.get_peers(task['gid'])
-                peers = ret['result']
-                self._update_peers(task, peers)
-            except:
-                pass
-        else:
-            peers = None
+            self._update_peers(task, peers)
 
         if server_tab_index >= 0:
             self._update_servers(task)
@@ -263,8 +316,6 @@ class UiTaskDetails(QWidget):
 
         self._update_base_info(task, peers)
         self._update_files(task)
-        if task['status'] == 'active' and not self.t.isActive():
-            self.t.start()
 
     def _update_servers(self, task):
         if self.tab.tabText(self.tab.currentIndex()) != self.tab_title_servers:
@@ -490,7 +541,7 @@ class UiTaskDetails(QWidget):
         task_count = len(self.backup_tasks)
         if task_count == 0:
             dm = gl.get_value('dm')
-            self.t.stop()
+            self.thread_refresh.exit()
             dm.main_wnd.show_normal()
             return
         last = self.backup_tasks[task_count - 1]
@@ -502,5 +553,5 @@ class UiTaskDetails(QWidget):
             self.on_back()
 
     def on_tab_changed(self, index):
-        self.update_task(self.task)
+        self._update_task(self.task, self.peers)
 

@@ -1,54 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="zh_CN" sourcelanguage="">
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>UITask</name>
     <message>
-        <location filename="../ui/WidgetTask.py" line="40"/>
+        <location filename="../ui/WidgetTask.py" line="39"/>
         <source>Open folder of the file</source>
         <translation>打开文件所在目录</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTask.py" line="46"/>
+        <location filename="../ui/WidgetTask.py" line="45"/>
         <source>Delete</source>
         <translation>删除任务</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTask.py" line="52"/>
+        <location filename="../ui/WidgetTask.py" line="51"/>
         <source>Details</source>
         <translation>查看详情</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTask.py" line="61"/>
+        <location filename="../ui/WidgetTask.py" line="59"/>
         <source>File size</source>
         <translation>文件大小</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTask.py" line="65"/>
+        <location filename="../ui/WidgetTask.py" line="63"/>
         <source>Upload size</source>
         <translation>上传大小</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTask.py" line="127"/>
+        <location filename="../ui/WidgetTask.py" line="125"/>
         <source>Warn</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTask.py" line="113"/>
+        <location filename="../ui/WidgetTask.py" line="111"/>
         <source>Can&apos;t open folder when in remote mode</source>
         <translation>当前是远程下载模式，无法打开文件所在目录</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTask.py" line="127"/>
+        <location filename="../ui/WidgetTask.py" line="125"/>
         <source>Are you sure to delete this task?</source>
         <translation>确定要删除该任务吗？</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTask.py" line="135"/>
+        <location filename="../ui/WidgetTask.py" line="133"/>
         <source>Question</source>
         <translation>询问</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTask.py" line="135"/>
+        <location filename="../ui/WidgetTask.py" line="133"/>
         <source>Are you sure to delete file{} of this task?</source>
         <translation>确认要删除该任务的文件{}吗？</translation>
     </message>
@@ -56,64 +57,89 @@
 <context>
     <name>UITaskActive</name>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="15"/>
+        <location filename="../ui/WidgetTaskActive.py" line="41"/>
         <source>Pause</source>
         <translation>暂停</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="20"/>
+        <location filename="../ui/WidgetTaskActive.py" line="42"/>
         <source>Percent</source>
         <translation>进度</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="24"/>
+        <location filename="../ui/WidgetTaskActive.py" line="43"/>
         <source>Remain time</source>
         <translation>剩余时间</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="28"/>
+        <location filename="../ui/WidgetTaskActive.py" line="45"/>
         <source>Download speed</source>
         <translation>下载速度</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="32"/>
+        <location filename="../ui/WidgetTaskActive.py" line="46"/>
         <source>Upload speed</source>
         <translation>上传速度</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="36"/>
+        <location filename="../ui/WidgetTaskActive.py" line="44"/>
         <source>Connects</source>
         <translation>连接数</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="64"/>
+        <location filename="../ui/WidgetTaskActive.py" line="73"/>
         <source>More than {} day(s)</source>
         <translation>超过{}天</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="67"/>
+        <location filename="../ui/WidgetTaskActive.py" line="76"/>
         <source>Remain time: {}</source>
         <translation>剩余时间：{}</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="68"/>
+        <location filename="../ui/WidgetTaskActive.py" line="77"/>
         <source>Download speed: {}/s</source>
         <translation>下载速度:{}/s</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="69"/>
+        <location filename="../ui/WidgetTaskActive.py" line="78"/>
         <source>Upload speed: {}/s</source>
         <translation>上传速度：{}/s</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="72"/>
+        <location filename="../ui/WidgetTaskActive.py" line="81"/>
         <source>Senders: {}  Connects: {}</source>
         <translation>发送数：{}  连接数：{}</translation>
     </message>
     <message>
-        <location filename="../ui/WidgetTaskActive.py" line="75"/>
+        <location filename="../ui/WidgetTaskActive.py" line="84"/>
         <source>Connects: {}</source>
         <translation>连接数:{}</translation>
+    </message>
+    <message>
+        <location filename="../ui/WidgetTaskActive.py" line="48"/>
+        <source>Open folder of the file</source>
+        <translation>打开文件所在目录</translation>
+    </message>
+    <message>
+        <location filename="../ui/WidgetTaskActive.py" line="49"/>
+        <source>Delete</source>
+        <translation>删除任务</translation>
+    </message>
+    <message>
+        <location filename="../ui/WidgetTaskActive.py" line="50"/>
+        <source>Details</source>
+        <translation>查看详情</translation>
+    </message>
+    <message>
+        <location filename="../ui/WidgetTaskActive.py" line="51"/>
+        <source>File size</source>
+        <translation>文件大小</translation>
+    </message>
+    <message>
+        <location filename="../ui/WidgetTaskActive.py" line="52"/>
+        <source>Upload size</source>
+        <translation>上传大小</translation>
     </message>
 </context>
 <context>
@@ -202,6 +228,16 @@
         <source>Cloudown</source>
         <translation>云下</translation>
     </message>
+    <message>
+        <location filename="../ui/UI_Main.py" line="300"/>
+        <source>Exception</source>
+        <translation>异常</translation>
+    </message>
+    <message>
+        <location filename="../ui/UI_Main.py" line="299"/>
+        <source>Aria2 server is offline. Do you want to reconnect it?</source>
+        <translation>Aria2服务器离线，是否重连？</translation>
+    </message>
 </context>
 <context>
     <name>UiNewTask</name>
@@ -269,87 +305,87 @@
 <context>
     <name>UiSetting</name>
     <message>
-        <location filename="../ui/UI_Setting.py" line="69"/>
+        <location filename="../ui/UI_Setting.py" line="74"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="83"/>
+        <location filename="../ui/UI_Setting.py" line="88"/>
         <source>Refresh rate:</source>
         <translation>刷新频率：</translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="92"/>
+        <location filename="../ui/UI_Setting.py" line="97"/>
         <source>second(s)</source>
         <translation>秒</translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="96"/>
+        <location filename="../ui/UI_Setting.py" line="101"/>
         <source>Save path:</source>
         <translation>保存位置：</translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="105"/>
+        <location filename="../ui/UI_Setting.py" line="110"/>
         <source>Remote</source>
         <translation>远程下载</translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="110"/>
+        <location filename="../ui/UI_Setting.py" line="115"/>
         <source>Server address:</source>
         <translation>服务器地址：</translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="142"/>
+        <location filename="../ui/UI_Setting.py" line="147"/>
         <source>Token:</source>
         <translation>令牌：</translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="129"/>
+        <location filename="../ui/UI_Setting.py" line="134"/>
         <source>Local</source>
         <translation>本地下载</translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="134"/>
+        <location filename="../ui/UI_Setting.py" line="139"/>
         <source>Port:</source>
         <translation>端口号：</translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="161"/>
+        <location filename="../ui/UI_Setting.py" line="166"/>
         <source>Aria2 parameters:</source>
         <translation>Aria2参数：</translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="168"/>
+        <location filename="../ui/UI_Setting.py" line="173"/>
         <source>Keep background downloads when closed this application</source>
         <translation>保持后台下载（即使本程序退出）</translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="172"/>
+        <location filename="../ui/UI_Setting.py" line="177"/>
         <source>OK</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="177"/>
+        <location filename="../ui/UI_Setting.py" line="182"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="278"/>
+        <location filename="../ui/UI_Setting.py" line="272"/>
         <source>Select aria2 path</source>
         <translation>选择Aria2路径</translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="289"/>
+        <location filename="../ui/UI_Setting.py" line="284"/>
         <source>select save path</source>
         <translation>选择保存路径</translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="150"/>
+        <location filename="../ui/UI_Setting.py" line="155"/>
         <source>Aria2 path:</source>
         <translation>Aria2路径：</translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="75"/>
+        <location filename="../ui/UI_Setting.py" line="80"/>
         <source>Language:</source>
         <translation>界面语言：</translation>
     </message>
