@@ -45,7 +45,6 @@ class UiNewTask(QWidget):
         super(UiNewTask, self).__init__(parent)
 
         self.setObjectName('UiNewTask')
-        self.setWindowTitle(self.tr("New Task"))
 
         main_layout = QVBoxLayout(self)
 
@@ -53,35 +52,31 @@ class UiNewTask(QWidget):
         self.top_list.tabBar().setObjectName("NewTaskTab")
         main_layout.addWidget(self.top_list)
 
-        self.bt_button_title = self.tr('Drop BT file(s) in here, or click this button to select BT file(s)')
-
         self.edit_url = QTextEdit()
-        self.edit_url.setPlaceholderText(
-            self.tr("If add URL more than one, be sure one line one URL. support HTTP, HTTPS, FTP and magnet..."))
         self.top_list.addTab(self.edit_url, self.tr("URL"))
 
-        self.button_bt_file = UiBtButton(self.bt_button_title)
+        self.button_bt_file = UiBtButton()
         self.button_bt_file.setObjectName("SelectBtFile")
         self.button_bt_file.clicked.connect(self.on_select_bt_file)
         self.top_list.addTab(self.button_bt_file, self.tr("BT"))
 
         download_options = QGridLayout()
 
-        label_name = QLabel(self.tr("Rename:"))
-        download_options.addWidget(label_name, 0, 0)
+        self.label_rename = QLabel()
+        download_options.addWidget(self.label_rename, 0, 0)
         self.edit_name = QLineEdit()
         download_options.addWidget(self.edit_name, 0, 1, 1, 3)
 
-        label_name = QLabel(self.tr("Thread count:"))
-        download_options.addWidget(label_name, 0, 4)
+        self.label_thread_count = QLabel()
+        download_options.addWidget(self.label_thread_count, 0, 4)
         self.spin_thread_count = QSpinBox()
         download_options.addWidget(self.spin_thread_count, 0, 5)
 
-        label_path = QLabel(self.tr("Save path:"))
-        download_options.addWidget(label_path, 1, 0)
+        self.label_path = QLabel()
+        download_options.addWidget(self.label_path, 1, 0)
         self.edit_save_path = QLineEdit()
         download_options.addWidget(self.edit_save_path, 1, 1, 1, 4)
-        self.button_select_folder = QPushButton("...")
+        self.button_select_folder = QPushButton()
         self.button_select_folder.clicked.connect(self.on_select_folder)
         download_options.addWidget(self.button_select_folder, 1, 5)
 
@@ -90,7 +85,7 @@ class UiNewTask(QWidget):
         bottom_list = QHBoxLayout()
         bottom_list.setAlignment(Qt.AlignCenter)
 
-        self.button_ok = QPushButton(self.tr("OK"))
+        self.button_ok = QPushButton()
         self.button_ok.setFixedHeight(32)
         self.button_ok.clicked.connect(self.on_ok)
         bottom_list.addWidget(self.button_ok)
@@ -98,14 +93,35 @@ class UiNewTask(QWidget):
         spacer = QSpacerItem(40, 32)
         bottom_list.addSpacerItem(spacer)
 
-        button_cancel = QPushButton(self.tr("Cancel"))
-        button_cancel.setFixedHeight(32)
-        button_cancel.clicked.connect(self.close)
-        bottom_list.addWidget(button_cancel)
+        self.button_cancel = QPushButton()
+        self.button_cancel.setFixedHeight(32)
+        self.button_cancel.clicked.connect(self.close)
+        bottom_list.addWidget(self.button_cancel)
 
         main_layout.addLayout(bottom_list)
+        self.update_ui()
         self._sync_status()
         gl.signals.value_changed.connect(self._value_changed)
+
+    def update_ui(self):
+        self.setWindowTitle(self.tr("New Task"))
+
+        self.top_list.setTabText(0, self.tr("URL"))
+        self.top_list.setTabText(1, self.tr("BT"))
+
+        self.bt_button_title = self.tr('Drop BT file(s) in here, or click this button to select BT file(s)')
+        self.button_bt_file.setText(self.bt_button_title)
+        self.edit_url.setPlaceholderText(
+            self.tr("If add URL more than one, be sure one line one URL. support HTTP, HTTPS, FTP and magnet..."))
+        self.label_rename.setText(self.tr("Rename:"))
+        self.label_thread_count.setText(self.tr("Thread count:"))
+        self.label_path.setText(self.tr("Save path:"))
+        self.label_path.setText(self.tr("Save path:"))
+        self.button_select_folder.setText(self.tr("..."))
+        self.button_select_folder.setText(self.tr("..."))
+        self.button_ok.setText(self.tr("OK"))
+        self.button_cancel.setText(self.tr("Cancel"))
+        pass
 
     def _value_changed(self, name):
         if name == 'aria2':
@@ -114,25 +130,25 @@ class UiNewTask(QWidget):
     def _sync_status(self):
         dm = gl.get_value('dm')
         self.aria2 = gl.get_value('aria2')
-        if self.aria2 is None:
-            options = None
-        else:
+        options = None
+        if self.aria2 is not None:
             ret = self.aria2.get_system_option()
-            if ret is None:
-                options = None
-            else:
+            if ret is not None:
                 options = ret['result']
-        if options is None:
-            self.edit_save_path.setEnabled(False)
-            self.spin_thread_count.setEnabled(False)
-            self.edit_url.setEnabled(False)
-            self.button_bt_file.setEnabled(False)
-            self.edit_name.setEnabled(False)
-            self.button_ok.setEnabled(False)
-            self.button_select_folder.setEnabled(False)
-        else:
+        is_enable = False
+        if options is not None:
+            is_enable = True
             self.edit_save_path.setText(options['dir'])
             self.spin_thread_count.setValue(int(options['max-concurrent-downloads']))
+
+        self.edit_save_path.setEnabled(is_enable)
+        self.spin_thread_count.setEnabled(is_enable)
+        self.edit_url.setEnabled(is_enable)
+        self.button_bt_file.setEnabled(is_enable)
+        self.edit_name.setEnabled(is_enable)
+        self.button_ok.setEnabled(is_enable)
+        self.button_select_folder.setEnabled(is_enable)
+
         if not dm.settings.values['IS_LOCALE']:
             self.button_select_folder.setEnabled(False)
 

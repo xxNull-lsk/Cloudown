@@ -19,11 +19,11 @@ class ThreadRefreshTask(QThread):
     def __init__(self):
         super().__init__()
         self.aria2 = gl.get_value('aria2')
-        gl.signals.value_changed.connect(self._on_changed_values)
+        gl.signals.value_changed.connect(self._on_value_changed)
 
-    def _on_changed_values(self, name):
-        if name == 'setting':
-            setting = gl.get_value(name)
+    def _on_value_changed(self, info):
+        if info['name'] == 'setting':
+            setting = info['new']
             self.sleep_seconds = setting.values['REFRESH']
 
     def set_need_update_list(self, need_update_list):
@@ -213,14 +213,14 @@ class UiMain(QWidget):
 
         self.main_layout.addWidget(self.right_widget)
 
-        self.refresh_task = ThreadRefreshTask()
+        self.thread_refresh_task = ThreadRefreshTask()
 
         self._setup_ui()
 
-    def _value_changed(self, name):
-        if name == 'aria2':
-            self.thread().exit()
-            self.thread().start()
+    def _on_value_changed(self, info):
+        if info['name'] == 'aria2':
+            self.thread_refresh_task.exit()
+            self.thread_refresh_task.start()
 
     def update_window_title(self, status, is_successed):
 
@@ -244,7 +244,7 @@ class UiMain(QWidget):
         super().setWindowTitle(name + ' ' + status)
 
     def _setup_ui(self):
-        gl.signals.value_changed.connect(self._value_changed)
+        gl.signals.value_changed.connect(self._on_value_changed)
         self.left_widget.currentRowChanged.connect(self.right_widget.setCurrentIndex)
         self.left_widget.currentRowChanged.connect(self.on_changed_page)
 
@@ -256,21 +256,21 @@ class UiMain(QWidget):
         for i in range(0, len(list_name)):
             self.left_widget.add_bottom_button(list_name[i])
 
-        self.refresh_task.update.connect(self._task_refresh)
-        self.refresh_task.update_status.connect(self.update_window_title)
+        self.thread_refresh_task.update.connect(self._task_refresh)
+        self.thread_refresh_task.update_status.connect(self.update_window_title)
         self.left_widget.setCurrentRow(0)
 
     def show_details(self, task):
-        if self.refresh_task.isRunning():
-            self.refresh_task.set_need_update_list(False)
+        if self.thread_refresh_task.isRunning():
+            self.thread_refresh_task.set_need_update_list(False)
         self.ui_details.update_task(task)
         self.root_layout.setCurrentIndex(1)
 
     def show_normal(self):
-        if not self.refresh_task.isRunning():
-            self.refresh_task.start()
+        if not self.thread_refresh_task.isRunning():
+            self.thread_refresh_task.start()
 
-        self.refresh_task.set_need_update_list(True)
+        self.thread_refresh_task.set_need_update_list(True)
         self.root_layout.setCurrentIndex(0)
 
     def show(self):
@@ -279,7 +279,7 @@ class UiMain(QWidget):
 
     def hide(self):
         super().hide()
-        self.refresh_task.exit()
+        self.thread_refresh_task.exit()
 
     def _task_refresh(self, task_type, tasks, is_successed):
         aria2 = gl.get_value('aria2')
@@ -301,8 +301,8 @@ class UiMain(QWidget):
 
     def on_changed_page(self, index):
         if index != 0:
-            self.refresh_task.set_need_update_list(False)
+            self.thread_refresh_task.set_need_update_list(False)
         else:
-            if not self.refresh_task.isRunning():
-                self.refresh_task.start()
-            self.refresh_task.set_need_update_list(True)
+            if not self.thread_refresh_task.isRunning():
+                self.thread_refresh_task.start()
+            self.thread_refresh_task.set_need_update_list(True)

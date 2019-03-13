@@ -3,7 +3,7 @@ signals = None
 
 
 class GlSignals(QObject):
-    value_changed = pyqtSignal(str)
+    value_changed = pyqtSignal(dict)
 
 
 def _init():
@@ -13,8 +13,15 @@ def _init():
 
 
 def set_value(name, value):
+    change = {'name': name, 'new': value}
+    if name in _global_dict:
+        change['old'] = _global_dict[name]
+        change['type'] = 'change'
+    else:
+        change['old'] = None
+        change['type'] = 'add'
     _global_dict[name] = value
-    signals.value_changed.emit(str(name))
+    signals.value_changed.emit(change)
 
 
 def get_value(name, def_value=None):

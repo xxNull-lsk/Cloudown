@@ -22,11 +22,11 @@ class ThreadRefreshTaskDetails(QThread):
         self.aria2 = gl.get_value('aria2')
         setting = gl.get_value('settings')
         self.sleep_seconds = setting.values['REFRESH']
-        gl.signals.value_changed.connect(self._on_changed_values)
+        gl.signals.value_changed.connect(self._on_value_changed)
 
-    def _on_changed_values(self, name):
-        if name == 'settings':
-            setting = gl.get_value('settings')
+    def _on_value_changed(self, info):
+        if info['name'] == 'settings':
+            setting = info['new']
             self.sleep_seconds = setting.values['REFRESH']
 
     def exit(self, return_code=0):

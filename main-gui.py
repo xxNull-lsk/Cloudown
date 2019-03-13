@@ -74,6 +74,7 @@ class DownloadManager:
             self.aria2.save_session()
         except:
             pass
+
         if self.aria2c_process is not None:
             while True:
                 try:

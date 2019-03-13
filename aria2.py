@@ -6,10 +6,12 @@ import logging
 
 
 class Aria2:
+    timeout = 1
 
-    def __init__(self, server_url, token=None):
+    def __init__(self, server_url, token=None, timeout=1):
         self.server_url = server_url
         self.id = 'test'
+        self.timeout = timeout
         if token is not None:
             self.token = 'token:{}'.format(token)
         else:
@@ -35,7 +37,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     @staticmethod
@@ -57,7 +59,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def add_metalink(self, metalink, dest_path):
@@ -76,7 +78,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def remove(self, task_id):
@@ -91,7 +93,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def remove_stoped(self, task_id):
@@ -106,7 +108,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def pause(self, task_id, force=False):
@@ -124,7 +126,7 @@ class Aria2:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
         try:
-            c = urlopen(self.server_url, req)
+            c = urlopen(self.server_url, req, timeout=self.timeout)
             return json.loads(c.read())
         except Exception as err:
             logging.error(str(err))
@@ -142,7 +144,7 @@ class Aria2:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
         try:
-            c = urlopen(self.server_url, req)
+            c = urlopen(self.server_url, req, timeout=self.timeout)
             return json.loads(c.read())
         except Exception as err:
             logging.error(str(err))
@@ -160,7 +162,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def get_uri(self, task_id):
@@ -175,7 +177,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def get_files(self, task_id):
@@ -190,7 +192,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def get_peers(self, task_id):
@@ -205,7 +207,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def get_servers(self, task_id):
@@ -220,7 +222,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def get_active_tasks(self):
@@ -233,7 +235,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def get_waiting_tasks(self):
@@ -246,7 +248,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def get_stopped_tasks(self):
@@ -260,7 +262,7 @@ class Aria2:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
         try:
-            c = urlopen(self.server_url, req)
+            c = urlopen(self.server_url, req, timeout=self.timeout)
             return json.loads(c.read())
         except HTTPError as err:
             print(err)
@@ -290,7 +292,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def get_system_option(self):
@@ -304,7 +306,7 @@ class Aria2:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
         try:
-            c = urlopen(self.server_url, req, timeout=3)
+            c = urlopen(self.server_url, req, timeout=self.timeout)
             return json.loads(c.read())
         except Exception as err:
             logging.error('{0}: {1}'.format(self.server_url, str(err)))
@@ -320,7 +322,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req, timeout=3)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def get_system_status(self):
@@ -333,7 +335,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req, timeout=3)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def get_version(self):
@@ -346,7 +348,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req, timeout=1)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def get_session(self):
@@ -359,7 +361,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def shutdown(self):
@@ -372,7 +374,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def save_session(self):
@@ -385,7 +387,7 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def list_methods(self):
@@ -395,7 +397,7 @@ class Aria2:
             'method': 'system.listMethods'
         }
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
 
     def list_notifications(self):
@@ -405,5 +407,5 @@ class Aria2:
             'method': 'system.listNotifications'
         }
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req)
+        c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())
