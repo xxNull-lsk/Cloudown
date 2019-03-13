@@ -10,8 +10,8 @@ import logging
 
 
 class ThreadRefreshTask(QThread):
-    update = pyqtSignal(int, list)
-    update_status = pyqtSignal(dict)
+    update = pyqtSignal(int, list, bool)
+    update_status = pyqtSignal(dict, bool)
     is_quit = True
     need_update_list = True
     need_update_status = True
@@ -56,18 +56,18 @@ class ThreadRefreshTask(QThread):
         try:
             ret = self.aria2.get_active_tasks()
             if ret is not None:
-                self.update.emit(UiDownloadList.task_type_download, ret['result'])
+                self.update.emit(UiDownloadList.task_type_download, ret['result'], True)
             ret = self.aria2.get_waiting_tasks()
             if ret is not None:
-                self.update.emit(UiDownloadList.task_type_waiting, ret['result'])
+                self.update.emit(UiDownloadList.task_type_waiting, ret['result'], True)
             ret = self.aria2.get_stopped_tasks()
             if ret is not None:
-                self.update.emit(UiDownloadList.task_type_stopped, ret['result'])
+                self.update.emit(UiDownloadList.task_type_stopped, ret['result'], True)
         except Exception as err:
             logging.error(str(err))
-            self.update.emit(UiDownloadList.task_type_download, [])
-            self.update.emit(UiDownloadList.task_type_waiting, [])
-            self.update.emit(UiDownloadList.task_type_stopped, [])
+            self.update.emit(UiDownloadList.task_type_download, [], False)
+            self.update.emit(UiDownloadList.task_type_waiting, [], False)
+            self.update.emit(UiDownloadList.task_type_stopped, [], False)
 
     def _refresh_status(self):
         if not self.need_update_status:
@@ -75,10 +75,10 @@ class ThreadRefreshTask(QThread):
         try:
             ret = self.aria2.get_system_status()
             result = ret['result']
-            self.update_status.emit(result)
+            self.update_status.emit(result, True)
         except Exception as err:
             logging.error(str(err))
-            self.update_status.emit({})
+            self.update_status.emit({}, False)
 
 
 class UiCommandList(QLabel):
@@ -222,10 +222,10 @@ class UiMain(QWidget):
             self.thread().exit()
             self.thread().start()
 
-    def update_window_title(self, status):
+    def update_window_title(self, status, is_successed):
 
         aria2 = gl.get_value('aria2')
-        if aria2 is None:
+        if aria2 is None or not is_successed:
             name = self.name + self.tr('(Server is offline)')
             status = ""
         else:
@@ -281,24 +281,23 @@ class UiMain(QWidget):
         super().hide()
         self.refresh_task.exit()
 
-    def _task_refresh(self, task_type, tasks):
+    def _task_refresh(self, task_type, tasks, is_successed):
         aria2 = gl.get_value('aria2')
-        if aria2 is None:
-            return
-        try:
-            self.ui_download_list.set_tasks(tasks, task_type)
-        except URLError as err:
-            logging.error('_refresh_task: {}'.format(err))
-            addr = aria2.server_url
-            gl.set_value('aria2', None)
-            self.ui_download_list.set_tasks([], UiDownloadList.task_type_download)
-            self.ui_download_list.set_tasks([], UiDownloadList.task_type_waiting)
-            self.ui_download_list.set_tasks([], UiDownloadList.task_type_stopped)
-            message = "{0}\n是否重启或者重连aria2服务器{1}？".format(str(err.reason), addr)
-            ret = QMessageBox.critical(self, '服务器异常', message, QMessageBox.Yes | QMessageBox.No)
-            if ret == QMessageBox.Yes:
-                dm = gl.get_value('dm')
-                dm.init_aria2()
+        if aria2 is not None and is_successed:
+            try:
+                self.ui_download_list.set_tasks(tasks, task_type)
+                return
+            except Exception as err:
+                logging.error('_refresh_task: {}'.format(err))
+
+        self.ui_download_list.set_tasks([], UiDownloadList.task_type_download)
+        self.ui_download_list.set_tasks([], UiDownloadList.task_type_waiting)
+        self.ui_download_list.set_tasks([], UiDownloadList.task_type_stopped)
+        message = self.tr("Aria2 server is offline. Do you want to reconnect it？")
+        ret = QMessageBox.critical(self, self.tr('Exception'), message, QMessageBox.Yes | QMessageBox.No)
+        if ret == QMessageBox.Yes:
+            dm = gl.get_value('dm')
+            dm.init_aria2()
 
     def on_changed_page(self, index):
         if index != 0:

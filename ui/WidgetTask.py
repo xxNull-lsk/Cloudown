@@ -23,7 +23,6 @@ class UITask(QWidget):
         self.layout = QVBoxLayout(self)
         self.layout.setContentsMargins(10, 10, 10, 10)
 
-        # 第一行
         self.top_layout = QGridLayout()
         self.layout.addLayout(self.top_layout)
 
@@ -53,7 +52,6 @@ class UITask(QWidget):
         self.command_details.clicked.connect(self._command)
         self.commands.addWidget(self.command_details)
 
-        # 第二行
         self.info_layout = QHBoxLayout()
         self.layout.addLayout(self.info_layout)
 

@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 import locale
+import sys
 import json
 import gl
 from ui.Misc import *
@@ -19,7 +20,7 @@ class SystemSettings:
             {'NAME': 'en English', 'FILE_NAME': 'en'},
         ],
         'LOCALE': {
-            'ARIA2': './aria2',
+            'ARIA2': './aria2/aria2c.exe',
             'PARAMS': [
                 '--conf-path="${START_FOLDER}/aria2.conf"',
                 '--input-file="${START_FOLDER}/aria2.session"',
@@ -42,6 +43,10 @@ class SystemSettings:
         'REFRESH': 1
     }
     file = 'setting.json'
+
+    def __init__(self):
+        if sys.platform == 'linux':
+            self.values['LOCALE']['ARIA2'] = 'aria2c'
 
     def load(self):
         if not os.path.exists(self.file):
@@ -256,15 +261,20 @@ class UiSetting(QWidget):
         self.settings.save()
         gl.set_value("settings", self.settings)
         dm = gl.get_value('dm')
+        dm.init_aria2()
         dm.main_wnd.left_widget.setCurrentRow(0)
 
     def on_select_aria(self):
-        folder = QFileDialog.getExistingDirectory(self,
-                                                  self.tr("Select aria2 path"),
-                                                  self.settings.values["ARIA2"])
-        if folder is None:
+        file_filter = 'All Files(*)'
+        if sys.platform == 'win32':
+            file_filter = "Exec File(*.exe);;All Files (*)"
+        files = QFileDialog.getOpenFileName(self,
+                                            self.tr("Select aria2 path"),
+                                            './',
+                                            file_filter)
+        if len(files) <= 0 or files[0] == '':
             return
-        self.edit_aria2.setText(folder)
+        self.edit_aria2.setText(files[0])
 
     def on_change_download_path(self):
         download_path = os.path.join(os.path.expanduser('~'), 'Downloads')

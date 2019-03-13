@@ -16,7 +16,7 @@ class DownloadManager:
     app_name = 'Cloudown'
     app_version = '0.2'
     app_url = 'https://github.com/xxNull-lsk/Cloudown'
-    aria2c_exe_name = None
+    aria2c_process = None
     aria2 = None
     main_wnd = None
 
@@ -26,9 +26,9 @@ class DownloadManager:
         gl.set_value("dm", self)
         gl.set_value("aria2", self.aria2)
         self.settings.load()
-        gl.signals.value_changed.connect(self.on_changed_values)
         gl.set_value("settings", self.settings)
         self.app = QApplication(sys.argv)
+        self.init_aria2()
 
         index = self.settings.values['LANGUAGE']
         if index == 0:
@@ -43,27 +43,26 @@ class DownloadManager:
         self.main_wnd = UiMain()
 
     def start_locale_aria2(self):
+        command = os.path.abspath(self.settings.values['LOCALE']['ARIA2'])
+        download_path = os.path.join(os.path.expanduser('~'), 'Downloads')
+        for p in self.settings.values['LOCALE']['PARAMS']:
+            p = p.replace('${START_FOLDER}', os.path.abspath('./aria2'))
+            p = p.replace('${DOWNLOAD}', download_path)
+            command = command + ' ' + p
+        command = command + ' --dir="{}"'.format(self.settings.values['LOCALE']['DOWNLOAD_DIR'])
+        command = command.replace('${START_FOLDER}', os.path.abspath('./aria2'))
+        command = command.replace('${DOWNLOAD}', download_path)
+        startupinfo = None
         if sys.platform == 'win32':
-            app_file = os.path.abspath(os.path.join(self.settings.values['LOCALE']['ARIA2'], self.aria2c_exe_name))
-            download_path = os.path.join(os.path.expanduser('~'), 'Downloads')
-            command = app_file
-            for p in self.settings.values['LOCALE']['PARAMS']:
-                p = p.replace('${START_FOLDER}/', os.path.abspath('./aria2/'))
-                p = p.replace('${DOWNLOAD}', download_path)
-                command = command + ' ' + p
-            command = command + ' --dir="{}"'.format(self.settings.values['LOCALE']['DOWNLOAD_DIR'])
-            command = command.replace('${START_FOLDER}/', os.path.abspath('./aria2/'))
-            command = command.replace('${DOWNLOAD}', download_path)
-            logging.info('local aria2 started')
-            if os.name == 'nt':
-                startupinfo = subprocess.STARTUPINFO()
-                startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-                startupinfo.wShowWindow = subprocess.SW_HIDE
-            else:
-                startupinfo = None
-            subprocess.Popen(command, startupinfo=startupinfo)
-            # os.system(command)
-            logging.info('local aria2 stopped')
+            startupinfo = subprocess.STARTUPINFO()
+            startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+            startupinfo.wShowWindow = subprocess.SW_HIDE
+        elif sys.platform == 'linux':
+            pass
+        self.aria2c_process = subprocess.Popen(command, startupinfo=startupinfo, shell=True)
+        logging.info('local aria2 started(PID={0})'.format(self.aria2c_process.pid))
+        self.aria2c_process.wait()
+        logging.info('local aria2 stopped(PID={0}, EXIT={1})', self.aria2c_process.pid, self.aria2c_process.returncode)
 
     def stop_local_aria2(self):
         if self.settings.values["LOCALE"]["KEEP_RUNNING"]:
@@ -75,7 +74,7 @@ class DownloadManager:
             self.aria2.save_session()
         except:
             pass
-        if self.aria2c_exe_name is not None:
+        if self.aria2c_process is not None:
             while True:
                 try:
                     self.aria2.shutdown()
@@ -83,20 +82,16 @@ class DownloadManager:
                     self.aria2.get_system_status()
                 except:
                     break
-            logging.info('local aria2 stopped')
-            self.aria2c_exe_name = None
+            self.aria2c_process.kill()
+            logging.info('local aria2 stopped(PID={0}, EXIT={1})'.format(self.aria2c_process.pid, self.aria2c_process.returncode))
+            self.aria2c_process = None
 
     def __del__(self):
         self.stop_local_aria2()
 
-    def on_changed_values(self, name):
-        if name == 'settings':
-            self._init_aria2()
-
-    def _init_aria2(self):
+    def init_aria2(self):
         self.stop_local_aria2()
         if self.settings.values['IS_LOCALE']:
-            self.aria2c_exe_name = 'aria2c.exe'
             url = 'http://127.0.0.1:{}/jsonrpc'.format(self.settings.values["LOCALE"]['SERVER_PORT'])
             token = self.settings.values['LOCALE']['SERVER_TOKEN']
             try:
