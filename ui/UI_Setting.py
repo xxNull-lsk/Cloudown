@@ -29,7 +29,7 @@ class SystemSettings:
                 '--dht-file-path6="${START_FOLDER}/dht6.dat"',
                 '--quiet=true'],
             'DOWNLOAD_DIR': '${DOWNLOAD}',
-            'SERVER_PORT': '6800',
+            'SERVER_PORT': '8160',
             'SERVER_TOKEN': 'air_download',
             'KEEP_RUNNING': True
         },
