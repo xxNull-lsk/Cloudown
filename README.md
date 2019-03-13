@@ -1,3 +1,5 @@
+
+
 一款PyQt5写的aria2图形前端。
 计划支持Linux、Windows和MAC三种系统。目前已经支持Windows、Linux系统。
 
@@ -20,6 +22,26 @@
 3、支持即使改变界面语言。
 
 4、支持换肤。
+
+# 安装方法
+
+## Windows
+
+1、下载绿色[安装包](https://github.com/xxNull-lsk/Cloudown/releases)
+
+2、解压后双击运行Cloudown.exe
+
+## Linux
+
+1、下载[安装包](https://github.com/xxNull-lsk/Cloudown/releases)
+
+2、解压后运行以下指令进行安装：
+
+`sudo bash install.sh`
+
+3、可以通过以下指令进行卸载：
+
+`sudo bash uninstall.sh`
 
 # 更新历史
 

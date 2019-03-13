@@ -4,3 +4,4 @@ __pycache__
 /aria2-pyui.log
 dist
 build
+/cloudown.log
