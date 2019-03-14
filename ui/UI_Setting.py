@@ -22,13 +22,13 @@ class SystemSettings:
         'LOCALE': {
             'ARIA2': './aria2/aria2c.exe',
             'PARAMS': [
-                '--conf-path="${START_FOLDER}/aria2.conf"',
-                '--input-file="${START_FOLDER}/aria2.session"',
-                '--save-session="${START_FOLDER}/aria2.session"',
-                '--dht-file-path="${START_FOLDER}/dht.dat"',
-                '--dht-file-path6="${START_FOLDER}/dht6.dat"',
+                '--conf-path="${DATA_PATH}/aria2.conf"',
+                '--input-file="${DATA_PATH}/aria2.session"',
+                '--save-session="${DATA_PATH}/aria2.session"',
+                '--dht-file-path="${DATA_PATH}/dht.dat"',
+                '--dht-file-path6="${DATA_PATH}/dht6.dat"',
                 '--quiet=true'],
-            'DOWNLOAD_DIR': '${DOWNLOAD}',
+            'DOWNLOAD_DIR': '${DOWNLOAD_PATH}',
             'SERVER_PORT': '8160',
             'SERVER_TOKEN': 'air_download',
             'KEEP_RUNNING': True
@@ -42,9 +42,10 @@ class SystemSettings:
         },
         'REFRESH': 1
     }
-    file = 'setting.json'
+    file = './data/setting.json'
 
     def __init__(self):
+        self.file = translate_macro('${DATA_PATH}/setting.json')
         if sys.platform == 'linux':
             self.values['LOCALE']['ARIA2'] = './aria2/aria2c'
 

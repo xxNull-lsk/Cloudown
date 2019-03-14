@@ -21,7 +21,7 @@ class DownloadManager:
     main_wnd = None
 
     def __init__(self):
-        logging.config.fileConfig('logging.conf')
+        logging.config.fileConfig(translate_macro('${DATA_PATH}/logging.conf'))
         logging.info("========Download manager starting========")
         gl.set_value("dm", self)
         gl.set_value("aria2", self.aria2)
@@ -42,16 +42,12 @@ class DownloadManager:
 
         self.main_wnd = UiMain()
 
-    def start_locale_aria2(self):
-        command = os.path.abspath(self.settings.values['LOCALE']['ARIA2'])
-        download_path = os.path.join(os.path.expanduser('~'), 'Downloads')
+    def start_local_aria2(self):
+        command = translate_macro(self.settings.values['LOCALE']['ARIA2'])
         for p in self.settings.values['LOCALE']['PARAMS']:
-            p = p.replace('${START_FOLDER}', os.path.abspath('./aria2'))
-            p = p.replace('${DOWNLOAD}', download_path)
-            command = command + ' ' + p
+            command = command + ' ' + translate_macro(p)
         command = command + ' --dir="{}"'.format(self.settings.values['LOCALE']['DOWNLOAD_DIR'])
-        command = command.replace('${START_FOLDER}', os.path.abspath('./aria2'))
-        command = command.replace('${DOWNLOAD}', download_path)
+        command = translate_macro(command)
         startupinfo = None
         if sys.platform == 'win32':
             startupinfo = subprocess.STARTUPINFO()
@@ -99,7 +95,7 @@ class DownloadManager:
                 self.aria2 = Aria2(url, token)
                 self.aria2.get_system_status()
             except:
-                _thread.start_new_thread(self.start_locale_aria2, ())
+                _thread.start_new_thread(self.start_local_aria2, ())
                 time.sleep(1)
             finally:
                 self.aria2 = None
