@@ -10,7 +10,7 @@ class UITaskActive(UITask):
         super().__init__()
         self.setObjectName('TaskActive')
 
-        self.command_pause = QPushButton()
+        self.command_pause = UiCommandButton()
         self.command_pause.setObjectName('CommandPause')
         self.command_pause.clicked.connect(self._command)
         self.commands.insertWidget(0, self.command_pause)
@@ -50,6 +50,14 @@ class UITaskActive(UITask):
         self.command_details.setToolTip(self.tr("Details"))
         self.label_file_size.setToolTip(self.tr("File size"))
         self.label_upload_size.setToolTip(self.tr("Upload size"))
+
+    def enterEvent(self, a0):
+        super().enterEvent(a0)
+        self.command_pause.animation_show()
+
+    def leaveEvent(self, a0):
+        super().leaveEvent(a0)
+        self.command_pause.animation_hide()
 
     def set_task(self, task):
         super().set_task(task)

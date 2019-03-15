@@ -125,7 +125,7 @@ QPushButton#ButtonOpenFile {
     border-radius: 13px;
     border:1px solid #9f9f9f;
 	image:url(icons/open.png);
-    padding: 2px;
+    padding: 3px;
 }
 
 QPushButton#ButtonOpenFile:focus {
@@ -134,8 +134,7 @@ QPushButton#ButtonOpenFile:focus {
 
 QPushButton#ButtonOpenFile:pressed {
     background-color: lightblue;
-    padding-left:2px;
-    padding-top:2px;
+    padding:1px;
 }
 
 QPushButton#ButtonOpenFile:hover {
@@ -144,14 +143,14 @@ QPushButton#ButtonOpenFile:hover {
 
 
 QPushButton#CommandOpenFolder {
-    max-width: 32px;
-    min-width: 32px;
-    min-height: 32px;
-    max-height: 32px;
-    border-radius: 17px;
+    max-width: 16px;
+    min-width: 16px;
+    min-height: 16px;
+    max-height: 16px;
+    border-radius: 9px;
     border:1px solid #9f9f9f;
 	image:url(icons/open.png);
-    padding: 6px;
+    padding: 3px;
 }
 
 QPushButton#CommandOpenFolder:focus {
@@ -160,8 +159,7 @@ QPushButton#CommandOpenFolder:focus {
 
 QPushButton#CommandOpenFolder:pressed {
     background-color: lightblue;
-    padding-left:2px;
-    padding-top:2px;
+    padding:1px;
 }
 
 QPushButton#CommandOpenFolder:hover {
@@ -169,14 +167,14 @@ QPushButton#CommandOpenFolder:hover {
 }
 
 QPushButton#CommandDeleteTask {
-    max-width: 32px;
-    min-width: 32px;
-    min-height: 32px;
-    max-height: 32px;
-    border-radius: 17px;
+    max-width: 16px;
+    min-width: 16px;
+    min-height: 16px;
+    max-height: 16px;
+    border-radius: 9px;
     border: 1px solid #9f9f9f;
 	image:url(icons/delete.png);
-    padding: 6px;
+    padding: 3px;
 }
 
 QPushButton#CommandDeleteTask:focus {
@@ -185,8 +183,7 @@ QPushButton#CommandDeleteTask:focus {
 
 QPushButton#CommandDeleteTask:pressed {
     background-color: lightblue;
-    padding-left:2px;
-    padding-top:2px;
+    padding:1px;
 }
 
 QPushButton#CommandDeleteTask:hover {
@@ -195,14 +192,14 @@ QPushButton#CommandDeleteTask:hover {
 
 
 QPushButton#CommandDetails {
-    max-width: 32px;
-    min-width: 32px;
-    min-height: 32px;
-    max-height: 32px;
-    border-radius: 17px;
+    max-width: 16px;
+    min-width: 16px;
+    min-height: 16px;
+    max-height: 16px;
+    border-radius: 9px;
     border: 1px solid #9f9f9f;
 	image:url(icons/details.png);
-    padding: 6px;
+    padding: 3px;
 }
 
 QPushButton#CommandDetails:focus {
@@ -211,8 +208,7 @@ QPushButton#CommandDetails:focus {
 
 QPushButton#CommandDetails:pressed {
     background-color: lightblue;
-    padding-left:2px;
-    padding-top:2px;
+    padding:1px;
 }
 
 QPushButton#CommandDetails:hover {
@@ -221,14 +217,14 @@ QPushButton#CommandDetails:hover {
 
 
 QPushButton#CommandPause {
-    max-width: 32px;
-    min-width: 32px;
-    min-height: 32px;
-    max-height: 32px;
-    border-radius: 17px;
+    max-width: 16px;
+    min-width: 16px;
+    min-height: 16px;
+    max-height: 16px;
+    border-radius: 9px;
     border: 1px solid #9f9f9f;
 	image:url(icons/pause.png);
-    padding: 6px;
+    padding: 3px;
 }
 
 QPushButton#CommandPause:focus {
@@ -237,8 +233,7 @@ QPushButton#CommandPause:focus {
 
 QPushButton#CommandPause:pressed {
     background-color: lightblue;
-    padding-left:2px;
-    padding-top:2px;
+    padding:1px;
 }
 
 QPushButton#CommandPause:hover {
@@ -247,14 +242,14 @@ QPushButton#CommandPause:hover {
 
 
 QPushButton#CommandUnpause {
-    max-width: 32px;
-    min-width: 32px;
-    min-height: 32px;
-    max-height: 32px;
-    border-radius: 17px;
+    max-width: 16px;
+    min-width: 16px;
+    min-height: 16px;
+    max-height: 16px;
+    border-radius: 9px;
     border: 1px solid #9f9f9f;
 	image:url(icons/unpause.png);
-    padding: 6px;
+    padding: 3px;
 }
 
 QPushButton#CommandUnpause:focus {
@@ -263,8 +258,7 @@ QPushButton#CommandUnpause:focus {
 
 QPushButton#CommandUnpause:pressed {
     background-color: lightblue;
-    padding-left:2px;
-    padding-top:2px;
+    padding:1px;
 }
 
 QPushButton#CommandUnpause:hover {

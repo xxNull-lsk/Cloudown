@@ -9,7 +9,7 @@ class UITaskWaiting(UITask):
         super(UITaskWaiting, self).__init__()
         self.setObjectName('TaskWaiting')
 
-        self.command_unpause = QPushButton()
+        self.command_unpause = UiCommandButton()
         self.command_unpause.setObjectName('CommandUnpause')
         self.command_unpause.clicked.connect(self._command)
         self.commands.insertWidget(0, self.command_unpause)
@@ -28,6 +28,14 @@ class UITaskWaiting(UITask):
         self.command_details.setToolTip(self.tr("Details"))
         self.label_file_size.setToolTip(self.tr("File size"))
         self.label_upload_size.setToolTip(self.tr("Upload size"))
+
+    def enterEvent(self, a0):
+        super().enterEvent(a0)
+        self.command_unpause.animation_show()
+
+    def leaveEvent(self, a0):
+        super().leaveEvent(a0)
+        self.command_unpause.animation_hide()
 
     def set_task(self, task):
         super(UITaskWaiting, self).set_task(task)

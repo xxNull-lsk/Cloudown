@@ -169,7 +169,7 @@ class UiMain(QWidget):
     name = ''
 
     def __init__(self):
-        super().__init__()
+        super().__init__(QDesktopWidget())
         pm = QPixmap("./icons/download.png")
         dm = gl.get_value('dm')
         dm.app_name = self.tr('Cloudown')
@@ -216,6 +216,13 @@ class UiMain(QWidget):
         self.thread_refresh_task = ThreadRefreshTask()
 
         self._setup_ui()
+        #self.ui_download_list.setParent(self)
+        self.animation = QPropertyAnimation(self, b'windowOpacity')
+        self.animation.setDuration(500)
+        self.animation.setStartValue(0.0)
+        self.animation.setEndValue(1.0)
+        self.animation.setEasingCurve(QEasingCurve.InCirc)
+        self.animation.start()
 
     def _on_value_changed(self, info):
         if info['name'] == 'aria2':
@@ -288,8 +295,9 @@ class UiMain(QWidget):
                 self.ui_download_list.set_tasks(tasks, task_type)
                 return
             except Exception as err:
+                print('_task_refresh', err)
                 logging.error('_refresh_task: {}'.format(err))
-
+        self.thread_refresh_task.exit()
         self.ui_download_list.set_tasks([], UiDownloadList.task_type_download)
         self.ui_download_list.set_tasks([], UiDownloadList.task_type_waiting)
         self.ui_download_list.set_tasks([], UiDownloadList.task_type_stopped)

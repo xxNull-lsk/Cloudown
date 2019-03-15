@@ -11,6 +11,50 @@ import logging
 import time
 
 
+class UiCommandButton(QPushButton):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setAttribute(Qt.WA_TranslucentBackground, True)
+        self.setWindowOpacity(0)
+        self.animation = None
+        self._opacity = 0.0
+
+    @pyqtProperty(float)
+    def opacity(self):
+        return self._opacity
+
+    @opacity.setter
+    def opacity(self, val):
+        self._opacity = val
+        self.setWindowOpacity(val)
+
+    def setWindowOpacity(self, level: float):
+        super().setWindowOpacity(level)
+        op = QGraphicsOpacityEffect()
+        op.setOpacity(level)
+        self.setGraphicsEffect(op)
+
+    def animation_show(self):
+        if self.animation is not None:
+            self.animation.stop()
+        self.animation = QPropertyAnimation(self, b'opacity')
+        self.animation.setDuration(500)
+        self.animation.setStartValue(self.opacity)
+        self.animation.setEndValue(1.0)
+        self.animation.setEasingCurve(QEasingCurve.InCirc)
+        self.animation.start()
+
+    def animation_hide(self):
+        if self.animation is not None:
+            self.animation.stop()
+        self.animation = QPropertyAnimation(self, b'opacity')
+        self.animation.setDuration(500)
+        self.animation.setStartValue(self.opacity)
+        self.animation.setEndValue(0.0)
+        self.animation.setEasingCurve(QEasingCurve.OutCirc)
+        self.animation.start()
+
+
 class UITask(QWidget):
     def __init__(self):
         super().__init__()
@@ -34,19 +78,19 @@ class UITask(QWidget):
         self.commands.setSpacing(2)
         self.top_layout.addLayout(self.commands, 0, 3, 1, 1)
 
-        self.command_open = QPushButton()
+        self.command_open = UiCommandButton()
         self.command_open.setObjectName("CommandOpenFolder")
         self.command_open.setToolTip(self.tr('Open folder of the file'))
         self.command_open.clicked.connect(self._command)
         self.commands.addWidget(self.command_open)
 
-        self.command_delete = QPushButton()
+        self.command_delete = UiCommandButton()
         self.command_delete.setObjectName('CommandDeleteTask')
         self.command_delete.setToolTip(self.tr("Delete"))
         self.command_delete.clicked.connect(self._command)
         self.commands.addWidget(self.command_delete)
 
-        self.command_details = QPushButton()
+        self.command_details = UiCommandButton()
         self.command_details.setObjectName('CommandDetails')
         self.command_details.setToolTip(self.tr("Details"))
         self.command_details.clicked.connect(self._command)
@@ -62,6 +106,18 @@ class UITask(QWidget):
         self.label_upload_size = QLabel()
         self.label_upload_size.setToolTip(self.tr("Upload size"))
         self.info_layout.addWidget(self.label_upload_size)
+
+    def enterEvent(self, a0):
+        super().enterEvent(a0)
+        self.command_open.animation_show()
+        self.command_delete.animation_show()
+        self.command_details.animation_show()
+
+    def leaveEvent(self, a0):
+        super().leaveEvent(a0)
+        self.command_open.animation_hide()
+        self.command_delete.animation_hide()
+        self.command_details.animation_hide()
 
     @staticmethod
     def get_task_name(task):
