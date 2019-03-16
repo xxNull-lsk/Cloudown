@@ -60,6 +60,27 @@ class UiNewTask(QWidget):
         self.button_bt_file.clicked.connect(self.on_select_bt_file)
         self.top_list.addTab(self.button_bt_file, self.tr("BT"))
 
+        self.page_ftp = QWidget()
+        self.top_list.addTab(self.page_ftp, self.tr("FTP"))
+
+        page_ftp_layout = QGridLayout(self.page_ftp)
+        self.label_ftp_url = QLabel()
+        page_ftp_layout.addWidget(self.label_ftp_url, 0, 0)
+        self.edit_ftp_url = QTextEdit()
+        page_ftp_layout.addWidget(self.edit_ftp_url, 0, 1, 1, 5)
+
+        self.label_ftp_username = QLabel()
+        page_ftp_layout.addWidget(self.label_ftp_username, 1, 0)
+        self.edit_ftp_username = QLineEdit()
+        self.edit_ftp_username.setFixedWidth(240)
+        page_ftp_layout.addWidget(self.edit_ftp_username, 1, 1)
+
+        self.label_ftp_password = QLabel()
+        page_ftp_layout.addWidget(self.label_ftp_password, 1, 2)
+        self.edit_ftp_password = QLineEdit()
+        self.edit_ftp_password.setFixedWidth(240)
+        page_ftp_layout.addWidget(self.edit_ftp_password, 1, 3)
+
         download_options = QGridLayout()
 
         self.label_rename = QLabel()
@@ -108,11 +129,21 @@ class UiNewTask(QWidget):
 
         self.top_list.setTabText(0, self.tr("URL"))
         self.top_list.setTabText(1, self.tr("BT"))
+        self.top_list.setTabText(2, self.tr("FTP/SFTP"))
 
         self.bt_button_title = self.tr('Drop BT file(s) in here, or click this button to select BT file(s)')
         self.button_bt_file.setText(self.bt_button_title)
         self.edit_url.setPlaceholderText(
             self.tr("If add URL more than one, be sure one line one URL. support HTTP, HTTPS, FTP and magnet..."))
+
+        self.label_ftp_url.setText("URL:")
+        self.edit_ftp_url.setPlaceholderText(
+            self.tr("If add URL more than one, be sure one line one URL. only support FTP/SFTP which use the same username and password"))
+
+        self.label_ftp_username.setText("UserName:")  # anonymous
+        self.edit_ftp_username.setPlaceholderText("anonymous")
+        self.label_ftp_password.setText("Password:")
+
         self.label_rename.setText(self.tr("Rename:"))
         self.label_thread_count.setText(self.tr("Thread count:"))
         self.label_path.setText(self.tr("Save path:"))
@@ -174,7 +205,10 @@ class UiNewTask(QWidget):
         super(UiNewTask, self).close()
 
     def on_ok(self):
-        save_path = self.edit_save_path.text()
+        params = {
+            'dir': self.edit_save_path.text(),
+            'max-concurrent-downloads': self.spin_thread_count.value()
+        }
         if self.top_list.currentIndex() == 0:
             urls = self.edit_url.toPlainText().split('\n')
             if len(urls) <= 0:
@@ -182,7 +216,7 @@ class UiNewTask(QWidget):
             for url in urls:
                 if len(url) <= 0:
                     continue
-                self.aria2.add_uri(url, save_path, False, self.spin_thread_count.value())
+                self.aria2.add_uri(url, params=params)
             self.edit_url.setText('')
         elif self.top_list.currentIndex() == 1:
             bt_files = self.button_bt_file.text()
@@ -194,6 +228,20 @@ class UiNewTask(QWidget):
                     continue
                 self.aria2.add_torrent(f)
             self.button_select_folder.setText(self.bt_button_title)
+        elif self.top_list.currentIndex() == 2:  # FTP
+            urls = self.edit_ftp_url.toPlainText().split('\n')
+            if len(urls) <= 0:
+                return
+            params['ftp-user'] = self.edit_ftp_user.text()
+            params['ftp-passwd'] = self.edit_ftp_password.text()
+
+            for url in urls:
+                if len(url) <= 0:
+                    continue
+                self.aria2.add_uri(url, params=params)
+            self.edit_ftp_url.setText('')
+            self.edit_ftp_user.setText('')
+            self.edit_ftp_password.setText('')
 
         self.aria2.save_session()
         self.close()
