@@ -78,35 +78,35 @@ class UiSetting(QWidget):
         self.main_layout.setContentsMargins(60, 60, 20, 20)
         row = 0
 
-        label_language = QLabel(self.tr("Language:"))
-        label_language.setFixedHeight(28)
-        self.main_layout.addWidget(label_language, row, 0)
+        self.label_language = QLabel()
+        self.label_language.setFixedHeight(28)
+        self.main_layout.addWidget(self.label_language, row, 0)
         self.combox_language = QComboBox()
         self.combox_language.setFixedHeight(28)
         self.main_layout.addWidget(self.combox_language, row, 1)
         row = row + 1
 
-        label_refresh = QLabel(self.tr("Refresh rate:"))
-        label_refresh.setFixedHeight(28)
-        self.main_layout.addWidget(label_refresh, row, 0)
+        self.label_refresh = QLabel()
+        self.label_refresh.setFixedHeight(28)
+        self.main_layout.addWidget(self.label_refresh, row, 0)
         self.spin_refresh = QSpinBox()
         self.spin_refresh.setFixedHeight(28)
         self.spin_refresh.setMinimum(1)
         self.spin_refresh.setMaximum(60)
         self.spin_refresh.setValue(self.settings.values['REFRESH'])
         self.main_layout.addWidget(self.spin_refresh, row, 1)
-        label_sec = QLabel(self.tr('second(s)'))
-        self.main_layout.addWidget(label_sec, row, 2)
+        self.label_sec = QLabel()
+        self.main_layout.addWidget(self.label_sec, row, 2)
         row = row + 1
 
-        self.radio_remote = QRadioButton(self.tr("Remote"))
+        self.radio_remote = QRadioButton()
         self.radio_remote.clicked.connect(self.on_changed_type)
         self.main_layout.addWidget(self.radio_remote, row, 0)
         row = row + 1
 
-        label_url = QLabel(self.tr("Server address:"))
-        label_url.setFixedHeight(28)
-        self.main_layout.addWidget(label_url, row, 1)
+        self.label_url = QLabel()
+        self.label_url.setFixedHeight(28)
+        self.main_layout.addWidget(self.label_url, row, 1)
 
         self.edit_remote_addr = QComboBox()  # QLineEdit(self.settings.values['REMOTE']['SERVER_ADDRESS'])
         self.edit_remote_addr.currentTextChanged.connect(self.on_changed_remote_addr)
@@ -115,37 +115,37 @@ class UiSetting(QWidget):
         self.main_layout.addWidget(self.edit_remote_addr, row, 2, 1, 2)
         row = row + 1
 
-        label_token = QLabel(self.tr("Token:"))
-        label_token.setFixedHeight(28)
-        self.main_layout.addWidget(label_token, row, 1)
+        self.label_remote_token = QLabel()
+        self.label_remote_token.setFixedHeight(28)
+        self.main_layout.addWidget(self.label_remote_token, row, 1)
         self.edit_remote_token = QLineEdit(self.settings.values['REMOTE']['SERVER_TOKEN'])
         self.edit_remote_token.setFixedHeight(28)
         self.main_layout.addWidget(self.edit_remote_token, row, 2, 1, 2)
         row = row + 1
 
-        self.radio_local = QRadioButton(self.tr("Local"))
+        self.radio_local = QRadioButton()
         self.radio_local.clicked.connect(self.on_changed_type)
         self.main_layout.addWidget(self.radio_local, row, 0)
         row = row + 1
 
-        label_token = QLabel(self.tr("Port:"))
-        label_token.setFixedHeight(28)
-        self.main_layout.addWidget(label_token, row, 1)
+        self.label_port = QLabel()
+        self.label_port.setFixedHeight(28)
+        self.main_layout.addWidget(self.label_port, row, 1)
         self.edit_locale_port = QLineEdit(self.settings.values['LOCALE']['SERVER_PORT'])
         self.edit_locale_port.setFixedHeight(28)
         self.main_layout.addWidget(self.edit_locale_port, row, 2, 1, 2)
         row = row + 1
 
-        label_token = QLabel(self.tr("Token:"))
-        label_token.setFixedHeight(28)
-        self.main_layout.addWidget(label_token, row, 1)
+        self.label_token = QLabel()
+        self.label_token.setFixedHeight(28)
+        self.main_layout.addWidget(self.label_token, row, 1)
         self.edit_locale_token = QLineEdit(self.settings.values['LOCALE']['SERVER_TOKEN'])
         self.edit_locale_token.setFixedHeight(28)
         self.main_layout.addWidget(self.edit_locale_token, row, 2, 1, 2)
         row = row + 1
 
-        label_name = QLabel(self.tr('Aria2 path:'))
-        self.main_layout.addWidget(label_name, row, 1, 1, 2)
+        self.label_aria2_path = QLabel()
+        self.main_layout.addWidget(self.label_aria2_path, row, 1, 1, 2)
         self.edit_aria2 = QLineEdit()
         self.edit_aria2.setFixedHeight(28)
         self.main_layout.addWidget(self.edit_aria2, row, 2, 1, 2)
@@ -155,35 +155,35 @@ class UiSetting(QWidget):
         self.main_layout.addWidget(self.button_select_aria, row, 4)
         row = row + 1
 
-        label_name = QLabel(self.tr('Aria2 parameters:'))
-        self.main_layout.addWidget(label_name, row, 1, 1, 2, Qt.AlignTop)
+        self.label_aria2_params = QLabel()
+        self.main_layout.addWidget(self.label_aria2_params, row, 1, 1, 2, Qt.AlignTop)
         # row = row + 1
         self.edit_aria2_params = QTextEdit()
         self.main_layout.addWidget(self.edit_aria2_params, row, 2, 1, 3)
         row = row + 1
 
-        label_name = QLabel(self.tr("Save path:"))
-        self.main_layout.addWidget(label_name, row, 1)
+        self.label_save_path = QLabel()
+        self.main_layout.addWidget(self.label_save_path, row, 1)
         self.edit_download_folder = QLineEdit()
         self.main_layout.addWidget(self.edit_download_folder, row, 2, 1, 2)
-        self.button_select_download_folder = QPushButton("...")
+        self.button_select_download_folder = QPushButton()
         self.button_select_download_folder.clicked.connect(self.on_change_download_path)
         self.main_layout.addWidget(self.button_select_download_folder, row, 4)
         row = row + 1
 
-        self.checkbox_keep_running = QCheckBox(self.tr('Keep background downloads when closed this application'))
+        self.checkbox_keep_running = QCheckBox()
         self.main_layout.addWidget(self.checkbox_keep_running, row, 1, 1, 2, Qt.AlignTop)
         row = row + 1
 
-        self.button_ok = QPushButton(self.tr("OK"))
+        self.button_ok = QPushButton()
         self.button_ok.setFixedHeight(32)
         self.button_ok.clicked.connect(self.on_ok)
         self.main_layout.addWidget(self.button_ok, row, 1)
 
-        button_cancel = QPushButton(self.tr("Cancel"))
-        button_cancel.setFixedHeight(32)
-        button_cancel.clicked.connect(self.close)
-        self.main_layout.addWidget(button_cancel, row, 3)
+        self.button_cancel = QPushButton()
+        self.button_cancel.setFixedHeight(32)
+        self.button_cancel.clicked.connect(self.close)
+        self.main_layout.addWidget(self.button_cancel, row, 3)
 
         self.setWindowModality(Qt.ApplicationModal)
 
@@ -209,9 +209,47 @@ class UiSetting(QWidget):
             self.combox_language.addItem(language['NAME'])
         curr_language = self.settings.values['LANGUAGE']
         self.combox_language.setCurrentText(self.settings.values['LANGUAGES'][curr_language]['NAME'])
+        self.combox_language.currentIndexChanged.connect(self.on_lanugage_changed)
 
         self.checkbox_keep_running.setChecked(self.settings.values['LOCALE']["KEEP_RUNNING"])
         self.on_changed_type()
+        gl.signals.value_changed.connect(self.on_value_changed)
+        self.update_ui()
+
+    def on_lanugage_changed(self, index):
+        if index == 0:
+            filename = locale.getdefaultlocale()[0]
+        else:
+            filename = self.settings.values['LANGUAGES'][index]['FILE_NAME']
+        trans = QTranslator()
+        if trans.load(os.path.join('languages', filename)):
+            dm = gl.get_value('dm')
+            old_language = gl.get_value('language')
+            dm.app.removeTranslator(old_language)
+            dm.app.installTranslator(trans)
+            gl.set_value('language', trans)
+
+    def on_value_changed(self, v):
+        if v['name'] == 'language':
+            self.update_ui()
+
+    def update_ui(self):
+        self.button_cancel.setText(self.tr("Cancel"))
+        self.button_ok.setText(self.tr("OK"))
+        self.label_aria2_params.setText(self.tr('Aria2 parameters:'))
+        self.label_save_path.setText(self.tr("Save path:"))
+        self.button_select_download_folder.setText(self.tr("..."))
+        self.label_aria2_path.setText(self.tr('Aria2 path:'))
+        self.label_token.setText(self.tr("Token:"))
+        self.label_port.setText(self.tr("Port:"))
+        self.radio_local.setText(self.tr("Local"))
+        self.label_remote_token.setText(self.tr("Token:"))
+        self.label_url.setText(self.tr("Server address:"))
+        self.radio_remote.setText(self.tr("Remote"))
+        self.label_refresh.setText(self.tr("Refresh rate:"))
+        self.label_sec.setText(self.tr('second(s)'))
+        self.label_language.setText(self.tr("Language:"))
+        self.checkbox_keep_running.setText(self.tr('Keep background downloads when closed this application'))
 
     def on_changed_remote_addr(self, text):
         for url in self.settings.values['REMOTE']['SERVER_HISTORY']:

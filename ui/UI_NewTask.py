@@ -5,6 +5,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 import gl
 import os
+import logging
 
 
 class UiBtButton(QPushButton):
@@ -78,8 +79,44 @@ class UiNewTask(QWidget):
         self.label_ftp_password = QLabel()
         page_ftp_layout.addWidget(self.label_ftp_password, 1, 2)
         self.edit_ftp_password = QLineEdit()
+        self.edit_ftp_password.setEchoMode(QLineEdit.Password)
         self.edit_ftp_password.setFixedWidth(240)
         page_ftp_layout.addWidget(self.edit_ftp_password, 1, 3)
+
+        self.page_sftp = QWidget()
+        self.top_list.addTab(self.page_sftp, self.tr("SFTP"))
+
+        page_sftp_layout = QGridLayout(self.page_sftp)
+        self.label_sftp_ip = QLabel()
+        page_sftp_layout.addWidget(self.label_sftp_ip, 0, 0)
+        self.edit_sftp_ip = QLineEdit()
+        self.edit_sftp_ip.setFixedWidth(240)
+        page_sftp_layout.addWidget(self.edit_sftp_ip, 0, 1, 1, 2)
+
+        self.label_sftp_port = QLabel()
+        page_sftp_layout.addWidget(self.label_sftp_port, 0, 3)
+        self.edit_sftp_port = QSpinBox()
+        self.edit_sftp_port.setMinimum(0)
+        self.edit_sftp_port.setMaximum(65535)
+        self.edit_sftp_port.setValue(22)
+        self.edit_sftp_port.setFixedWidth(160)
+        page_sftp_layout.addWidget(self.edit_sftp_port, 0, 4)
+
+        self.label_sftp_username = QLabel()
+        page_sftp_layout.addWidget(self.label_sftp_username, 1, 0)
+        self.edit_sftp_username = QLineEdit()
+        self.edit_sftp_username.setFixedWidth(240)
+        page_sftp_layout.addWidget(self.edit_sftp_username, 1, 1, 1, 2)
+
+        self.label_sftp_password = QLabel()
+        page_sftp_layout.addWidget(self.label_sftp_password, 1, 3)
+        self.edit_sftp_password = QLineEdit()
+        self.edit_sftp_password.setEchoMode(QLineEdit.Password)
+        self.edit_sftp_password.setFixedWidth(160)
+        page_sftp_layout.addWidget(self.edit_sftp_password, 1, 4)
+
+        self.edit_sftp_url = QTextEdit()
+        page_sftp_layout.addWidget(self.edit_sftp_url, 2, 0, 1, 6)
 
         download_options = QGridLayout()
 
@@ -129,20 +166,30 @@ class UiNewTask(QWidget):
 
         self.top_list.setTabText(0, self.tr("URL"))
         self.top_list.setTabText(1, self.tr("BT"))
-        self.top_list.setTabText(2, self.tr("FTP/SFTP"))
+        self.top_list.setTabText(2, self.tr("FTP"))
+        self.top_list.setTabText(3, self.tr("SFTP"))
 
         self.bt_button_title = self.tr('Drop BT file(s) in here, or click this button to select BT file(s)')
         self.button_bt_file.setText(self.bt_button_title)
         self.edit_url.setPlaceholderText(
-            self.tr("If add URL more than one, be sure one line one URL. support HTTP, HTTPS, FTP and magnet..."))
+            self.tr("If add multiples tasks, be sure one task URL pre line. \
+support HTTP, HTTPS, FTP and magnet..."))
 
-        self.label_ftp_url.setText("URL:")
+        self.label_ftp_url.setText(self.tr("URL:"))
         self.edit_ftp_url.setPlaceholderText(
-            self.tr("If add URL more than one, be sure one line one URL. only support FTP/SFTP which use the same username and password"))
+            self.tr("If add multiples tasks, be sure one task URL pre line. \
+only support FTP which use the same username and password"))
 
-        self.label_ftp_username.setText("UserName:")  # anonymous
-        self.edit_ftp_username.setPlaceholderText("anonymous")
-        self.label_ftp_password.setText("Password:")
+        self.label_ftp_username.setText(self.tr("UserName:"))  # anonymous
+        self.edit_ftp_username.setPlaceholderText(self.tr("anonymous"))
+        self.label_ftp_password.setText(self.tr("Password:"))
+
+        self.label_sftp_ip.setText(self.tr("IP:"))
+        self.label_sftp_port.setText(self.tr("Port:"))
+        self.edit_sftp_url.setPlaceholderText(self.tr("One file per line, if you add multiple files"))
+
+        self.label_sftp_username.setText(self.tr("UserName:"))
+        self.label_sftp_password.setText(self.tr("Password:"))
 
         self.label_rename.setText(self.tr("Rename:"))
         self.label_thread_count.setText(self.tr("Thread count:"))
@@ -154,9 +201,11 @@ class UiNewTask(QWidget):
         self.button_cancel.setText(self.tr("Cancel"))
         pass
 
-    def _value_changed(self, name):
-        if name == 'aria2':
+    def _value_changed(self, v):
+        if v['name'] == 'aria2':
             self._sync_status()
+        elif v['name'] == 'language':
+            self.update_ui()
 
     def _sync_status(self):
         dm = gl.get_value('dm')
@@ -232,16 +281,44 @@ class UiNewTask(QWidget):
             urls = self.edit_ftp_url.toPlainText().split('\n')
             if len(urls) <= 0:
                 return
-            params['ftp-user'] = self.edit_ftp_user.text()
+            username = self.edit_ftp_username.text()
+            if username == '':
+                username = 'anonymous'
+            params['ftp-user'] = username
             params['ftp-passwd'] = self.edit_ftp_password.text()
-
             for url in urls:
                 if len(url) <= 0:
                     continue
-                self.aria2.add_uri(url, params=params)
+                try:
+                    self.aria2.add_uri(url, params=params)
+                except Exception as err:
+                    logging.error('Add ftp file error: {0}'.format(err))
+                    QMessageBox.warning(self, self.tr("Warn"), self.tr("URL错误, 是否继续添加？"),
+                                        QMessageBox.Yes | QMessageBox.No)
             self.edit_ftp_url.setText('')
-            self.edit_ftp_user.setText('')
+            self.edit_ftp_username.setText('')
             self.edit_ftp_password.setText('')
+        elif self.top_list.currentIndex() == 3:  # SFTP
+            files = self.edit_sftp_url.toPlainText().split('\n')
+            if len(files) <= 0:
+                return
+            ip = self.edit_sftp_ip.text()
+            port = self.edit_sftp_port.text()
+            username = self.edit_sftp_username.text()
+            password = self.edit_sftp_password.text()
+
+            # sftp://allan:zhengqian@118.25.17.65:22/home/allan/frp_0.24.1_linux_amd64.tar.gz
+            for f in files:
+                if len(f) <= 0:
+                    continue
+                url = 'sftp://{0}:{1}@{2}:{3}{4}'.format(username, password, ip, port, f)
+                try:
+                    self.aria2.add_uri(url, params=params)
+                except Exception as err:
+                    logging.error('Add sftp file error: {0}'.format(err))
+                    QMessageBox.warning(self, self.tr("Warn"), self.tr("URL错误, 是否继续添加？"),
+                                        QMessageBox.Yes | QMessageBox.No)
+            self.edit_sftp_url.setText('')
 
         self.aria2.save_session()
         self.close()

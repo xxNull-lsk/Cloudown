@@ -29,12 +29,13 @@ class Aria2:
                 }
             ]
         }
-        if self.token is not None:
-            req['params'].insert(0, self.token)
 
         if params is not None:
-            for (k, v) in params:
-                req['params'][1][k] = v
+            for k in params:
+                req['params'][1][k] = params[k]
+
+        if self.token is not None:
+            req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
         c = urlopen(self.server_url, req, timeout=self.timeout)
         return json.loads(c.read())

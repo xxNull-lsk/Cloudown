@@ -37,17 +37,17 @@ class DownloadManager:
             filename = self.settings.values['LANGUAGES'][index]['FILE_NAME']
         trans = QTranslator()
         if trans.load(os.path.join('languages', filename)):
-            gl.set_value('trans', trans)
+            gl.set_value('language', trans)
             self.app.installTranslator(trans)
 
         self.main_wnd = UiMain()
 
     def start_local_aria2(self):
-        command = translate_macro(self.settings.values['LOCALE']['ARIA2'])
+        command = os.path.abspath(translate_macro(self.settings.values['LOCALE']['ARIA2']))
         for p in self.settings.values['LOCALE']['PARAMS']:
             command = command + ' ' + translate_macro(p)
-        command = command + ' --dir="{}"'.format(self.settings.values['LOCALE']['DOWNLOAD_DIR'])
-        command = translate_macro(command)
+        down_path = translate_macro(self.settings.values['LOCALE']['DOWNLOAD_DIR'])
+        command = command + '' + ' --dir="{}"'.format(down_path)
         startupinfo = None
         if sys.platform == 'win32':
             startupinfo = subprocess.STARTUPINFO()
@@ -57,8 +57,12 @@ class DownloadManager:
             pass
         self.aria2c_process = subprocess.Popen(command, startupinfo=startupinfo, shell=True)
         logging.info('local aria2 started(PID={0})'.format(self.aria2c_process.pid))
+        pid = self.aria2c_process.pid
         self.aria2c_process.wait()
-        logging.info('local aria2 stopped(PID={0}, EXIT={1})', self.aria2c_process.pid, self.aria2c_process.returncode)
+        returncode = -1
+        if self.aria2c_process is not None:
+            returncode = self.aria2c_process.returncode
+        logging.info('local aria2 stopped(PID={0}, EXIT={1})', pid, returncode)
 
     def stop_local_aria2(self):
         if self.settings.values["LOCALE"]["KEEP_RUNNING"]:

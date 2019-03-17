@@ -43,13 +43,13 @@ def merged_dict(dict1, dict2):
 
 
 def translate_macro(path):
-    path = path.replace('${DATA_PATH}', './data')
-    path = path.replace('${ARIA2_PATH}', './aria2')
-    path = path.replace('${START_PATH}', './aria2')
-    path = path.replace('${START_FOLDER}', './aria2')
+    path = path.replace('${DATA_PATH}', os.path.abspath('./data'))
+    path = path.replace('${ARIA2_PATH}', os.path.abspath('./aria2'))
+    path = path.replace('${START_PATH}', os.path.abspath('./aria2'))
+    path = path.replace('${START_FOLDER}', os.path.abspath('./aria2'))
     home_path = os.path.expanduser('~')
     path = path.replace('${HOME_PATH}', home_path)
     download_path = os.path.join(home_path, 'Downloads')
     path = path.replace('${DOWNLOAD_PATH}', download_path)
-    return os.path.abspath(path)
+    return path
 

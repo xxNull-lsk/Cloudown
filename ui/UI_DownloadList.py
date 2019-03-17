@@ -30,8 +30,13 @@ class UiDownloadList(QWidget):
         self.right_widget = QListWidget()
 
         self.main_layout.addWidget(self.right_widget)
+        gl.signals.value_changed.connect(self._value_changed)
 
         self._setup_ui()
+
+    def _value_changed(self, v):
+        if v['name'] == 'language':
+            self.update_ui()
 
     def _setup_ui(self):
         self.left_widget.currentRowChanged.connect(self.task_type_changed)
@@ -41,11 +46,17 @@ class UiDownloadList(QWidget):
 
         list_str = [self.tr('All'), self.tr('Downloading'), self.tr('Waiting'), self.tr('Stopped')]
         for i in range(len(list_str)):
-            self.item = QListWidgetItem(list_str[i], self.left_widget)
-            self.item.setSizeHint(QSize(30, 60))
-            self.item.setTextAlignment(Qt.AlignCenter)
+            item = QListWidgetItem(list_str[i], self.left_widget)
+            item.setSizeHint(QSize(30, 60))
+            item.setTextAlignment(Qt.AlignCenter)
 
         self.left_widget.setCurrentRow(1)
+
+    def update_ui(self):
+        list_str = [self.tr('All'), self.tr('Downloading'), self.tr('Waiting'), self.tr('Stopped')]
+        for i in range(0, self.left_widget.count()):
+            item = self.left_widget.item(i)
+            item.setText(list_str[i])
 
     def set_tasks(self, tasks, task_type):
         if task_type == self.task_type_download:

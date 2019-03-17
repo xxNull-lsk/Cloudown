@@ -173,12 +173,12 @@ class UiMain(QWidget):
         pm = QPixmap("./icons/download.png")
         dm = gl.get_value('dm')
         dm.app_name = self.tr('Cloudown')
+        self.name = dm.app_name
         self.setWindowIcon(QIcon(pm))
         self.setObjectName('UiMain')
         with open('./qss/ui_main.qss', 'r') as f:
             self.setStyleSheet(f.read())
         self.resize(1024, 768)
-        self.name = dm.app_name
         self.root_layout = QStackedLayout(self)
         label = QLabel()
 
@@ -216,7 +216,7 @@ class UiMain(QWidget):
         self.thread_refresh_task = ThreadRefreshTask()
 
         self._setup_ui()
-        #self.ui_download_list.setParent(self)
+        # self.ui_download_list.setParent(self)
         self.animation = QPropertyAnimation(self, b'windowOpacity')
         self.animation.setDuration(500)
         self.animation.setStartValue(0.0)
@@ -228,6 +228,10 @@ class UiMain(QWidget):
         if info['name'] == 'aria2':
             self.thread_refresh_task.exit()
             self.thread_refresh_task.start()
+        elif info['name'] == 'language':
+            dm = gl.get_value('dm')
+            dm.app_name = self.tr('Cloudown')
+            self.name = dm.app_name
 
     def update_window_title(self, status, is_successed):
 
