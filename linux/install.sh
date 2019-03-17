@@ -9,6 +9,7 @@ rm /opt/cloudown/install.sh
 chmod a+x /opt/cloudown/Cloudown
 chmod 777 -R /opt/cloudown/logs
 chmod 777 -R /opt/cloudown/aria2
+chmod 777 -R /opt/cloudown/data
 chmod a+x /opt/cloudown/Cloudown.sh
 chmod a+x /opt/cloudown/uninstall.sh
 cp /opt/cloudown/Cloudown.desktop /usr/share/applications

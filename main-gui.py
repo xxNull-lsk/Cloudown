@@ -14,7 +14,7 @@ import locale
 class DownloadManager:
     settings = SystemSettings()
     app_name = 'Cloudown'
-    app_version = '0.2'
+    app_version = '0.3'
     app_url = 'https://github.com/xxNull-lsk/Cloudown'
     aria2c_process = None
     aria2 = None
