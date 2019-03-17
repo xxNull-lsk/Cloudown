@@ -201,7 +201,7 @@ QPushButton#CommandOpenFolder {
     min-height: 16px;
     max-height: 16px;
     border-radius: 9px;
-    border:1px solid #9f9f9f;
+    border:0px solid #9f9f9f;
 	image:url(skins/Blue/open.png);
     padding: 3px;
     background-color: white;
@@ -226,7 +226,7 @@ QPushButton#CommandDeleteTask {
     min-height: 16px;
     max-height: 16px;
     border-radius: 9px;
-    border: 1px solid #9f9f9f;
+    border: 0px solid #9f9f9f;
 	image:url(skins/Blue/delete.png);
     padding: 3px;
     background-color: white;
@@ -252,7 +252,7 @@ QPushButton#CommandDetails {
     min-height: 16px;
     max-height: 16px;
     border-radius: 9px;
-    border: 1px solid #9f9f9f;
+    border: 0px solid #9f9f9f;
 	image:url(skins/Blue/details.png);
     padding: 3px;
     background-color: white;
@@ -278,7 +278,7 @@ QPushButton#CommandPause {
     min-height: 16px;
     max-height: 16px;
     border-radius: 9px;
-    border: 1px solid #9f9f9f;
+    border: 0px solid #9f9f9f;
 	image:url(skins/Blue/pause.png);
     padding: 3px;
     background-color: white;
@@ -304,7 +304,7 @@ QPushButton#CommandUnpause {
     min-height: 16px;
     max-height: 16px;
     border-radius: 9px;
-    border: 1px solid #9f9f9f;
+    border: 0px solid #9f9f9f;
 	image:url(skins/Blue/unpause.png);
     padding: 3px;
     background-color: white;

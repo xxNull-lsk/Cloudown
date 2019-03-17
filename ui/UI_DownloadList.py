@@ -6,6 +6,14 @@ from ui.WidgetTaskStopped import UITaskStopped
 import json
 
 
+class SortBySize(QSortFilterProxyModel):
+    def __init__(self):
+        super(SortBySize, self).__init__()
+
+    def lessThan(self, left, right):
+        print(left, right)
+
+
 class UiDownloadList(QWidget):
     task_type_all = 0
     task_type_download = 1
@@ -34,7 +42,6 @@ class UiDownloadList(QWidget):
 
         self.main_layout.addWidget(self.right_widget)
         gl.signals.value_changed.connect(self._value_changed)
-        self.menu = QMenu()
 
         self._setup_ui()
 
@@ -44,27 +51,13 @@ class UiDownloadList(QWidget):
         elif v['name'] == 'skin':
             self.update_ui(v['new'])
 
-    def _triggered(self, action):
-        self.sort_type = action.data()
-
     def _setup_ui(self):
-        self.subMenu = self.menu.addMenu(self.tr('排序'))
-        action = self.subMenu.addAction('状态')
-        action.setData("status")
-        action = self.subMenu.addAction('速度')
-        action.setData("speed")
-        action = self.subMenu.addAction('剩余时间')
-        action.setData("remain_time")
-        action = self.subMenu.addAction('文件名')
-        action.setData("file_name")
-        self.menu.triggered.connect(self._triggered)
-
         self.left_widget.currentRowChanged.connect(self.task_type_changed)
         self.left_widget.setFrameShape(QListWidget.NoFrame)
         self.left_widget.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.left_widget.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.right_widget.setContextMenuPolicy(Qt.CustomContextMenu)
-        self.right_widget.customContextMenuRequested.connect(self.show_menu)
+        # self.right_widget.setContextMenuPolicy(Qt.CustomContextMenu)
+        # self.right_widget.customContextMenuRequested.connect(self.show_menu)
 
         list_str = [self.tr('All'), self.tr('Downloading'), self.tr('Waiting'), self.tr('Stopped')]
         for i in range(len(list_str)):
@@ -107,13 +100,16 @@ class UiDownloadList(QWidget):
         return False
 
     def _set_tasks(self, tasks):
-        for i in range(0, self.right_widget.count()):
+        last_active = 0
+        for i in range(self.right_widget.count() - 1, -1, -1):
             item = self.right_widget.item(i)
             if item is None:
                 continue
             ui_task = self.right_widget.itemWidget(item)
             if ui_task is None:
                 continue
+            if ui_task.task['status'] == 'active' and last_active == 0:
+                last_active = i
             if not self.find_task_in_list(ui_task, tasks):
                 self.right_widget.removeItemWidget(item)
                 self.right_widget.takeItem(self.right_widget.row(item))
@@ -123,7 +119,11 @@ class UiDownloadList(QWidget):
             if item is None:
                 item = QListWidgetItem()
                 item.setSizeHint(QSize(self.right_widget.width(), 96))
-                self.right_widget.addItem(item)
+                if task['status'] == 'active' and self.sort_type == 'status':
+                    self.right_widget.insertItem(last_active, item)
+                    last_active = last_active + 1
+                else:
+                    self.right_widget.addItem(item)
                 t = None
                 if task['status'] == 'active':
                     t = UITaskActive()
@@ -135,6 +135,7 @@ class UiDownloadList(QWidget):
                 self.right_widget.setItemWidget(item, t)
             else:
                 item.set_task(task)
+                pass
 
     def task_type_changed(self, i):
         if i == self.task_type_all:
