@@ -205,27 +205,27 @@
 <context>
     <name>UiAbout</name>
     <message>
-        <location filename="../ui/UI_About.py" line="24"/>
+        <location filename="../ui/UI_About.py" line="31"/>
         <source>Website ({0})</source>
         <translation>Website ({0})</translation>
     </message>
     <message>
-        <location filename="../ui/UI_About.py" line="33"/>
+        <location filename="../ui/UI_About.py" line="41"/>
         <source>About Aria2</source>
         <translation>About Aria2</translation>
     </message>
     <message>
-        <location filename="../ui/UI_About.py" line="51"/>
+        <location filename="../ui/UI_About.py" line="59"/>
         <source>Version: </source>
         <translation>Version: </translation>
     </message>
     <message>
-        <location filename="../ui/UI_About.py" line="52"/>
+        <location filename="../ui/UI_About.py" line="60"/>
         <source>Features:</source>
         <translation>Features:</translation>
     </message>
     <message>
-        <location filename="../ui/UI_About.py" line="57"/>
+        <location filename="../ui/UI_About.py" line="65"/>
         <source>Methods:</source>
         <translation>Methods:</translation>
     </message>
@@ -233,22 +233,22 @@
 <context>
     <name>UiDownloadList</name>
     <message>
-        <location filename="../ui/UI_DownloadList.py" line="56"/>
+        <location filename="../ui/UI_DownloadList.py" line="74"/>
         <source>All</source>
         <translation>All</translation>
     </message>
     <message>
-        <location filename="../ui/UI_DownloadList.py" line="56"/>
+        <location filename="../ui/UI_DownloadList.py" line="74"/>
         <source>Downloading</source>
         <translation>Downloading</translation>
     </message>
     <message>
-        <location filename="../ui/UI_DownloadList.py" line="56"/>
+        <location filename="../ui/UI_DownloadList.py" line="74"/>
         <source>Waiting</source>
         <translation>Waiting</translation>
     </message>
     <message>
-        <location filename="../ui/UI_DownloadList.py" line="56"/>
+        <location filename="../ui/UI_DownloadList.py" line="74"/>
         <source>Stopped</source>
         <translation>Stopped</translation>
     </message>
@@ -256,37 +256,37 @@
 <context>
     <name>UiMain</name>
     <message>
-        <location filename="../ui/UI_Main.py" line="234"/>
+        <location filename="../ui/UI_Main.py" line="230"/>
         <source>Cloudown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Main.py" line="241"/>
+        <location filename="../ui/UI_Main.py" line="253"/>
         <source>(Server is offline)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Main.py" line="247"/>
+        <location filename="../ui/UI_Main.py" line="259"/>
         <source>(Local)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Main.py" line="249"/>
+        <location filename="../ui/UI_Main.py" line="261"/>
         <source>(Remote: {0})</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Main.py" line="252"/>
+        <location filename="../ui/UI_Main.py" line="264"/>
         <source>Download Speed: {0}/s  Upload Speed: {1}/s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Main.py" line="312"/>
+        <location filename="../ui/UI_Main.py" line="324"/>
         <source>Exception</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Main.py" line="311"/>
+        <location filename="../ui/UI_Main.py" line="323"/>
         <source>Aria2 server is offline. Do you want to reconnect it?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -294,195 +294,220 @@
 <context>
     <name>UiNewTask</name>
     <message>
-        <location filename="../ui/UI_NewTask.py" line="130"/>
+        <location filename="../ui/UI_NewTask.py" line="167"/>
         <source>New Task</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_NewTask.py" line="136"/>
+        <location filename="../ui/UI_NewTask.py" line="174"/>
         <source>Drop BT file(s) in here, or click this button to select BT file(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_NewTask.py" line="138"/>
-        <source>If add URL more than one, be sure one line one URL. support HTTP, HTTPS, FTP and magnet...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UI_NewTask.py" line="132"/>
+        <location filename="../ui/UI_NewTask.py" line="169"/>
         <source>URL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_NewTask.py" line="133"/>
+        <location filename="../ui/UI_NewTask.py" line="170"/>
         <source>BT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_NewTask.py" line="151"/>
+        <location filename="../ui/UI_NewTask.py" line="196"/>
         <source>Rename:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_NewTask.py" line="152"/>
+        <location filename="../ui/UI_NewTask.py" line="197"/>
         <source>Thread count:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_NewTask.py" line="154"/>
+        <location filename="../ui/UI_NewTask.py" line="199"/>
         <source>Save path:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_NewTask.py" line="157"/>
+        <location filename="../ui/UI_NewTask.py" line="202"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_NewTask.py" line="158"/>
+        <location filename="../ui/UI_NewTask.py" line="203"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_NewTask.py" line="195"/>
+        <location filename="../ui/UI_NewTask.py" line="240"/>
         <source>Select folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_NewTask.py" line="198"/>
+        <location filename="../ui/UI_NewTask.py" line="243"/>
         <source>Select BT files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_NewTask.py" line="66"/>
+        <location filename="../ui/UI_NewTask.py" line="171"/>
         <source>FTP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_NewTask.py" line="134"/>
-        <source>FTP/SFTP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UI_NewTask.py" line="143"/>
-        <source>If add URL more than one, be sure one line one URL. only support FTP/SFTP which use the same username and password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UI_NewTask.py" line="156"/>
+        <location filename="../ui/UI_NewTask.py" line="201"/>
         <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_NewTask.py" line="142"/>
+        <location filename="../ui/UI_NewTask.py" line="180"/>
         <source>URL:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_NewTask.py" line="147"/>
+        <location filename="../ui/UI_NewTask.py" line="193"/>
         <source>UserName:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_NewTask.py" line="148"/>
+        <location filename="../ui/UI_NewTask.py" line="186"/>
         <source>anonymous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_NewTask.py" line="149"/>
+        <location filename="../ui/UI_NewTask.py" line="194"/>
         <source>Password:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UI_NewTask.py" line="172"/>
+        <source>SFTP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UI_NewTask.py" line="176"/>
+        <source>If add multiples tasks, be sure one task URL pre line. support HTTP, HTTPS, FTP and magnet...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UI_NewTask.py" line="181"/>
+        <source>If add multiples tasks, be sure one task URL pre line. only support FTP which use the same username and password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UI_NewTask.py" line="189"/>
+        <source>IP:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UI_NewTask.py" line="190"/>
+        <source>Port:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UI_NewTask.py" line="191"/>
+        <source>One file per line, if you add multiple files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UI_NewTask.py" line="322"/>
+        <source>Warn</source>
+        <translation type="unfinished">Warn</translation>
+    </message>
+    <message>
+        <location filename="../ui/UI_NewTask.py" line="322"/>
+        <source>URL error, do you want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>UiSetting</name>
     <message>
-        <location filename="../ui/UI_Setting.py" line="75"/>
+        <location filename="../ui/UI_Setting.py" line="77"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="252"/>
+        <location filename="../ui/UI_Setting.py" line="279"/>
         <source>Language:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="250"/>
+        <location filename="../ui/UI_Setting.py" line="277"/>
         <source>Refresh rate:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="251"/>
+        <location filename="../ui/UI_Setting.py" line="278"/>
         <source>second(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="241"/>
+        <location filename="../ui/UI_Setting.py" line="268"/>
         <source>Save path:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="249"/>
+        <location filename="../ui/UI_Setting.py" line="276"/>
         <source>Remote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="248"/>
+        <location filename="../ui/UI_Setting.py" line="275"/>
         <source>Server address:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="247"/>
+        <location filename="../ui/UI_Setting.py" line="274"/>
         <source>Token:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="246"/>
+        <location filename="../ui/UI_Setting.py" line="273"/>
         <source>Local</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="245"/>
+        <location filename="../ui/UI_Setting.py" line="272"/>
         <source>Port:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="243"/>
+        <location filename="../ui/UI_Setting.py" line="270"/>
         <source>Aria2 path:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="240"/>
+        <location filename="../ui/UI_Setting.py" line="267"/>
         <source>Aria2 parameters:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="253"/>
+        <location filename="../ui/UI_Setting.py" line="280"/>
         <source>Keep background downloads when closed this application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="239"/>
+        <location filename="../ui/UI_Setting.py" line="266"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="238"/>
+        <location filename="../ui/UI_Setting.py" line="265"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="311"/>
+        <location filename="../ui/UI_Setting.py" line="341"/>
         <source>Select aria2 path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="323"/>
+        <location filename="../ui/UI_Setting.py" line="353"/>
         <source>select save path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UI_Setting.py" line="242"/>
+        <location filename="../ui/UI_Setting.py" line="269"/>
         <source>...</source>
         <translation type="unfinished"></translation>
     </message>

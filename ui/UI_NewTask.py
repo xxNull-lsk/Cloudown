@@ -293,7 +293,7 @@ only support FTP which use the same username and password"))
                     self.aria2.add_uri(url, params=params)
                 except Exception as err:
                     logging.error('Add ftp file error: {0}'.format(err))
-                    QMessageBox.warning(self, self.tr("Warn"), self.tr("URL错误, 是否继续添加？"),
+                    QMessageBox.warning(self, self.tr("Warn"), self.tr("URL error, do you want to continue?"),
                                         QMessageBox.Yes | QMessageBox.No)
             self.edit_ftp_url.setText('')
             self.edit_ftp_username.setText('')
@@ -316,7 +316,7 @@ only support FTP which use the same username and password"))
                     self.aria2.add_uri(url, params=params)
                 except Exception as err:
                     logging.error('Add sftp file error: {0}'.format(err))
-                    QMessageBox.warning(self, self.tr("Warn"), self.tr("URL错误, 是否继续添加？"),
+                    QMessageBox.warning(self, self.tr("Warn"), self.tr("URL error, do you want to continue?"),
                                         QMessageBox.Yes | QMessageBox.No)
             self.edit_sftp_url.setText('')
 
