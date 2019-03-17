@@ -170,13 +170,12 @@ class UiMain(QWidget):
 
     def __init__(self):
         super().__init__(QDesktopWidget())
-        pm = QPixmap("./icons/download.png")
         dm = gl.get_value('dm')
         dm.app_name = self.tr('Cloudown')
         self.name = dm.app_name
-        self.setWindowIcon(QIcon(pm))
         self.setObjectName('UiMain')
-        with open('./qss/ui_main.qss', 'r') as f:
+        setting = gl.get_value('settings')
+        with open('./skins/{0}.qss'.format(setting.values['SKIN']), 'r') as f:
             self.setStyleSheet(f.read())
         self.resize(1024, 768)
         self.root_layout = QStackedLayout(self)
@@ -216,6 +215,7 @@ class UiMain(QWidget):
         self.thread_refresh_task = ThreadRefreshTask()
 
         self._setup_ui()
+        self.update_ui()
         # self.ui_download_list.setParent(self)
         self.animation = QPropertyAnimation(self, b'windowOpacity')
         self.animation.setDuration(500)
@@ -224,14 +224,24 @@ class UiMain(QWidget):
         self.animation.setEasingCurve(QEasingCurve.InCirc)
         self.animation.start()
 
-    def _on_value_changed(self, info):
-        if info['name'] == 'aria2':
+    def update_ui(self):
+        dm = gl.get_value('dm')
+        dm.app_name = self.tr('Cloudown')
+        self.name = dm.app_name
+        pm = QPixmap(get_icon("download"))
+        self.setWindowIcon(QIcon(pm))
+        setting = gl.get_value('settings')
+        with open('./skins/{0}.qss'.format(setting.values['SKIN']), 'r') as f:
+            self.setStyleSheet(f.read())
+
+    def _on_value_changed(self, v):
+        if v['name'] == 'aria2':
             self.thread_refresh_task.exit()
             self.thread_refresh_task.start()
-        elif info['name'] == 'language':
-            dm = gl.get_value('dm')
-            dm.app_name = self.tr('Cloudown')
-            self.name = dm.app_name
+        elif v['name'] == 'language':
+            self.update_ui()
+        elif v['name'] == 'skin ':
+            self.update_ui()
 
     def update_window_title(self, status, is_successed):
 

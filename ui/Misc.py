@@ -1,4 +1,5 @@
 import os
+import gl
 
 
 def size2string(size_bytes):
@@ -52,4 +53,9 @@ def translate_macro(path):
     download_path = os.path.join(home_path, 'Downloads')
     path = path.replace('${DOWNLOAD_PATH}', download_path)
     return path
+
+
+def get_icon(name):
+    setting = gl.get_value('settings')
+    return "./skins/{0}/{1}.png".format(setting.values['SKIN'], name)
 

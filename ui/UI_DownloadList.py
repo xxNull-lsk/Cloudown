@@ -37,6 +37,8 @@ class UiDownloadList(QWidget):
     def _value_changed(self, v):
         if v['name'] == 'language':
             self.update_ui()
+        elif v['name'] == 'skin ':
+            self.update_ui()
 
     def _setup_ui(self):
         self.left_widget.currentRowChanged.connect(self.task_type_changed)

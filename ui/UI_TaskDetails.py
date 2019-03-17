@@ -541,7 +541,8 @@ class UiTaskDetails(QWidget):
         task_count = len(self.backup_tasks)
         if task_count == 0:
             dm = gl.get_value('dm')
-            self.thread_refresh.exit()
+            if self.thread_refresh is not None:
+                self.thread_refresh.exit()
             dm.main_wnd.show_normal()
             return
         last = self.backup_tasks[task_count - 1]

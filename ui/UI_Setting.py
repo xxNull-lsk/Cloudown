@@ -13,6 +13,8 @@ from ui.Misc import *
 class SystemSettings:
     values = {
         'IS_LOCALE': True,
+        'SKIN': 'Color',
+        'SKINS': ['Color', 'Black', 'TechBlack'],
         'LANGUAGE': 0,
         'LANGUAGES': [
             {'NAME': 'OS Language', 'FILE_NAME': ''},
@@ -84,6 +86,14 @@ class UiSetting(QWidget):
         self.combox_language = QComboBox()
         self.combox_language.setFixedHeight(28)
         self.main_layout.addWidget(self.combox_language, row, 1)
+        row = row + 1
+
+        self.label_skin = QLabel()
+        self.label_skin.setFixedHeight(28)
+        self.main_layout.addWidget(self.label_skin, row, 0)
+        self.combox_skin = QComboBox()
+        self.combox_skin.setFixedHeight(28)
+        self.main_layout.addWidget(self.combox_skin, row, 1)
         row = row + 1
 
         self.label_refresh = QLabel()
@@ -211,10 +221,25 @@ class UiSetting(QWidget):
         self.combox_language.setCurrentText(self.settings.values['LANGUAGES'][curr_language]['NAME'])
         self.combox_language.currentIndexChanged.connect(self.on_lanugage_changed)
 
+        self.settings.values['SKINS'].clear()
+        for f in os.listdir('./skins'):
+            if os.path.isdir(os.path.join('./skins', f)):
+                self.settings.values['SKINS'].append(f)
+        for skin in self.settings.values['SKINS']:
+            index = self.combox_skin.count()
+            self.combox_skin.addItem(self.tr(skin))
+            self.combox_skin.setItemData(index, skin)
+        self.combox_skin.setCurrentText(self.tr(self.settings.values['SKIN']))
+        self.combox_skin.currentIndexChanged.connect(self.on_skin_changed)
+
         self.checkbox_keep_running.setChecked(self.settings.values['LOCALE']["KEEP_RUNNING"])
         self.on_changed_type()
         gl.signals.value_changed.connect(self.on_value_changed)
         self.update_ui()
+
+    def on_skin_changed(self, index):
+        text = self.combox_skin.itemData(index)
+        gl.set_value('skin', text)
 
     def on_lanugage_changed(self, index):
         if index == 0:
@@ -231,6 +256,8 @@ class UiSetting(QWidget):
 
     def on_value_changed(self, v):
         if v['name'] == 'language':
+            self.update_ui()
+        elif v['name'] == 'skin ':
             self.update_ui()
 
     def update_ui(self):
@@ -297,6 +324,8 @@ class UiSetting(QWidget):
             self.settings.values['LOCALE']['PARAMS'].append(line)
         self.settings.values['LOCALE']["DOWNLOAD_DIR"] = self.edit_download_folder.text()
         self.settings.values['LOCALE']['KEEP_RUNNING'] = self.checkbox_keep_running.isChecked()
+
+        self.settings.values['SKIN'] = self.combox_skin.itemData(self.combox_skin.currentIndex())
         self.settings.save()
         gl.set_value("settings", self.settings)
         dm = gl.get_value('dm')

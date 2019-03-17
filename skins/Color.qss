@@ -1,5 +1,5 @@
 QLabel#download_list {
-    image: url(icons/download_list.png);
+    image: url(skins/Color/download_list.png);
     padding: 10px;
     min-width: 100px;
     max-width: 100px;
@@ -10,21 +10,21 @@ QLabel#application_name {
 }
 
 QLabel#new_task {
-    image: url(icons/new_task.png);
+    image: url(skins/Color/new_task.png);
     padding: 10px;
     min-width: 100px;
     max-width: 100px;
 }
 
 QLabel#settings {
-    image: url(icons/settings.png);
+    image: url(skins/Color/settings.png);
     padding: 10px;
     min-width: 100px;
     max-width: 100px;
 }
 
 QLabel#about {
-    image: url(icons/about.png);
+    image: url(skins/Color/about.png);
     padding: 10px;
     min-width: 100px;
     max-width: 100px;
@@ -124,7 +124,7 @@ QPushButton#ButtonOpenFile {
     max-height: 24px;
     border-radius: 13px;
     border:1px solid #9f9f9f;
-	image:url(icons/open.png);
+	image:url(skins/Color/open.png);
     padding: 3px;
 }
 
@@ -149,7 +149,7 @@ QPushButton#CommandOpenFolder {
     max-height: 16px;
     border-radius: 9px;
     border:1px solid #9f9f9f;
-	image:url(icons/open.png);
+	image:url(skins/Color/open.png);
     padding: 3px;
 }
 
@@ -173,7 +173,7 @@ QPushButton#CommandDeleteTask {
     max-height: 16px;
     border-radius: 9px;
     border: 1px solid #9f9f9f;
-	image:url(icons/delete.png);
+	image:url(skins/Color/delete.png);
     padding: 3px;
 }
 
@@ -198,7 +198,7 @@ QPushButton#CommandDetails {
     max-height: 16px;
     border-radius: 9px;
     border: 1px solid #9f9f9f;
-	image:url(icons/details.png);
+	image:url(skins/Color/details.png);
     padding: 3px;
 }
 
@@ -223,7 +223,7 @@ QPushButton#CommandPause {
     max-height: 16px;
     border-radius: 9px;
     border: 1px solid #9f9f9f;
-	image:url(icons/pause.png);
+	image:url(skins/Color/pause.png);
     padding: 3px;
 }
 
@@ -248,7 +248,7 @@ QPushButton#CommandUnpause {
     max-height: 16px;
     border-radius: 9px;
     border: 1px solid #9f9f9f;
-	image:url(icons/unpause.png);
+	image:url(skins/Color/unpause.png);
     padding: 3px;
 }
 
