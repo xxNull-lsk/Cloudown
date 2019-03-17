@@ -14,6 +14,8 @@ class UiDownloadList(QWidget):
     task_downloading = []
     task_waiting = []
     task_stopped = []
+    menu = None
+    sort_type = 'status'
 
     def __init__(self, parent):
         super(UiDownloadList, self).__init__(parent)
@@ -28,23 +30,41 @@ class UiDownloadList(QWidget):
         self.main_layout.addWidget(self.left_widget)
 
         self.right_widget = QListWidget()
+        self.right_widget.setObjectName("DownloadTaskList")
 
         self.main_layout.addWidget(self.right_widget)
         gl.signals.value_changed.connect(self._value_changed)
+        self.menu = QMenu()
 
         self._setup_ui()
 
     def _value_changed(self, v):
         if v['name'] == 'language':
             self.update_ui()
-        elif v['name'] == 'skin ':
-            self.update_ui()
+        elif v['name'] == 'skin':
+            self.update_ui(v['new'])
+
+    def _triggered(self, action):
+        self.sort_type = action.data()
 
     def _setup_ui(self):
+        self.subMenu = self.menu.addMenu(self.tr('排序'))
+        action = self.subMenu.addAction('状态')
+        action.setData("status")
+        action = self.subMenu.addAction('速度')
+        action.setData("speed")
+        action = self.subMenu.addAction('剩余时间')
+        action.setData("remain_time")
+        action = self.subMenu.addAction('文件名')
+        action.setData("file_name")
+        self.menu.triggered.connect(self._triggered)
+
         self.left_widget.currentRowChanged.connect(self.task_type_changed)
         self.left_widget.setFrameShape(QListWidget.NoFrame)
         self.left_widget.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.left_widget.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.right_widget.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.right_widget.customContextMenuRequested.connect(self.show_menu)
 
         list_str = [self.tr('All'), self.tr('Downloading'), self.tr('Waiting'), self.tr('Stopped')]
         for i in range(len(list_str)):
@@ -54,7 +74,10 @@ class UiDownloadList(QWidget):
 
         self.left_widget.setCurrentRow(1)
 
-    def update_ui(self):
+    def show_menu(self, pos):
+        self.menu.exec_(QCursor.pos())
+
+    def update_ui(self, skin=None):
         list_str = [self.tr('All'), self.tr('Downloading'), self.tr('Waiting'), self.tr('Stopped')]
         for i in range(0, self.left_widget.count()):
             item = self.left_widget.item(i)

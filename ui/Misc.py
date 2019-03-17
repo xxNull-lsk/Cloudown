@@ -55,7 +55,6 @@ def translate_macro(path):
     return path
 
 
-def get_icon(name):
-    setting = gl.get_value('settings')
-    return "./skins/{0}/{1}.png".format(setting.values['SKIN'], name)
+def get_icon(skin, name):
+    return "./skins/{0}/{1}.png".format(skin, name)
 

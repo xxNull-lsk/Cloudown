@@ -38,7 +38,7 @@ class UiBtButton(QPushButton):
         self.setText(files)
 
 
-class UiNewTask(QWidget):
+class UiNewTask(QLabel):
     aria2 = None
     bt_button_title = ""
 

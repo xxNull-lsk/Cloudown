@@ -13,8 +13,8 @@ from ui.Misc import *
 class SystemSettings:
     values = {
         'IS_LOCALE': True,
-        'SKIN': 'Color',
-        'SKINS': ['Color', 'Black', 'TechBlack'],
+        'SKIN': 'Blue',
+        'SKINS': ['Blue', 'Black', 'TechBlack'],
         'LANGUAGE': 0,
         'LANGUAGES': [
             {'NAME': 'OS Language', 'FILE_NAME': ''},
@@ -66,7 +66,7 @@ class SystemSettings:
         return True
 
 
-class UiSetting(QWidget):
+class UiSetting(QLabel):
 
     def __init__(self, parent):
         super().__init__(parent)
@@ -192,7 +192,7 @@ class UiSetting(QWidget):
 
         self.button_cancel = QPushButton()
         self.button_cancel.setFixedHeight(32)
-        self.button_cancel.clicked.connect(self.close)
+        self.button_cancel.clicked.connect(self.on_close)
         self.main_layout.addWidget(self.button_cancel, row, 3)
 
         self.setWindowModality(Qt.ApplicationModal)
@@ -296,9 +296,10 @@ class UiSetting(QWidget):
         self.edit_remote_addr.setEnabled(self.radio_remote.isChecked())
         self.edit_remote_token.setEnabled(self.radio_remote.isChecked())
 
-    def close(self):
+    def on_close(self):
         dm = gl.get_value('dm')
         dm.main_wnd.left_widget.setCurrentRow(0)
+        gl.set_value('skin', self.settings.values['SKIN'])
 
     def on_ok(self):
         self.settings.values['LANGUAGE'] = self.combox_language.currentIndex()

@@ -224,14 +224,16 @@ class UiMain(QWidget):
         self.animation.setEasingCurve(QEasingCurve.InCirc)
         self.animation.start()
 
-    def update_ui(self):
+    def update_ui(self, skin=None):
         dm = gl.get_value('dm')
         dm.app_name = self.tr('Cloudown')
         self.name = dm.app_name
-        pm = QPixmap(get_icon("download"))
+        if skin is None:
+            setting = gl.get_value('settings')
+            skin = setting.values['SKIN']
+        pm = QPixmap(get_icon(skin, "download"))
         self.setWindowIcon(QIcon(pm))
-        setting = gl.get_value('settings')
-        with open('./skins/{0}.qss'.format(setting.values['SKIN']), 'r') as f:
+        with open('./skins/{0}.qss'.format(skin), 'r') as f:
             self.setStyleSheet(f.read())
 
     def _on_value_changed(self, v):
@@ -240,8 +242,8 @@ class UiMain(QWidget):
             self.thread_refresh_task.start()
         elif v['name'] == 'language':
             self.update_ui()
-        elif v['name'] == 'skin ':
-            self.update_ui()
+        elif v['name'] == 'skin':
+            self.update_ui(v['new'])
 
     def update_window_title(self, status, is_successed):
 

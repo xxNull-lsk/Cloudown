@@ -8,7 +8,7 @@ import json
 import webbrowser
 
 
-class UiAbout(QWidget):
+class UiAbout(QLabel):
 
     def __init__(self, parent):
         super().__init__(parent)
@@ -17,11 +17,19 @@ class UiAbout(QWidget):
 
         main_layout = QVBoxLayout(self)
         main_layout.setAlignment(Qt.AlignCenter)
+        appliocation_line = QHBoxLayout()
+        appliocation_line.setAlignment(Qt.AlignLeft)
+        main_layout.addLayout(appliocation_line)
+        label_icon = QLabel()
+        label_icon.setObjectName('application_icon')
+        appliocation_line.addWidget(label_icon)
         dm = gl.get_value('dm')
         label_name = QLabel('{0} {1}'.format(dm.app_name, dm.app_version))
         label_name.setObjectName('application_name')
-        main_layout.addWidget(label_name)
+        appliocation_line.addWidget(label_name)
+
         btn_address = QCommandLinkButton(self.tr("Website ({0})").format(dm.app_url))
+        btn_address.setObjectName('about_address')
         btn_address.clicked.connect(self.on_open_website)
         main_layout.addWidget(btn_address)
         label_name = QLabel()

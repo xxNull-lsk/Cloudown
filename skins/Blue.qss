@@ -1,84 +1,74 @@
-QLabel#download_list {
-    image: url(skins/Black/download_list.png);
-    padding: 10px;
-    min-width: 100px;
-    max-width: 100px;
+QPushButton
+{
+    color:white;
+    background-color:rgb(70, 172, 232);
+    border-radius:5px;
+    min-height: 32px;
+    min-width: 120px;
 }
 
-QLabel#application_name {
-    font-size: 28px;
+QPushButton:hover
+{
+    color:white;
+    background-color:rgb(49, 148, 213);
 }
 
-QLabel#new_task {
-    image: url(skins/Black/new_task.png);
-    padding: 10px;
-    min-width: 100px;
-    max-width: 100px;
-}
-
-QLabel#settings {
-    image: url(skins/Black/settings.png);
-    padding: 10px;
-    min-width: 100px;
-    max-width: 100px;
-}
-
-QLabel#about {
-    image: url(skins/Black/about.png);
-    padding: 10px;
-    min-width: 100px;
-    max-width: 100px;
-}
-
-QLabel#CommandList {
-    min-width: 100px;
-    max-width: 100px;
-    background: rgb(43, 43, 43);
-    padding: 0px
+QPushButton:pressed
+{
+    color:white;
+    background-color:rgb(49, 148, 213);
+    padding-left:3px;
+    padding-top:3px;
 }
 
 QListWidget {
     outline: 0px;
 }
-
 QListWidget#CommandList {
     min-width: 120px;
     max-width: 120px;
-    color: Black;
-    background: rgb(43, 43, 43);
+    color: rgb(74, 138, 184);
+    background: rgb(70, 172, 232);
     font-size: 28px;
 }
 
 QListWidget#CommandList::Item:selected {
-    background: rgb(88, 88, 88);
-    border-left: 5px solid rgb(255, 69, 0);
+    background: rgb(49, 148, 213);
+    border-left: 5px solid rgb(255, 128, 0);
 }
 
 QListWidget#CommandList::Item:hover {
-    background: rgb(95, 95, 95);
+    background: rgb(49, 148, 213);
+    border-left: 5px solid rgb(255, 69, 0);
+}
+
+QLabel#CommandList {
+    min-width: 100px;
+    max-width: 100px;
+    background: rgb(70, 172, 232);
+    padding: 0px
 }
 
 QListWidget#DownloadTypeList {
     min-width: 180px;
     max-width: 180px;
     color: Black;
-    background: rgb(60, 63, 65);
+    background: rgb(232, 243, 247);
     font-size: 24px;
 }
 
 QListWidget#DownloadTypeList::Item:selected {
-    background: #999999;
-    border-left: 5px solid rgb(255, 69, 0);
+    background: #66CCFF;
+    border-left: 5px solid rgb(255, 128, 0);
 }
 
 QListWidget#DownloadTypeList::Item:hover {
-    background: #CCCCCC;
+    background: #66CCFF;
+    border-left: 5px solid rgb(255, 69, 0);
 }
 
 QListWidget#DownloadTaskList{
     background: white;
-    color: White;
-    padding: 0px;
 }
 
 QListWidget#DownloadTaskList::Item:selected{
@@ -105,19 +95,53 @@ QLabel#UiTaskDetails {
     background: white;
 }
 
+QLabel#download_list {
+    image: url(skins/Blue/download_list.png);
+    padding: 10px;
+    min-width: 100px;
+    max-width: 100px;
+}
+
+QLabel#application_name {
+    font-size: 28px;
+}
+
+QLabel#new_task {
+    image: url(skins/Blue/new_task.png);
+    padding: 10px;
+    min-width: 100px;
+    max-width: 100px;
+}
+
+QLabel#settings {
+    image: url(skins/Blue/settings.png);
+    padding: 10px;
+    min-width: 100px;
+    max-width: 100px;
+}
+
+QLabel#about {
+    image: url(skins/Blue/about.png);
+    padding: 10px;
+    min-width: 100px;
+    max-width: 100px;
+}
+
 QPushButton#SelectBtFile {
     border: 2px dashed;
     min-width: 80px;
     border-color: rgb(142, 142, 142);
     outline: none;
+    background-color: white;
+    color: black;
 }
 
 QPushButton#SelectBtFile:focus {
-    border-color: rgb(142, 142, 142);
+    background-color: white;
 }
 
 QPushButton#SelectBtFile:pressed {
-    background-color: rgb(142, 142, 142);
+    background-color: white;
     padding-left:6px;
     padding-top:6px;
 }
@@ -153,21 +177,21 @@ QPushButton#ButtonOpenFile {
     max-height: 24px;
     border-radius: 13px;
     border:1px solid #9f9f9f;
-	image:url(skins/Black/open.png);
+	image:url(skins/Blue/open.png);
     padding: 3px;
 }
 
 QPushButton#ButtonOpenFile:focus {
-    border-color: rgb(142, 142, 142);
+    background-color: white;
 }
 
 QPushButton#ButtonOpenFile:pressed {
-    background-color: rgb(142, 142, 142);
+    background-color: rgb(232, 243, 247);
     padding:1px;
 }
 
 QPushButton#ButtonOpenFile:hover {
-    background-color: rgb(142, 142, 142);
+    background-color: rgb(232, 243, 247);
 }
 
 
@@ -178,21 +202,22 @@ QPushButton#CommandOpenFolder {
     max-height: 16px;
     border-radius: 9px;
     border:1px solid #9f9f9f;
-	image:url(skins/Black/open.png);
+	image:url(skins/Blue/open.png);
     padding: 3px;
+    background-color: white;
 }
 
 QPushButton#CommandOpenFolder:focus {
-    border-color: rgb(142, 142, 142);
+    background-color: white;
 }
 
 QPushButton#CommandOpenFolder:pressed {
-    background-color: rgb(142, 142, 142);
+    background-color: rgb(232, 243, 247);
     padding:1px;
 }
 
 QPushButton#CommandOpenFolder:hover {
-    background-color: rgb(142, 142, 142);
+    background-color: rgb(232, 243, 247);
 }
 
 QPushButton#CommandDeleteTask {
@@ -202,21 +227,22 @@ QPushButton#CommandDeleteTask {
     max-height: 16px;
     border-radius: 9px;
     border: 1px solid #9f9f9f;
-	image:url(skins/Black/delete.png);
+	image:url(skins/Blue/delete.png);
     padding: 3px;
+    background-color: white;
 }
 
 QPushButton#CommandDeleteTask:focus {
-    border-color: rgb(142, 142, 142);
+    background-color: white;
 }
 
 QPushButton#CommandDeleteTask:pressed {
-    background-color: rgb(142, 142, 142);
+    background-color: rgb(232, 243, 247);
     padding:1px;
 }
 
 QPushButton#CommandDeleteTask:hover {
-    background-color: rgb(142, 142, 142);
+    background-color: rgb(232, 243, 247);
 }
 
 
@@ -227,21 +253,22 @@ QPushButton#CommandDetails {
     max-height: 16px;
     border-radius: 9px;
     border: 1px solid #9f9f9f;
-	image:url(skins/Black/details.png);
+	image:url(skins/Blue/details.png);
     padding: 3px;
+    background-color: white;
 }
 
 QPushButton#CommandDetails:focus {
-    border-color: rgb(142, 142, 142);
+    background-color: white;
 }
 
 QPushButton#CommandDetails:pressed {
-    background-color: rgb(142, 142, 142);
+    background-color: rgb(232, 243, 247);
     padding:1px;
 }
 
 QPushButton#CommandDetails:hover {
-    background-color: rgb(142, 142, 142);
+    background-color: rgb(232, 243, 247);
 }
 
 
@@ -252,21 +279,22 @@ QPushButton#CommandPause {
     max-height: 16px;
     border-radius: 9px;
     border: 1px solid #9f9f9f;
-	image:url(skins/Black/pause.png);
+	image:url(skins/Blue/pause.png);
     padding: 3px;
+    background-color: white;
 }
 
 QPushButton#CommandPause:focus {
-    border-color: rgb(142, 142, 142);
+    background-color: white;
 }
 
 QPushButton#CommandPause:pressed {
-    background-color: rgb(142, 142, 142);
+    background-color: rgb(232, 243, 247);
     padding:1px;
 }
 
 QPushButton#CommandPause:hover {
-    background-color: rgb(142, 142, 142);
+    background-color: rgb(232, 243, 247);
 }
 
 
@@ -277,17 +305,35 @@ QPushButton#CommandUnpause {
     max-height: 16px;
     border-radius: 9px;
     border: 1px solid #9f9f9f;
-	image:url(skins/Black/unpause.png);
+	image:url(skins/Blue/unpause.png);
     padding: 3px;
+    background-color: white;
 }
 
 QPushButton#CommandUnpause:focus {
-    border-color: rgb(142, 142, 142);
+    background-color: rgb(232, 243, 247);
 }
 
 QPushButton#CommandUnpause:pressed {
-    background-color: rgb(142, 142, 142);
+    background-color: rgb(232, 243, 247);
     padding:1px;
+}
+
+QPushButton#about_address {
+    background-color: white;
+    color: rgb(70, 172, 232);
+}
+
+*#application_name {
+    background-color: white;
+    color: rgb(49, 148, 213);
+    padding-left: 20px;
+}
+
+*#application_icon {
+	image:url(skins/Blue/download.png);
+	min-width: 64px;
+	min-height: 64px;
 }
 
 QPushButton#CommandUnpause:hover {
@@ -302,13 +348,13 @@ QTabBar#NewTaskTab::tab {
 }
 
 QTabBar#NewTaskTab::tab:hover {
-    border-bottom: 5px solid #C2C7CB;
+    border-bottom: 5px solid rgb(70, 172, 232);
 }
 
 QTabBar#NewTaskTab::tab:selected {
-    background: rgb(142, 142, 142);
+    background: rgb(70, 172, 232);
     border-top: None;
-    border-bottom: 5px solid rgb(255, 69, 0);
+    border-bottom: 5px solid rgb(255, 128, 0);
 }
 
 QTabBar#TaskDetailsTab::tab {
@@ -316,16 +362,16 @@ QTabBar#TaskDetailsTab::tab {
     min-width: 140px;
     font-size: 18px;
     border: None;
-    border-bottom: 2px solid #EFEFEF;
+    border-bottom: 2px solid rgb(232, 243, 247);
 }
 
 QTabBar#TaskDetailsTab::tab:hover {
-    background: rgb(142, 142, 142);
-    border-bottom: 2px solid #C2C7CB;
+    background: rgb(70, 172, 232);
+    border-bottom: 2px solid rgb(70, 172, 232);
 }
 
 QTabBar#TaskDetailsTab::tab:selected {
-    background: rgb(142, 142, 142);
+    background: rgb(70, 172, 232);
     border-top: None;
-    border-bottom: 2px solid rgb(255, 69, 0);
+    border-bottom: 2px solid rgb(255, 128, 0);
 }

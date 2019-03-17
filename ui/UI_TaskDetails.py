@@ -96,7 +96,7 @@ class BitField:
         return True
 
 
-class UiProgress(QWidget):
+class UiProgress(QLabel):
     def __init__(self):
         super().__init__()
         self.bitfield = None
@@ -130,7 +130,7 @@ class UiProgress(QWidget):
         qp.end()
 
 
-class UiTaskDetails(QWidget):
+class UiTaskDetails(QLabel):
     backup_tasks = []
     thread_refresh = None
     peers = None
@@ -139,7 +139,7 @@ class UiTaskDetails(QWidget):
     def __init__(self, parent):
         self.task = None
         super().__init__(parent)
-
+        self.setObjectName('UiTaskDetails')
         self.tab_title_peers = self.tr('BT peers')
         self.tab_title_servers = self.tr('Server list')
         self.tab_title_blocks = self.tr('Blocks')
