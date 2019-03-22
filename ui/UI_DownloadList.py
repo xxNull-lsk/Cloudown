@@ -34,10 +34,12 @@ class UiDownloadList(QWidget):
         self.main_layout.setContentsMargins(0, 0, 0, 0)
 
         self.left_widget = QListWidget()
+        self.left_widget.setFocusPolicy(Qt.NoFocus)
         self.left_widget.setObjectName('DownloadTypeList')
         self.main_layout.addWidget(self.left_widget)
 
         self.right_widget = QListWidget()
+        self.right_widget.setFocusPolicy(Qt.NoFocus)
         self.right_widget.setObjectName("DownloadTaskList")
 
         self.main_layout.addWidget(self.right_widget)

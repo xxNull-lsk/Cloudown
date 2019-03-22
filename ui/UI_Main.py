@@ -103,6 +103,7 @@ class UiCommandList(QLabel):
         main_layout.addLayout(bottom)
 
         self.top_list = QListWidget()
+        self.top_list.setFocusPolicy(Qt.NoFocus)
         self.top_list.setObjectName('CommandList')
         self.top_list.setFrameShape(QListWidget.NoFrame)
         self.top_list.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
@@ -112,6 +113,7 @@ class UiCommandList(QLabel):
         top.addWidget(self.top_list)
 
         self.bottom_list = QListWidget()
+        self.bottom_list.setFocusPolicy(Qt.NoFocus)
         self.bottom_list.setObjectName('CommandList')
         self.bottom_list.setFrameShape(QListWidget.NoFrame)
         self.bottom_list.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
