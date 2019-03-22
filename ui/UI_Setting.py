@@ -50,6 +50,8 @@ class SystemSettings:
         self.file = translate_macro('${DATA_PATH}/setting.json')
         if sys.platform == 'linux':
             self.values['LOCALE']['ARIA2'] = './aria2/aria2c'
+        elif sys.platform == 'darwin':
+            self.values['LOCALE']['ARIA2'] = './aria2/darwin/ria2c'
 
     def load(self):
         if not os.path.exists(self.file):

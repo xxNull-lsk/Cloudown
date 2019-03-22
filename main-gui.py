@@ -32,7 +32,11 @@ class DownloadManager:
 
         index = self.settings.values['LANGUAGE']
         if index == 0:
-            filename = locale.getdefaultlocale()[0]
+            try:
+                filename = locale.getdefaultlocale()[0]
+            except Exception as err:
+                logging.error(str(err))
+                filename = ""
         else:
             filename = self.settings.values['LANGUAGES'][index]['FILE_NAME']
         trans = QTranslator()
