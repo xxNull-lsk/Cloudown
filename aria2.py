@@ -108,8 +108,12 @@ class Aria2:
         if self.token is not None:
             req['params'].insert(0, self.token)
         req = bytes(json.dumps(req), 'utf-8')
-        c = urlopen(self.server_url, req, timeout=self.timeout)
-        return json.loads(c.read())
+        try:
+            c = urlopen(self.server_url, req, timeout=self.timeout)
+            return json.loads(c.read())
+        except Exception as err:
+            logging.error("remove_stoped failed!" + str(err))
+            return None
 
     def pause(self, task_id, force=False):
         req = {

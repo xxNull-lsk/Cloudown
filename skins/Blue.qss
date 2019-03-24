@@ -22,7 +22,8 @@ QPushButton:pressed
 }
 
 QListWidget {
-    outline: 0px;
+    outline: none;
+    padding: -1px;
 }
 QListWidget#CommandList {
     min-width: 120px;

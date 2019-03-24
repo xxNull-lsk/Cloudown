@@ -65,13 +65,15 @@ class UITaskActive(UITask):
         total_length = int(task["totalLength"])
         if total_length > 0:
             val = int(completed_length * 1000 / total_length)
-            self.label_percent.setText('%.2f%%' % (completed_length * 100.0 / total_length))
+            percent = '%03.2f%%' % (completed_length * 100.0 / total_length)
         else:
             val = 0
-            self.label_percent.setText('%.2f%%' % 0)
+            percent = '%3.2f%%' % 0
+        self.label_percent.setText('{:>8}'.format(percent))
 
         self.progress.setValue(val)
-        self.label_file_size.setText("{0} / {1}".format(size2string(completed_length), size2string(total_length)))
+        file_size = "{0} / {1}".format(size2string(completed_length), size2string(total_length))
+        self.label_file_size.setText('{:>24}'.format(file_size))
         download_speed = int(task['downloadSpeed'])
         remain_time = 0
         if download_speed > 0:
@@ -81,9 +83,12 @@ class UITaskActive(UITask):
             remain_time = self.tr("More than {} day(s)").format(int(days))
         else:
             remain_time = time.strftime('%H:%M:%S', time.gmtime(remain_time))
-        self.label_time.setText(self.tr('Remain time: {}').format(remain_time))
-        self.label_download_speed.setText(self.tr('Download speed: {}/s').format(size2string(download_speed)))
-        self.label_upload_speed.setText(self.tr('Upload speed: {}/s').format(size2string(task['uploadSpeed'])))
+        self.label_time.setText(remain_time)
+        self.label_download_speed.setText(self.tr('{:>12}/s').format(size2string(download_speed)))
+        if task['uploadSpeed'] != '0':
+            self.label_upload_speed.setText(self.tr('{:>12}/s').format(size2string(task['uploadSpeed'])))
+        else:
+            self.label_upload_speed.setText('')
         if 'numSeeders' in task and 'connections' in task:
             self.label_connects.setText("{}/{}".format(task['numSeeders'], task['connections']))
             self.label_connects.setToolTip(self.tr("Senders: {}  Connects: {}").format(task['numSeeders'], task['connections']))

@@ -45,7 +45,9 @@ class ThreadRefreshTaskDetails(QThread):
             try:
                 ret = self.aria2.get_status(self.gid)
                 task = ret['result']
-                if 'numSeeders' in task and int(task['numSeeders']) > 0:
+                if ('numSeeders' in task and int(task['numSeeders']) > 0) \
+                        or \
+                        ('seeder' in task and task['seeder'] == 'true'):
                     ret = self.aria2.get_peers(self.gid)
                     peers = ret['result']
                 else:

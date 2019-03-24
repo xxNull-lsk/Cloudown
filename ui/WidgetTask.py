@@ -5,6 +5,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from ui.Misc import *
 import os
+import sys
 import gl
 import _thread
 import logging
@@ -132,8 +133,12 @@ class UITask(QWidget):
 
     def set_task(self, task):
         self.task = task
-        self.label_file_size.setText(size2string(task['totalLength']))
-        self.label_upload_size.setText(size2string(task['uploadLength']))
+        self.label_file_size.setText('x{0:>125}'.format(size2string(task['totalLength'])))
+        if task['uploadLength'] != '0':
+            upload_length = size2string(task['uploadLength'])
+        else:
+            upload_length = ''
+        self.label_upload_size.setText('{0:>25}'.format(upload_length))
 
         file_name = self.get_task_name(task)
 
@@ -172,8 +177,12 @@ class UITask(QWidget):
             try:
                 path = os.path.join(self.task['dir'], file_name)
                 path = os.path.abspath(path)
-                print(path)
-                os.system('explorer /e,/select,{}'.format(path))
+                if sys.platform == 'windows':
+                    os.system('explorer /e,/select,{}'.format(path))
+                elif sys.platform == 'linux':
+                    os.system('open {}'.format(path))
+                elif sys.platform == 'darwin':
+                    os.system('open {}'.format(path))
             except FileNotFoundError as err:
                 print(err)
         elif sender is self.command_delete:
