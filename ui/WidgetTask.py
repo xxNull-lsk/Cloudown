@@ -72,12 +72,13 @@ class UITask(QWidget):
         self.layout.addLayout(self.top_layout)
 
         self.label_filename = QLabel()
-        self.top_layout.addWidget(self.label_filename, 0, 0, 1, 3)
+        self.label_filename.setMinimumWidth(240)
+        self.top_layout.addWidget(self.label_filename, 0, 0, 1, 5)
 
         self.commands = QHBoxLayout()
         self.commands.setAlignment(Qt.AlignRight)
         self.commands.setSpacing(2)
-        self.top_layout.addLayout(self.commands, 0, 3, 1, 1)
+        self.top_layout.addLayout(self.commands, 0, 6)
 
         self.command_open = UiCommandButton()
         self.command_open.setObjectName("CommandOpenFolder")
@@ -101,12 +102,17 @@ class UITask(QWidget):
         self.layout.addLayout(self.info_layout)
 
         self.label_file_size = QLabel()
+        self.label_file_size.setFixedWidth(180)
+        self.label_file_size.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         self.label_file_size.setToolTip(self.tr("File size"))
         self.info_layout.addWidget(self.label_file_size)
 
         self.label_upload_size = QLabel()
+        self.label_upload_size.setFixedWidth(90)
+        self.label_upload_size.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         self.label_upload_size.setToolTip(self.tr("Upload size"))
         self.info_layout.addWidget(self.label_upload_size)
+        self.info_layout.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
 
     def enterEvent(self, a0):
         super().enterEvent(a0)
@@ -133,7 +139,7 @@ class UITask(QWidget):
 
     def set_task(self, task):
         self.task = task
-        self.label_file_size.setText('x{0:>125}'.format(size2string(task['totalLength'])))
+        self.label_file_size.setText('{0}'.format(size2string(task['totalLength'])))
         if task['uploadLength'] != '0':
             upload_length = size2string(task['uploadLength'])
         else:
@@ -168,10 +174,10 @@ class UITask(QWidget):
             dm.main_wnd.show_details(self.task)
         elif sender is self.command_open:
             if not dm.settings.values['IS_LOCALE']:
-                QMessageBox.warning(self,
-                                    self.tr('Warn'),
-                                    self.tr("Can't open folder when in remote mode"),
-                                    QMessageBox.Ok)
+                UiMessageBox.warning(self,
+                                     self.tr('Warn'),
+                                     self.tr("Can't open folder when in remote mode"),
+                                     QMessageBox.Ok)
                 return
             file_name = self.get_task_name(self.task)
             try:
@@ -186,7 +192,11 @@ class UITask(QWidget):
             except FileNotFoundError as err:
                 print(err)
         elif sender is self.command_delete:
-            if QMessageBox.question(self, self.tr('Warn'), self.tr("Are you sure to delete this task?"), QMessageBox.Ok | QMessageBox.No) == QMessageBox.No:
+            ret = UiMessageBox.warning(self,
+                                       self.tr('Warn'),
+                                       self.tr("Are you sure to delete this task?"),
+                                       QMessageBox.Ok | QMessageBox.Cancel)
+            if ret == QMessageBox.Cancel:
                 return
             is_detect_file = False
             if dm.settings.values['IS_LOCALE']:
@@ -194,10 +204,10 @@ class UITask(QWidget):
                 path = os.path.join(self.task['dir'], file_name)
                 path = os.path.abspath(path)
                 if os.path.exists(path) and \
-                        QMessageBox.question(self,
-                                             self.tr('Question'),
-                                             self.tr('Are you sure to delete file{} of this task?').format(path),
-                                             QMessageBox.Yes | QMessageBox.No) == QMessageBox.Yes:
+                        UiMessageBox.question(self,
+                                              self.tr('Question'),
+                                              self.tr('Are you sure to delete file{} of this task?').format(path),
+                                              QMessageBox.Ok | QMessageBox.Cancel) == QMessageBox.Ok:
                     is_detect_file = True
             else:
                 path = ''
@@ -219,3 +229,19 @@ class UITask(QWidget):
                 _thread.start_new_thread(self.thread_delete_file, (path, ))
         aria2 = gl.get_value('aria2')
         aria2.save_session()
+
+    def tr(self, sourceText, disambiguation=None, n=-1):
+        trans = gl.get_value('language')
+        ret = trans.translate('UITaskActive', sourceText, disambiguation, n)
+        if ret is not None and ret != '':
+            return ret
+        ret = trans.translate('UITaskStopped', sourceText, disambiguation, n)
+        if ret is not None and ret != '':
+            return ret
+        ret = trans.translate('UITaskWaiting', sourceText, disambiguation, n)
+        if ret is not None and ret != '':
+            return ret
+        ret = trans.translate('UITask', sourceText, disambiguation, n)
+        if ret is not None and ret != '':
+            return ret
+        return super().tr(sourceText, disambiguation, n)

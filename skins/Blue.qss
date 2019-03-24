@@ -55,7 +55,12 @@ QListWidget#DownloadTypeList {
     max-width: 180px;
     color: Black;
     background: rgb(232, 243, 247);
-    font-size: 24px;
+    font-size: 21px;
+}
+
+QListWidget#DownloadTypeList::Item {
+    background: rgb(232, 243, 247);
+    border-left: 5px solid rgb(232, 243, 247);
 }
 
 QListWidget#DownloadTypeList::Item:selected {

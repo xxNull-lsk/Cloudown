@@ -1,5 +1,6 @@
 import os
 import gl
+from PyQt5.QtWidgets import *
 
 
 def size2string(size_bytes):
@@ -57,4 +58,37 @@ def translate_macro(path):
 
 def get_icon(skin, name):
     return "./skins/{0}/{1}.png".format(skin, name)
+
+
+class UiMessageBox:
+    def __init__(self):
+        super().__init__()
+
+    @staticmethod
+    def tr(text):
+        trans = gl.get_value('language')
+        ret = trans.translate('UiMessageBox', text)
+        if ret is not None and ret != '':
+            return ret
+        return text
+
+    @staticmethod
+    def button_text(msg):
+        text = [UiMessageBox.tr("Yes"), UiMessageBox.tr("No"), UiMessageBox.tr("Ok"), UiMessageBox.tr("Cancel")]
+        types = [QMessageBox.Yes, QMessageBox.No, QMessageBox.Ok, QMessageBox.Cancel]
+        for i in range(0, len(types)):
+            if msg.button(types[i]) is not None:
+                msg.button(types[i]).setText(text[i])
+
+    @staticmethod
+    def question(parent, title, text, buttons=None):
+        msg = QMessageBox(QMessageBox.Question, title, text, buttons, parent)
+        UiMessageBox.button_text(msg)
+        return msg.exec_()
+
+    @staticmethod
+    def warning(parent, title, text, buttons=None):
+        msg = QMessageBox(QMessageBox.Warning, title, text, buttons, parent)
+        UiMessageBox.button_text(msg)
+        return msg.exec_()
 

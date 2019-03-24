@@ -4,6 +4,7 @@ from ui.WidgetTaskActive import *
 from ui.WidgetTaskWaiting import UITaskWaiting
 from ui.WidgetTaskStopped import UITaskStopped
 import json
+import copy
 
 
 class SortBySize(QSortFilterProxyModel):
@@ -34,6 +35,7 @@ class UiDownloadList(QWidget):
         self.main_layout.setContentsMargins(0, 0, 0, 0)
 
         self.left_widget = QListWidget()
+        self.left_widget.setTextElideMode(Qt.ElideRight)
         self.left_widget.setFocusPolicy(Qt.NoFocus)
         self.left_widget.setObjectName('DownloadTypeList')
         self.main_layout.addWidget(self.left_widget)
@@ -65,7 +67,7 @@ class UiDownloadList(QWidget):
         for i in range(len(list_str)):
             item = QListWidgetItem(list_str[i], self.left_widget)
             item.setSizeHint(QSize(30, 60))
-            item.setTextAlignment(Qt.AlignCenter)
+            item.setTextAlignment(Qt.AlignLeft | Qt.AlignVCenter)
 
         self.left_widget.setCurrentRow(1)
 
@@ -73,9 +75,22 @@ class UiDownloadList(QWidget):
         self.menu.exec_(QCursor.pos())
 
     def update_ui(self, skin=None):
-        list_str = [self.tr('All'), self.tr('Downloading'), self.tr('Waiting'), self.tr('Stopped')]
+        count = len(self.task_downloading) + len(self.task_waiting) + len(self.task_stopped)
+        list_str = [
+            '{0} ({1}) '.format(self.tr('All'), count),
+            '{0} ({1}) '.format(self.tr('Downloading'), len(self.task_downloading)),
+            '{0} ({1}) '.format(self.tr('Waiting'), len(self.task_waiting)),
+            '{0} ({1}) '.format(self.tr('Stopped'), len(self.task_stopped))
+        ]
+        if skin is None:
+            setting = gl.get_value('settings')
+            skin = setting.values['SKIN']
+        list_ico = ['task_all', 'task_downloading', 'task_waiting', 'task_stopped']
         for i in range(0, self.left_widget.count()):
             item = self.left_widget.item(i)
+            px = QPixmap(get_icon(skin, list_ico[i]))
+            ico = QIcon(px)
+            item.setIcon(ico)
             item.setText(list_str[i])
 
     def set_tasks(self, tasks, task_type):
@@ -85,7 +100,7 @@ class UiDownloadList(QWidget):
             self.task_waiting = tasks
         elif task_type == self.task_type_stopped:
             self.task_stopped = tasks
-
+        self.update_ui()
         self.task_type_changed(self.left_widget.currentRow())
 
     def find_task(self, task):
@@ -103,6 +118,7 @@ class UiDownloadList(QWidget):
 
     def _set_tasks(self, tasks):
         last_active = 0
+        last_wait = -1
         for i in range(self.right_widget.count() - 1, -1, -1):
             item = self.right_widget.item(i)
             if item is None:
@@ -112,18 +128,30 @@ class UiDownloadList(QWidget):
                 continue
             if ui_task.task['status'] == 'active' and last_active == 0:
                 last_active = i
+            if ui_task.task['status'] in ('waiting', 'paused') and last_wait == -1:
+                last_wait = i
             if not self.find_task_in_list(ui_task, tasks):
                 self.right_widget.removeItemWidget(item)
                 self.right_widget.takeItem(self.right_widget.row(item))
+
+        if last_wait == -1:
+            last_wait = last_active
 
         for task in tasks:
             item = self.find_task(task)
             if item is None:
                 item = QListWidgetItem()
                 item.setSizeHint(QSize(self.right_widget.width(), 96))
-                if task['status'] == 'active' and self.sort_type == 'status':
-                    self.right_widget.insertItem(last_active, item)
-                    last_active = last_active + 1
+                if self.sort_type == 'status':
+                    if task['status'] == 'active':
+                        self.right_widget.insertItem(last_active, item)
+                        last_active = last_active + 1
+                        last_wait = last_wait + 1
+                    elif task['status'] in ('waiting', 'paused'):
+                        self.right_widget.insertItem(last_wait, item)
+                        last_wait = last_wait + 1
+                    else:
+                        self.right_widget.addItem(item)
                 else:
                     self.right_widget.addItem(item)
                 t = None
@@ -141,7 +169,7 @@ class UiDownloadList(QWidget):
 
     def task_type_changed(self, i):
         if i == self.task_type_all:
-            tasks = self.task_downloading
+            tasks = copy.deepcopy(self.task_downloading)
             for t in self.task_waiting:
                 tasks.append(t)
             for t in self.task_stopped:

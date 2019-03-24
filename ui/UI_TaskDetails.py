@@ -278,26 +278,21 @@ class UiTaskDetails(QLabel):
             elif self.tab.tabText(i) == self.tab_title_blocks:
                 block_tab_index = i
 
-        need_server_tab = False
         if 'bittorrent' in task and 'announceList' in task:
-            need_server_tab = True
+            if server_tab_index < 0:
+                server_tab_index = self.tab.addTab(self.table_servers, self.tab_title_servers)
+        else:
+            if server_tab_index >= 0:
+                self.tab.removeTab(server_tab_index)
+                server_tab_index = -1
 
-        if server_tab_index >= 0 and not need_server_tab:
-            self.tab.removeTab(server_tab_index)
-            server_tab_index = -1
-        if server_tab_index < 0 and need_server_tab:
-            server_tab_index = self.tab.addTab(self.table_servers, self.tab_title_servers)
-
-        need_peers_tab = False
-        if 'bittorrent' in task and task['status'] == 'active':
-            need_peers_tab = True
-
-        if peer_tab_index >= 0 and not need_peers_tab:
-            self.tab.removeTab(peer_tab_index)
-            peer_tab_index = -1
-
-        if peer_tab_index < 0 and need_peers_tab:
-            peer_tab_index = self.tab.addTab(self.table_peers, self.tab_title_peers)
+        if peers is not None:
+            if peer_tab_index < 0:
+                peer_tab_index = self.tab.addTab(self.table_peers, self.tab_title_peers)
+        else:
+            if peer_tab_index >= 0:
+                self.tab.removeTab(peer_tab_index)
+                peer_tab_index = -1
 
         if 'bitfield' not in task:
             if block_tab_index >= 0:
@@ -470,7 +465,7 @@ class UiTaskDetails(QLabel):
         infos = [
             {'k': "gid", 'v': task['gid']},
             {'k': self.tr("Download folder"), 'v': task['dir']},
-            {'k': self.tr("Status"), 'v': task['status']},
+            {'k': self.tr("Status"), 'v': self.tr(task['status'])},
             {'k': self.tr("Connects"), 'v': task['connections']},
             {'k': self.tr("File size"), 'v': size2string(task['totalLength'])},
             {'k': self.tr("Completed size"), 'v': size2string(task['completedLength'])},
@@ -493,6 +488,8 @@ class UiTaskDetails(QLabel):
                         continue
                     health = health + int(bit.finish_blocks) * 100 / int(bit.total_blocks)
                 infos.append({'k': self.tr('Health degree'), 'v': '%.2f%%' % health})
+        if 'seeder' in task and task['seeder'] == 'true':
+            infos[2]['v'] = self.tr('seeder')
         if 'following' in task:
             infos.append({'k': self.tr('Parent task'), 'v': task['following']})
         if 'followedBy' in task:
