@@ -5,6 +5,7 @@ from ui.UI_Setting import UiSetting
 from ui.UI_NewTask import UiNewTask
 from ui.UI_TaskDetails import UiTaskDetails
 from ui.UI_About import UiAbout
+from ui.UI_TrayIcon import UiTrayIcon
 import logging
 
 
@@ -172,6 +173,8 @@ class UiMain(QWidget):
 
     def __init__(self):
         super().__init__(QDesktopWidget())
+        self.tray_icon = UiTrayIcon(self)
+        self.tray_icon.show()
         dm = gl.get_value('dm')
         dm.app_name = self.tr('Cloudown')
         self.name = dm.app_name
@@ -225,6 +228,22 @@ class UiMain(QWidget):
         self.animation.setEndValue(1.0)
         self.animation.setEasingCurve(QEasingCurve.InCirc)
         self.animation.start()
+        clipboard = QApplication.clipboard()
+        clipboard.dataChanged.connect(self.on_clipborad_changed)
+
+    def on_clipborad_changed(self):
+        clipboard = QApplication.clipboard()
+        text = clipboard.text()
+        if text is None:
+            return
+        content = str(text)
+        print('onClipboradChanged---' + content + ' len = ' + str(len(content)))
+        if not content.startswith('file:///'):
+            return
+        path = content.replace('file:///', '')
+        if not os.path.exists(path):
+            return
+        pass
 
     def update_ui(self, skin=None):
         dm = gl.get_value('dm')

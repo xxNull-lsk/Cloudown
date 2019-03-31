@@ -214,7 +214,6 @@ class UITask(QWidget):
             aria2 = gl.get_value('aria2')
             if self.task["status"] in ('active', 'waiting', 'paused'):
                 aria2.remove(self.task['gid'])
-
                 while True:
                     try:
                         ret = aria2.get_status(self.task['gid'])
@@ -223,8 +222,9 @@ class UITask(QWidget):
                     if ret['result']['status'] == 'removed':
                         break
                     time.sleep(0.5)
+            else:
+                aria2.remove_stoped(self.task['gid'])
 
-            aria2.remove_stoped(self.task['gid'])
             if is_detect_file:
                 _thread.start_new_thread(self.thread_delete_file, (path, ))
         aria2 = gl.get_value('aria2')
