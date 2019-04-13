@@ -322,3 +322,14 @@ only support FTP which use the same username and password"))
 
         self.aria2.save_session()
         self.close()
+
+    def set_url(self, urls):
+        if urls is None:
+            return
+        text = self.edit_url.toPlainText()
+        for url in urls:
+            if text != '':
+                text = text + '\n'
+            text = text + url
+        self.edit_url.setText(text)
+        self.top_list.setCurrentIndex(0)

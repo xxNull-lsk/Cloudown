@@ -231,19 +231,35 @@ class UiMain(QWidget):
         clipboard = QApplication.clipboard()
         clipboard.dataChanged.connect(self.on_clipborad_changed)
 
+    @staticmethod
+    def is_watch_file_type(url):
+        url = url.lower()
+        if url.startswith('magnet?') or url.startswith('ftp://'):
+            return True
+        types = ['.exe', '.dmg', '.img', '.iso',
+                 '.zip', '.rar', '.gz', '.tar',
+                 '.mp3', '.wav',
+                 '.mp4', '.avi', '.mkv', '.mov', '.rm', '.rmvb', '.asf', '.mpeg', '.wmv', '.vob', '.mpg', '.mpeg', '.divx',
+                 '.txt', '.doc', '.docx', '.ppt', '.pptx', '.xls', '.xlsx', '.srt',
+                 '.png', '.jpg', '.jpeg', '.gif']
+        if url.startswith('http://') or url.startswith('https://'):
+            for t in types:
+                if url.endswith(t):
+                    return True
+        return False
+
     def on_clipborad_changed(self):
         clipboard = QApplication.clipboard()
         text = clipboard.text()
         if text is None:
             return
         content = str(text)
-        print('onClipboradChanged---' + content + ' len = ' + str(len(content)))
-        if not content.startswith('file:///'):
-            return
-        path = content.replace('file:///', '')
-        if not os.path.exists(path):
-            return
-        pass
+        urls = []
+        for line in content.splitlines():
+            if self.is_watch_file_type(line):
+                urls.append(line)
+        if len(urls) > 0:
+            self.add_task(urls)
 
     def update_ui(self, skin=None):
         dm = gl.get_value('dm')
@@ -316,6 +332,27 @@ class UiMain(QWidget):
 
         self.thread_refresh_task.set_need_update_list(True)
         self.root_layout.setCurrentIndex(0)
+
+    def add_task(self, urls):
+        if not self.thread_refresh_task.isRunning():
+            self.thread_refresh_task.start()
+
+        self.thread_refresh_task.set_need_update_list(True)
+        self.root_layout.setCurrentIndex(0)
+        self.left_widget.setCurrentRow(1)
+        self.ui_new_task.set_url(urls)
+        self.activateWindow()
+        self.raise_()
+
+    def show_setting(self):
+        if not self.thread_refresh_task.isRunning():
+            self.thread_refresh_task.start()
+
+        self.thread_refresh_task.set_need_update_list(True)
+        self.root_layout.setCurrentIndex(0)
+        self.left_widget.setCurrentRow(2)
+        self.activateWindow()
+        self.show()
 
     def show(self):
         super().show()

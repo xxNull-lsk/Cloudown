@@ -47,10 +47,10 @@ class UiTrayIcon(QSystemTrayIcon):
         pass
 
     def on_new_task(self):
-        self.showMessage("测试", "我是消息", self.icon)
+        self.parent().add_task([])
 
     def on_setting(self):
-        self.showMessage("测试", "这儿是设置", self.icon)
+        self.parent().show_setting()
 
     def on_quit(self):
         self.setVisible(False)
